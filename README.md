@@ -2,21 +2,23 @@
 
 This is a monorepo for all plugins for the [Ory Editor](https://github.com/ory/editor) created for the E-Learning Website [www.serlo.org](https://de.serlo.org).
 
-## Run the example page
+## Run the storybook
 
-To run the example page run the following commands:
+To run the storybook, run the following commands:
 
 ```
 yarn install
 yarn start
 ```
 
+After that open [http://localhost:9009](http://localhost:9009) in your browser.
+
 ## Adding new plugins
 
 ### File structure
 
 To add a new plugin you create a folder in `plugins/layout` for LayoutPlugins or `plugins/content` for ContentPlugins
-(details for these types are documented by Ory in the [User Guide on gitbook](https://ory.gitbooks.io/editor/content/#how-it-works).)
+(details for these types are documented by ORY in the [User Guide on gitbook](https://ory.gitbooks.io/editor/content/#how-it-works).)
 
 In the folder you need a few things (they can be copied as templates from the folder `plugins/template`:
 
@@ -26,17 +28,7 @@ In the folder you need a few things (they can be copied as templates from the fo
 
 ### Test new plugins in the example
 
-For testing it in the example add to the `example/package.json` a dependency to your package with version `0.0.0`,
-import it using the package name and then add it to `const plugins`.
-
-Thats it. Run the code as above with
-
-```
-yarn install
-yarn start
-```
-
-It will build the scripts in watch mode, and automatically reload the page on file changes.
+Firstly, import your plugin in `.storybook/helpers/Renderer.js` and add it to `const plugins`. You can then use the plugin in any of the existing stories and add additional stories in your `src/index.stories.js` file.
 
 ## FAQ
 

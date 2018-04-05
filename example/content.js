@@ -1,4 +1,4 @@
-export default {
+export const content = {
   id: '1',
   cells: [
     {
