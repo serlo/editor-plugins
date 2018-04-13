@@ -1,10 +1,11 @@
-import React  from 'react'
-import ReactDOM from 'react-dom';
+import * as React from 'react'
 
 import 'font-awesome/css/font-awesome.css'
 
 // The editor core
 import Editor, { Editable } from 'ory-editor-core'
+import { HTMLRenderer } from 'ory-editor-renderer'
+
 import 'ory-editor-core/lib/index.css' // we also want to load the stylesheets
 
 // Require our ui components (optional). You can implement and use your own ui too!
@@ -30,52 +31,42 @@ import image from 'ory-editor-plugins-image'
 import 'ory-editor-plugins-image/lib/index.css'
 import video from 'ory-editor-plugins-video'
 import 'ory-editor-plugins-video/lib/index.css'
-import content from './content';
 
 require('react-tap-event-plugin')() // react-tap-event-plugin is required by material-ui which is used by ory-editor-ui so we need to call it here
 
-
 // Define which plugins we want to use. We only have slate and parallax available, so load those.
 const plugins = {
-  content: [slate(),
-    spacer,
-    image,
-    video,
-    divider,
-    geogebra,
-    highlight,
-  ], // Define plugins for content cells
+  content: [slate(), spacer, image, video, divider, geogebra, highlight], // Define plugins for content cells
   layout: [infobox({ defaultPlugin: slate() })]
 }
 
+export class Renderer {
+  constructor(content) {
+    this.content = content
+    this.editor = new Editor({
+      plugins,
+      // pass the content state - you can add multiple editables here
+      editables: [content]
+    })
+  }
 
-// Instantiate the editor
-const editor = new Editor({
-  plugins,
-  // pass the content state - you can add multiple editables here
-  editables: [content],
-})
+  renderEditable() {
+    this.editor.trigger.mode.edit()
 
+    return <Editable editor={this.editor} id={this.content.id} />
+  }
 
-const elements = document.querySelectorAll('.editable')
-
-for (const element of elements) {
-  ReactDOM.render(
-    (<div>
-        <Editable
-          editor={editor}
-          id={content.id}
-        />
+  renderControls() {
+    return (
+      <div>
+        <Trash editor={this.editor} />
+        <DisplayModeToggle editor={this.editor} />
+        <Toolbar editor={this.editor} />
       </div>
-    ),
-    element
-  );
-}
+    )
+  }
 
-ReactDOM.render((
-  <div>
-    <Trash editor={editor}/>
-    <DisplayModeToggle editor={editor}/>
-    <Toolbar editor={editor}/>
-  </div>
-), document.getElementById('controls'))
+  renderHTMLRenderer() {
+    return <HTMLRenderer state={this.content} plugins={plugins} />
+  }
+}
