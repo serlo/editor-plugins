@@ -61,6 +61,7 @@ class Display extends Component {
 
   render() {
     const { containerWidth } = this.props
+
     return (
       <div>
         <iframe
@@ -71,7 +72,11 @@ class Display extends Component {
             this.props.state.src
           }
           width="100%"
-          height={containerWidth * this.state.height / this.state.width}
+          height={
+            containerWidth
+              ? containerWidth * this.state.height / this.state.width
+              : undefined
+          }
           style={{
             border: '0px',
             pointerEvents: this.props.readOnly ? 'auto' : 'none'

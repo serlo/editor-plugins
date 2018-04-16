@@ -52,7 +52,7 @@ class Input extends Component {
             onChange={handleValueChange}
             style={style.spaceRight}
           />
-          <label for="lineNumbers" style={{ fontWeight: 'normal' }}>
+          <label htmlFor="lineNumbers" style={{ fontWeight: 'normal' }}>
             Show line numbers
           </label>
         </span>

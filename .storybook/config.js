@@ -12,8 +12,17 @@ const reqExample = require.context('../example', true, /\.stories\.js$/)
 const reqPlugins = require.context('../plugins', true, /\.stories\.js$/)
 
 const loadStories = () => {
-  reqExample.keys().forEach(filename => reqExample(filename))
-  reqPlugins.keys().forEach(filename => reqPlugins(filename))
+  reqExample.keys().forEach(file => {
+    if (file.indexOf('/lib/') === -1) {
+      reqExample(file)
+    }
+  })
+
+  reqPlugins.keys().forEach(file => {
+    if (file.indexOf('/lib/') === -1) {
+      reqPlugins(file)
+    }
+  })
 }
 
 configure(loadStories, module)
