@@ -1,11 +1,12 @@
 import React from 'react'
-import Geogebra from './Component'
 import Panorama from 'material-ui/svg-icons/toggle/star'
 
+import Geogebra from './Component'
+import plugin from './plugin'
+
 export default {
+  ...plugin,
   Component: Geogebra,
-  name: 'serlo/content/geogebra',
-  version: '0.0.1',
   IconComponent: <Panorama />,
   text: 'Geogebra'
 }
