@@ -1,5 +1,5 @@
 {
-  "name": "ory-editor-plugins-highlight",
+  "name": "@serlo-org/ory-editor-plugins-highlight",
   "version": "0.0.0",
   "main": "./lib/index.js",
   "scripts": {
