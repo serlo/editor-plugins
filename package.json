@@ -40,6 +40,9 @@
     "storybook": "start-storybook -p 9009 -s ./.storybook/public",
     "build-storybook": "build-storybook"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "lint-staged": {
     "{{plugins/**/src/**,.storybook/**,example}/*,*}.{ts,tsx,js,jsx,json,md,css}": [
       "prettier --single-quote --no-semi --write",
