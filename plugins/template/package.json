@@ -1,5 +1,5 @@
 {
-  "name": "template:ory-editor-plugins-...",
+  "name": "@serlo-org/ory-editor-plugins-...",
   "version": "0.0.0",
   "main": "./lib/index.js",
   "scripts": {

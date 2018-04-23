@@ -1,5 +1,5 @@
 {
-  "name": "ory-editor-plugins-infobox",
+  "name": "@serlo-org/ory-editor-plugins-infobox",
   "version": "0.0.0",
   "main": "./lib/index.js",
   "scripts": {
