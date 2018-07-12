@@ -34,6 +34,9 @@ import '@serlo-org/ory-editor-plugins-highlight/src/index.css'
 import geogebra from '@serlo-org/ory-editor-plugins-geogebra/src'
 import geogebraRender from '@serlo-org/ory-editor-plugins-geogebra/src/index.render'
 import '@serlo-org/ory-editor-plugins-geogebra/src/index.css'
+import scButton from '@serlo-org/ory-editor-plugins-scexercise/src'
+import scButtonRender from '@serlo-org/ory-editor-plugins-scexercise/src/index.render'
+import '@serlo-org/ory-editor-plugins-scexercise/src/index.css'
 
 require('react-tap-event-plugin')() // react-tap-event-plugin is required by material-ui which is used by ory-editor-ui so we need to call it here
 
@@ -70,6 +73,7 @@ export class Renderer {
       // pass the content state - you can add multiple editables here
       editables: [content]
     })
+    window.editor = this.editor
   }
 
   renderEditable() {
