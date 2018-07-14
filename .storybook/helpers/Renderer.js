@@ -3,6 +3,7 @@ import * as React from 'react'
 import 'font-awesome/css/font-awesome.css'
 
 // The editor core
+import { Editor as E } from '@splish-me/editor/src/editor.component.tsx'
 import Editor, { Editable } from 'ory-editor-core'
 import { HTMLRenderer } from 'ory-editor-renderer'
 
@@ -42,11 +43,17 @@ require('react-tap-event-plugin')() // react-tap-event-plugin is required by mat
 
 // Define which plugins we want to use. We only have slate and parallax available, so load those.
 const editorPlugins = {
-  content: [slate(), spacer, image, video, divider, geogebra, highlight],
-  layout: [
-    infobox({ defaultPlugin: slate() }),
-    spoiler({ defaultPlugin: slate() })
-  ]
+  content: [
+    slate(),
+    spacer,
+    image,
+    video,
+    divider,
+    geogebra,
+    highlight,
+    scButton
+  ],
+  layout: [infobox({ defaultPlugin: slate() })]
 }
 
 const renderPlugins = {
@@ -57,12 +64,10 @@ const renderPlugins = {
     video,
     divider,
     geogebraRender,
-    highlightRender
+    highlightRender,
+    scButtonRenderer
   ],
-  layout: [
-    infoboxRender({ defaultPlugin: slate() }),
-    spoiler({ defaultPlugin: slate() })
-  ]
+  layout: [infoboxRender({ defaultPlugin: slate() })]
 }
 
 export class Renderer {
@@ -79,7 +84,11 @@ export class Renderer {
   renderEditable() {
     this.editor.trigger.mode.edit()
 
-    return <Editable editor={this.editor} id={this.content.id} />
+    return (
+      <E {...editorProps}>
+        <Editable editor={this.editor} id={this.content.id} />
+      </E>
+    )
   }
 
   renderControls() {
