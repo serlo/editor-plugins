@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 
-export default class Input extends Component {
+export default class Input extends React.Component {
   render() {
     const { handleValueChange } = this.props
 

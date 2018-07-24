@@ -3,7 +3,7 @@ import * as React from 'react'
 import 'font-awesome/css/font-awesome.css'
 
 // The editor core
-import { Editor as E } from '@splish-me/editor/src/editor.component.tsx'
+import { Editor as E } from '@splish-me/editor/dist/editor.component'
 import Editor, { Editable } from 'ory-editor-core'
 import { HTMLRenderer } from 'ory-editor-renderer'
 
@@ -65,7 +65,7 @@ const renderPlugins = {
     divider,
     geogebraRender,
     highlightRender,
-    scButtonRenderer
+    scButtonRender
   ],
   layout: [infoboxRender({ defaultPlugin: slate() })]
 }
@@ -85,7 +85,7 @@ export class Renderer {
     this.editor.trigger.mode.edit()
 
     return (
-      <E {...editorProps}>
+      <E defaultPlugin={slate()} plugins={editorPlugins.content}>
         <Editable editor={this.editor} id={this.content.id} />
       </E>
     )

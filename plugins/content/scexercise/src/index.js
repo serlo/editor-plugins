@@ -1,4 +1,6 @@
 import React from 'react'
+import * as uuid from 'uuid'
+
 import SCExercise from './SCExercise'
 import plugin from './plugin'
 
