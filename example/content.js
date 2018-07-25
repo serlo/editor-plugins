@@ -1,8 +1,31 @@
+import ScPlugin from '../plugins/content/scexercise/src'
+
 export const content = {
   id: '1',
   cells: [
     {
       rows: [
+        {
+          cells: [
+            {
+              size: 12,
+              rows: [
+                {
+                  cells: [
+                    {
+                      content: {
+                        plugin: {
+                          name: ScPlugin.name
+                        },
+                        state: ScPlugin.createInitialState()
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
         {
           cells: [
             {
@@ -228,34 +251,34 @@ export const content = {
               rows: [
                 {
                   cells: [
-                    {
-                      layout: {
-                        plugin: { name: 'serlo/layout/spoiler' },
-                        state: { title: 'Weitere Beispielaufgaben' }
-                      },
-                      rows: [
-                        {
-                          cells: [
-                            {
-                              content: {
-                                plugin: { name: 'serlo/content/injection' },
-                                state: { alt: 'Übungsaufgabe1', src: '/1' }
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          cells: [
-                            {
-                              content: {
-                                plugin: { name: 'serlo/content/injection' },
-                                state: { alt: 'Übungsaufgabe2', src: '/2' }
-                              }
-                            }
-                          ]
-                        }
-                      ]
-                    }
+                    // {
+                    //   layout: {
+                    //     plugin: { name: 'serlo/layout/spoiler' },
+                    //     state: { title: 'Weitere Beispielaufgaben' }
+                    //   },
+                    //   rows: [
+                    //     {
+                    //       cells: [
+                    //         {
+                    //           content: {
+                    //             plugin: { name: 'serlo/content/injection' },
+                    //             state: { alt: 'Übungsaufgabe1', src: '/1' }
+                    //           }
+                    //         }
+                    //       ]
+                    //     },
+                    //     {
+                    //       cells: [
+                    //         {
+                    //           content: {
+                    //             plugin: { name: 'serlo/content/injection' },
+                    //             state: { alt: 'Übungsaufgabe2', src: '/2' }
+                    //           }
+                    //         }
+                    //       ]
+                    //     }
+                    //   ]
+                    // }
                   ]
                 }
               ]

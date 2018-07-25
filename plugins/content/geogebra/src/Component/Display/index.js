@@ -17,9 +17,15 @@ class Display extends Component {
   }
 
   componentDidMount() {
-    if (!this.state.loaded && this.props.state.src) {
+    this.mounted = true
+
+    if (this.props.state.src) {
       this.requestHeight(this.props.state)
     }
+  }
+
+  componentWillUnmount() {
+    this.mounted = false
   }
 
   requestHeight = ({ src }) => {
@@ -43,9 +49,10 @@ class Display extends Component {
       .post('http://www.geogebra.org/api/json.php')
       .send(geogebraRequest)
       .end((err, res) => {
-        if (!err && res.ok) {
+        if (this.mounted && !err && res.ok) {
           const { width, height } = res.body.responses.response.item
-          this.setState(...this.state, {
+
+          this.setState({
             width: width,
             height: height
           })

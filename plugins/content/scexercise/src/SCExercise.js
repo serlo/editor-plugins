@@ -1,11 +1,16 @@
+import {
+  Editable,
+  createEditableIdentifier
+} from '@splish-me/editor/dist/editable.component'
 import * as React from 'react'
+import slate from 'ory-editor-plugins-slate'
 //import * as uuid from 'uuid'
 import Display from './Display'
 import Input from './Input'
 import SCButton from './Button/SCButton'
 
 export default class SCEXercise extends React.Component {
-  handleCheckboxChange(event) {
+  handleCheckboxChange = event => {
     const target = event.target
     const value = target.type === 'checkbox' ? target.checked : target.value
     const name = target.name
@@ -14,8 +19,20 @@ export default class SCEXercise extends React.Component {
       [name]: value
     })
   }
-  handleValueChange(event) {
-    return <SCButton />
+
+  addButton = () => {
+    const { onChange, state } = this.props
+
+    onChange({
+      answers: [
+        ...state.answers,
+        {
+          id: createEditableIdentifier(),
+          isCorrect: false,
+          feedback: null
+        }
+      ]
+    })
   }
 
   render() {
@@ -27,10 +44,7 @@ export default class SCEXercise extends React.Component {
         {readOnly ? (
           <Display {...this.props} />
         ) : (
-          <Input
-            {...this.props}
-            handleValueChange={this.handleValueChange.bind(this)}
-          />
+          <Input {...this.props} addButton={this.addButton} />
         )}
       </React.Fragment>
     )

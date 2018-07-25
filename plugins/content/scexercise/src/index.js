@@ -1,5 +1,5 @@
-import React from 'react'
-import * as uuid from 'uuid'
+import { createEditableIdentifier } from '@splish-me/editor/dist/editable.component'
+import * as React from 'react'
 
 import SCExercise from './SCExercise'
 import plugin from './plugin'
@@ -10,7 +10,14 @@ export default {
   IconComponent: <img src={null} />,
   text: 'Single Choice Aufgabe',
   createInitialState: () => ({
-    question: uuid.v4(),
-    answers: uuid.v4()
+    type: 'multiple',
+    question: createEditableIdentifier(),
+    answers: [
+      {
+        id: createEditableIdentifier(),
+        isCorrect: false,
+        feedback: null
+      }
+    ]
   })
 }

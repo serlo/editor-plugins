@@ -3,8 +3,12 @@ import * as React from 'react'
 import 'font-awesome/css/font-awesome.css'
 
 // The editor core
+import { EditorConsumer } from '@splish-me/editor/dist/contexts'
+import {
+  Editable,
+  createEditableIdentifier
+} from '@splish-me/editor/dist/editable.component'
 import { Editor as E } from '@splish-me/editor/dist/editor.component'
-import Editor, { Editable } from 'ory-editor-core'
 import { HTMLRenderer } from 'ory-editor-renderer'
 
 import 'ory-editor-core/lib/index.css' // we also want to load the stylesheets
@@ -73,31 +77,41 @@ const renderPlugins = {
 export class Renderer {
   constructor(content) {
     this.content = content
-    this.editor = new Editor({
-      plugins: editorPlugins,
-      // pass the content state - you can add multiple editables here
-      editables: [content]
-    })
-    window.editor = this.editor
+    // this.editor = new Editor({
+    //   plugins: editorPlugins,
+    //   // pass the content state - you can add multiple editables here
+    //   editables: [content]
+    // })
+  }
+
+  renderContainer(children) {
+    return (
+      <E defaultPlugin={slate()} plugins={editorPlugins.content}>
+        {children}
+      </E>
+    )
   }
 
   renderEditable() {
-    this.editor.trigger.mode.edit()
-
     return (
-      <E defaultPlugin={slate()} plugins={editorPlugins.content}>
-        <Editable editor={this.editor} id={this.content.id} />
-      </E>
+      <Editable id={createEditableIdentifier()} initialState={this.content} />
     )
   }
 
   renderControls() {
     return (
-      <div>
-        <Trash editor={this.editor} />
-        <DisplayModeToggle editor={this.editor} />
-        <Toolbar editor={this.editor} />
-      </div>
+      <EditorConsumer>
+        {({ editor }) => {
+          console.log(editor)
+          return (
+            <React.Fragment>
+              <Trash editor={editor} />
+              <DisplayModeToggle editor={editor} />
+              <Toolbar editor={editor} />
+            </React.Fragment>
+          )
+        }}
+      </EditorConsumer>
     )
   }
 
