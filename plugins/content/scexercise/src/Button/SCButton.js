@@ -24,7 +24,15 @@ export default class SCButton extends Component {
   }
 
   render() {
-    const { readOnly, state, children, index } = this.props
+    const {
+      readOnly,
+      state,
+      children,
+      index,
+      removeButton,
+      addFeedback,
+      isSingleChoice
+    } = this.props
 
     // FIXME:
     const checkMode = true
@@ -39,28 +47,46 @@ export default class SCButton extends Component {
     return (
       <React.Fragment>
         {readOnly ? null : (
-          <label>
-            richtige Antwort
-            <input
-              checked={isCorrect}
-              className="checkboxstyle"
-              type="checkbox"
-              onChange={this.handleCheckboxChange}
-            />
-          </label>
+          <div>
+            <label>
+              richtige Antwort
+              {isSingleChoice ? (
+                <input
+                  checked={isCorrect}
+                  className="checkboxstyle"
+                  type="radio"
+                  onChange={this.handleCheckboxChange}
+                />
+              ) : (
+                <input
+                  checked={isCorrect}
+                  className="checkboxstyle"
+                  type="checkbox"
+                  onChange={this.handleCheckboxChange}
+                />
+              )}
+            </label>
+            <button onClick={removeButton}> Antwort entfernen </button>
+            {isCorrect ? (
+              <button onClick={addFeedback}> Feedback hinzufügen </button>
+            ) : null}
+          </div>
         )}
         <React.Fragment>
-          {checkMode ? (
+          <div>
+            <button className="button-default"> {children} </button>
+          </div>
+          {/* {checkMode ? (
             isCorrect ? (
-              <div className="button-true">{children}</div>
+              <button className="button-true">{children}</button>
             ) : (
-              <div className="button-false">{children}</div>
+              <button className="button-false">{children}</button>
             )
           ) : isSelected ? (
-            <div className="button-active">{children}</div>
+            <button className="button-active">{children}</button>
           ) : (
-            <div className="button-default"> {children}</div>
-          )}
+            <button className="button-default"> {children}</button>
+          )} */}
         </React.Fragment>
       </React.Fragment>
     )

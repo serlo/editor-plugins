@@ -8,6 +8,8 @@ import slate from 'ory-editor-plugins-slate'
 import Display from './Display'
 import Input from './Input'
 import SCButton from './Button/SCButton'
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
+import 'react-tabs/style/react-tabs.css'
 
 export default class SCEXercise extends React.Component {
   handleCheckboxChange = event => {
@@ -20,6 +22,9 @@ export default class SCEXercise extends React.Component {
     })
   }
 
+  removeButton = () => {
+    //TODO
+  }
   addButton = () => {
     const { onChange, state } = this.props
 
@@ -44,7 +49,57 @@ export default class SCEXercise extends React.Component {
         {readOnly ? (
           <Display {...this.props} />
         ) : (
-          <Input {...this.props} addButton={this.addButton} />
+          <React.Fragment>
+            <Tabs>
+              <TabList>
+                <Tab>Multiple Choice</Tab>
+                <Tab>Single Choice</Tab>
+              </TabList>
+              <div style={{ border: '3px solid black' }}>
+                <Editable id={question} />
+              </div>
+              <hr />
+              <TabPanel>
+                <div>
+                  <div>
+                    {answers.map((answer, index) => {
+                      return (
+                        <SCButton
+                          removeButton={this.removeButton}
+                          key={index}
+                          index={index}
+                          {...this.props}
+                        >
+                          <Editable id={answer} />
+                        </SCButton>
+                      )
+                    })}
+                    <button onClick={this.addButton}>Add Answer</button>{' '}
+                  </div>
+                </div>
+              </TabPanel>
+              <TabPanel>
+                <div>
+                  <div>
+                    {answers.map((answer, index) => {
+                      return (
+                        <SCButton
+                          removeButton={this.removeButton}
+                          key={index}
+                          index={index}
+                          {...this.props}
+                          isSingleChoice
+                        >
+                          <Editable id={answer} />
+                        </SCButton>
+                      )
+                    })}
+                    <button onClick={this.addButton}>Add Answer</button>{' '}
+                  </div>
+                </div>
+              </TabPanel>
+            </Tabs>
+          </React.Fragment>
         )}
       </React.Fragment>
     )
