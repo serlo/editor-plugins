@@ -1,5 +1,5 @@
 import * as React from 'react'
-
+import Display from '../Display'
 import '../index.css'
 
 export default class Input extends React.Component {
@@ -8,7 +8,9 @@ export default class Input extends React.Component {
     return (
       <React.Fragment>
         <Display {...this.props} />
-        <button className="addButton"> Add Answer</button>
+        <button className="addButton" onClick={handleValueChange}>
+          Add Answer
+        </button>
       </React.Fragment>
     )
   }
