@@ -8,8 +8,6 @@ import slate from 'ory-editor-plugins-slate'
 import Display from './Display'
 import Input from './Input'
 import SCButton from './Button/SCButton'
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
-import 'react-tabs/style/react-tabs.css'
 
 export default class SCEXercise extends React.Component {
   handleCheckboxChange = event => {
@@ -41,7 +39,7 @@ export default class SCEXercise extends React.Component {
   }
 
   render() {
-    const { readOnly, state } = this.props
+    const { readOnly, isSingleChoice, state } = this.props
     const { question, answers } = state
 
     return (
@@ -50,55 +48,48 @@ export default class SCEXercise extends React.Component {
           <Display {...this.props} />
         ) : (
           <React.Fragment>
-            <Tabs>
-              <TabList>
-                <Tab>Multiple Choice</Tab>
-                <Tab>Single Choice</Tab>
-              </TabList>
-              <div style={{ border: '3px solid black' }}>
-                <Editable id={question} />
+            <div style={{ border: '3px solid black' }}>
+              <Editable id={question} />
+            </div>
+            <hr />
+            {isSingleChoice ? (
+              <div>
+                <div>
+                  {answers.map((answer, index) => {
+                    return (
+                      <SCButton
+                        removeButton={this.removeButton}
+                        key={index}
+                        index={index}
+                        {...this.props}
+                      >
+                        <Editable id={answer} />
+                      </SCButton>
+                    )
+                  })}
+                  <button onClick={this.addButton}>Add Answer</button>{' '}
+                </div>
               </div>
-              <hr />
-              <TabPanel>
+            ) : (
+              <div>
                 <div>
-                  <div>
-                    {answers.map((answer, index) => {
-                      return (
-                        <SCButton
-                          removeButton={this.removeButton}
-                          key={index}
-                          index={index}
-                          {...this.props}
-                        >
-                          <Editable id={answer} />
-                        </SCButton>
-                      )
-                    })}
-                    <button onClick={this.addButton}>Add Answer</button>{' '}
-                  </div>
+                  {answers.map((answer, index) => {
+                    return (
+                      <SCButton
+                        removeButton={this.removeButton}
+                        key={index}
+                        index={index}
+                        {...this.props}
+                        isSingleChoice
+                      >
+                        <Editable id={answer} />
+                      </SCButton>
+                    )
+                  })}
+                  <button onClick={this.addButton}>Add Answer</button>{' '}
                 </div>
-              </TabPanel>
-              <TabPanel>
-                <div>
-                  <div>
-                    {answers.map((answer, index) => {
-                      return (
-                        <SCButton
-                          removeButton={this.removeButton}
-                          key={index}
-                          index={index}
-                          {...this.props}
-                          isSingleChoice
-                        >
-                          <Editable id={answer} />
-                        </SCButton>
-                      )
-                    })}
-                    <button onClick={this.addButton}>Add Answer</button>{' '}
-                  </div>
-                </div>
-              </TabPanel>
-            </Tabs>
+              </div>
+            )}
           </React.Fragment>
         )}
       </React.Fragment>

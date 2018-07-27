@@ -55,9 +55,9 @@ const editorPlugins = {
     divider,
     geogebra,
     highlight,
-    scButton
-  ],
-  layout: [infobox({ defaultPlugin: slate() })]
+    scButton,
+    infobox
+  ]
 }
 
 const renderPlugins = {
@@ -69,9 +69,9 @@ const renderPlugins = {
     divider,
     geogebraRender,
     highlightRender,
-    scButtonRender
-  ],
-  layout: [infoboxRender({ defaultPlugin: slate() })]
+    scButtonRender,
+    infoboxRender
+  ]
 }
 
 export class Renderer {

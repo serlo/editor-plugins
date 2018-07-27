@@ -19,9 +19,7 @@
     "prebuild": "npm run clean",
     "clean": "rimraf \"lib/*\""
   },
-  "dependencies": {
-    "react-tabs": "^2.2.2"
-  },
+  "dependencies": {},
   "devDependencies": {},
   "peerDependencies": {
     "react": "^16.3.1",

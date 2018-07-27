@@ -1,7 +1,7 @@
 import Infobox from './Infobox'
 import plugin from './plugin'
 
-export default ({ defaultPlugin }) => ({
+export default {
   ...plugin,
   Component: Infobox
-})
+}
