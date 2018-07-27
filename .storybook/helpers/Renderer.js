@@ -42,7 +42,6 @@ import '@serlo-org/ory-editor-plugins-geogebra/src/index.css'
 import scButton from '@serlo-org/ory-editor-plugins-scexercise/src'
 import scButtonRender from '@serlo-org/ory-editor-plugins-scexercise/src/index.render'
 import '@serlo-org/ory-editor-plugins-scexercise/src/index.css'
-
 require('react-tap-event-plugin')() // react-tap-event-plugin is required by material-ui which is used by ory-editor-ui so we need to call it here
 
 // Define which plugins we want to use. We only have slate and parallax available, so load those.
