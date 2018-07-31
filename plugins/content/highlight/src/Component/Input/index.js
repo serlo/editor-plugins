@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { renderIntoSidebar } from '@splish-me/editor-ui/dist/sidebar.component'
+import Textfield from '@splish-me/editor-ui/dist/sidebar-elements/textfield'
+import Checkbox from '@splish-me/editor-ui/dist/sidebar-elements/checkbox'
 
 class Input extends Component {
   render() {
@@ -13,7 +16,13 @@ class Input extends Component {
         marginRight: '5px'
       }
     }
-    const { text, language, lineNumbers, handleValueChange } = this.props
+    const {
+      text,
+      language,
+      lineNumbers,
+      handleValueChange,
+      focused
+    } = this.props
 
     return (
       <form>
@@ -27,7 +36,30 @@ class Input extends Component {
             {text}
           </textarea>
         </div>
-        <span style={{ marginRight: '15px' }}>
+        {focused
+          ? renderIntoSidebar(
+              <React.Fragment>
+                <Textfield
+                  value={language}
+                  label="language"
+                  onChange={handleValueChange}
+                  placeholder="enter language"
+                />
+                <a
+                  href="https://github.com/conorhastings/react-syntax-highlighter/blob/master/AVAILABLE_LANGUAGES_HLJS.MD"
+                  target="_blank"
+                >
+                  Available languages
+                </a>
+                <Checkbox
+                  label="show linenumbers"
+                  onChange={handleValueChange}
+                  checked={lineNumbers}
+                />
+              </React.Fragment>
+            )
+          : null}
+        {/* <span style={{ marginRight: '15px' }}>
           <input
             type="text"
             value={language}
@@ -55,7 +87,7 @@ class Input extends Component {
           <label htmlFor="lineNumbers" style={{ fontWeight: 'normal' }}>
             Show line numbers
           </label>
-        </span>
+        </span> */}
       </form>
     )
   }

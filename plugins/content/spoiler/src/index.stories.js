@@ -7,10 +7,9 @@ import {
   renderEditable,
   renderHTMLRenderer
 } from '../../../../.storybook/helpers'
-import createPlugin from '.'
+import plugin from '.'
 
 const defaultPlugin = slate()
-const plugin = createPlugin({ defaultPlugin })
 
 const sampleChildren = createStateForLayoutPlugin({
   plugin,

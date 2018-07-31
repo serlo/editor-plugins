@@ -1,7 +1,7 @@
 import spoiler from './Component'
 import plugin from './plugin'
 
-export default ({ defaultPlugin }) => ({
+export default {
   ...plugin,
   Component: spoiler
-})
+}

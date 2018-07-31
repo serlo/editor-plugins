@@ -1,5 +1,7 @@
 import React from 'react'
 import Display from '../Display'
+import { renderIntoSidebar } from '@splish-me/editor-ui/dist/sidebar.component'
+import Textfield from '@splish-me/editor-ui/dist/sidebar-elements/textfield'
 
 import TextField from 'material-ui/TextField'
 import { BottomToolbar } from 'ory-editor-ui'
@@ -14,7 +16,7 @@ const handleChange = onChange => e => {
 const Form = props => (
   <div>
     <Display {...props} />
-    <BottomToolbar open={props.focused}>
+    {/* <BottomToolbar open={props.focused}>
       <TextField
         hintText="12345"
         floatingLabelText="Geogebra Element"
@@ -25,7 +27,15 @@ const Form = props => (
         value={props.state.src}
         onChange={handleChange(props.onChange)}
       />
-    </BottomToolbar>
+    </BottomToolbar> */}
+    {renderIntoSidebar(
+      <Textfield
+        label="Geogebra ID"
+        placeholder="1221221"
+        onChange={handleChange(props.onChange)}
+        value={props.src}
+      />
+    )}
   </div>
 )
 

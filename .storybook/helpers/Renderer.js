@@ -16,6 +16,7 @@ import 'ory-editor-core/lib/index.css' // we also want to load the stylesheets
 // Require our ui components (optional). You can implement and use your own ui too!
 import { Trash, DisplayModeToggle, Toolbar } from 'ory-editor-ui'
 import 'ory-editor-ui/lib/index.css'
+import { Sidebar } from '@splish-me/editor-ui/dist/sidebar.component'
 
 import slate from 'ory-editor-plugins-slate'
 import 'ory-editor-plugins-slate/lib/index.css'
@@ -55,7 +56,8 @@ const editorPlugins = {
     geogebra,
     highlight,
     scButton,
-    infobox
+    infobox,
+    spoiler
   ]
 }
 
@@ -86,6 +88,11 @@ export class Renderer {
   renderContainer(children) {
     return (
       <E defaultPlugin={slate()} plugins={editorPlugins.content}>
+        <EditorConsumer>
+          {({ editor, currentMode }) => (
+            <Sidebar active={true} hideToggle={currentMode === 'insert'} />
+          )}
+        </EditorConsumer>
         {children}
       </E>
     )
