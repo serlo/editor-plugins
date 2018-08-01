@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { renderIntoSidebar } from '@splish-me/editor-ui/dist/sidebar.component'
+import { renderIntoSidebar } from '@splish-me/editor-ui/dist/plugin-sidebar.component'
 import Textfield from '@splish-me/editor-ui/dist/sidebar-elements/textfield'
 import Checkbox from '@splish-me/editor-ui/dist/sidebar-elements/checkbox'
 
@@ -36,14 +36,15 @@ class Input extends Component {
             {text}
           </textarea>
         </div>
+
         {focused
           ? renderIntoSidebar(
               <React.Fragment>
                 <Textfield
                   value={language}
-                  label="language"
+                  label="lang"
                   onChange={handleValueChange}
-                  placeholder="enter language"
+                  placeholder="enter"
                 />
                 <a
                   href="https://github.com/conorhastings/react-syntax-highlighter/blob/master/AVAILABLE_LANGUAGES_HLJS.MD"

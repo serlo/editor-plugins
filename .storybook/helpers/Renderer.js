@@ -17,18 +17,20 @@ import 'ory-editor-core/lib/index.css' // we also want to load the stylesheets
 import { Trash, DisplayModeToggle, Toolbar } from 'ory-editor-ui'
 import 'ory-editor-ui/lib/index.css'
 import { Sidebar } from '@splish-me/editor-ui/dist/sidebar.component'
+import { PluginSidebar } from '@splish-me/editor-ui/dist/plugin-sidebar.component'
 
 import slate from 'ory-editor-plugins-slate'
 import 'ory-editor-plugins-slate/lib/index.css'
-import divider from 'ory-editor-plugins-divider'
-import 'ory-editor-plugins-divider/lib/index.css'
-import spacer from 'ory-editor-plugins-spacer'
-import 'ory-editor-plugins-spacer/lib/index.css'
-import image from 'ory-editor-plugins-image'
-import 'ory-editor-plugins-image/lib/index.css'
-import video from 'ory-editor-plugins-video'
-import 'ory-editor-plugins-video/lib/index.css'
+// Zitat Jonas: brauchen wir nicht
+// import video from 'ory-editor-plugins-video'
+// import 'ory-editor-plugins-video/lib/index.css'
 
+import image from '@serlo-org/ory-editor-plugins-image/src'
+import '@serlo-org/ory-editor-plugins-image/src/index.css'
+import divider from '@serlo-org/ory-editor-plugins-divider/src'
+import '@serlo-org/ory-editor-plugins-divider/src/index.css'
+import spacer from '@serlo-org/ory-editor-plugins-spacer/src'
+import '@serlo-org/ory-editor-plugins-spacer/src/index.css'
 import spoiler from '@serlo-org/ory-editor-plugins-spoiler/src'
 import '@serlo-org/ory-editor-plugins-spoiler/src/index.css'
 import infobox from '@serlo-org/ory-editor-plugins-infobox/src'
@@ -51,7 +53,7 @@ const editorPlugins = {
     slate(),
     spacer,
     image,
-    video,
+    // video,
     divider,
     geogebra,
     highlight,
@@ -66,7 +68,7 @@ const renderPlugins = {
     slate(),
     spacer,
     image,
-    video,
+    // video,
     divider,
     geogebraRender,
     highlightRender,
@@ -90,7 +92,9 @@ export class Renderer {
       <E defaultPlugin={slate()} plugins={editorPlugins.content}>
         <EditorConsumer>
           {({ editor, currentMode }) => (
-            <Sidebar active={true} hideToggle={currentMode === 'insert'} />
+            <Sidebar active={true} hideToggle={currentMode === 'insert'}>
+              <PluginSidebar />
+            </Sidebar>
           )}
         </EditorConsumer>
         {children}

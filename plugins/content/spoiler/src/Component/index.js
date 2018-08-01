@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import { Editable } from '@splish-me/editor/dist/editable.component'
 
 export default class PluginComponent extends Component {

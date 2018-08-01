@@ -15,7 +15,7 @@ class Highlight extends Component {
   }
 
   render() {
-    const { readOnly, state } = this.props
+    const { readOnly, state, focused } = this.props
     const { text, language, lineNumbers } = state
 
     return (
@@ -28,6 +28,7 @@ class Highlight extends Component {
             text={text}
             language={language}
             lineNumbers={lineNumbers}
+            focused={focused}
           />
         )}
       </div>

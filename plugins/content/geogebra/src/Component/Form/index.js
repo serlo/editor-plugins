@@ -1,6 +1,6 @@
 import React from 'react'
 import Display from '../Display'
-import { renderIntoSidebar } from '@splish-me/editor-ui/dist/sidebar.component'
+import { renderIntoSidebar } from '@splish-me/editor-ui/dist/plugin-sidebar.component'
 import Textfield from '@splish-me/editor-ui/dist/sidebar-elements/textfield'
 
 import TextField from 'material-ui/TextField'
@@ -28,14 +28,16 @@ const Form = props => (
         onChange={handleChange(props.onChange)}
       />
     </BottomToolbar> */}
-    {renderIntoSidebar(
-      <Textfield
-        label="Geogebra ID"
-        placeholder="1221221"
-        onChange={handleChange(props.onChange)}
-        value={props.src}
-      />
-    )}
+    {props.focused
+      ? renderIntoSidebar(
+          <Textfield
+            label="Geogebra ID"
+            placeholder="1221221"
+            onChange={handleChange(props.onChange)}
+            value={props.src}
+          />
+        )
+      : null}
   </div>
 )
 
