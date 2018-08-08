@@ -11,7 +11,6 @@ export default {
   text: 'Single Choice Aufgabe',
   createInitialState: () => ({
     type: 'multiple',
-    question: createEditableIdentifier(),
     answers: [
       {
         id: createEditableIdentifier(),

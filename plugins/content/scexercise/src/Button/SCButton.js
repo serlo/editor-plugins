@@ -1,6 +1,7 @@
 import createClassName from 'classnames'
 import * as R from 'ramda'
 import React, { Component } from 'react'
+import { createEditableIdentifier } from '@splish-me/editor/dist/editable.component'
 
 import './index.css'
 
@@ -23,20 +24,32 @@ export default class SCButton extends Component {
     })
   }
 
+  addFeedback = event => {
+    const { state, onChange, index } = this.props
+    const newAnswer = {
+      ...state.answers[index],
+      feedback: state.answers[index].feedback
+        ? null
+        : createEditableIdentifier()
+    }
+    onChange({
+      answers: R.update(index, newAnswer, state.answers)
+    })
+  }
+
+  removeAnswer = event => {
+    const { state, index, onChange } = this.props
+    onChange({
+      answers: R.remove(index, 1, state.answers)
+    })
+  }
+
   render() {
-    const {
-      readOnly,
-      state,
-      children,
-      index,
-      removeButton,
-      addFeedback,
-      isSingleChoice
-    } = this.props
+    const { readOnly, state, children, index, isSingleChoice } = this.props
 
     // FIXME:
     const checkMode = true
-    const { isCorrect } = state.answers[index]
+    const { isCorrect, feedback } = state.answers[index]
     const isSelected = true
 
     // TODO:
@@ -66,27 +79,18 @@ export default class SCButton extends Component {
                 />
               )}
             </label>
-            <button onClick={removeButton}> Antwort entfernen </button>
-            {isCorrect ? (
-              <button onClick={addFeedback}> Feedback hinzufügen </button>
-            ) : null}
+            <button onClick={this.removeAnswer}> Antwort entfernen </button>
+            {isCorrect ? null : (
+              <button onClick={this.addFeedback}>
+                {feedback ? 'Feedback entfernen' : 'Feedback hinzufügen'}
+              </button>
+            )}
           </div>
         )}
         <React.Fragment>
           <div>
             <button className="button-default"> {children} </button>
           </div>
-          {/* {checkMode ? (
-            isCorrect ? (
-              <button className="button-true">{children}</button>
-            ) : (
-              <button className="button-false">{children}</button>
-            )
-          ) : isSelected ? (
-            <button className="button-active">{children}</button>
-          ) : (
-            <button className="button-default"> {children}</button>
-          )} */}
         </React.Fragment>
       </React.Fragment>
     )
