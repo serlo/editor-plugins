@@ -23,11 +23,9 @@ export default class SCEXercise extends React.Component {
     })
   }
   handleSCMCChange = event => {
-    //TODO
-  }
-
-  removeButton = () => {
-    //TODO
+    if (event.target.value === 'Single Choice')
+      this.setState({ isSingleChoice: true })
+    else this.setState({ isSingleChoice: false })
   }
   addButton = () => {
     const { onChange, state } = this.props
@@ -99,9 +97,11 @@ export default class SCEXercise extends React.Component {
                     </React.Fragment>
                   )
                 })}
-                <button onClick={this.addButton} className="addButton">
-                  +
-                </button>
+                <div className="center">
+                  <button onClick={this.addButton} className="addButton">
+                    +
+                  </button>
+                </div>
               </div>
             )}
           </React.Fragment>

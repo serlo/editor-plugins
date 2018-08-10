@@ -7,10 +7,9 @@ import SCButton from '../Button/SCButton'
 export default class Display extends React.Component {
   render() {
     const { state } = this.props
-    const { question, answers } = state
+    const { answers } = state
     return (
       <React.Fragment>
-        <Editable id={question} />
         <hr />
         {answers.map((answer, index) => {
           return (
