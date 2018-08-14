@@ -23,9 +23,17 @@ export default class SCEXercise extends React.Component {
     })
   }
   handleSCMCChange = event => {
-    if (event.target.value === 'Single Choice')
-      this.setState({ isSingleChoice: true })
-    else this.setState({ isSingleChoice: false })
+    const { onChange, state } = this.props
+    const { isSingleChoice } = this.props.state
+    console.log(event.target.value)
+    let helper
+    if (event.target.value === 'Single Choice') {
+      helper = true
+    } else helper = false
+    console.log(isSingleChoice)
+    onChange({
+      isSingleChoice: helper
+    })
   }
   addButton = () => {
     const { onChange, state } = this.props
@@ -43,8 +51,8 @@ export default class SCEXercise extends React.Component {
   }
 
   render() {
-    const { readOnly, isSingleChoice, state, focused } = this.props
-    const { answers } = state
+    const { readOnly, state, focused } = this.props
+    const { answers, isSingleChoice = true } = state
 
     return (
       <React.Fragment>
@@ -52,7 +60,7 @@ export default class SCEXercise extends React.Component {
           ? renderIntoSidebar(
               <Dropdown
                 options={['Single Choice', 'Multiple Choice']}
-                onChange={handleSCMCChange}
+                onChange={this.handleSCMCChange}
               />
             )
           : null}
@@ -61,49 +69,52 @@ export default class SCEXercise extends React.Component {
         ) : (
           <React.Fragment>
             <hr />
-            {isSingleChoice ? (
-              <div>
-                {answers.map((answer, index) => {
-                  return (
+            <form>
+              {answers.map((answer, index) => {
+                return (
+                  <React.Fragment>
+                    <label>
+                      richtige Antwort
+                      {isSingleChoice ? (
+                        <input
+                          checked={answer.isCorrect}
+                          className="checkboxstyle"
+                          type="radio"
+                          onChange={answer.handleCheckboxChange}
+                        />
+                      ) : (
+                        <input
+                          checked={answer.isCorrect}
+                          className="checkboxstyle"
+                          type="checkbox"
+                          onChange={answer.handleCheckboxChange}
+                        />
+                      )}
+                    </label>
                     <SCButton
                       removeButton={this.removeButton}
                       key={index}
                       index={index}
+                      isSingleChoice={isSingleChoice}
                       {...this.props}
                     >
                       <Editable id={answer} />
                     </SCButton>
-                  )
-                })}
-              </div>
-            ) : (
-              <div>
-                {answers.map((answer, index) => {
-                  return (
-                    <React.Fragment>
-                      <SCButton
-                        removeButton={this.removeButton}
-                        key={index}
-                        index={index}
-                        {...this.props}
-                      >
-                        <Editable id={answer.id} />
-                      </SCButton>
-                      {answer.feedback ? (
-                        <Feedback>
-                          <Editable id={answer.feedback} />
-                        </Feedback>
-                      ) : null}
-                    </React.Fragment>
-                  )
-                })}
-                <div className="center">
-                  <button onClick={this.addButton} className="addButton">
-                    +
-                  </button>
-                </div>
-              </div>
-            )}
+                    {answer.feedback ? (
+                      <Feedback>
+                        <Editable id={answer.feedback} />
+                      </Feedback>
+                    ) : null}
+                  </React.Fragment>
+                )
+              })}
+            </form>
+
+            <div className="center">
+              <button onClick={this.addButton} className="addButton">
+                +
+              </button>
+            </div>
           </React.Fragment>
         )}
       </React.Fragment>

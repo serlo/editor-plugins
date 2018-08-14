@@ -45,7 +45,14 @@ export default class SCButton extends Component {
   }
 
   render() {
-    const { readOnly, state, children, index, isSingleChoice } = this.props
+    const {
+      readOnly,
+      state,
+      children,
+      index,
+      isSingleChoice,
+      handleCheckboxChange = this.handleCheckboxChange
+    } = this.props
 
     // FIXME:
     const checkMode = true
@@ -68,14 +75,14 @@ export default class SCButton extends Component {
                   checked={isCorrect}
                   className="checkboxstyle"
                   type="radio"
-                  onChange={this.handleCheckboxChange}
+                  onChange={handleCheckboxChange}
                 />
               ) : (
                 <input
                   checked={isCorrect}
                   className="checkboxstyle"
                   type="checkbox"
-                  onChange={this.handleCheckboxChange}
+                  onChange={handleCheckboxChange}
                 />
               )}
             </label>
