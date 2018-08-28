@@ -29,6 +29,7 @@ import type { PropTypes } from '../index.js'
 
 import { renderIntoSidebar } from '@splish-me/editor-ui/dist/plugin-sidebar.component'
 import Textfield from '@splish-me/editor-ui/dist/sidebar-elements/textfield'
+import Textarea from '@splish-me/editor-ui/dist/sidebar-elements/textarea'
 import Checkbox from '@splish-me/editor-ui/dist/sidebar-elements/checkbox'
 
 // import { BottomToolbar } from 'ory-editor-ui'
@@ -66,12 +67,21 @@ const Form = (props: PropTypes) => (
               placeholder="http://example.com/image.png"
               label="Image location (url)"
               value={props.state.src}
+              type="text"
+              name="src"
               onChange={handleChange(props.onChange)}
             />
             <br />
+            <Textarea
+              placeholder="Gib hier eine Bildbeschreibung ein"
+              label="Image description"
+              value={props.state.description}
+            />
             <Textfield
               placeholder="http://example.com"
               label="Link location (url)"
+              type="text"
+              name="href"
               value={props.state.href}
               onChange={handleChange(props.onChange)}
             />
@@ -80,7 +90,7 @@ const Form = (props: PropTypes) => (
             {/* TODO: SEO ImageDescription missing, Hide Link and Open in New Window */}
             <br />
             <Checkbox
-              checked={props.state.target === '_blank'}
+              value={props.state.target === '_blank'}
               label="Open in new window"
               onChange={handleChange(props.onChange)}
             />
