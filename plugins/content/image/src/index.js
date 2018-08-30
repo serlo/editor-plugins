@@ -24,14 +24,13 @@
 /* eslint-disable no-duplicate-imports */
 import React from 'react'
 import Component from './Component'
-import Panorama from 'material-ui/svg-icons/image/panorama'
 import type { ContentPluginProps } from 'ory-editor-core/lib/service/plugin/classes'
 
 export default {
   Component,
   name: 'ory/editor/core/content/image',
   version: '0.0.1',
-  IconComponent: <Panorama />,
+  IconComponent: <img src={null} />,
   text: 'Image',
   isInlineable: true,
   description: 'Loads an image from an url.',
