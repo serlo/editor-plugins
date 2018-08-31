@@ -2,6 +2,8 @@ import createClassName from 'classnames'
 import * as R from 'ramda'
 import React, { Component } from 'react'
 import { createEditableIdentifier } from '@splish-me/editor/dist/editable.component'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 import './index.css'
 
@@ -68,25 +70,9 @@ export default class SCButton extends Component {
       <React.Fragment>
         {readOnly ? null : (
           <div>
-            <label>
-              richtige Antwort
-              {isSingleChoice ? (
-                <input
-                  checked={isCorrect}
-                  className="checkboxstyle"
-                  type="radio"
-                  onChange={handleCheckboxChange}
-                />
-              ) : (
-                <input
-                  checked={isCorrect}
-                  className="checkboxstyle"
-                  type="checkbox"
-                  onChange={handleCheckboxChange}
-                />
-              )}
-            </label>
-            <button onClick={this.removeAnswer}> Antwort entfernen </button>
+            <button onClick={this.removeAnswer}>
+              L {/* <FontAwesomeIcon icon={faTrashAlt} /> */}
+            </button>
             {isCorrect ? null : (
               <button onClick={this.addFeedback}>
                 {feedback ? 'Feedback entfernen' : 'Feedback hinzufügen'}

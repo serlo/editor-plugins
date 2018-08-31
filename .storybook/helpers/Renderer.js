@@ -42,6 +42,9 @@ import '@serlo-org/ory-editor-plugins-highlight/src/index.css'
 import geogebra from '@serlo-org/ory-editor-plugins-geogebra/src'
 import geogebraRender from '@serlo-org/ory-editor-plugins-geogebra/src/index.render'
 import '@serlo-org/ory-editor-plugins-geogebra/src/index.css'
+import textfield from '@serlo-org/ory-editor-plugins-textfield/src'
+import textfieldRender from '@serlo-org/ory-editor-plugins-textfield/src/index.render'
+import '@serlo-org/ory-editor-plugins-textfield/src/index.css'
 import scButton from '@serlo-org/ory-editor-plugins-scexercise/src'
 import scButtonRender from '@serlo-org/ory-editor-plugins-scexercise/src/index.render'
 import '@serlo-org/ory-editor-plugins-scexercise/src/index.css'
@@ -59,7 +62,8 @@ const editorPlugins = {
     highlight,
     scButton,
     infobox,
-    spoiler
+    spoiler,
+    textfield
   ]
 }
 
@@ -73,7 +77,8 @@ const renderPlugins = {
     geogebraRender,
     highlightRender,
     scButtonRender,
-    infoboxRender
+    infoboxRender,
+    textfieldRender
   ]
 }
 

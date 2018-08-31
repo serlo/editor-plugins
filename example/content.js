@@ -1,10 +1,32 @@
 import ScPlugin from '../plugins/content/scexercise/src'
+import TextPlugin from '../plugins/content/textfield/src'
 
 export const content = {
   id: '1',
   cells: [
     {
       rows: [
+        {
+          cells: [
+            {
+              size: 12,
+              rows: [
+                {
+                  cells: [
+                    {
+                      content: {
+                        plugin: {
+                          name: TextPlugin.name
+                        },
+                        state: TextPlugin.createInitialState()
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
         {
           cells: [
             {
