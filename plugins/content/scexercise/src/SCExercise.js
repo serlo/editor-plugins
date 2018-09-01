@@ -18,7 +18,7 @@ export default class SCEXercise extends React.Component {
     const name = target.name
 
     const { state, onChange } = this.props
-
+    //TODO: Feedback entfernen, falls true
     const newAnswer = {
       ...state.answers[index],
       isCorrect: value
@@ -39,12 +39,10 @@ export default class SCEXercise extends React.Component {
   handleSCMCChange = event => {
     const { onChange, state } = this.props
     const { isSingleChoice } = this.props.state
-    console.log(event.target.value)
     let helper
     if (event.target.value === 'Single Choice') {
       helper = true
     } else helper = false
-    console.log(isSingleChoice)
     onChange({
       isSingleChoice: helper,
       answers: state.answers.map((answer, index) => {
@@ -69,7 +67,7 @@ export default class SCEXercise extends React.Component {
 
   render() {
     const { readOnly, state, focused } = this.props
-    const { answers, isSingleChoice = true } = state
+    const { answers, isSingleChoice } = state
 
     return (
       <React.Fragment>
@@ -78,6 +76,9 @@ export default class SCEXercise extends React.Component {
               <Dropdown
                 label="Select the exercise type"
                 options={['Single Choice', 'Multiple Choice']}
+                selectedValue={
+                  isSingleChoice ? 'Single Choice' : 'Multiple Choice'
+                }
                 onChange={this.handleSCMCChange}
               />
             )
@@ -89,7 +90,7 @@ export default class SCEXercise extends React.Component {
             <hr />
             {answers.map((answer, index) => {
               return (
-                <React.Fragment>
+                <div key={index}>
                   <label className="float">
                     richtige Antwort
                     {isSingleChoice ? (
@@ -123,7 +124,7 @@ export default class SCEXercise extends React.Component {
                       <Editable id={answer.feedback} />
                     </Feedback>
                   ) : null}
-                </React.Fragment>
+                </div>
               )
             })}
 

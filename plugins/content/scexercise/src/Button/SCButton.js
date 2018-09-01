@@ -1,6 +1,7 @@
 import createClassName from 'classnames'
 import * as R from 'ramda'
 import React, { Component } from 'react'
+import { css, cx } from 'emotion'
 import { createEditableIdentifier } from '@splish-me/editor-core/src/editable.component'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
@@ -52,14 +53,13 @@ export default class SCButton extends Component {
       state,
       children,
       index,
-      isSingleChoice,
-      handleCheckboxChange = this.handleCheckboxChange
+      onClick,
+      selected,
+      showFeedback
     } = this.props
 
     // FIXME:
-    const checkMode = true
     const { isCorrect, feedback } = state.answers[index]
-    const isSelected = true
 
     // TODO:
     const className = createClassName('button-whatever', {
@@ -71,7 +71,7 @@ export default class SCButton extends Component {
         {readOnly ? null : (
           <div>
             <button onClick={this.removeAnswer}>
-              L {/* <FontAwesomeIcon icon={faTrashAlt} /> */}
+              Löschen {/* <FontAwesomeIcon icon={faTrashAlt} /> */}
             </button>
             {isCorrect ? null : (
               <button onClick={this.addFeedback}>
@@ -80,11 +80,33 @@ export default class SCButton extends Component {
             )}
           </div>
         )}
-        <React.Fragment>
-          <div>
-            <button className="button-default"> {children} </button>
-          </div>
-        </React.Fragment>
+        <div
+          className={cx(
+            'btn',
+            css({
+              borderBottom: '3px solid transparent',
+              backgroundColor: selected
+                ? showFeedback
+                  ? isCorrect
+                    ? '#95bc1a'
+                    : '#f8f8f8'
+                  : '#d9edf7'
+                : '#f8f8f8',
+              margin: '5px',
+              width: '100%',
+              paddingLeft: '5px',
+              paddingTop: '10px',
+              boxShadow: 'none',
+              transition: 'background-color 0.5s ease',
+              '&:hover': {
+                borderBottom: '3px solid #d9edf7'
+              }
+            })
+          )}
+          onClick={onClick}
+        >
+          {children}
+        </div>
       </React.Fragment>
     )
   }

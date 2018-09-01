@@ -10,6 +10,7 @@ export default {
   text: 'Single Choice Aufgabe',
   createInitialState: () => ({
     type: 'multiple',
+    isSingleChoice: false,
     answers: [
       {
         id: createEditableIdentifier(),

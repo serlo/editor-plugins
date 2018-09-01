@@ -19,7 +19,9 @@
     "prebuild": "npm run clean",
     "clean": "rimraf \"lib/*\""
   },
-  "dependencies": {},
+  "dependencies": {
+    "emotion": "^9.2.8"
+  },
   "devDependencies": {},
   "peerDependencies": {
     "react": "^16.3.1",
