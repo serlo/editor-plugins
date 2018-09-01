@@ -9,15 +9,13 @@ import {
   createEditableIdentifier
 } from '@splish-me/editor-core/src/editable.component'
 import { Editor as E } from '@splish-me/editor-core/src/editor.component'
+import { ModeToolbar } from '@splish-me/editor-ui/src/mode-toolbar.component'
+import { Sidebar } from '@splish-me/editor-ui/src/sidebar.component'
+import { AddSidebar } from '@splish-me/editor-ui/src/add-sidebar.component'
+import { PluginSidebar } from '@splish-me/editor-ui/src/plugin-sidebar.component'
 import { HTMLRenderer } from 'ory-editor-renderer'
 
 import 'ory-editor-core/lib/index.css' // we also want to load the stylesheets
-
-// Require our ui components (optional). You can implement and use your own ui too!
-import { Trash, DisplayModeToggle, Toolbar } from 'ory-editor-ui'
-import 'ory-editor-ui/lib/index.css'
-import { Sidebar } from '@splish-me/editor-ui/src/sidebar.component'
-import { PluginSidebar } from '@splish-me/editor-ui/src/plugin-sidebar.component'
 
 import slate from 'ory-editor-plugins-slate'
 import 'ory-editor-plugins-slate/lib/index.css'
@@ -48,6 +46,11 @@ import '@serlo-org/ory-editor-plugins-textfield/src/index.css'
 import scButton from '@serlo-org/ory-editor-plugins-scexercise/src'
 import scButtonRender from '@serlo-org/ory-editor-plugins-scexercise/src/index.render'
 import '@serlo-org/ory-editor-plugins-scexercise/src/index.css'
+
+// FIXME:
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+
 require('react-tap-event-plugin')() // react-tap-event-plugin is required by material-ui which is used by ory-editor-ui so we need to call it here
 
 // Define which plugins we want to use. We only have slate and parallax available, so load those.
@@ -85,22 +88,31 @@ const renderPlugins = {
 export class Renderer {
   constructor(content) {
     this.content = content
-    // this.editor = new Editor({
-    //   plugins: editorPlugins,
-    //   // pass the content state - you can add multiple editables here
-    //   editables: [content]
-    // })
   }
 
   renderContainer(children) {
     return (
       <E defaultPlugin={slate()} plugins={editorPlugins.content}>
         <EditorConsumer>
-          {({ editor, currentMode }) => (
-            <Sidebar active={true} hideToggle={currentMode === 'insert'}>
-              <PluginSidebar />
-            </Sidebar>
-          )}
+          {({ currentMode }) => {
+            return (
+              <React.Fragment>
+                <ModeToolbar />
+                <Sidebar
+                  active={currentMode !== 'preview'}
+                  hideToggle={currentMode === 'layout'}
+                >
+                  {currentMode === 'layout' ? (
+                    <MuiThemeProvider muiTheme={getMuiTheme()}>
+                      <AddSidebar />
+                    </MuiThemeProvider>
+                  ) : (
+                    <PluginSidebar />
+                  )}
+                </Sidebar>
+              </React.Fragment>
+            )
+          }}
         </EditorConsumer>
         {children}
       </E>
@@ -114,20 +126,7 @@ export class Renderer {
   }
 
   renderControls() {
-    return (
-      <EditorConsumer>
-        {({ editor }) => {
-          console.log(editor)
-          return (
-            <React.Fragment>
-              <Trash editor={editor} />
-              <DisplayModeToggle editor={editor} />
-              <Toolbar editor={editor} />
-            </React.Fragment>
-          )
-        }}
-      </EditorConsumer>
-    )
+    return null
   }
 
   renderHTMLRenderer() {

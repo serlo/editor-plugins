@@ -26,11 +26,7 @@ import { Resizable } from 'react-resizable'
 import { renderIntoSidebar } from '@splish-me/editor-ui/src/plugin-sidebar.component'
 import Textfield from '@splish-me/editor-ui/src/sidebar-elements/textfield'
 
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import classNames from 'classnames'
-// import TextField from 'material-ui/TextField'
-
-// import { BottomToolbar } from 'ory-editor-ui'
 
 const faintBlack = 'rgba(0, 0, 0, 0.12)'
 

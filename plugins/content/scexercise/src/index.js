@@ -7,7 +7,6 @@ import plugin from './plugin'
 export default {
   ...plugin,
   Component: SCExercise,
-  IconComponent: <img src={null} />,
   text: 'Single Choice Aufgabe',
   createInitialState: () => ({
     type: 'multiple',

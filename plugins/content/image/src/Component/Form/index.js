@@ -23,16 +23,12 @@
 // @flow
 import React from 'react'
 import Display from '../Display'
-// import TextField from 'material-ui/TextField'
-// import Checkbox from 'material-ui/Checkbox'
 import type { PropTypes } from '../index.js'
 
 import { renderIntoSidebar } from '@splish-me/editor-ui/src/plugin-sidebar.component'
 import Textfield from '@splish-me/editor-ui/src/sidebar-elements/textfield'
 import Textarea from '@splish-me/editor-ui/src/sidebar-elements/textarea'
 import Checkbox from '@splish-me/editor-ui/src/sidebar-elements/checkbox'
-
-// import { BottomToolbar } from 'ory-editor-ui'
 
 const handleChange = (onChange: Function) => (e: Event) => {
   const target = e.target
