@@ -10,18 +10,18 @@ import { renderIntoSidebar } from '@splish-me/editor-ui/src/plugin-sidebar.compo
 import Dropdown from '@splish-me/editor-ui/src/sidebar-elements/dropdown'
 import './index.css'
 import * as R from 'ramda'
+import TextArea from '@splish-me/editor-ui/src/sidebar-elements/textarea'
 
 export default class SCEXercise extends React.Component {
   handleCheckboxChange = index => event => {
     const target = event.target
     const value = target.checked
-    const name = target.name
 
     const { state, onChange } = this.props
-    //TODO: Feedback entfernen, falls true
     const newAnswer = {
       ...state.answers[index],
-      isCorrect: value
+      isCorrect: value,
+      feedback: null
     }
 
     onChange({
@@ -36,9 +36,17 @@ export default class SCEXercise extends React.Component {
       })
     })
   }
+  changeGlobalFeedback = event => {
+    const { onChange, state } = this.props
+    const { globalFeedback } = state
+    const target = event.target
+    const value = target.value
+    onChange({
+      globalFeedback: value
+    })
+  }
   handleSCMCChange = event => {
     const { onChange, state } = this.props
-    const { isSingleChoice } = this.props.state
     let helper
     if (event.target.value === 'Single Choice') {
       helper = true
@@ -67,20 +75,28 @@ export default class SCEXercise extends React.Component {
 
   render() {
     const { readOnly, state, focused } = this.props
-    const { answers, isSingleChoice } = state
+    const { answers, isSingleChoice, globalFeedback } = state
 
     return (
       <React.Fragment>
         {focused
           ? renderIntoSidebar(
-              <Dropdown
-                label="Select the exercise type"
-                options={['Single Choice', 'Multiple Choice']}
-                selectedValue={
-                  isSingleChoice ? 'Single Choice' : 'Multiple Choice'
-                }
-                onChange={this.handleSCMCChange}
-              />
+              <React.Fragment>
+                <Dropdown
+                  label="Select the exercise type"
+                  options={['Single Choice', 'Multiple Choice']}
+                  selectedValue={
+                    isSingleChoice ? 'Single Choice' : 'Multiple Choice'
+                  }
+                  onChange={this.handleSCMCChange}
+                />
+                <TextArea
+                  label="Globales Feedback:"
+                  placeholder="Gib hier das Feedback für die richtige Antwort ein!"
+                  value={globalFeedback}
+                  onChange={this.changeGlobalFeedback}
+                />
+              </React.Fragment>
             )
           : null}
         {readOnly ? (
@@ -91,30 +107,33 @@ export default class SCEXercise extends React.Component {
             {answers.map((answer, index) => {
               return (
                 <div key={index}>
-                  <label className="float">
-                    richtige Antwort
-                    {isSingleChoice ? (
-                      <input
-                        checked={answer.isCorrect}
-                        className="checkboxstyle"
-                        type="radio"
-                        name="scRadio"
-                        onChange={this.handleRadioButtonChange(index)}
-                      />
-                    ) : (
-                      <input
-                        checked={answer.isCorrect}
-                        className="checkboxstyle"
-                        type="checkbox"
-                        onChange={this.handleCheckboxChange(index)}
-                      />
-                    )}
-                  </label>
+                  {focused ? (
+                    <label className="float">
+                      richtige Antwort
+                      {isSingleChoice ? (
+                        <input
+                          checked={answer.isCorrect}
+                          className="checkboxstyle"
+                          type="radio"
+                          name="scRadio"
+                          onChange={this.handleRadioButtonChange(index)}
+                        />
+                      ) : (
+                        <input
+                          checked={answer.isCorrect}
+                          className="checkboxstyle"
+                          type="checkbox"
+                          onChange={this.handleCheckboxChange(index)}
+                        />
+                      )}
+                    </label>
+                  ) : null}
                   <SCButton
                     removeButton={this.removeButton}
                     key={index}
                     index={index}
                     isSingleChoice={isSingleChoice}
+                    focused={focused}
                     {...this.props}
                   >
                     <Editable id={answer} />
@@ -127,12 +146,13 @@ export default class SCEXercise extends React.Component {
                 </div>
               )
             })}
-
-            <div className="center">
-              <button onClick={this.addButton} className="addButton">
-                +
-              </button>
-            </div>
+            {focused ? (
+              <div className="center">
+                <button onClick={this.addButton} className="addButton">
+                  +
+                </button>
+              </div>
+            ) : null}
           </React.Fragment>
         )}
       </React.Fragment>

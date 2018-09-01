@@ -55,7 +55,8 @@ export default class SCButton extends Component {
       index,
       onClick,
       selected,
-      showFeedback
+      showFeedback,
+      focused
     } = this.props
 
     // FIXME:
@@ -68,7 +69,7 @@ export default class SCButton extends Component {
 
     return (
       <React.Fragment>
-        {readOnly ? null : (
+        {readOnly ? null : focused ? (
           <div>
             <button onClick={this.removeAnswer}>
               Löschen {/* <FontAwesomeIcon icon={faTrashAlt} /> */}
@@ -79,7 +80,7 @@ export default class SCButton extends Component {
               </button>
             )}
           </div>
-        )}
+        ) : null}
         <div
           className={cx(
             'btn',

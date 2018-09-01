@@ -15,7 +15,8 @@ export default {
       {
         id: createEditableIdentifier(),
         isCorrect: false,
-        feedback: null
+        feedback: null,
+        globalFeedback: ''
       }
     ]
   })

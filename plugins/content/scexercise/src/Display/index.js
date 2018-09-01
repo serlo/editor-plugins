@@ -16,20 +16,21 @@ export default class Display extends React.Component {
       showFeedback: false
     }
   }
-  selectButton = index => () => {
+  selectButton = SelectedIndex => () => {
     const { state } = this.props
     const { isSingleChoice } = state
     if (isSingleChoice) {
       this.setState({
-        buttons: buttons.map((button, index) => {
-          return false
+        buttons: this.state.buttons.map((button, index) => {
+          return index === SelectedIndex
         })
       })
+    } else {
+      this.setState({
+        buttons: R.adjust(R.not, SelectedIndex, this.state.buttons),
+        showFeedback: false
+      })
     }
-    this.setState({
-      buttons: R.adjust(R.not, index, this.state.buttons),
-      showFeedback: false
-    })
   }
 
   submitAnswer = () => {
@@ -39,7 +40,7 @@ export default class Display extends React.Component {
   }
   render() {
     const { state } = this.props
-    const { answers } = state
+    const { answers, globalFeedback } = state
     return (
       <React.Fragment>
         <hr />
@@ -66,6 +67,7 @@ export default class Display extends React.Component {
             </React.Fragment>
           )
         })}
+        {this.state.showFeedback ? <div> {globalFeedback} </div> : null}
         <button onClick={this.submitAnswer}>Submit</button>
       </React.Fragment>
     )
