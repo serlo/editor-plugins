@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Editable } from '@splish-me/editor/dist/editable.component'
+import { Editable } from '@splish-me/editor-core/src/editable.component'
 
 export default class PluginComponent extends Component {
   state = { hidden: true }

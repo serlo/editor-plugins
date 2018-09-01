@@ -1,7 +1,7 @@
 import createClassName from 'classnames'
 import * as R from 'ramda'
 import React, { Component } from 'react'
-import { createEditableIdentifier } from '@splish-me/editor/dist/editable.component'
+import { createEditableIdentifier } from '@splish-me/editor-core/src/editable.component'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 

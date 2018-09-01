@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { renderIntoSidebar } from '@splish-me/editor-ui/dist/plugin-sidebar.component'
-import Textfield from '@splish-me/editor-ui/dist/sidebar-elements/textfield'
-import Checkbox from '@splish-me/editor-ui/dist/sidebar-elements/checkbox'
+import { renderIntoSidebar } from '@splish-me/editor-ui/src/plugin-sidebar.component'
+import Textfield from '@splish-me/editor-ui/src/sidebar-elements/textfield'
+import Checkbox from '@splish-me/editor-ui/src/sidebar-elements/checkbox'
 
 class Input extends Component {
   render() {

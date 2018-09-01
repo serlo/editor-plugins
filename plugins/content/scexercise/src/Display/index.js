@@ -1,4 +1,4 @@
-import { Editable } from '@splish-me/editor/dist/editable.component'
+import { Editable } from '@splish-me/editor-core/src/editable.component'
 import * as React from 'react'
 
 import '../index.css'

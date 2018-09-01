@@ -1,13 +1,13 @@
 import {
   Editable,
   createEditableIdentifier
-} from '@splish-me/editor/dist/editable.component'
+} from '@splish-me/editor-core/src/editable.component'
 import * as React from 'react'
 import Display from './Display'
 import SCButton from './Button/SCButton'
 import Feedback from '../../helper-feedback/src/Feedback'
-import { renderIntoSidebar } from '@splish-me/editor-ui/dist/plugin-sidebar.component'
-import Dropdown from '@splish-me/editor-ui/dist/sidebar-elements/dropdown'
+import { renderIntoSidebar } from '@splish-me/editor-ui/src/plugin-sidebar.component'
+import Dropdown from '@splish-me/editor-ui/src/sidebar-elements/dropdown'
 import './index.css'
 import * as R from 'ramda'
 

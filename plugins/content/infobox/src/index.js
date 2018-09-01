@@ -1,7 +1,7 @@
 import InfoIcon from 'material-ui-icons/Info'
 import React from 'react'
 import uuid from 'uuid'
-import { createEditableIdentifier } from '@splish-me/editor/dist/editable.component'
+import { createEditableIdentifier } from '@splish-me/editor-core/src/editable.component'
 import Infobox from './Infobox'
 import plugin from './plugin'
 

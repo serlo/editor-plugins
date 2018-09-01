@@ -5,12 +5,12 @@
  * it under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- *  
+ *
  * ORY Editor is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
- *  
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with ORY Editor.  If not, see <http://www.gnu.org/licenses/>.
  *
@@ -27,10 +27,10 @@ import Display from '../Display'
 // import Checkbox from 'material-ui/Checkbox'
 import type { PropTypes } from '../index.js'
 
-import { renderIntoSidebar } from '@splish-me/editor-ui/dist/plugin-sidebar.component'
-import Textfield from '@splish-me/editor-ui/dist/sidebar-elements/textfield'
+import { renderIntoSidebar } from '@splish-me/editor-ui/src/plugin-sidebar.component'
+import Textfield from '@splish-me/editor-ui/src/sidebar-elements/textfield'
 import Textarea from '@splish-me/editor-ui/dist/sidebar-elements/textarea'
-import Checkbox from '@splish-me/editor-ui/dist/sidebar-elements/checkbox'
+import Checkbox from '@splish-me/editor-ui/src/sidebar-elements/checkbox'
 
 // import { BottomToolbar } from 'ory-editor-ui'
 

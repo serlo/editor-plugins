@@ -1,7 +1,7 @@
 import React from 'react'
 import Display from '../Display'
-import { renderIntoSidebar } from '@splish-me/editor-ui/dist/plugin-sidebar.component'
-import Textfield from '@splish-me/editor-ui/dist/sidebar-elements/textfield'
+import { renderIntoSidebar } from '@splish-me/editor-ui/src/plugin-sidebar.component'
+import Textfield from '@splish-me/editor-ui/src/sidebar-elements/textfield'
 
 import TextField from 'material-ui/TextField'
 import { BottomToolbar } from 'ory-editor-ui'

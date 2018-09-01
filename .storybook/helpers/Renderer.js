@@ -3,12 +3,12 @@ import * as React from 'react'
 import 'font-awesome/css/font-awesome.css'
 
 // The editor core
-import { EditorConsumer } from '@splish-me/editor/dist/contexts'
+import { EditorConsumer } from '@splish-me/editor-core/src/contexts'
 import {
   Editable,
   createEditableIdentifier
-} from '@splish-me/editor/dist/editable.component'
-import { Editor as E } from '@splish-me/editor/dist/editor.component'
+} from '@splish-me/editor-core/src/editable.component'
+import { Editor as E } from '@splish-me/editor-core/src/editor.component'
 import { HTMLRenderer } from 'ory-editor-renderer'
 
 import 'ory-editor-core/lib/index.css' // we also want to load the stylesheets
@@ -16,8 +16,8 @@ import 'ory-editor-core/lib/index.css' // we also want to load the stylesheets
 // Require our ui components (optional). You can implement and use your own ui too!
 import { Trash, DisplayModeToggle, Toolbar } from 'ory-editor-ui'
 import 'ory-editor-ui/lib/index.css'
-import { Sidebar } from '@splish-me/editor-ui/dist/sidebar.component'
-import { PluginSidebar } from '@splish-me/editor-ui/dist/plugin-sidebar.component'
+import { Sidebar } from '@splish-me/editor-ui/src/sidebar.component'
+import { PluginSidebar } from '@splish-me/editor-ui/src/plugin-sidebar.component'
 
 import slate from 'ory-editor-plugins-slate'
 import 'ory-editor-plugins-slate/lib/index.css'
