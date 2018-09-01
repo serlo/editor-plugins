@@ -8,9 +8,7 @@
 }
 
 .trueAnswerStyle {
-  background-color: #95bc1a;
-  color: #425303;
-  padding: 15px;
-  border: 1px solid transparent;
-  border-radius: 0;
+  color: #95bc1a;
+  font-weight: bold;
+  text-align: right;
 }

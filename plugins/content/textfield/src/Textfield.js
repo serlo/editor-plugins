@@ -9,10 +9,15 @@ import { renderIntoSidebar } from '@splish-me/editor-ui/src/plugin-sidebar.compo
 import Dropdown from '@splish-me/editor-ui/src/sidebar-elements/dropdown'
 import SBTextfield from '@splish-me/editor-ui/src/sidebar-elements/textfield'
 import './index.css'
+import * as R from 'ramda'
 
 export default class Textfield extends React.Component {
   handleTypeChange = event => {
-    //TODO: Typen
+    const value = event.target.value
+    const { onChange } = this.props
+    onChange({
+      type: value
+    })
   }
   setCorrectValue = event => {
     const target = event.target
@@ -20,6 +25,41 @@ export default class Textfield extends React.Component {
     const { onChange } = this.props
     onChange({
       correctValue: value
+    })
+  }
+  addWrongAnswer = _event => {
+    const { onChange, state } = this.props
+    const { wrongAnswers } = state
+    console.log(wrongAnswers)
+    onChange({
+      wrongAnswers: [
+        ...wrongAnswers,
+        {
+          id: createEditableIdentifier(),
+          value: '',
+          feedback: createEditableIdentifier()
+        }
+      ]
+    })
+  }
+  removeAnswer = _event => {
+    const { state, index, onChange } = this.props
+    onChange({
+      wrongAnswers: R.remove(index, 1, state.wrongAnswers)
+    })
+  }
+  wrongAnswerChange = event => {
+    const target = event.target
+    const value = target.value
+
+    const { state, onChange } = this.props
+    const newAnswer = {
+      ...state.wrongAnswers[index],
+      value: value
+    }
+
+    onChange({
+      wrongAnswers: R.update(index, newAnswer, state.wrongAnswers)
     })
   }
   render() {
@@ -32,9 +72,10 @@ export default class Textfield extends React.Component {
           ? renderIntoSidebar(
               <React.Fragment>
                 <Dropdown
-                  label="select answertype"
-                  options={['Text', 'Zahl']}
+                  label="Wähle den Antworttyp:"
+                  options={['Text', 'Zahl', 'Ausdruck']}
                   onChange={this.handleTypeChange}
+                  selectedValue={type}
                 />
                 <SBTextfield
                   label="richtige Antwort:"
@@ -49,9 +90,9 @@ export default class Textfield extends React.Component {
         ) : (
           <React.Fragment>
             <Display {...this.props} />
-            {wrongAnswers.map((wrongAnswers, index) => {
+            {wrongAnswers.map((wrongAnswer, index) => {
               return (
-                <React.Fragment>
+                <div key={index}>
                   <label>
                     falsche Antwort:
                     <input
@@ -61,10 +102,15 @@ export default class Textfield extends React.Component {
                       onChange={this.wrongAnswerChange}
                     />
                   </label>
-                  <Feedback>
-                    <Editable id={answer.feedback} />
-                  </Feedback>
-                </React.Fragment>
+                  <button onClick={this.removeAnswer}>
+                    Löschen {/* <FontAwesomeIcon icon={faTrashAlt} /> */}
+                  </button>
+                  {wrongAnswer.feedback ? (
+                    <Feedback>
+                      <Editable id={wrongAnswer.feedback} />
+                    </Feedback>
+                  ) : null}
+                </div>
               )
             })}
             <button onClick={this.addWrongAnswer}>
