@@ -29,7 +29,7 @@ import type { PropTypes } from '../index.js'
 
 import { renderIntoSidebar } from '@splish-me/editor-ui/src/plugin-sidebar.component'
 import Textfield from '@splish-me/editor-ui/src/sidebar-elements/textfield'
-import Textarea from '@splish-me/editor-ui/dist/sidebar-elements/textarea'
+import Textarea from '@splish-me/editor-ui/src/sidebar-elements/textarea'
 import Checkbox from '@splish-me/editor-ui/src/sidebar-elements/checkbox'
 
 // import { BottomToolbar } from 'ory-editor-ui'

@@ -1,6 +1,6 @@
 import plugin from './plugin'
 import * as React from 'react'
-import { createEditableIdentifier } from '@splish-me/editor/dist/editable.component'
+import { createEditableIdentifier } from '@splish-me/editor-core/src/editable.component'
 import Textfield from './Textfield'
 
 export default {

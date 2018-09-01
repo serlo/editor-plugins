@@ -2,12 +2,12 @@ import * as React from 'react'
 import {
   Editable,
   createEditableIdentifier
-} from '@splish-me/editor/dist/editable.component'
+} from '@splish-me/editor-core/src/editable.component'
 import Display from './Display'
 import Feedback from '../../helper-feedback/src/Feedback'
-import { renderIntoSidebar } from '@splish-me/editor-ui/dist/plugin-sidebar.component'
-import Dropdown from '@splish-me/editor-ui/dist/sidebar-elements/dropdown'
-import SBTextfield from '@splish-me/editor-ui/dist/sidebar-elements/textfield'
+import { renderIntoSidebar } from '@splish-me/editor-ui/src/plugin-sidebar.component'
+import Dropdown from '@splish-me/editor-ui/src/sidebar-elements/dropdown'
+import SBTextfield from '@splish-me/editor-ui/src/sidebar-elements/textfield'
 import './index.css'
 
 export default class Textfield extends React.Component {
