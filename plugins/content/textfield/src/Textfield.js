@@ -97,7 +97,7 @@ export default class Textfield extends React.Component {
                     falsche Antwort:
                     <input
                       type="text"
-                      value={wrongAnswers.value}
+                      value={wrongAnswer.value}
                       placeholder="falsche Antwort eingeben"
                       onChange={this.wrongAnswerChange}
                     />
@@ -106,7 +106,7 @@ export default class Textfield extends React.Component {
                     Löschen {/* <FontAwesomeIcon icon={faTrashAlt} /> */}
                   </button>
                   {wrongAnswer.feedback ? (
-                    <Feedback>
+                    <Feedback boxFree>
                       <Editable id={wrongAnswer.feedback} />
                     </Feedback>
                   ) : null}
