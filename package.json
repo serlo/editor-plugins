@@ -48,6 +48,7 @@
     "typescript": "^3.0.3"
   },
   "scripts": {
+    "l": "lerna",
     "precommit": "lint-staged",
     "build": "lerna run --parallel build",
     "build:watch": "lerna run --parallel build:watch",

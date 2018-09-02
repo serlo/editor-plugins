@@ -1,30 +1,33 @@
-.ory-plugins-layout-solution {
+.ory-plugins-layout-tipp {
   margin-top: 12px;
   margin-bottom: 20px;
-  border: 1px solid #d9edf7;
+  border: 1px solid #ddd;
   border-radius: 2px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
-.ory-plugins-layout-solution-toggle {
-  background-color: #d9edf7;
+.ory-plugins-layout-tipp-toggle {
+  /* background-color: #ddd; */
   padding: 10px 15px 10px 10px;
   /* position: relative; */
-  border-color: #d9edf7;
+  border-color: #ddd;
   text-align: left;
   cursor: pointer;
 }
+.tipp {
+  border-bottom: 1px solid #ddd;
+}
 
-.ory-plugins-layout-solution-toggle .fa {
+.ory-plugins-layout-tipp-toggle .fa {
   /* position: absolute; */
   bottom: 13px;
   left: 15px;
   margin-left: 5px;
 }
 
-.ory-plugins-layout-solution-content {
+.ory-plugins-layout-tipp-content {
   padding: 15px;
 }
 
-.ory-plugins-layout-solution-toggle-title:active {
+.ory-plugins-layout-tipp-toggle-title:active {
   color: white;
 }

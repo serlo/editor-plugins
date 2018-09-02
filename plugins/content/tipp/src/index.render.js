@@ -1,6 +1,6 @@
 import plugin from './plugin'
-import Solution from './Solution'
+import Tipp from './Tipp'
 export default {
   ...plugin,
-  Component: Solution
+  Component: Tipp
 }

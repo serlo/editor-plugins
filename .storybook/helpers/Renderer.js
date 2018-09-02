@@ -46,6 +46,12 @@ import '@serlo-org/ory-editor-plugins-textfield/src/index.css'
 import scButton from '@serlo-org/ory-editor-plugins-scexercise/src'
 import scButtonRender from '@serlo-org/ory-editor-plugins-scexercise/src/index.render'
 import '@serlo-org/ory-editor-plugins-scexercise/src/index.css'
+import solution from '@serlo-org/ory-editor-plugins-solution/src'
+import solutionRender from '@serlo-org/ory-editor-plugins-solution/src/index.render'
+import '@serlo-org/ory-editor-plugins-solution/src/index.css'
+import tipp from '@serlo-org/ory-editor-plugins-tipp/src'
+import tippRender from '@serlo-org/ory-editor-plugins-tipp/src/index.render'
+import '@serlo-org/ory-editor-plugins-tipp/src/index.css'
 
 // FIXME:
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
@@ -66,7 +72,9 @@ const editorPlugins = {
     scButton,
     infobox,
     spoiler,
-    textfield
+    textfield,
+    solution,
+    tipp
   ]
 }
 
@@ -81,7 +89,9 @@ const renderPlugins = {
     highlightRender,
     scButtonRender,
     infoboxRender,
-    textfieldRender
+    textfieldRender,
+    solutionRender,
+    tipp
   ]
 }
 
