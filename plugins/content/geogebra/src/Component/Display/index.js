@@ -29,6 +29,10 @@ class Display extends Component {
   }
 
   requestHeight = ({ src }) => {
+    if (cache[src]) {
+      this.setState(cache[src])
+      return
+    }
     const geogebraRequest = JSON.stringify({
       request: {
         '-api': '1.0.0',
@@ -51,11 +55,12 @@ class Display extends Component {
       .end((err, res) => {
         if (this.mounted && !err && res.ok) {
           const { width, height } = res.body.responses.response.item
-
-          this.setState({
+          const newState = {
             width: width,
             height: height
-          })
+          }
+          cache[src] = newState
+          this.setState(newState)
         }
       })
   }
@@ -67,31 +72,45 @@ class Display extends Component {
   }
 
   render() {
-    const { containerWidth } = this.props
-
+    const { containerWidth, state, readOnly } = this.props
+    const { src } = state
+    const { width, height } = this.state
     return (
       <div>
-        <iframe
-          title={this.props.state.src}
-          scrolling="no"
-          src={
-            'https://www.geogebra.org/material/iframe/id/' +
-            this.props.state.src
-          }
-          width="100%"
-          height={
-            containerWidth
-              ? containerWidth * this.state.height / this.state.width
-              : undefined
-          }
-          style={{
-            border: '0px',
-            pointerEvents: this.props.readOnly ? 'auto' : 'none'
-          }}
-        />
+        { src ? (
+          <iframe
+            title={src}
+            scrolling="no"
+            src={
+              'https://www.geogebra.org/material/iframe/id/' +
+              src
+            }
+            width="100%"
+            height={
+              containerWidth
+                ? containerWidth * height / width
+                : undefined
+            }
+            style={{
+              border: '0px',
+              pointerEvents: readOnly ? 'auto' : 'none'
+            }}
+          />
+        ) : (
+          <div style={{
+            width: '100%',
+            textAlign: 'center',
+            border: '2px lightgrey solid',
+            borderRadius: '4px',
+            padding: '10px'
+          }}>
+            <img src="https://cdn.geogebra.org/static/img/GeoGebra-logo.png" alt="Geogebra" />
+          </div>
+        )}
       </div>
     )
   }
 }
 
+const cache = []
 export default dimensions()(Display)
