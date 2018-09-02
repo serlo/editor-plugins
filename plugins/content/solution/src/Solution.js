@@ -61,7 +61,7 @@ export default class Solution extends Component {
         <div
           className="ory-plugins-layout-solution-content"
           style={{
-            display: this.state.hidden && readOnly ? 'none' : 'block'
+            display: this.state.hidden ? 'none' : 'block'
           }}
         >
           <Editable id={state.id} />

@@ -14,11 +14,7 @@ export default class Display extends React.Component {
     showFeedback: false
   }
   input = React.createRef()
-  translateDataType(type) {
-    if (type === 'Ausdruck') return 'input-expression-equal-match-challenge'
-    else if (type === 'Zahl') return 'input-number-exact-match-challenge'
-    else return 'input-string-normalized-match-challenge'
-  }
+
   checkAnswer = event => {
     event.preventDefault()
     const { state } = this.props
@@ -53,6 +49,7 @@ export default class Display extends React.Component {
 
       switch (field.type) {
         case 'input-expression-equal-match-challenge':
+          console.log(solution, submission)
           return solution.subtract(submission).toString() === '0'
         default:
           return solution === submission
@@ -75,6 +72,7 @@ export default class Display extends React.Component {
           .replaceAll(' /', '/')
           .replaceAll('/ ', '/').s
       case 'input-expression-equal-match-challenge':
+        console.log(temp)
         return A.parse(normalizeNumber(temp))
       default:
         return temp.s.toUpperCase()
@@ -90,7 +88,7 @@ export default class Display extends React.Component {
           <div class="input-challenge-input-wrapper pull-right">
             <input
               class="input-challenge-input"
-              data-type={this.translateDataType(type)}
+              data-type={type}
               type="text"
               placeholder="Deine Lösung"
               ref={this.input}

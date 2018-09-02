@@ -101,17 +101,12 @@ export default class Display extends React.Component {
           )
         })}
         {this.state.showFeedback ? (
-          <div
-            className={css({
-              color:
-                this.state.globalFeedback === 'Sehr gut!' ? '#95bc1a' : 'black',
-              fontWeight: 'bold',
-              float: 'left',
-              margin: '10px 0px'
-            })}
+          <Feedback
+            boxFree
+            isTrueAnswer={this.state.globalFeedback === 'Sehr gut!'}
           >
             {this.state.globalFeedback}
-          </div>
+          </Feedback>
         ) : null}
         <button
           className={css({ float: 'right', margin: '10px 0px' })}

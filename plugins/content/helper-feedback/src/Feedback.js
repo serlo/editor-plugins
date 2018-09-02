@@ -5,10 +5,14 @@ export default class Feedback extends Component {
   render() {
     return (
       <React.Fragment>
-        {this.props.isTrueAnswer ? (
-          <div className="trueAnswerStyle"> {this.props.children} </div>
+        {this.props.boxFree ? (
+          this.props.isTrueAnswer ? (
+            <div className="trueAnswerStyle-wo-box">{this.props.children}</div>
+          ) : (
+            <div className="wrongAnswerStyle-wo-box">{this.props.children}</div>
+          )
         ) : (
-          <div className="falseAnswerStyle">{this.props.children} </div>
+          <div className="wrongAnswerStyle">{this.props.children} </div>
         )}
       </React.Fragment>
     )

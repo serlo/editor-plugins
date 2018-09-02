@@ -9,6 +9,7 @@ import {
   createEditableIdentifier
 } from '@splish-me/editor-core/src/editable.component'
 import { Editor as E } from '@splish-me/editor-core/src/editor.component'
+import { EditorHelpersConsumer } from '@splish-me/editor-core/src/contexts'
 import { ModeToolbar } from '@splish-me/editor-ui/src/mode-toolbar.component'
 import { Sidebar } from '@splish-me/editor-ui/src/sidebar.component'
 import { AddSidebar } from '@splish-me/editor-ui/src/add-sidebar.component'
@@ -130,8 +131,43 @@ export class Renderer {
   }
 
   renderEditable() {
+    const rootId = createEditableIdentifier()
     return (
-      <Editable id={createEditableIdentifier()} initialState={this.content} />
+      <div>
+        <Editable id={rootId} initialState={this.content} />
+        <EditorHelpersConsumer>
+          {({ undo, redo, serializeState }) => (
+            <React.Fragment>
+              <button
+                onClick={() => {
+                  undo()
+                }}
+              >
+                Undo
+              </button>
+              <button
+                onClick={() => {
+                  redo()
+                }}
+              >
+                Redo
+              </button>
+              <button
+                onClick={() => {
+                  console.log(
+                    'state',
+                    JSON.stringify({
+                      state: JSON.stringify(serializeState(rootId))
+                    })
+                  )
+                }}
+              >
+                Save
+              </button>
+            </React.Fragment>
+          )}
+        </EditorHelpersConsumer>
+      </div>
     )
   }
 
