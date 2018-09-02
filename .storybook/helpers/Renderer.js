@@ -53,6 +53,8 @@ import '@serlo-org/ory-editor-plugins-solution/src/index.css'
 import tipp from '@serlo-org/ory-editor-plugins-tipp/src'
 import tippRender from '@serlo-org/ory-editor-plugins-tipp/src/index.render'
 import '@serlo-org/ory-editor-plugins-tipp/src/index.css'
+import lizenz from '@serlo-org/ory-editor-plugins-lizenz/src'
+import lizenzRender from '@serlo-org/ory-editor-plugins-lizenz/src/index.render'
 
 // FIXME:
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
@@ -75,7 +77,8 @@ const editorPlugins = {
     spoiler,
     textfield,
     solution,
-    tipp
+    tipp,
+    lizenz
   ]
 }
 
@@ -92,7 +95,8 @@ const renderPlugins = {
     infoboxRender,
     textfieldRender,
     solutionRender,
-    tipp
+    tipp,
+    lizenzRender
   ]
 }
 
