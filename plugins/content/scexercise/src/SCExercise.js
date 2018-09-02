@@ -10,7 +10,6 @@ import { renderIntoSidebar } from '@splish-me/editor-ui/src/plugin-sidebar.compo
 import Dropdown from '@splish-me/editor-ui/src/sidebar-elements/dropdown'
 import './index.css'
 import * as R from 'ramda'
-import TextArea from '@splish-me/editor-ui/src/sidebar-elements/textarea'
 
 export default class SCEXercise extends React.Component {
   handleCheckboxChange = index => event => {
@@ -34,15 +33,6 @@ export default class SCEXercise extends React.Component {
       answers: state.answers.map((answer, index) => {
         return { ...answer, isCorrect: index === rightanswerIndex }
       })
-    })
-  }
-  changeGlobalFeedback = event => {
-    const { onChange, state } = this.props
-    const { globalFeedback } = state
-    const target = event.target
-    const value = target.value
-    onChange({
-      globalFeedback: value
     })
   }
   handleSCMCChange = event => {
@@ -81,22 +71,14 @@ export default class SCEXercise extends React.Component {
       <React.Fragment>
         {focused
           ? renderIntoSidebar(
-              <React.Fragment>
-                <Dropdown
-                  label="Select the exercise type"
-                  options={['Single Choice', 'Multiple Choice']}
-                  selectedValue={
-                    isSingleChoice ? 'Single Choice' : 'Multiple Choice'
-                  }
-                  onChange={this.handleSCMCChange}
-                />
-                <TextArea
-                  label="Globales Feedback:"
-                  placeholder="Gib hier das Feedback für die richtige Antwort ein!"
-                  value={globalFeedback}
-                  onChange={this.changeGlobalFeedback}
-                />
-              </React.Fragment>
+              <Dropdown
+                label="Select the exercise type"
+                options={['Single Choice', 'Multiple Choice']}
+                selectedValue={
+                  isSingleChoice ? 'Single Choice' : 'Multiple Choice'
+                }
+                onChange={this.handleSCMCChange}
+              />
             )
           : null}
         {readOnly ? (
@@ -107,27 +89,26 @@ export default class SCEXercise extends React.Component {
             {answers.map((answer, index) => {
               return (
                 <div key={index}>
-                  {focused ? (
-                    <label className="float">
-                      richtige Antwort
-                      {isSingleChoice ? (
-                        <input
-                          checked={answer.isCorrect}
-                          className="checkboxstyle"
-                          type="radio"
-                          name="scRadio"
-                          onChange={this.handleRadioButtonChange(index)}
-                        />
-                      ) : (
-                        <input
-                          checked={answer.isCorrect}
-                          className="checkboxstyle"
-                          type="checkbox"
-                          onChange={this.handleCheckboxChange(index)}
-                        />
-                      )}
-                    </label>
-                  ) : null}
+                  <label className="float">
+                    richtige Antwort
+                    {isSingleChoice ? (
+                      <input
+                        checked={answer.isCorrect}
+                        className="checkboxstyle"
+                        type="radio"
+                        name="scRadio"
+                        onChange={this.handleRadioButtonChange(index)}
+                      />
+                    ) : (
+                      <input
+                        checked={answer.isCorrect}
+                        className="checkboxstyle"
+                        type="checkbox"
+                        onChange={this.handleCheckboxChange(index)}
+                      />
+                    )}
+                  </label>
+
                   <SCButton
                     removeButton={this.removeButton}
                     key={index}
@@ -146,13 +127,12 @@ export default class SCEXercise extends React.Component {
                 </div>
               )
             })}
-            {focused ? (
-              <div className="center">
-                <button onClick={this.addButton} className="addButton">
-                  +
-                </button>
-              </div>
-            ) : null}
+
+            <div className="center">
+              <button onClick={this.addButton} className="addButton">
+                +
+              </button>
+            </div>
           </React.Fragment>
         )}
       </React.Fragment>

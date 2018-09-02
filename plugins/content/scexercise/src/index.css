@@ -1,6 +1,7 @@
 .addButton {
   border-radius: 50%;
   font-size: 20px;
+  outline: none;
   width: 35px;
   height: 35px;
   border: none;

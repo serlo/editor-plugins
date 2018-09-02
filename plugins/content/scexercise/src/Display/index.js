@@ -3,6 +3,7 @@ import * as React from 'react'
 import * as R from 'ramda'
 import '../index.css'
 import SCButton from '../Button/SCButton'
+import { css } from 'emotion'
 import Feedback from '../../../helper-feedback/src/Feedback'
 
 export default class Display extends React.Component {
@@ -13,7 +14,8 @@ export default class Display extends React.Component {
       buttons: answers.map((_answer, _index) => {
         return false
       }),
-      showFeedback: false
+      showFeedback: false,
+      globalFeedback: ''
     }
   }
   selectButton = SelectedIndex => () => {
@@ -21,26 +23,53 @@ export default class Display extends React.Component {
     const { isSingleChoice } = state
     if (isSingleChoice) {
       this.setState({
-        buttons: this.state.buttons.map((button, index) => {
+        showFeedback: false,
+        buttons: this.state.buttons.map((_button, index) => {
           return index === SelectedIndex
         })
       })
     } else {
       this.setState({
         buttons: R.adjust(R.not, SelectedIndex, this.state.buttons),
-        showFeedback: false
+        showFeedback: false,
+        globalFeedback: ''
       })
     }
   }
 
   submitAnswer = () => {
-    this.setState({
-      showFeedback: true
-    })
+    let mistakes = 0
+    let missingSolutions = 0
+    const { state } = this.props
+    const { answers } = state
+    for (let i = 0; i < this.state.buttons.length; i++) {
+      if (answers[i].isCorrect && !this.state.buttons[i]) {
+        missingSolutions++
+        mistakes++
+      }
+      if (!answers[i].isCorrect && this.state.buttons[i]) {
+        mistakes++
+      }
+    }
+    if (mistakes === 0)
+      this.setState({
+        showFeedback: true,
+        globalFeedback: 'Sehr gut!'
+      })
+    else if (mistakes === missingSolutions)
+      this.setState({
+        showFeedback: true,
+        globalFeedback: 'Fast! Dir fehlt noch mindestens eine richtige Antwort'
+      })
+    else
+      this.setState({
+        showFeedback: true,
+        globalFeedback: 'Das stimmt so leider nicht.'
+      })
   }
   render() {
     const { state } = this.props
-    const { answers, globalFeedback } = state
+    const { answers } = state
     return (
       <React.Fragment>
         <hr />
@@ -57,18 +86,39 @@ export default class Display extends React.Component {
               >
                 <Editable id={answer} />
               </SCButton>
-              {this.state.buttons[index] &&
-              this.state.showFeedback &&
-              answer.feedback ? (
-                <Feedback>
-                  <Editable id={answer.feedback} />
-                </Feedback>
+              {this.state.buttons[index] && this.state.showFeedback ? (
+                answer.feedback ? (
+                  <Feedback>
+                    <Editable id={answer.feedback} />
+                  </Feedback>
+                ) : answer.isCorrect ? null : (
+                  <Feedback>
+                    Leider falsch! versuche es doch noch einmal!
+                  </Feedback>
+                )
               ) : null}
             </React.Fragment>
           )
         })}
-        {this.state.showFeedback ? <div> {globalFeedback} </div> : null}
-        <button onClick={this.submitAnswer}>Submit</button>
+        {this.state.showFeedback ? (
+          <div
+            className={css({
+              color:
+                this.state.globalFeedback === 'Sehr gut!' ? '#95bc1a' : 'black',
+              fontWeight: 'bold',
+              float: 'left',
+              margin: '10px 0px'
+            })}
+          >
+            {this.state.globalFeedback}
+          </div>
+        ) : null}
+        <button
+          className={css({ float: 'right', margin: '10px 0px' })}
+          onClick={this.submitAnswer}
+        >
+          Submit
+        </button>
       </React.Fragment>
     )
   }
