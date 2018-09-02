@@ -102,7 +102,7 @@ export default class Textfield extends React.Component {
                   label="Wähle den Antworttyp:"
                   options={R.map(dataType => dataType.name, types)}
                   onChange={this.handleTypeChange}
-                  selectedValue={this.translateDataType(type)}
+                  value={this.translateDataType(type)}
                 />
                 <SBTextfield
                   label="richtige Antwort:"

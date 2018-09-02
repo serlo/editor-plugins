@@ -74,9 +74,7 @@ export default class SCEXercise extends React.Component {
               <Dropdown
                 label="Select the exercise type"
                 options={['Single Choice', 'Multiple Choice']}
-                selectedValue={
-                  isSingleChoice ? 'Single Choice' : 'Multiple Choice'
-                }
+                value={isSingleChoice ? 'Single Choice' : 'Multiple Choice'}
                 onChange={this.handleSCMCChange}
               />
             )

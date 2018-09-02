@@ -45,7 +45,7 @@ export default class Infobox extends React.Component {
               <Dropdown
                 label="Lizenztyp"
                 options={R.map(license => license.name, licenses)}
-                selectedValue={this.translateLicenseType(state.license)}
+                value={this.translateLicenseType(state.license)}
                 onChange={this.handleLicenseChange}
               />
             )

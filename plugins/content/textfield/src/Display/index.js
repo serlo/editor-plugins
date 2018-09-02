@@ -83,11 +83,11 @@ export default class Display extends React.Component {
     const { state } = this.props
     const { correctValue, type, wrongAnswers } = state
     return (
-      <div class="text-exercise active">
-        <form class="input-challenge-group" onSubmit={this.checkAnswer}>
-          <div class="input-challenge-input-wrapper pull-right">
+      <div className="text-exercise active">
+        <form className="input-challenge-group" onSubmit={this.checkAnswer}>
+          <div className="input-challenge-input-wrapper pull-right">
             <input
-              class="input-challenge-input"
+              className="input-challenge-input"
               data-type={type}
               type="text"
               placeholder="Deine Lösung"

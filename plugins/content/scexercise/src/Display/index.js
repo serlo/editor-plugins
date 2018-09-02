@@ -75,9 +75,8 @@ export default class Display extends React.Component {
         <hr />
         {answers.map((answer, index) => {
           return (
-            <React.Fragment>
+            <React.Fragment key={index}>
               <SCButton
-                key={index}
                 index={index}
                 onClick={this.selectButton(index)}
                 selected={this.state.buttons[index]}
