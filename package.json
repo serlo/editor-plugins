@@ -1,4 +1,5 @@
 {
+  "name": "@serlo-org/ory-editor-plugins-workspace",
   "private": true,
   "workspaces": ["plugins/layout/*", "plugins/content/*"],
   "dependencies": {
@@ -42,8 +43,8 @@
     "postcss-import": "^11.0.0",
     "postcss-nested": "^3.0.0",
     "prettier": "^1.12.0",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
     "rimraf": "^2.6.2",
     "typescript": "^3.0.3"
   },

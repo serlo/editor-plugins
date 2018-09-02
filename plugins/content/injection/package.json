@@ -1,5 +1,5 @@
 {
-  "name": "@serlo-org/ory-editor-plugins-solution",
+  "name": "@serlo-org/ory-editor-plugins-injection",
   "version": "0.0.0",
   "bugs": {
     "url": "https://github.com/serlo-org/ory-editor-plugins/issues"
@@ -21,7 +21,9 @@
     "prebuild": "npm run clean",
     "clean": "rimraf \"lib/*\""
   },
-  "dependencies": {},
+  "dependencies": {
+    "jquery": "^3.3.1"
+  },
   "devDependencies": {},
   "peerDependencies": {
     "react": "^16.4.2",

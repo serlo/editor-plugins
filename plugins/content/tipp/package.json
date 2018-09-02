@@ -24,7 +24,7 @@
   "dependencies": {},
   "devDependencies": {},
   "peerDependencies": {
-    "react": "^16.3.1",
+    "react": "^16.4.2",
     "react-dom": "^16.3.1"
   },
   "publishConfig": {

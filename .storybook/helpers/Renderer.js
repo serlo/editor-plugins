@@ -14,16 +14,12 @@ import { ModeToolbar } from '@splish-me/editor-ui/src/mode-toolbar.component'
 import { Sidebar } from '@splish-me/editor-ui/src/sidebar.component'
 import { AddSidebar } from '@splish-me/editor-ui/src/add-sidebar.component'
 import { PluginSidebar } from '@splish-me/editor-ui/src/plugin-sidebar.component'
-import { HTMLRenderer } from 'ory-editor-renderer'
+import { HtmlRenderer } from '@splish-me/editor-core/src/html-renderer.component'
+import { renderToString, renderToStaticMarkup } from 'react-dom/server'
 
 import 'ory-editor-core/lib/index.css' // we also want to load the stylesheets
 
-import slate from 'ory-editor-plugins-slate'
-import 'ory-editor-plugins-slate/lib/index.css'
-// Zitat Jonas: brauchen wir nicht
-// import video from 'ory-editor-plugins-video'
-// import 'ory-editor-plugins-video/lib/index.css'
-
+import createSlate from '@splish-me/editor-plugin-slate/src'
 import image from '@serlo-org/ory-editor-plugins-image/src'
 import '@serlo-org/ory-editor-plugins-image/src/index.css'
 import divider from '@serlo-org/ory-editor-plugins-divider/src'
@@ -53,6 +49,7 @@ import '@serlo-org/ory-editor-plugins-solution/src/index.css'
 import tipp from '@serlo-org/ory-editor-plugins-tipp/src'
 import tippRender from '@serlo-org/ory-editor-plugins-tipp/src/index.render'
 import '@serlo-org/ory-editor-plugins-tipp/src/index.css'
+import injectionPlugin from '@serlo-org/ory-editor-plugins-injection/src'
 import lizenz from '@serlo-org/ory-editor-plugins-lizenz/src'
 import lizenzRender from '@serlo-org/ory-editor-plugins-lizenz/src/index.render'
 
@@ -63,9 +60,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 require('react-tap-event-plugin')() // react-tap-event-plugin is required by material-ui which is used by ory-editor-ui so we need to call it here
 
 // Define which plugins we want to use. We only have slate and parallax available, so load those.
-const editorPlugins = {
+export const editorPlugins = {
   content: [
-    slate(),
+    createSlate(),
     spacer,
     image,
     // video,
@@ -78,13 +75,14 @@ const editorPlugins = {
     textfield,
     solution,
     tipp,
+    injectionPlugin,
     lizenz
   ]
 }
 
 const renderPlugins = {
   content: [
-    slate(),
+    createSlate(),
     spacer,
     image,
     // video,
@@ -95,7 +93,9 @@ const renderPlugins = {
     infoboxRender,
     textfieldRender,
     solutionRender,
+    spoiler,
     tipp,
+    injectionPlugin,
     lizenzRender
   ]
 }
@@ -107,7 +107,7 @@ export class Renderer {
 
   renderContainer(children) {
     return (
-      <E defaultPlugin={slate()} plugins={editorPlugins.content}>
+      <E defaultPlugin={createSlate()} plugins={editorPlugins.content}>
         <EditorConsumer>
           {({ currentMode }) => {
             return (
@@ -118,9 +118,7 @@ export class Renderer {
                   hideToggle={currentMode === 'layout'}
                 >
                   {currentMode === 'layout' ? (
-                    <MuiThemeProvider muiTheme={getMuiTheme()}>
-                      <AddSidebar />
-                    </MuiThemeProvider>
+                    <AddSidebar />
                   ) : (
                     <PluginSidebar />
                   )}
@@ -180,6 +178,6 @@ export class Renderer {
   }
 
   renderHTMLRenderer() {
-    return <HTMLRenderer state={this.content} plugins={renderPlugins} />
+    return <HtmlRenderer state={this.content} plugins={renderPlugins.content} />
   }
 }
