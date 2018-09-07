@@ -1,0 +1,31 @@
+{
+  "name": "@serlo-org/html-renderer",
+  "version": "0.0.0",
+  "bugs": {
+    "url": "https://github.com/serlo-org/ory-editor-plugins/issues"
+  },
+  "author": "Serlo Education e.V.",
+  "license": "Apache-2.0",
+  "main": "lib/index.js",
+  "repository": "serlo-org/ory-editor-plugins",
+  "scripts": {
+    "build": "npm run build:lib",
+    "build:watch": "npm run build:lib:watch",
+    "build:lib":
+      "babel ./src --source-maps --ignore test.js --out-dir ./lib --presets=react",
+    "build:lib:watch": "npm run build:lib -- --watch",
+    "prebuild": "npm run clean",
+    "clean": "rimraf \"lib/*\""
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "peerDependencies": {
+    "@splish-me/editor-core": "^0.0.1",
+    "ory-editor-core": "^0.2.25",
+    "react": "^16.4.2",
+    "react-dom": "^16.3.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
