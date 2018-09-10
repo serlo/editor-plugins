@@ -1,11 +1,12 @@
 {
   "name": "@serlo-org/ory-editor-plugins-workspace",
-  "workspaces": ["plugins/*"],
+  "workspaces": ["plugins/*", "htmlRenderer"],
   "dependencies": {
     "@babel/runtime": "^7.0.0",
     "font-awesome": "^4.7.0",
     "ory-editor": "^0.2.27",
-    "react-tap-event-plugin": "^3.0.2"
+    "react-tap-event-plugin": "^3.0.2",
+    "@splish-me/ory-editor-core": "^0.0.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",

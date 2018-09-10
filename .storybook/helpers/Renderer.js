@@ -14,64 +14,14 @@ import { ModeToolbar } from '@splish-me/editor-ui/src/mode-toolbar.component'
 import { Sidebar } from '@splish-me/editor-ui/src/sidebar.component'
 import { AddSidebar } from '@splish-me/editor-ui/src/add-sidebar.component'
 import { PluginSidebar } from '@splish-me/editor-ui/src/plugin-sidebar.component'
-import { HtmlRenderer } from '@splish-me/editor-core/src/html-renderer.component'
+import { HtmlRenderer } from '@serlo-org/html-renderer'
 import { renderToString, renderToStaticMarkup } from 'react-dom/server'
 
-import 'ory-editor-core/lib/index.css' // we also want to load the stylesheets
+import '@splish-me/ory-editor-core/lib/index.css'
 
-import createSlate from '@splish-me/editor-plugin-slate/src'
-import image from '@serlo-org/ory-editor-plugins-image/src'
-import '@serlo-org/ory-editor-plugins-image/src/index.css'
-import divider from '@serlo-org/ory-editor-plugins-divider/src'
-import '@serlo-org/ory-editor-plugins-divider/src/index.css'
-import spacer from '@serlo-org/ory-editor-plugins-spacer/src'
-import '@serlo-org/ory-editor-plugins-spacer/src/index.css'
-import spoiler from '@serlo-org/ory-editor-plugins-spoiler/src'
-import '@serlo-org/ory-editor-plugins-spoiler/src/index.css'
-import infobox from '@serlo-org/ory-editor-plugins-infobox/src'
-import infoboxRender from '@serlo-org/ory-editor-plugins-infobox/src/index.render'
-import '@serlo-org/ory-editor-plugins-infobox/src/index.css'
-import highlight from '@serlo-org/ory-editor-plugins-highlight/src'
-import highlightRender from '@serlo-org/ory-editor-plugins-highlight/src/index.render'
-import '@serlo-org/ory-editor-plugins-highlight/src/index.css'
-import geogebra from '@serlo-org/ory-editor-plugins-geogebra/src'
-import geogebraRender from '@serlo-org/ory-editor-plugins-geogebra/src/index.render'
-import '@serlo-org/ory-editor-plugins-geogebra/src/index.css'
-import textfield from '@serlo-org/ory-editor-plugins-textfield/src'
-import textfieldRender from '@serlo-org/ory-editor-plugins-textfield/src/index.render'
-import '@serlo-org/ory-editor-plugins-textfield/src/index.css'
-import scButton from '@serlo-org/ory-editor-plugins-scexercise/src'
-import scButtonRender from '@serlo-org/ory-editor-plugins-scexercise/src/index.render'
-import '@serlo-org/ory-editor-plugins-scexercise/src/index.css'
-import solution from '@serlo-org/ory-editor-plugins-solution/src'
-import solutionRender from '@serlo-org/ory-editor-plugins-solution/src/index.render'
-import '@serlo-org/ory-editor-plugins-solution/src/index.css'
-import tipp from '@serlo-org/ory-editor-plugins-tipp/src'
-import tippRender from '@serlo-org/ory-editor-plugins-tipp/src/index.render'
-import '@serlo-org/ory-editor-plugins-tipp/src/index.css'
-import injectionPlugin from '@serlo-org/ory-editor-plugins-injection/src'
-import lizenz from '@serlo-org/ory-editor-plugins-lizenz/src'
-import lizenzRender from '@serlo-org/ory-editor-plugins-lizenz/src/index.render'
-
+import editorPlugins from '@serlo-org/editor-plugins'
+import renderPlugins from '@serlo-org/editor-plugins/lib/index.render'
 require('react-tap-event-plugin')() // react-tap-event-plugin is required by material-ui which is used by ory-editor-ui so we need to call it here
-
-// Define which plugins we want to use. We only have slate and parallax available, so load those.
-
-export const defaultPlugins = [
-  createSlate(),
-  spacer,
-  image,
-  // video,
-  divider,
-  geogebra,
-  highlight,
-  infobox,
-  spoiler,
-  lizenz,
-  injectionPlugin
-]
-
-export const exercisePlugins = [scButton, textfield, solution, tipp]
 
 export const editorPlugins = {
   content: [...defaultPlugins, ...exercisePlugins]
