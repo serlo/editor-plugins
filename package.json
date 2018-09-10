@@ -1,7 +1,6 @@
 {
   "name": "@serlo-org/ory-editor-plugins-workspace",
-  "private": true,
-  "workspaces": ["plugins/layout/*", "plugins/content/*"],
+  "workspaces": ["plugins/*"],
   "dependencies": {
     "@babel/runtime": "^7.0.0",
     "font-awesome": "^4.7.0",
@@ -9,6 +8,7 @@
     "react-tap-event-plugin": "^3.0.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
@@ -27,12 +27,7 @@
     "@storybook/addon-options": "^3.4.1",
     "@storybook/addons": "^3.4.1",
     "@storybook/react": "^3.4.1",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
     "babel-loader": "^8.0.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
     "babel-runtime": "^6.26.0",
     "husky": "^0.14.3",
     "lerna": "^2.10.1",
@@ -49,7 +44,6 @@
     "typescript": "^3.0.3"
   },
   "scripts": {
-    "l": "lerna",
     "precommit": "lint-staged",
     "build": "lerna run --parallel build",
     "build:watch": "lerna run --parallel build:watch",
@@ -59,9 +53,7 @@
     "storybook": "start-storybook -p 9009 -s ./.storybook/public",
     "build-storybook": "build-storybook"
   },
-  "publishConfig": {
-    "access": "public"
-  },
+  "private": true,
   "lint-staged": {
     "{{plugins/**/src/**,.storybook/**,example}/*,*}.{ts,tsx,js,jsx,json,md,css}": [
       "prettier --single-quote --no-semi --write",

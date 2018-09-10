@@ -53,31 +53,28 @@ import injectionPlugin from '@serlo-org/ory-editor-plugins-injection/src'
 import lizenz from '@serlo-org/ory-editor-plugins-lizenz/src'
 import lizenzRender from '@serlo-org/ory-editor-plugins-lizenz/src/index.render'
 
-// FIXME:
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-
 require('react-tap-event-plugin')() // react-tap-event-plugin is required by material-ui which is used by ory-editor-ui so we need to call it here
 
 // Define which plugins we want to use. We only have slate and parallax available, so load those.
+
+export const defaultPlugins = [
+  createSlate(),
+  spacer,
+  image,
+  // video,
+  divider,
+  geogebra,
+  highlight,
+  infobox,
+  spoiler,
+  lizenz,
+  injectionPlugin
+]
+
+export const exercisePlugins = [scButton, textfield, solution, tipp]
+
 export const editorPlugins = {
-  content: [
-    createSlate(),
-    spacer,
-    image,
-    // video,
-    divider,
-    geogebra,
-    highlight,
-    scButton,
-    infobox,
-    spoiler,
-    textfield,
-    solution,
-    tipp,
-    injectionPlugin,
-    lizenz
-  ]
+  content: [...defaultPlugins, ...exercisePlugins]
 }
 
 const renderPlugins = {
@@ -100,6 +97,8 @@ const renderPlugins = {
   ]
 }
 
+export const defaultPlugin = createSlate()
+
 export class Renderer {
   constructor(content) {
     this.content = content
@@ -107,7 +106,7 @@ export class Renderer {
 
   renderContainer(children) {
     return (
-      <E defaultPlugin={createSlate()} plugins={editorPlugins.content}>
+      <E defaultPlugin={defaultPlugin} plugins={editorPlugins.content}>
         <EditorConsumer>
           {({ currentMode }) => {
             return (
