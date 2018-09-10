@@ -1,33 +1,35 @@
 import pluginFactory from './plugins'
-
-import createSlate from '@splish-me/editor-plugin-slate'
-import image from '@splish-me/editor-plugin-image'
+import blockquote from '@serlo-org/editor-plugin-blockquote/lib/index.render.js'
 import divider from '@splish-me/editor-plugin-divider'
+import geogebra from '@serlo-org/editor-plugin-geogebra/lib/index.render.js'
+import hint from '@serlo-org/editor-plugin-hint/lib/index.render.js'
+import image from '@splish-me/editor-plugin-image'
+import injection from '@serlo-org/editor-plugin-injection'
+import license from '@serlo-org/editor-plugin-license/lib/index.render.js'
+import scMcExercise from '@serlo-org/editor-plugin-sc-mc-exercise/lib/index.render.js'
+import createSlate from '@splish-me/editor-plugin-slate'
+import solution from '@serlo-org/editor-plugin-solution/lib/index.render.js'
 import spacer from '@splish-me/editor-plugin-spacer'
 import spoiler from '@serlo-org/editor-plugin-spoiler/lib/index.render.js'
-import geogebra from '@serlo-org/editor-plugin-geogebra/lib/index.render.js'
-import license from '@serlo-org/editor-plugin-license/lib/index.render.js'
-import injection from '@serlo-org/editor-plugin-injection'
-import scMcExercise from '@serlo-org/editor-plugin-sc-mc-exercise/lib/index.render.js'
-import textfield from '@serlo-org/editor-plugin-input-exercise/lib/index.render.js'
-import solution from '@serlo-org/editor-plugin-solution/lib/index.render.js'
-import hint from '@serlo-org/editor-plugin-hint/lib/index.render.js'
 import table from '@serlo-org/editor-plugin-table/lib/index.render.js'
+import textfield from '@serlo-org/editor-plugin-input-exercise/lib/index.render.js'
 
 const pluginMapping = {
-  slate: createSlate(),
-  spacer: spacer,
-  image: image,
+  blockquote: blockquote,
   divider: divider,
   geogebra: geogebra,
-  spoiler: spoiler,
-  license: license,
+  hint: hint,
+  image: image,
   injection: injection,
-  table: table,
+  license: license,
   scMcExercise: scMcExercise,
-  textField: textfield,
+  slate: createSlate(),
   solution: solution,
-  hint: hint
+  spacer: spacer,
+  spoiler: spoiler,
+  table: table,
+  textField: textfield,
 }
+
 
 export default pluginFactory(pluginMapping)

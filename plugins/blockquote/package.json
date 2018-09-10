@@ -1,11 +1,11 @@
 {
-  "name": "@serlo-org/ory-editor-plugins-highlight",
+  "name": "@serlo-org/editor-plugin-blockquote",
   "version": "0.0.0",
   "bugs": {
     "url": "https://github.com/serlo-org/ory-editor-plugins/issues"
   },
-  "author": "@schul-cloud",
-  "contributors": ["@Trunken", "@FWirtz"],
+  "author": "Serlo Education e.V.",
+  "contributors": [],
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "repository": "serlo-org/ory-editor-plugins",
@@ -21,22 +21,11 @@
     "prebuild": "npm run clean",
     "clean": "rimraf \"lib/*\""
   },
-  "engines": {
-    "node": ">=6.0.0",
-    "npm": "~3.8.0"
-  },
-  "dependencies": {
-    "material-ui": "^0.16.7",
-    "material-ui-icons": "^1.0.0-beta.17",
-    "react-syntax-highlighter": "^6.1.1",
-    "uuid": "^3.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {},
   "peerDependencies": {
     "react": "^16.4.2",
-    "react-dom": "^16.3.1",
-    "@splish-me/editor-ui": "^0.0.0",
-    "@splish-me/ory-editor-core": "^0.0.5"
+    "react-dom": "^16.3.1"
   },
   "publishConfig": {
     "access": "public"
