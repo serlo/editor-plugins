@@ -1,7 +1,7 @@
-import Display from './render'
+import Blockquote from './blockquote'
 import plugin from './plugin'
 
 export default {
   ...plugin,
-  Component: Display
+  Component: Blockquote
 }

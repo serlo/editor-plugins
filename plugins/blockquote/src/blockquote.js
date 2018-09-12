@@ -5,9 +5,9 @@ export default class Infobox extends React.Component {
   render() {
     const { state } = this.props
     return (
-      <div className="ory-editor-plugins-infobox">
+      <blockquote>
         <Editable id={state.child} />
-      </div>
+      </blockquote>
     )
   }
 }

@@ -4,7 +4,7 @@ import {
   createStateForContentPlugin,
   renderEditable,
   renderHTMLRenderer
-} from '../../../../.storybook/helpers'
+} from '../../../.storybook/helpers'
 import plugin from '.'
 
 storiesOf('Geogebra', module)

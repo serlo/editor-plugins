@@ -9,12 +9,11 @@
   "main": "lib/index.js",
   "repository": "serlo-org/ory-editor-plugins",
   "scripts": {
-    "build": "npm run build:lib",
-    "build:watch": "npm run build:lib:watch",
-    "build:lib": "babel ./src --source-maps --ignore test.js --out-dir ./lib --presets=react",
-    "build:lib:watch": "npm run build:lib -- --watch",
-    "prebuild": "npm run clean",
-    "clean": "rimraf \"lib/*\""
+    "build": "npm-run-all build:*",
+    "build:javascript":
+      "babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
+    "ci": "npm-run-all ci:*",
+    "ci:types": "tsc --noEmit"
   },
   "dependencies": {
     "@serlo-org/editor-plugin-geogebra": "^0.0.4",
@@ -28,12 +27,13 @@
     "@serlo-org/editor-plugin-table": "^0.0.1",
     "@splish-me/editor-plugin-divider": "^0.0.2",
     "@splish-me/editor-plugin-image": "^0.0.4",
-    "@splish-me/editor-plugin-slate": "^0.0.5",
+    "@splish-me/editor-plugin-slate": "^0.0.8",
     "@splish-me/editor-plugin-spacer": "^0.0.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/slate": "^0.40.0"
+  },
   "peerDependencies": {
-    "ory-editor-core": "^0.2.25",
     "react": "^16.4.2",
     "react-dom": "^16.3.1"
   },

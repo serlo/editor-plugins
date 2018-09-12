@@ -3,7 +3,7 @@ import * as React from 'react'
 import S from 'string'
 import A from 'algebra.js'
 
-import Feedback from './Feedback'
+import { Feedback } from './Feedback'
 
 export default class Display extends React.Component {
   state = {
