@@ -3,51 +3,30 @@ import * as React from 'react'
 import 'font-awesome/css/font-awesome.css'
 
 // The editor core
-import { EditorConsumer } from '@splish-me/editor-core/src/contexts'
+import { EditorConsumer } from '@splish-me/editor-core/lib/contexts'
 import {
   Editable,
   createEditableIdentifier
-} from '@splish-me/editor-core/src/editable.component'
-import { Editor as E } from '@splish-me/editor-core/src/editor.component'
-import { EditorHelpersConsumer } from '@splish-me/editor-core/src/contexts'
-import { ModeToolbar } from '@splish-me/editor-ui/src/mode-toolbar.component'
-import { Sidebar } from '@splish-me/editor-ui/src/sidebar.component'
-import { AddSidebar } from '@splish-me/editor-ui/src/add-sidebar.component'
-import { PluginSidebar } from '@splish-me/editor-ui/src/plugin-sidebar.component'
-import { HtmlRenderer } from '@serlo-org/html-renderer'
-import { renderToString, renderToStaticMarkup } from 'react-dom/server'
+} from '@splish-me/editor-core/lib/editable.component'
+import { Editor as E } from '@splish-me/editor-core/lib/editor.component'
+import { EditorHelpersConsumer } from '@splish-me/editor-core/lib/contexts'
+import { ModeToolbar } from '@splish-me/editor-ui/lib/mode-toolbar.component'
+import { Sidebar } from '@splish-me/editor-ui/lib/sidebar.component'
+import { AddSidebar } from '@splish-me/editor-ui/lib/add-sidebar.component'
+import { PluginSidebar } from '@splish-me/editor-ui/lib/plugin-sidebar.component'
+import { HtmlRenderer } from '@serlo-org/html-renderer/src'
 
-import '@splish-me/ory-editor-core/lib/index.css'
+import '@splish-me/ory-editor-core/src/index.css'
 
-import editorPlugins from '@serlo-org/editor-plugins'
-import renderPlugins from '@serlo-org/editor-plugins/lib/index.render'
-require('react-tap-event-plugin')() // react-tap-event-plugin is required by material-ui which is used by ory-editor-ui so we need to call it here
+import createEditorPlugins, {
+  defaultPlugin
+} from '@serlo-org/editor-plugins/src'
+import createRenderPlugins from '@serlo-org/editor-plugins/src/index.render'
 
-export const editorPlugins = {
-  content: [...defaultPlugins, ...exercisePlugins]
-}
+const editorPlugins = createEditorPlugins('text-exercise')
+const renderPlugins = createRenderPlugins('text-exercise')
 
-const renderPlugins = {
-  content: [
-    createSlate(),
-    spacer,
-    image,
-    // video,
-    divider,
-    geogebraRender,
-    highlightRender,
-    scButtonRender,
-    infoboxRender,
-    textfieldRender,
-    solutionRender,
-    spoiler,
-    tipp,
-    injectionPlugin,
-    lizenzRender
-  ]
-}
-
-export const defaultPlugin = createSlate()
+console.log(editorPlugins, renderPlugins)
 
 export class Renderer {
   constructor(content) {
@@ -56,7 +35,7 @@ export class Renderer {
 
   renderContainer(children) {
     return (
-      <E defaultPlugin={defaultPlugin} plugins={editorPlugins.content}>
+      <E defaultPlugin={defaultPlugin} plugins={editorPlugins}>
         <EditorConsumer>
           {({ currentMode }) => {
             return (
@@ -127,6 +106,6 @@ export class Renderer {
   }
 
   renderHTMLRenderer() {
-    return <HtmlRenderer state={this.content} plugins={renderPlugins.content} />
+    return <HtmlRenderer state={this.content} plugins={renderPlugins} />
   }
 }

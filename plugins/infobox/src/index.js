@@ -1,6 +1,6 @@
 import React from 'react'
 import uuid from 'uuid'
-import { createEditableIdentifier } from '@splish-me/editor-core/src/editable.component'
+import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
 import Infobox from './Infobox'
 import plugin from './plugin'
 

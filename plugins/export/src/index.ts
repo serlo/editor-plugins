@@ -7,12 +7,13 @@ import image from '@splish-me/editor-plugin-image'
 import injection from '@serlo-org/editor-plugin-injection'
 import license from '@serlo-org/editor-plugin-license'
 import scMcExercise from '@serlo-org/editor-plugin-sc-mc-exercise'
-import createSlate from '@splish-me/editor-plugin-slate'
 import solution from '@serlo-org/editor-plugin-solution'
 import spacer from '@splish-me/editor-plugin-spacer'
 import spoiler from '@serlo-org/editor-plugin-spoiler'
 import table from '@serlo-org/editor-plugin-table'
 import textfield from '@serlo-org/editor-plugin-input-exercise'
+
+import { slatePlugin } from './slate'
 
 const pluginMapping = {
   blockquote: blockquote,
@@ -23,16 +24,15 @@ const pluginMapping = {
   injection: injection,
   license: license,
   scMcExercise: scMcExercise,
-  slate: createSlate(),
+  slate: slatePlugin,
   solution: solution,
   spacer: spacer,
   spoiler: spoiler,
   table: table,
-  textField: textfield,
+  textfield: textfield
 }
 
-
-export default (type) => pluginFactory(type, pluginMapping)
+export default pluginFactory(pluginMapping)
 
 const defaultPlugin = pluginMapping.slate
 export { defaultPlugin }

@@ -1,15 +1,12 @@
 import { storiesOf } from '@storybook/react'
-import slate from 'ory-editor-plugins-slate'
 import * as React from 'react'
 
 import {
   createStateForLayoutPlugin,
   renderEditable,
   renderHTMLRenderer
-} from '../../../../.storybook/helpers'
+} from '../../../.storybook/helpers'
 import plugin from '.'
-
-const defaultPlugin = slate()
 
 const sampleChildren = createStateForLayoutPlugin({
   plugin,

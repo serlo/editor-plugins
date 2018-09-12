@@ -5,7 +5,7 @@ import {
 import * as React from 'react'
 import Display from './Display'
 import SCButton from './Button/SCButton'
-import Feedback from './Feedback'
+import { Feedback } from './Feedback'
 import { renderIntoSidebar } from '@splish-me/editor-ui/lib/plugin-sidebar.component'
 import Dropdown from '@splish-me/editor-ui/lib/sidebar-elements/dropdown'
 import * as R from 'ramda'

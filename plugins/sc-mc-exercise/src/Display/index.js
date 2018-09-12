@@ -3,7 +3,7 @@ import * as React from 'react'
 import * as R from 'ramda'
 import SCButton from '../Button/SCButton'
 import { css } from 'emotion'
-import Feedback from '../Feedback'
+import { Feedback } from '../Feedback'
 
 export default class Display extends React.Component {
   constructor(props) {

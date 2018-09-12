@@ -15,7 +15,7 @@ const exercisePlugins = ['scMcExercise', 'textfield', 'solution', 'hint']
 
 export default pluginMapping => editableType => {
   const plugins = choosePlugins(editableType)
-  return plugins.map( plugin => pluginMapping[plugin])
+  return plugins.map(plugin => pluginMapping[plugin])
 }
 
 const choosePlugins = type => {

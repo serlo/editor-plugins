@@ -3,11 +3,11 @@
   "workspaces": ["plugins/*", "htmlRenderer"],
   "dependencies": {
     "@babel/runtime": "^7.0.0",
-    "@splish-me/editor-ui": "^0.0.0",
+    "@splish-me/editor-core": "^0.0.2",
+    "@splish-me/editor-ui": "^0.0.2",
     "@splish-me/ory-editor-core": "^0.0.5",
     "emotion": "^9.2.8",
     "font-awesome": "^4.7.0",
-    "ory-editor": "^0.2.27",
     "react-tap-event-plugin": "^3.0.2"
   },
   "devDependencies": {

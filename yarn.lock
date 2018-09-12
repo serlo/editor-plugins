@@ -874,9 +874,9 @@
     "@babel/runtime" "7.0.0-rc.1"
     recompose "^0.28.0"
 
-"@splish-me/editor-core@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-core/-/editor-core-0.0.1.tgz#a606c1c49ef510fc0637b0b400e4c305e1191c20"
+"@splish-me/editor-core@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-core/-/editor-core-0.0.2.tgz#9ad3db7769f7797479c2b6c5ba0a476c8d9c05a0"
   dependencies:
     "@babel/cli" "^7.0.0"
     "@types/classnames" "^2.2.6"
@@ -892,9 +892,9 @@
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-image/-/editor-plugin-image-0.0.4.tgz#20d09c6028887db39d350bd29e6c19c0c3b80f2e"
 
-"@splish-me/editor-plugin-slate@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-slate/-/editor-plugin-slate-0.0.5.tgz#8524c052d5a82cdc2ce2d470e8f639b9aa1e99a2"
+"@splish-me/editor-plugin-slate@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-slate/-/editor-plugin-slate-0.0.8.tgz#c6642c53b2d7388f7b624fc1df26f54d6852a779"
   dependencies:
     "@material-ui/core" "^1.5.1"
     "@material-ui/icons" "^2.0.3"
@@ -906,12 +906,12 @@
     react-portal "4.1.5"
     redux-undo "1.0.0-beta9-7"
     selection-position "^1.0.0"
-    slate "^0.38.2"
+    slate "^0.40.2"
     slate-edit-blockquote "^0.6.1"
-    slate-edit-list "^0.12.0"
+    slate-edit-list "^0.12.1"
     slate-html-serializer "^0.7.2"
-    slate-plain-serializer "^0.5.30"
-    slate-react "^0.15.4"
+    slate-plain-serializer "^0.6.2"
+    slate-react "^0.18.5"
 
 "@splish-me/editor-plugin-spacer@^0.0.2":
   version "0.0.2"
@@ -919,14 +919,13 @@
   dependencies:
     react-resizable "^1.7.5"
 
-"@splish-me/editor-ui@^0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-ui/-/editor-ui-0.0.0.tgz#498bc758e5d7467b20cd26714fa107b23b440dca"
+"@splish-me/editor-ui@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-ui/-/editor-ui-0.0.2.tgz#ce8a09870a2f217f718393aa507c9c5738b3d985"
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.2.4"
     "@fortawesome/free-solid-svg-icons" "^5.3.1"
     "@fortawesome/react-fontawesome" "^0.1.2"
-    "@splish-me/editor-core" "^0.0.1"
     emotion "^9.2.8"
     react-autosuggest "^9.4.0"
     react-emotion "^9.2.8"
@@ -1195,6 +1194,12 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
+"@types/slate@^0.40.0":
+  version "0.40.0"
+  resolved "https://registry.yarnpkg.com/@types/slate/-/slate-0.40.0.tgz#cc1288bd3d7ba56444fecbab5a7c292d101d263f"
+  dependencies:
+    immutable "^3.8.2"
+
 JSONStream@^1.0.4:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/JSONStream/-/JSONStream-1.3.1.tgz#707f761e01dae9e16f1bcf93703b78c70966579a"
@@ -1240,12 +1245,6 @@ acorn@^5.0.0:
 acorn@^5.3.0:
   version "5.5.3"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.5.3.tgz#f473dd47e0277a08e28e9bec5aeeb04751f0b8c9"
-
-add-dom-event-listener@1.x:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/add-dom-event-listener/-/add-dom-event-listener-1.0.2.tgz#8faed2c41008721cf111da1d30d995b85be42bed"
-  dependencies:
-    object-assign "4.x"
 
 add-stream@^1.0.0:
   version "1.0.0"
@@ -2467,7 +2466,7 @@ babel-register@^6.26.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.15"
 
-babel-runtime@6.x, babel-runtime@6.x.x, babel-runtime@^6.11.6, babel-runtime@^6.18.0, babel-runtime@^6.20.0, babel-runtime@^6.22.0, babel-runtime@^6.23.0, babel-runtime@^6.26.0, babel-runtime@^6.5.0, babel-runtime@^6.9.2:
+babel-runtime@6.x.x, babel-runtime@^6.11.6, babel-runtime@^6.18.0, babel-runtime@^6.20.0, babel-runtime@^6.22.0, babel-runtime@^6.23.0, babel-runtime@^6.26.0, babel-runtime@^6.5.0, babel-runtime@^6.9.2:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   dependencies:
@@ -3283,19 +3282,9 @@ compare-func@^1.3.1:
     array-ify "^1.0.0"
     dot-prop "^3.0.0"
 
-component-classes@^1.2.5:
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/component-classes/-/component-classes-1.2.6.tgz#c642394c3618a4d8b0b8919efccbbd930e5cd691"
-  dependencies:
-    component-indexof "0.0.3"
-
 component-emitter@^1.2.0, component-emitter@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/component-emitter/-/component-emitter-1.2.1.tgz#137918d6d78283f7df7a6b7c5a63e140e69425e6"
-
-component-indexof@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/component-indexof/-/component-indexof-0.0.3.tgz#11d091312239eb8f32c8f25ae9cb002ffe8d3c24"
 
 concat-map@0.0.1:
   version "0.0.1"
@@ -3671,13 +3660,6 @@ crypto-browserify@^3.11.0:
     randombytes "^2.0.0"
     randomfill "^1.0.3"
 
-css-animation@^1.3.2:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/css-animation/-/css-animation-1.4.1.tgz#5b8813125de0fbbbb0bbe1b472ae84221469b7a8"
-  dependencies:
-    babel-runtime "6.x"
-    component-classes "^1.2.5"
-
 css-color-function@~1.3.3:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/css-color-function/-/css-color-function-1.3.3.tgz#8ed24c2c0205073339fafa004bc8c141fccb282e"
@@ -3861,7 +3843,7 @@ debounce@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/debounce/-/debounce-1.2.0.tgz#44a540abc0ea9943018dc0eaa95cce87f65cd131"
 
-debug@2.6.9, debug@^2.1.2, debug@^2.2.0, debug@^2.3.2, debug@^2.3.3, debug@^2.6.0, debug@^2.6.6, debug@^2.6.8, debug@^2.6.9:
+debug@2.6.9, debug@^2.1.2, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.6, debug@^2.6.8, debug@^2.6.9:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   dependencies:
@@ -4011,15 +3993,6 @@ detect-port-alt@1.1.6:
     address "^1.0.1"
     debug "^2.6.0"
 
-device.js@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/device.js/-/device.js-2.3.0.tgz#8104ea308b71926b4d2ed87413e6be7ff8f20018"
-  dependencies:
-    dom-helpers "^3.2.1"
-    lodash "^4.17.4"
-    lodash-es "^4.17.4"
-    uglify-js "^2.8.29"
-
 diff@^3.2.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/diff/-/diff-3.4.0.tgz#b1d85507daf3964828de54b37d0d73ba67dda56c"
@@ -4062,10 +4035,6 @@ doctrine@^2.0.0:
   dependencies:
     esutils "^2.0.2"
     isarray "^1.0.0"
-
-dom-align@1.x:
-  version "1.6.7"
-  resolved "https://registry.yarnpkg.com/dom-align/-/dom-align-1.6.7.tgz#6858138efb6b77405ce99146d0be5e4f7282813f"
 
 dom-converter@~0.1:
   version "0.1.4"
@@ -4329,7 +4298,7 @@ es6-iterator@^2.0.1, es6-iterator@~2.0.1:
     es5-ext "^0.10.35"
     es6-symbol "^3.1.1"
 
-es6-map@^0.1.3, es6-map@^0.1.4:
+es6-map@^0.1.3:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/es6-map/-/es6-map-0.1.5.tgz#9136e0503dcc06a301690f0bb14ff4e364e949f0"
   dependencies:
@@ -4685,10 +4654,6 @@ fbjs@^0.8.1, fbjs@^0.8.12, fbjs@^0.8.16, fbjs@^0.8.4, fbjs@^0.8.6, fbjs@^0.8.9:
     promise "^7.1.1"
     setimmediate "^1.0.5"
     ua-parser-js "^0.7.9"
-
-fetch-jsonp@^1.0.2:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/fetch-jsonp/-/fetch-jsonp-1.1.3.tgz#9eb9e585ba08aaf700563538d17bbebbcd5a3db2"
 
 figures@^1.7.0:
   version "1.7.0"
@@ -5592,7 +5557,7 @@ inline-style-prefixer@^2.0.1, inline-style-prefixer@^2.0.5:
     bowser "^1.0.0"
     hyphenate-style-name "^1.0.1"
 
-inline-style-prefixer@^3.0.2, inline-style-prefixer@^3.0.6:
+inline-style-prefixer@^3.0.6:
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/inline-style-prefixer/-/inline-style-prefixer-3.0.8.tgz#8551b8e5b4d573244e66a34b04f7d32076a2b534"
   dependencies:
@@ -5750,10 +5715,6 @@ is-dom@^1.0.9:
 is-dotfile@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/is-dotfile/-/is-dotfile-1.0.3.tgz#a6a2f32ffd2dfb04f5ca25ecd0f6b83cf798a1e1"
-
-is-empty@^1.0.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/is-empty/-/is-empty-1.2.0.tgz#de9bb5b278738a05a0b09a57e1fb4d4a341a9f6b"
 
 is-equal-shallow@^0.1.3:
   version "0.1.3"
@@ -6132,6 +6093,10 @@ jest-validate@^22.4.0, jest-validate@^22.4.3:
     leven "^2.1.0"
     pretty-format "^22.4.3"
 
+jquery@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
+
 js-base64@^2.1.9:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.3.2.tgz#a79a923666372b580f8e27f51845c6f7e8fbfbaf"
@@ -6355,7 +6320,7 @@ keycode@^2.1.1:
   version "2.1.9"
   resolved "https://registry.yarnpkg.com/keycode/-/keycode-2.1.9.tgz#964a23c54e4889405b4861a5c9f0480d45141dfa"
 
-keycode@^2.1.2, keycode@^2.1.8, keycode@^2.1.9:
+keycode@^2.1.9:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/keycode/-/keycode-2.2.0.tgz#3d0af56dc7b8b8e5cba8d0a97f107204eec22b04"
 
@@ -6551,10 +6516,6 @@ load-json-file@^4.0.0:
     pify "^3.0.0"
     strip-bom "^3.0.0"
 
-load-script@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/load-script/-/load-script-1.0.0.tgz#0491939e0bee5643ee494a7e3da3d2bac70c6ca4"
-
 loader-runner@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/loader-runner/-/loader-runner-2.3.0.tgz#f482aea82d543e07921700d5a46ef26fdac6b8a2"
@@ -6583,7 +6544,7 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
-lodash-es@^4.17.4, lodash-es@^4.17.5:
+lodash-es@^4.17.5:
   version "4.17.8"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.8.tgz#6fa8c8c5d337481df0bdf1c0d899d42473121e45"
 
@@ -6638,10 +6599,6 @@ lodash.memoize@^4.1.2:
 lodash.merge@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.0.tgz#69884ba144ac33fe699737a6086deffadd0f89c5"
-
-lodash.omit@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.omit/-/lodash.omit-4.5.0.tgz#6eb19ae5a1ee1dd9df0b969e66ce0b7fa30b5e60"
 
 lodash.pick@^4.4.0:
   version "4.4.0"
@@ -6832,22 +6789,6 @@ material-ui@^0.16.7:
     react-addons-transition-group "^15.0.0"
     react-event-listener "^0.4.0"
     recompose "^0.21.0"
-    simple-assign "^0.1.0"
-    warning "^3.0.0"
-
-material-ui@^0.19.1:
-  version "0.19.4"
-  resolved "https://registry.yarnpkg.com/material-ui/-/material-ui-0.19.4.tgz#ca9cdca8aa8bb594dfac5db38ec9ff045a323587"
-  dependencies:
-    babel-runtime "^6.23.0"
-    inline-style-prefixer "^3.0.2"
-    keycode "^2.1.8"
-    lodash.merge "^4.6.0"
-    lodash.throttle "^4.1.1"
-    prop-types "^15.5.7"
-    react-event-listener "^0.5.1"
-    react-transition-group "^1.2.1"
-    recompose "^0.26.0"
     simple-assign "^0.1.0"
     warning "^3.0.0"
 
@@ -7386,13 +7327,13 @@ oauth-sign@~0.8.1, oauth-sign@~0.8.2:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.8.2.tgz#46a6ab7f0aead8deae9ec0565780b7d4efeb9d43"
 
-object-assign@4.x, object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
-
 object-assign@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-3.0.0.tgz#9bedd5ca0897949bca47e7ff408062d549f587f2"
+
+object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
 
 object-copy@^0.1.0:
   version "0.1.0"
@@ -7514,127 +7455,6 @@ original@>=0.0.5:
   resolved "https://registry.yarnpkg.com/original/-/original-1.0.0.tgz#9147f93fa1696d04be61e01bd50baeaca656bd3b"
   dependencies:
     url-parse "1.0.x"
-
-ory-editor-core@^v0.2.27, ory-editor-core@v0.2.27:
-  version "0.2.27"
-  resolved "https://registry.yarnpkg.com/ory-editor-core/-/ory-editor-core-0.2.27.tgz#6ba47baae28ec7acd46057652cf14fa2b244257c"
-  dependencies:
-    classnames "^2.2.5"
-    deep-equal "^1.0.1"
-    dnd-core "^2.3.0"
-    element-resize-event "^2.0.9"
-    lodash.throttle "^4.1.1"
-    mousetrap "^1.6.1"
-    ramda "^0.24.1"
-    react-dimensions "^1.3.0"
-    react-dnd "^2.4.0"
-    react-dnd-html5-backend "^2.4.0"
-    react-draggable "^3.0.3"
-    react-hotkeys "^0.10.0"
-    react-redux "^5.0.4"
-    react-resizable "^1.7.3"
-    redux "^3.6.0"
-    redux-undo "1.0.0-beta9-7"
-    reselect "^3.0.0"
-    semver "^5.3.0"
-    uuid "^3.0.1"
-
-ory-editor-plugins-default-native@v0.2.27:
-  version "0.2.27"
-  resolved "https://registry.yarnpkg.com/ory-editor-plugins-default-native/-/ory-editor-plugins-default-native-0.2.27.tgz#f3cc8fe43e662e92733efac5b13e66bb6c8f9ed8"
-
-ory-editor-plugins-divider@v0.2.27:
-  version "0.2.27"
-  resolved "https://registry.yarnpkg.com/ory-editor-plugins-divider/-/ory-editor-plugins-divider-0.2.27.tgz#40e187b3a82bd1d5a661d20a4c07a8e79c781b9a"
-  dependencies:
-    material-ui "^0.19.1"
-
-ory-editor-plugins-image@v0.2.27:
-  version "0.2.27"
-  resolved "https://registry.yarnpkg.com/ory-editor-plugins-image/-/ory-editor-plugins-image-0.2.27.tgz#aaf2c69fe0e7b7c37cddfb6f44b6fbbc9e2007d6"
-  dependencies:
-    material-ui "^0.19.1"
-    ory-editor-core "^v0.2.27"
-    ory-editor-ui "^v0.2.27"
-
-ory-editor-plugins-parallax-background@v0.2.27:
-  version "0.2.27"
-  resolved "https://registry.yarnpkg.com/ory-editor-plugins-parallax-background/-/ory-editor-plugins-parallax-background-0.2.27.tgz#ed080d6d42fb88da397d5c4ae4348b11f7e37b58"
-  dependencies:
-    material-ui "^0.19.1"
-    ory-editor-core "^v0.2.27"
-    ory-editor-ui "^v0.2.27"
-
-ory-editor-plugins-slate@v0.2.27:
-  version "0.2.27"
-  resolved "https://registry.yarnpkg.com/ory-editor-plugins-slate/-/ory-editor-plugins-slate-0.2.27.tgz#aa3fb465be6b83899f495b73840eadd02d4233d9"
-  dependencies:
-    immutable "^3.8.1"
-    material-ui "^0.19.1"
-    ory-editor-core "^v0.2.27"
-    ory-editor-ui "^v0.2.27"
-    parse5 "^3.0.2"
-    ramda "^0.24.1"
-    react-portal "^3.0.0"
-    redux-undo "1.0.0-beta9-7"
-    selection-position "^1.0.0"
-    slate "^0.21.4"
-    slate-edit-blockquote "^0.2.0"
-    slate-edit-list "^0.7.1"
-
-ory-editor-plugins-spacer@v0.2.27:
-  version "0.2.27"
-  resolved "https://registry.yarnpkg.com/ory-editor-plugins-spacer/-/ory-editor-plugins-spacer-0.2.27.tgz#e3311ea47f45f5d9307b567feb48f3707c2ad7f9"
-  dependencies:
-    classnames "^2.2.5"
-    material-ui "^0.19.1"
-    ory-editor-core "^v0.2.27"
-    ory-editor-ui "^v0.2.27"
-    react-resizable "^1.7.0"
-
-ory-editor-plugins-video@v0.2.27:
-  version "0.2.27"
-  resolved "https://registry.yarnpkg.com/ory-editor-plugins-video/-/ory-editor-plugins-video-0.2.27.tgz#cf4209bf2d69b3ddf1627c374bdae2c970edfa69"
-  dependencies:
-    material-ui "^0.19.1"
-    ory-editor-core "^v0.2.27"
-    ory-editor-ui "^v0.2.27"
-    react-player "^0.22.0"
-
-ory-editor-renderer@v0.2.27:
-  version "0.2.27"
-  resolved "https://registry.yarnpkg.com/ory-editor-renderer/-/ory-editor-renderer-0.2.27.tgz#f8a54cfcdbdd1621c4a458cce247eecd5aa1abd4"
-  dependencies:
-    classnames "^2.2.5"
-    ory-editor-core "^v0.2.27"
-
-ory-editor-ui@^v0.2.27, ory-editor-ui@v0.2.27:
-  version "0.2.27"
-  resolved "https://registry.yarnpkg.com/ory-editor-ui/-/ory-editor-ui-0.2.27.tgz#136c2082b0f011ffe0a1d342f0c73cda77b1b819"
-  dependencies:
-    classnames "^2.2.5"
-    device.js "^2.3.0"
-    material-ui "^0.19.1"
-    ory-editor-core "^v0.2.27"
-    rc-tooltip "^3.4.3"
-    react-dnd "^2.4.0"
-    react-redux "^5.0.4"
-    reselect "^3.0.0"
-
-ory-editor@^0.2.27:
-  version "0.2.27"
-  resolved "https://registry.yarnpkg.com/ory-editor/-/ory-editor-0.2.27.tgz#91b2b4f5d267c57657d96aca59b095ec53b50dd9"
-  dependencies:
-    ory-editor-core v0.2.27
-    ory-editor-plugins-default-native v0.2.27
-    ory-editor-plugins-divider v0.2.27
-    ory-editor-plugins-image v0.2.27
-    ory-editor-plugins-parallax-background v0.2.27
-    ory-editor-plugins-slate v0.2.27
-    ory-editor-plugins-spacer v0.2.27
-    ory-editor-plugins-video v0.2.27
-    ory-editor-renderer v0.2.27
-    ory-editor-ui v0.2.27
 
 os-browserify@^0.2.0:
   version "0.2.1"
@@ -8562,7 +8382,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@15.x, prop-types@^15.5.7, prop-types@^15.5.9, prop-types@^15.6.1:
+prop-types@15.x, prop-types@^15.5.9, prop-types@^15.6.1:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.1.tgz#36644453564255ddda391191fb3a125cbdf654ca"
   dependencies:
@@ -8736,51 +8556,6 @@ raw-body@2.3.2:
     iconv-lite "0.4.19"
     unpipe "1.0.0"
 
-rc-align@2.x:
-  version "2.3.6"
-  resolved "https://registry.yarnpkg.com/rc-align/-/rc-align-2.3.6.tgz#35046d2ac25771b1e5cbd600eae8f862c450f9e6"
-  dependencies:
-    babel-runtime "^6.26.0"
-    dom-align "1.x"
-    prop-types "^15.5.8"
-    rc-util "^4.0.4"
-    shallowequal "^1.0.2"
-
-rc-animate@2.x:
-  version "2.4.4"
-  resolved "https://registry.yarnpkg.com/rc-animate/-/rc-animate-2.4.4.tgz#a05a784c747beef140d99ff52b6117711bef4b1e"
-  dependencies:
-    babel-runtime "6.x"
-    css-animation "^1.3.2"
-    prop-types "15.x"
-
-rc-tooltip@^3.4.3:
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/rc-tooltip/-/rc-tooltip-3.7.0.tgz#3afbf109865f7cdcfe43752f3f3f501f7be37aaa"
-  dependencies:
-    babel-runtime "6.x"
-    prop-types "^15.5.8"
-    rc-trigger "^2.2.2"
-
-rc-trigger@^2.2.2:
-  version "2.3.4"
-  resolved "https://registry.yarnpkg.com/rc-trigger/-/rc-trigger-2.3.4.tgz#389dfa5e834ecc3a446fe9cefc0b4a32900f4227"
-  dependencies:
-    babel-runtime "6.x"
-    prop-types "15.x"
-    rc-align "2.x"
-    rc-animate "2.x"
-    rc-util "^4.4.0"
-
-rc-util@^4.0.4, rc-util@^4.4.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/rc-util/-/rc-util-4.5.0.tgz#3183e6ec806f382efb2d3e85770d95875fa6180f"
-  dependencies:
-    add-dom-event-listener "1.x"
-    babel-runtime "6.x"
-    prop-types "^15.5.10"
-    shallowequal "^0.2.2"
-
 rc@^1.0.1, rc@^1.1.6, rc@^1.1.7:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/rc/-/rc-1.2.2.tgz#d8ce9cb57e8d64d9c7badd9876c7c34cbe3c7077"
@@ -8923,15 +8698,6 @@ react-event-listener@^0.4.0:
     prop-types "^15.5.4"
     warning "^3.0.0"
 
-react-event-listener@^0.5.1:
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/react-event-listener/-/react-event-listener-0.5.3.tgz#a8b492596ad601865314fcc2c18cb87b6ce3876e"
-  dependencies:
-    babel-runtime "^6.26.0"
-    fbjs "^0.8.16"
-    prop-types "^15.6.0"
-    warning "^3.0.0"
-
 react-event-listener@^0.6.2:
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/react-event-listener/-/react-event-listener-0.6.3.tgz#8eab88129a76e095ed8aa684c29679eded1e843d"
@@ -9018,24 +8784,9 @@ react-modal@^3.3.2:
     prop-types "^15.5.10"
     warning "^3.0.0"
 
-react-player@^0.22.0:
-  version "0.22.0"
-  resolved "https://registry.yarnpkg.com/react-player/-/react-player-0.22.0.tgz#fca542aeaf4482eaf4bb8e9849fe05dd501d7482"
-  dependencies:
-    fetch-jsonp "^1.0.2"
-    load-script "^1.0.0"
-    lodash.omit "^4.5.0"
-    prop-types "^15.5.6"
-
 react-portal@4.1.5:
   version "4.1.5"
   resolved "https://registry.yarnpkg.com/react-portal/-/react-portal-4.1.5.tgz#6665d4d2a92d47d6f8b07a6529e26fc52d5cccde"
-  dependencies:
-    prop-types "^15.5.8"
-
-react-portal@^3.0.0, react-portal@^3.1.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/react-portal/-/react-portal-3.2.0.tgz#4224e19b2b05d5cbe730a7ba0e34ec7585de0043"
   dependencies:
     prop-types "^15.5.8"
 
@@ -9050,7 +8801,7 @@ react-redux@^5.0.4:
     loose-envify "^1.1.0"
     prop-types "^15.6.0"
 
-react-resizable@^1.7.0, react-resizable@^1.7.3, react-resizable@^1.7.5:
+react-resizable@^1.7.3, react-resizable@^1.7.5:
   version "1.7.5"
   resolved "https://registry.yarnpkg.com/react-resizable/-/react-resizable-1.7.5.tgz#83eb75bb3684da6989bbbf4f826e1470f0af902e"
   dependencies:
@@ -9099,7 +8850,7 @@ react-themeable@^1.1.0:
   dependencies:
     object-assign "^3.0.0"
 
-react-transition-group@^1.1.2, react-transition-group@^1.2.0, react-transition-group@^1.2.1:
+react-transition-group@^1.1.2, react-transition-group@^1.2.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-1.2.1.tgz#e11f72b257f921b213229a774df46612346c7ca6"
   dependencies:
@@ -9870,10 +9621,6 @@ shallowequal@^0.2.2:
   dependencies:
     lodash.keys "^3.1.2"
 
-shallowequal@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/shallowequal/-/shallowequal-1.0.2.tgz#1561dbdefb8c01408100319085764da3fcf83f8f"
-
 shebang-command@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/shebang-command/-/shebang-command-1.2.0.tgz#44aac65b695b03398968c39f363fee5deafdf1ea"
@@ -9923,7 +9670,7 @@ slash@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-2.0.0.tgz#de552851a1759df3a8f206535442f5ec4ddeab44"
 
-slate-base64-serializer@^0.2.53:
+slate-base64-serializer@^0.2.63:
   version "0.2.63"
   resolved "https://registry.yarnpkg.com/slate-base64-serializer/-/slate-base64-serializer-0.2.63.tgz#b086dfce5145c29b8465dc54ff5493b726ddca07"
   dependencies:
@@ -9935,25 +9682,17 @@ slate-dev-environment@^0.2.0:
   dependencies:
     is-in-browser "^1.1.3"
 
-slate-dev-logger@^0.1.43:
-  version "0.1.43"
-  resolved "https://registry.yarnpkg.com/slate-dev-logger/-/slate-dev-logger-0.1.43.tgz#77f6ca7207fcbf453a5516f3aa8b19794d1d26dc"
-
-slate-edit-blockquote@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/slate-edit-blockquote/-/slate-edit-blockquote-0.2.0.tgz#5ec3fee12ba152bfbbc6fa25fd870b94ee77c3e3"
+slate-dev-warning@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/slate-dev-warning/-/slate-dev-warning-0.0.1.tgz#f6c36731babea5e301b5bd504fe64911dd24200a"
 
 slate-edit-blockquote@^0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/slate-edit-blockquote/-/slate-edit-blockquote-0.6.1.tgz#ac145210f50b749ea06f547763b9a2f57187a550"
 
-slate-edit-list@^0.12.0:
+slate-edit-list@^0.12.1:
   version "0.12.1"
   resolved "https://registry.yarnpkg.com/slate-edit-list/-/slate-edit-list-0.12.1.tgz#11a83e4c91af858b37a516ef0b2a868910eb4903"
-
-slate-edit-list@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/slate-edit-list/-/slate-edit-list-0.7.1.tgz#84ee960d2d5b5a20ce267ad9df894395a91b93d5"
 
 slate-hotkeys@^0.2.3:
   version "0.2.3"
@@ -9968,73 +9707,43 @@ slate-html-serializer@^0.7.2:
   dependencies:
     type-of "^2.0.1"
 
-slate-plain-serializer@^0.5.30, slate-plain-serializer@^0.5.34:
-  version "0.5.41"
-  resolved "https://registry.yarnpkg.com/slate-plain-serializer/-/slate-plain-serializer-0.5.41.tgz#dc2d219602c2cb8dc710ac660e108f3b3cc4dc80"
-  dependencies:
-    slate-dev-logger "^0.1.43"
+slate-plain-serializer@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/slate-plain-serializer/-/slate-plain-serializer-0.6.2.tgz#8d406f9523d7ba219d14bf300d30d7e093430247"
 
-slate-prop-types@^0.4.51:
+slate-prop-types@^0.4.61:
   version "0.4.61"
   resolved "https://registry.yarnpkg.com/slate-prop-types/-/slate-prop-types-0.4.61.tgz#141c109bed81b130dd03ab86dd7541b28d6d962a"
 
-slate-react@^0.15.4:
-  version "0.15.9"
-  resolved "https://registry.yarnpkg.com/slate-react/-/slate-react-0.15.9.tgz#7a11746fbe5554e5cff020f1c430e266f0d995f5"
+slate-react@^0.18.5:
+  version "0.18.5"
+  resolved "https://registry.yarnpkg.com/slate-react/-/slate-react-0.18.5.tgz#089ae30cd19b7600a9b528b5ab0525038b500142"
   dependencies:
     debug "^3.1.0"
     get-window "^1.1.1"
     is-window "^1.0.2"
-    keycode "^2.1.2"
     lodash "^4.1.1"
     memoize-one "^4.0.0"
     prop-types "^15.5.8"
     react-immutable-proptypes "^2.1.0"
-    react-portal "^3.1.0"
     selection-is-backward "^1.0.0"
-    slate-base64-serializer "^0.2.53"
+    slate-base64-serializer "^0.2.63"
     slate-dev-environment "^0.2.0"
-    slate-dev-logger "^0.1.43"
+    slate-dev-warning "^0.0.1"
     slate-hotkeys "^0.2.3"
-    slate-plain-serializer "^0.5.34"
-    slate-prop-types "^0.4.51"
+    slate-plain-serializer "^0.6.2"
+    slate-prop-types "^0.4.61"
 
-slate-schema-violations@^0.1.35:
-  version "0.1.39"
-  resolved "https://registry.yarnpkg.com/slate-schema-violations/-/slate-schema-violations-0.1.39.tgz#854ab5624136419cef4c803b1823acabe11f1c15"
-
-slate@^0.21.4:
-  version "0.21.6"
-  resolved "https://registry.yarnpkg.com/slate/-/slate-0.21.6.tgz#62a7b2f1d7c560ad7eb7f3ff17c77ff905cfae94"
-  dependencies:
-    debug "^2.3.2"
-    direction "^0.1.5"
-    es6-map "^0.1.4"
-    esrever "^0.2.0"
-    get-window "^1.1.1"
-    immutable "^3.8.1"
-    is-empty "^1.0.0"
-    is-in-browser "^1.1.3"
-    is-window "^1.0.2"
-    keycode "^2.1.2"
-    lodash "^4.17.4"
-    prop-types "^15.5.8"
-    react-portal "^3.1.0"
-    selection-is-backward "^1.0.0"
-    type-of "^2.0.1"
-
-slate@^0.38.2:
-  version "0.38.2"
-  resolved "https://registry.yarnpkg.com/slate/-/slate-0.38.2.tgz#973c8e0b1f31f2fc5edfeaf4572ab5e04b58adcb"
+slate@^0.40.2:
+  version "0.40.2"
+  resolved "https://registry.yarnpkg.com/slate/-/slate-0.40.2.tgz#3adbd4bb66c16208b2dc3f0900b1857ea7912cb0"
   dependencies:
     debug "^3.1.0"
     direction "^0.1.5"
     esrever "^0.2.0"
-    is-empty "^1.0.0"
     is-plain-object "^2.0.4"
     lodash "^4.17.4"
-    slate-dev-logger "^0.1.43"
-    slate-schema-violations "^0.1.35"
+    slate-dev-warning "^0.0.1"
     type-of "^2.0.1"
 
 slice-ansi@0.0.4:

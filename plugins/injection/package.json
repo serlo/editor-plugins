@@ -23,7 +23,9 @@
     "ci:types": "tsc --noEmit"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "jquery": "^3.3.1"
+  },
   "peerDependencies": {
     "@splish-me/editor-ui": "^0.0.0",
     "jquery": "^3.3.1",

@@ -9,13 +9,11 @@
   "main": "lib/index.js",
   "repository": "serlo-org/ory-editor-plugins",
   "scripts": {
-    "build": "npm run build:lib",
-    "build:watch": "npm run build:lib:watch",
-    "build:lib":
-      "babel ./src --source-maps --ignore test.js --out-dir ./lib --presets=react",
-    "build:lib:watch": "npm run build:lib -- --watch",
-    "prebuild": "npm run clean",
-    "clean": "rimraf \"lib/*\""
+    "build": "npm-run-all build:*",
+    "build:javascript":
+      "babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
+    "ci": "npm-run-all ci:*",
+    "ci:types": "tsc --noEmit"
   },
   "dependencies": {},
   "devDependencies": {},

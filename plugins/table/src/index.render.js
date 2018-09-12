@@ -1,4 +1,4 @@
-import Display from './Component/render'
+import Display from './render'
 import plugin from './plugin'
 
 export default {

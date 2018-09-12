@@ -4,7 +4,7 @@ import {
   createEditableIdentifier
 } from '@splish-me/editor-core/lib/editable.component'
 import Display from './Display'
-import Feedback from './Display/Feedback'
+import { Feedback } from './Display/Feedback'
 import { renderIntoSidebar } from '@splish-me/editor-ui/lib/plugin-sidebar.component'
 import Dropdown from '@splish-me/editor-ui/lib/sidebar-elements/dropdown'
 import SBTextfield from '@splish-me/editor-ui/lib/sidebar-elements/textfield'

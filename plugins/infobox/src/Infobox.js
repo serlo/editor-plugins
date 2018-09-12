@@ -1,5 +1,5 @@
 import React from 'react'
-import { Editable } from '@splish-me/editor-core/src/editable.component'
+import { Editable } from '@splish-me/editor-core/lib/editable.component'
 
 export default class Infobox extends React.Component {
   render() {
