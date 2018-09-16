@@ -892,9 +892,9 @@
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-image/-/editor-plugin-image-0.0.4.tgz#20d09c6028887db39d350bd29e6c19c0c3b80f2e"
 
-"@splish-me/editor-plugin-slate@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-slate/-/editor-plugin-slate-0.0.8.tgz#c6642c53b2d7388f7b624fc1df26f54d6852a779"
+"@splish-me/editor-plugin-slate@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-slate/-/editor-plugin-slate-0.0.10.tgz#358800052b88300473fe6c8dffd35f7f69c92485"
   dependencies:
     "@material-ui/core" "^1.5.1"
     "@material-ui/icons" "^2.0.3"
@@ -919,9 +919,9 @@
   dependencies:
     react-resizable "^1.7.5"
 
-"@splish-me/editor-ui@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-ui/-/editor-ui-0.0.2.tgz#ce8a09870a2f217f718393aa507c9c5738b3d985"
+"@splish-me/editor-ui@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-ui/-/editor-ui-0.0.3.tgz#3e61e2144b71f9724a2848e8fb031d12fa59be8b"
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.2.4"
     "@fortawesome/free-solid-svg-icons" "^5.3.1"

@@ -17,6 +17,7 @@ import { PluginSidebar } from '@splish-me/editor-ui/lib/plugin-sidebar.component
 import { HtmlRenderer } from '@serlo-org/html-renderer/src'
 
 import '@splish-me/ory-editor-core/src/index.css'
+import 'katex/dist/katex.css'
 
 import createEditorPlugins, {
   defaultPlugin
