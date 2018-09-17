@@ -82,7 +82,7 @@ export default class Display extends React.Component {
                 showFeedback={this.state.showFeedback}
                 {...this.props}
               >
-                <Editable id={answer} />
+                <Editable id={answer.id} />
               </SCButton>
               {this.state.buttons[index] && this.state.showFeedback ? (
                 answer.feedback ? (

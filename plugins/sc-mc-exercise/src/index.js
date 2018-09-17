@@ -1,5 +1,4 @@
 import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
-import * as React from 'react'
 
 import SCExercise from './SCExercise'
 import plugin from './plugin'

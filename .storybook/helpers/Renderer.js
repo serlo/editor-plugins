@@ -27,8 +27,6 @@ import createRenderPlugins from '@serlo-org/editor-plugins/src/index.render'
 const editorPlugins = createEditorPlugins('text-exercise')
 const renderPlugins = createRenderPlugins('text-exercise')
 
-console.log(editorPlugins, renderPlugins)
-
 export class Renderer {
   constructor(content) {
     this.content = content

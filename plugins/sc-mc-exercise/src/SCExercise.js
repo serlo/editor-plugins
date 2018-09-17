@@ -115,7 +115,7 @@ export default class SCEXercise extends React.Component {
                     focused={focused}
                     {...this.props}
                   >
-                    <Editable id={answer} />
+                    <Editable id={answer.id} />
                   </SCButton>
                   {answer.feedback ? (
                     <Feedback>
