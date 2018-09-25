@@ -15,9 +15,6 @@
     "build:lib":
       "babel ./src --source-maps --ignore test.js --out-dir ./lib --presets=react",
     "build:lib:watch": "npm run build:lib -- --watch",
-    "build:css":
-      "postcss -c ../../../postcss.config.js --dir lib/ src/index.css",
-    "build:css:watch": "npm run build:css -- -w",
     "prebuild": "npm run clean",
     "clean": "rimraf \"lib/*\""
   },
