@@ -883,9 +883,9 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@splish-me/editor-core@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-core/-/editor-core-0.0.2.tgz#9ad3db7769f7797479c2b6c5ba0a476c8d9c05a0"
+"@splish-me/editor-core@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-core/-/editor-core-0.0.4.tgz#cd5e782d901f47375aab552d99d5ff95ea45c13e"
   dependencies:
     "@babel/cli" "^7.0.0"
     "@types/classnames" "^2.2.6"
@@ -901,9 +901,9 @@
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-image/-/editor-plugin-image-0.0.4.tgz#20d09c6028887db39d350bd29e6c19c0c3b80f2e"
 
-"@splish-me/editor-plugin-slate@^0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-slate/-/editor-plugin-slate-0.0.10.tgz#358800052b88300473fe6c8dffd35f7f69c92485"
+"@splish-me/editor-plugin-slate@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-slate/-/editor-plugin-slate-0.0.11.tgz#145343eed104a0b2e065ad05bc7efa159cd90491"
   dependencies:
     "@material-ui/core" "^1.5.1"
     "@material-ui/icons" "^2.0.3"
