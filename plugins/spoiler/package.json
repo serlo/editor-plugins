@@ -1,26 +1,19 @@
 {
   "name": "@serlo-org/editor-plugin-spoiler",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "bugs": {
     "url": "https://github.com/serlo-org/ory-editor-plugins/issues"
   },
   "author": "Serlo Education e.V.",
-  "contributors": [
-    "@nawtrobar",
-    "@knorrke"
-  ],
+  "contributors": ["@nawtrobar", "@knorrke"],
   "license": "Apache-2.0",
   "main": "lib/index.js",
-  "files": [
-    "./lib",
-    "./src",
-    "babel.config.js",
-    "tsconfig.json"
-  ],
+  "files": ["./lib", "./src", "babel.config.js", "tsconfig.json"],
   "repository": "serlo-org/ory-editor-plugins",
   "scripts": {
     "build": "npm-run-all build:*",
-    "build:javascript": "babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
+    "build:javascript":
+      "babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
     "build:types": "tsc --emitDeclarationOnly",
     "ci": "npm-run-all ci:*",
     "ci:types": "tsc --noEmit"

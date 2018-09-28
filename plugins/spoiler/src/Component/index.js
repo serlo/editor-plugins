@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
 import { Editable } from '@splish-me/editor-core/lib/editable.component'
+import { css } from 'emotion'
+import React, { Component } from 'react'
 
 export default class PluginComponent extends Component {
   state = { hidden: true }
@@ -9,13 +10,34 @@ export default class PluginComponent extends Component {
   }
 
   render() {
-    const { state, children, readOnly, onChange } = this.props
-    console.log('this is a spoiler', state)
+    const { state, readOnly, onChange } = this.props
 
     return (
-      <div className="ory-plugins-layout-spoiler">
+      <div
+        className={css({
+          marginTop: '12px',
+          marginBottom: '20px',
+          border: '1px solid #dddddd',
+          borderRadius: '2px',
+          boxShadow: '0 1px 1px rgba(0, 0, 0, 0.05)'
+        })}
+      >
         <div
-          className="ory-plugins-layout-spoiler-toggle"
+          className={css({
+            backgroundColor: '#f5f5f5',
+            padding: '10px 15px 10px 40px',
+            position: 'relative',
+            borderColor: '#dddddd',
+            textAlign: 'left',
+            cursor: 'pointer',
+            minHeight: '41px',
+
+            '& .fa': {
+              position: 'absolute',
+              bottom: '13px',
+              left: '15px'
+            }
+          })}
           onClick={this.onToggle}
         >
           {this.state.hidden ? (
@@ -27,9 +49,11 @@ export default class PluginComponent extends Component {
             state.title
           ) : (
             <input
-              className="ory-plugins-layout-spoiler-toggle-title"
-              // floatingLabelStyle={{ color: 'black' }}
-              // disabled={readOnly}
+              className={css({
+                '&:active': {
+                  color: '#ffffff'
+                }
+              })}
               onChange={e => onChange({ title: e.target.value })}
               value={state.title}
               placeholder="Your Title Here"
@@ -38,7 +62,9 @@ export default class PluginComponent extends Component {
         </div>
 
         <div
-          className="ory-plugins-layout-spoiler-content"
+          className={css({
+            padding: '15px'
+          })}
           style={{
             display: this.state.hidden && readOnly ? 'none' : 'block'
           }}

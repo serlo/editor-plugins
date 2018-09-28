@@ -9,6 +9,7 @@ export default {
   text: 'Hidden Text',
 
   createInitialState: () => ({
-    content: createEditableIdentifier()
+    content: createEditableIdentifier(),
+    title: ''
   })
 }
