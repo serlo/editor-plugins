@@ -8,8 +8,8 @@ setOptions({
   showAddonPanel: false
 })
 
-const reqExample = require.context('../example', true, /\.stories\.js$/)
-const reqPlugins = require.context('../plugins', true, /\.stories\.js$/)
+const reqExample = require.context('../example', true, /\.stories\.(tsx?|js)$/)
+const reqPlugins = require.context('../plugins', true, /\.stories\.(tsx?|js)$/)
 
 const loadStories = () => {
   reqExample.keys().forEach(file => {

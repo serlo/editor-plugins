@@ -1,10 +1,12 @@
 import createClassName from 'classnames'
 import * as R from 'ramda'
-import React, { Component } from 'react'
+import * as React from 'react'
 import { css, cx } from 'emotion'
 import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt, faPlus } from '@fortawesome/free-solid-svg-icons'
 
-export default class SCButton extends Component {
+export class ScMcChoice extends React.Component {
   handleCheckboxChange = event => {
     const target = event.target
 
@@ -58,16 +60,37 @@ export default class SCButton extends Component {
     // FIXME:
     const { isCorrect, feedback } = state.answers[index]
 
+    // TODO: Not sure what this is doing
+    const className = createClassName('button-whatever', {
+      'button-true': isCorrect
+    })
+
     return (
       <React.Fragment>
-        {readOnly ? null : focused ? (
-          <div>
-            <button onClick={this.removeAnswer}>
-              Löschen {/* <FontAwesomeIcon icon={faTrashAlt} /> */}
+        {readOnly && focused ? (
+          <div
+            className={css({
+              float: 'right'
+            })}
+          >
+            <button
+              onClick={this.removeAnswer}
+              style={{ marginRight: '5px' }}
+              className="btn btn-default"
+            >
+              <FontAwesomeIcon icon={faTrashAlt} />
             </button>
             {isCorrect ? null : (
-              <button onClick={this.addFeedback}>
-                {feedback ? 'Feedback entfernen' : 'Feedback hinzufügen'}
+              <button onClick={this.addFeedback} className="btn btn-default">
+                {feedback ? (
+                  <span>
+                    <FontAwesomeIcon icon={faTrashAlt} /> Feedback
+                  </span>
+                ) : (
+                  <span>
+                    <FontAwesomeIcon icon={faPlus} /> Feedback
+                  </span>
+                )}
               </button>
             )}
           </div>
@@ -77,15 +100,15 @@ export default class SCButton extends Component {
             'btn',
             css({
               borderBottom: '3px solid transparent',
-              backgroundColor: selected
-                ? showFeedback
-                  ? isCorrect
-                    ? '#95bc1a'
-                    : '#f8f8f8'
-                  : '#d9edf7'
-                : '#f8f8f8',
-              margin: '5px',
+              backgroundColor: showFeedback
+                ? isCorrect
+                  ? '#95bc1a'
+                  : 'red'
+                : selected
+                  ? '#d9edf7'
+                  : '#f8f8f8',
               width: '100%',
+              margin: '5px 0 0',
               paddingLeft: '5px',
               paddingTop: '10px',
               boxShadow: 'none',

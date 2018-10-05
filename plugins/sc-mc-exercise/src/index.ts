@@ -1,11 +1,11 @@
 import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
 
-import SCExercise from './SCExercise'
-import plugin from './plugin'
+import { ScMcEditable } from './editable.component'
+import { plugin } from './plugin'
 
 export default {
   ...plugin,
-  Component: SCExercise,
+  Component: ScMcEditable,
   text: 'Single Choice Aufgabe',
   createInitialState: () => ({
     type: 'multiple',

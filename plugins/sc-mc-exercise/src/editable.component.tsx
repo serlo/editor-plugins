@@ -3,15 +3,17 @@ import {
   createEditableIdentifier
 } from '@splish-me/editor-core/lib/editable.component'
 import * as React from 'react'
-import Display from './Display'
-import SCButton from './Button/SCButton'
-import { Feedback } from './Feedback'
+import { ScMcRenderer } from './renderer.component'
+import { ScMcChoice } from './choice.component'
+import { ScMcFeedback } from './feedback.component'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { renderIntoSidebar } from '@splish-me/editor-ui/lib/plugin-sidebar.component'
 import Dropdown from '@splish-me/editor-ui/lib/sidebar-elements/dropdown'
 import * as R from 'ramda'
 import { css } from 'emotion'
 
-export default class SCEXercise extends React.Component {
+export class ScMcEditable extends React.Component {
   handleCheckboxChange = index => event => {
     const target = event.target
     const value = target.checked
@@ -80,13 +82,18 @@ export default class SCEXercise extends React.Component {
             )
           : null}
         {readOnly ? (
-          <Display {...this.props} />
+          <ScMcRenderer {...this.props} />
         ) : (
           <React.Fragment>
             <hr />
             {answers.map((answer, index) => {
               return (
-                <div key={index}>
+                <div
+                  className={css({
+                    marginBottom: '10px'
+                  })}
+                  key={index}
+                >
                   <label className="float">
                     richtige Antwort
                     {isSingleChoice ? (
@@ -107,7 +114,7 @@ export default class SCEXercise extends React.Component {
                     )}
                   </label>
 
-                  <SCButton
+                  <ScMcChoice
                     removeButton={this.removeButton}
                     key={index}
                     index={index}
@@ -116,11 +123,11 @@ export default class SCEXercise extends React.Component {
                     {...this.props}
                   >
                     <Editable id={answer.id} />
-                  </SCButton>
+                  </ScMcChoice>
                   {answer.feedback ? (
-                    <Feedback>
+                    <ScMcFeedback>
                       <Editable id={answer.feedback} />
-                    </Feedback>
+                    </ScMcFeedback>
                   ) : null}
                 </div>
               )
@@ -135,7 +142,6 @@ export default class SCEXercise extends React.Component {
                 onClick={this.addButton}
                 className={css({
                   borderRadius: '50%',
-                  fontSize: '20px',
                   outline: 'none',
                   width: '35px',
                   height: '35px',
@@ -143,7 +149,7 @@ export default class SCEXercise extends React.Component {
                   margin: 'auto'
                 })}
               >
-                +
+                <FontAwesomeIcon icon={faPlus} />
               </button>
             </div>
           </React.Fragment>

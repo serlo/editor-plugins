@@ -1,7 +1,7 @@
 import { css } from 'emotion'
-import React, { Component } from 'react'
+import * as React from 'react'
 
-export class Feedback extends Component {
+export class ScMcFeedback extends React.Component {
   render() {
     return (
       <React.Fragment>

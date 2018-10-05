@@ -23,8 +23,13 @@
     "ci": "npm-run-all ci:*",
     "ci:types": "tsc --noEmit"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.4",
+    "@fortawesome/free-solid-svg-icons": "^5.3.1",
+    "@fortawesome/react-fontawesome": "^0.1.3"
+  },
   "devDependencies": {
+    "@types/ramda": "^0.25.39",
     "rimraf": "^2.6.2"
   },
   "peerDependencies": {

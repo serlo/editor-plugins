@@ -1,36 +1,64 @@
 import { Editable } from '@splish-me/editor-core/lib/editable.component'
 import * as React from 'react'
 import * as R from 'ramda'
-import SCButton from '../Button/SCButton'
 import { css } from 'emotion'
-import { Feedback } from '../Feedback'
 
-export default class Display extends React.Component {
-  constructor(props) {
+import { ScMcChoice } from './choice.component'
+import { ScMcFeedback } from './feedback.component'
+
+export interface ScMcRendererProps {
+  state: { answers: unknown[] }
+}
+
+interface ScMcRendererState {
+  buttons: unknown[]
+  globalFeedback: string
+}
+
+export class ScMcRenderer extends React.Component<
+  ScMcRendererProps,
+  ScMcRendererState
+> {
+  constructor(props: ScMcRendererProps) {
     super(props)
     const { answers } = props.state
     this.state = {
       buttons: answers.map((_answer, _index) => {
-        return false
+        return {
+          selected: false,
+          showFeedback: false
+        }
       }),
-      showFeedback: false,
       globalFeedback: ''
     }
   }
   selectButton = SelectedIndex => () => {
     const { state } = this.props
-    const { isSingleChoice } = state
+    const { isSingleChoice, answers } = state
+    const { isCorrect } = answers[selectedIndex]
+
     if (isSingleChoice) {
       this.setState({
-        showFeedback: false,
-        buttons: this.state.buttons.map((_button, index) => {
-          return index === SelectedIndex
+        buttons: this.state.buttons.map((button, index) => {
+          return {
+            selected: index === SelectedIndex,
+            showFeedback: button.showFeedback
+          }
         })
       })
     } else {
+      if (isCorrect && this.state.buttons[selectedIndex].showFeedback) {
+        return
+      }
       this.setState({
-        buttons: R.adjust(R.not, SelectedIndex, this.state.buttons),
-        showFeedback: false,
+        buttons: R.adjust(
+          button => ({
+            selected: button.showFeedback || !button.selected,
+            showFeedback: button.showFeedback
+          }),
+          SelectedIndex,
+          this.state.buttons
+        ),
         globalFeedback: ''
       })
     }
@@ -42,27 +70,34 @@ export default class Display extends React.Component {
     const { state } = this.props
     const { answers } = state
     for (let i = 0; i < this.state.buttons.length; i++) {
-      if (answers[i].isCorrect && !this.state.buttons[i]) {
+      if (answers[i].isCorrect && !this.state.buttons[i].selected) {
         missingSolutions++
         mistakes++
       }
-      if (!answers[i].isCorrect && this.state.buttons[i]) {
+      if (!answers[i].isCorrect && this.state.buttons[i].selected) {
         mistakes++
       }
     }
+    const nextButtonStates = this.state.buttons.map((button, i) => ({
+      selected: button.selected && answers[i].isCorrect,
+      showFeedback: button.selected
+    }))
     if (mistakes === 0)
       this.setState({
         showFeedback: true,
+        buttons: nextButtonStates,
         globalFeedback: 'Sehr gut!'
       })
     else if (mistakes === missingSolutions)
       this.setState({
         showFeedback: true,
+        buttons: nextButtonStates,
         globalFeedback: 'Fast! Dir fehlt noch mindestens eine richtige Antwort'
       })
     else
       this.setState({
         showFeedback: true,
+        buttons: nextButtonStates,
         globalFeedback: 'Das stimmt so leider nicht.'
       })
   }
@@ -75,36 +110,36 @@ export default class Display extends React.Component {
         {answers.map((answer, index) => {
           return (
             <React.Fragment key={index}>
-              <SCButton
+              <ScMcChoice
                 index={index}
                 onClick={this.selectButton(index)}
-                selected={this.state.buttons[index]}
-                showFeedback={this.state.showFeedback}
+                selected={this.state.buttons[index].selected}
+                showFeedback={this.state.buttons[index].showFeedback}
                 {...this.props}
               >
                 <Editable id={answer.id} />
-              </SCButton>
-              {this.state.buttons[index] && this.state.showFeedback ? (
+              </ScMcChoice>
+              {this.state.buttons[index].showFeedback ? (
                 answer.feedback ? (
-                  <Feedback>
+                  <ScMcFeedback>
                     <Editable id={answer.feedback} />
-                  </Feedback>
+                  </ScMcFeedback>
                 ) : answer.isCorrect ? null : (
-                  <Feedback>
+                  <ScMcFeedback>
                     Leider falsch! versuche es doch noch einmal!
-                  </Feedback>
+                  </ScMcFeedback>
                 )
               ) : null}
             </React.Fragment>
           )
         })}
         {this.state.showFeedback ? (
-          <Feedback
+          <ScMcFeedback
             boxFree
             isTrueAnswer={this.state.globalFeedback === 'Sehr gut!'}
           >
             {this.state.globalFeedback}
-          </Feedback>
+          </ScMcFeedback>
         ) : null}
         <button
           className={css({ float: 'right', margin: '10px 0px' })}
