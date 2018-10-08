@@ -6,13 +6,26 @@ import { css } from 'emotion'
 import { ScMcChoice } from './choice.component'
 import { ScMcFeedback } from './feedback.component'
 
+export interface Answer {
+  isCorrect: boolean
+  feedback: React.ReactNode
+}
+export interface Button {
+  selected: boolean
+  showFeedback: boolean
+}
 export interface ScMcRendererProps {
-  state: { answers: unknown[] }
+  state: {
+    answers: Answer[]
+    isSingleChoice: boolean
+  }
 }
 
 interface ScMcRendererState {
-  buttons: unknown[]
+  buttons: Button[]
   globalFeedback: string
+  showGlobalFeedback: boolean
+  isCorrect: boolean
 }
 
 export class ScMcRenderer extends React.Component<
@@ -21,133 +34,158 @@ export class ScMcRenderer extends React.Component<
 > {
   constructor(props: ScMcRendererProps) {
     super(props)
-    const { answers } = props.state
     this.state = {
-      buttons: answers.map((_answer, _index) => {
+      buttons: props.state.answers.map(() => {
         return {
           selected: false,
           showFeedback: false
         }
       }),
-      globalFeedback: ''
+      globalFeedback: '',
+      showGlobalFeedback: false,
+      isCorrect: false
     }
   }
-  selectButton = SelectedIndex => () => {
-    const { state } = this.props
-    const { isSingleChoice, answers } = state
-    const { isCorrect } = answers[selectedIndex]
+
+  public render() {
+    return (
+      <React.Fragment>
+        {this.props.state.answers.map(this.showAnswer)}
+        {this.showGlobalFeedback()}
+        {this.showSubmitButton()}
+      </React.Fragment>
+    )
+  }
+  private showAnswer = (answer: Answer, index: number): React.ReactNode => {
+    const button = this.state.buttons[index]
+    return (
+      <React.Fragment key={index}>
+        {/* Fixme: pass showFeedback */}
+        <ScMcChoice
+          index={index}
+          onClick={this.selectButton(index)}
+          {...button}
+          {...this.props}
+        >
+          <Editable id={answer.id} />
+        </ScMcChoice>
+        {this.showFeedback({ button, answer })}
+      </React.Fragment>
+    )
+  }
+
+  private showFeedback({
+    answer,
+    button
+  }: {
+    answer: Answer
+    button: Button
+  }): React.ReactNode {
+    if (!button.showFeedback) {
+      return null
+    }
+    if (answer.feedback) {
+      return (
+        <ScMcFeedback>
+          <Editable id={answer.feedback} />
+        </ScMcFeedback>
+      )
+    }
+    if (answer.isCorrect) {
+      return null
+    }
+    return (
+      <ScMcFeedback>Leider falsch! versuche es doch noch einmal!</ScMcFeedback>
+    )
+  }
+  private showGlobalFeedback(): React.ReactNode {
+    const { showGlobalFeedback, globalFeedback, isCorrect } = this.state
+    if (showGlobalFeedback) {
+      return (
+        <ScMcFeedback boxFree isTrueAnswer={isCorrect}>
+          {globalFeedback}
+        </ScMcFeedback>
+      )
+    }
+    return null
+  }
+
+  private showSubmitButton(): React.ReactNode {
+    return (
+      <button
+        className={css({ float: 'right', margin: '10px 0px' })}
+        onClick={this.submitAnswer}
+      >
+        Submit
+      </button>
+    )
+  }
+
+  submitAnswer = () => {
+    const { buttons } = this.state
+    const { answers } = this.props.state
+    const temp = R.zip(buttons, answers)
+    const mistakes = R.reduce(
+      (acc, [button, answer]) => {
+        return acc + (answer.isCorrect !== button.selected ? 1 : 0)
+      },
+      0,
+      temp
+    )
+    const missingSolutions = R.reduce(
+      (acc, [button, answer]) => {
+        return acc + (answer.isCorrect && !button.selected ? 1 : 0)
+      },
+      0,
+      temp
+    )
+
+    const nextButtonStates = buttons.map((button, i) => ({
+      selected: button.selected && answers[i].isCorrect,
+      showFeedback: button.selected
+    }))
+
+    this.setState({
+      showGlobalFeedback: true,
+      buttons: nextButtonStates,
+      globalFeedback: this.getGlobalFeedback({ mistakes, missingSolutions })
+    })
+  }
+
+  selectButton = (selectedIndex: number) => () => {
+    const { isSingleChoice } = this.props.state
+    const { buttons } = this.state
 
     if (isSingleChoice) {
       this.setState({
-        buttons: this.state.buttons.map((button, index) => {
-          return {
-            selected: index === SelectedIndex,
-            showFeedback: button.showFeedback
-          }
+        buttons: buttons.map((button, index) => {
+          return R.assoc('selected', index === selectedIndex, button)
         })
       })
     } else {
-      if (isCorrect && this.state.buttons[selectedIndex].showFeedback) {
-        return
-      }
       this.setState({
         buttons: R.adjust(
-          button => ({
-            selected: button.showFeedback || !button.selected,
-            showFeedback: button.showFeedback
-          }),
-          SelectedIndex,
-          this.state.buttons
+          button => R.assoc('selected', !button.selected, button),
+          selectedIndex,
+          buttons
         ),
         globalFeedback: ''
       })
     }
   }
-
-  submitAnswer = () => {
-    let mistakes = 0
-    let missingSolutions = 0
-    const { state } = this.props
-    const { answers } = state
-    for (let i = 0; i < this.state.buttons.length; i++) {
-      if (answers[i].isCorrect && !this.state.buttons[i].selected) {
-        missingSolutions++
-        mistakes++
-      }
-      if (!answers[i].isCorrect && this.state.buttons[i].selected) {
-        mistakes++
-      }
+  private getGlobalFeedback({
+    mistakes,
+    missingSolutions
+  }: {
+    mistakes: number
+    missingSolutions: number
+  }): string {
+    if (mistakes === 0) {
+      return 'Sehr gut!'
+    } else if (mistakes === missingSolutions) {
+      return 'Fast! Dir fehlt noch mindestens eine richtige Antwort'
+    } else {
+      return 'Das stimmt so leider nicht.'
     }
-    const nextButtonStates = this.state.buttons.map((button, i) => ({
-      selected: button.selected && answers[i].isCorrect,
-      showFeedback: button.selected
-    }))
-    if (mistakes === 0)
-      this.setState({
-        showFeedback: true,
-        buttons: nextButtonStates,
-        globalFeedback: 'Sehr gut!'
-      })
-    else if (mistakes === missingSolutions)
-      this.setState({
-        showFeedback: true,
-        buttons: nextButtonStates,
-        globalFeedback: 'Fast! Dir fehlt noch mindestens eine richtige Antwort'
-      })
-    else
-      this.setState({
-        showFeedback: true,
-        buttons: nextButtonStates,
-        globalFeedback: 'Das stimmt so leider nicht.'
-      })
-  }
-  render() {
-    const { state } = this.props
-    const { answers } = state
-    return (
-      <React.Fragment>
-        <hr />
-        {answers.map((answer, index) => {
-          return (
-            <React.Fragment key={index}>
-              <ScMcChoice
-                index={index}
-                onClick={this.selectButton(index)}
-                selected={this.state.buttons[index].selected}
-                showFeedback={this.state.buttons[index].showFeedback}
-                {...this.props}
-              >
-                <Editable id={answer.id} />
-              </ScMcChoice>
-              {this.state.buttons[index].showFeedback ? (
-                answer.feedback ? (
-                  <ScMcFeedback>
-                    <Editable id={answer.feedback} />
-                  </ScMcFeedback>
-                ) : answer.isCorrect ? null : (
-                  <ScMcFeedback>
-                    Leider falsch! versuche es doch noch einmal!
-                  </ScMcFeedback>
-                )
-              ) : null}
-            </React.Fragment>
-          )
-        })}
-        {this.state.showFeedback ? (
-          <ScMcFeedback
-            boxFree
-            isTrueAnswer={this.state.globalFeedback === 'Sehr gut!'}
-          >
-            {this.state.globalFeedback}
-          </ScMcFeedback>
-        ) : null}
-        <button
-          className={css({ float: 'right', margin: '10px 0px' })}
-          onClick={this.submitAnswer}
-        >
-          Submit
-        </button>
-      </React.Fragment>
-    )
   }
 }

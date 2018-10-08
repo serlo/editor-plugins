@@ -1,12 +1,22 @@
-import createClassName from 'classnames'
 import * as R from 'ramda'
 import * as React from 'react'
 import { css, cx } from 'emotion'
 import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { Answer } from './renderer.component'
 
-export class ScMcChoice extends React.Component {
+export interface ChoiceProps {
+  index: number
+  state: { answers: Answer[] }
+  onChange: (o: any) => null
+  readOnly: boolean
+  onClick: (event: any) => null
+  selected: boolean
+  showFeedback: boolean
+  focused: boolean
+}
+export class ScMcChoice extends React.Component<ChoiceProps> {
   handleCheckboxChange = event => {
     const target = event.target
 
@@ -56,14 +66,8 @@ export class ScMcChoice extends React.Component {
       showFeedback,
       focused
     } = this.props
-
     // FIXME:
     const { isCorrect, feedback } = state.answers[index]
-
-    // TODO: Not sure what this is doing
-    const className = createClassName('button-whatever', {
-      'button-true': isCorrect
-    })
 
     return (
       <React.Fragment>
@@ -114,11 +118,14 @@ export class ScMcChoice extends React.Component {
               boxShadow: 'none',
               transition: 'background-color 0.5s ease',
               '&:hover': {
-                borderBottom: '3px solid #d9edf7'
-              }
+                borderBottom:
+                  isCorrect && showFeedback ? undefined : '3px solid #d9edf7'
+              },
+              cursor:
+                isCorrect && showFeedback ? 'default !important' : undefined
             })
           )}
-          onClick={onClick}
+          onClick={isCorrect && showFeedback ? null : onClick}
         >
           {children}
         </div>
