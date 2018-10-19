@@ -1,4 +1,3 @@
-import pluginFactory from './plugins'
 import blockquote from '@serlo-org/editor-plugin-blockquote'
 import divider from '@splish-me/editor-plugin-divider'
 import geogebra from '@serlo-org/editor-plugin-geogebra'
@@ -13,6 +12,7 @@ import spoiler from '@serlo-org/editor-plugin-spoiler'
 import table from '@serlo-org/editor-plugin-table'
 import textfield from '@serlo-org/editor-plugin-input-exercise'
 
+import pluginFactory from './plugins'
 import { slatePlugin } from './slate'
 
 const pluginMapping = {

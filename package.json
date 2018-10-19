@@ -1,8 +1,9 @@
 {
   "name": "@serlo-org/ory-editor-plugins-workspace",
   "workspaces": [
-    "plugins/*",
-    "htmlRenderer"
+    "config",
+    "htmlRenderer",
+    "plugins/*"
   ],
   "dependencies": {
     "@babel/runtime": "^7.0.0",

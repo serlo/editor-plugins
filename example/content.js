@@ -1,4 +1,4 @@
-import { slatePlugin } from '@serlo-org/editor-plugins/src/slate'
+import { slatePlugin } from '@serlo-org/editor-plugins/slate'
 import * as R from 'ramda'
 
 const preContent = {
