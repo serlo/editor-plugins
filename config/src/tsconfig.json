@@ -30,6 +30,9 @@
         "./plugins/input-exercise/src/*"
       ],
       "@serlo-org/editor-plugin-license/*": ["./plugins/license/src/*"],
+      "@serlo-org/editor-plugin-matching-exercise/*": [
+        "./plugins/matching-exercise/src/*"
+      ],
       "@serlo-org/editor-plugin-sc-mc-exercise/*": [
         "./plugins/sc-mc-exercise/src/*"
       ],

@@ -1,19 +1,20 @@
 import blockquote from '@serlo-org/editor-plugin-blockquote/index.render'
-import divider from '@splish-me/editor-plugin-divider'
 import geogebra from '@serlo-org/editor-plugin-geogebra/index.render'
 import hint from '@serlo-org/editor-plugin-hint/index.render'
-import image from '@splish-me/editor-plugin-image'
 import injection from '@serlo-org/editor-plugin-injection'
+import textfield from '@serlo-org/editor-plugin-input-exercise/index.render'
 import license from '@serlo-org/editor-plugin-license/index.render'
+import matchingExercise from '@serlo-org/editor-plugin-matching-exercise/index.render'
 import scMcExercise from '@serlo-org/editor-plugin-sc-mc-exercise/index.render'
 import solution from '@serlo-org/editor-plugin-solution/index.render'
-import spacer from '@splish-me/editor-plugin-spacer'
 import spoiler from '@serlo-org/editor-plugin-spoiler/index.render'
 import table from '@serlo-org/editor-plugin-table/index.render'
-import textfield from '@serlo-org/editor-plugin-input-exercise/index.render'
+import divider from '@splish-me/editor-plugin-divider'
+import image from '@splish-me/editor-plugin-image'
+import spacer from '@splish-me/editor-plugin-spacer'
 
 import pluginFactory from './plugins'
-import { slateRenderPlugin } from './slate.render'
+import {slateRenderPlugin} from './slate.render'
 
 const pluginMapping = {
   blockquote: blockquote,
@@ -23,6 +24,7 @@ const pluginMapping = {
   image: image,
   injection: injection,
   license: license,
+  matchingExercise: matchingExercise,
   scMcExercise: scMcExercise,
   slate: slateRenderPlugin,
   solution: solution,

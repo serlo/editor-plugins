@@ -1,6 +1,12 @@
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 
+import {
+  createStateForContentPlugin,
+  renderEditable,
+  renderHTMLRenderer
+} from '../../../.storybook/helpers'
+import plugin from '../src'
 import { MatchingExerciseRenderer } from '../src/renderer.component'
 
 storiesOf('Matching Exercise/Renderer', module)
@@ -20,3 +26,8 @@ storiesOf('Matching Exercise/Renderer', module)
       />
     )
   })
+storiesOf('Matching Exercise', module).add('Editable (initial state)', () => {
+  const content = createStateForContentPlugin({ plugin })
+
+  return renderEditable(content)
+})

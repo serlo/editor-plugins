@@ -1,6 +1,8 @@
 import { css } from 'emotion'
 import * as React from 'react'
-import { Droppable, Draggable, DragDropContext } from 'react-beautiful-dnd'
+import { DragDropContext } from 'react-beautiful-dnd'
+import { Block } from './types'
+import { Column } from './column.component'
 
 export interface State {
   leftSide: number[]
@@ -59,76 +61,10 @@ interface MatchingExerciseRendererProps {
   blockContent: Array<React.ReactNode>
 }
 
-interface Block {
-  id: string
-  block: number
-  content: React.ReactNode
-}
-
 interface MatchingExerciseRendererState {
   leftSide: Block[]
   rightSide: Block[]
   stack: Block[]
-}
-
-class Column extends React.Component<{
-  id: string
-  blocks: Block[]
-}> {
-  public render() {
-    const { id, blocks, title } = this.props
-
-    return (
-      <React.Fragment>
-        <Droppable droppableId={id} direction="vertical">
-          {provided => {
-            return (
-              <div
-                className={css`
-                  background: red;
-                  width: 33.33%;
-                  margin: 10px;
-                `}
-                ref={provided.innerRef}
-                {...provided.droppableProps}
-              >
-                <strong>{title}</strong>
-                {blocks.map((block, index) => {
-                  return (
-                    <Draggable
-                      key={block.id}
-                      draggableId={block.id.toString()}
-                      index={index}
-                    >
-                      {provided => {
-                        return (
-                          <div
-                            className={css`
-                              background: green;
-                              margin: 5px;
-                              padding: 5px;
-                              color: white;
-                              text-align: center;
-                            `}
-                            ref={provided.innerRef}
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                          >
-                            {block.content}
-                          </div>
-                        )
-                      }}
-                    </Draggable>
-                  )
-                })}
-                {provided.placeholder}
-              </div>
-            )
-          }}
-        </Droppable>
-      </React.Fragment>
-    )
-  }
 }
 
 export class MatchingExerciseRenderer extends React.Component<
@@ -226,9 +162,9 @@ export class MatchingExerciseRenderer extends React.Component<
               div.style = `height: ${div.clientHeight}px`
             }}
           >
+            <Column id="stack" blocks={stack} />
             <Column id="leftSide" blocks={leftSide} title="Funktion" />
             <Column id="rightSide" blocks={rightSide} title="Ableitung" />
-            <Column id="stack" blocks={stack} />
           </div>
         </DragDropContext>
         <button
