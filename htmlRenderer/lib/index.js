@@ -7,9 +7,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.HtmlRenderer = void 0;
 
-var React = _interopRequireWildcard(require("react"));
-
 var _renderer = require("@splish-me/editor-core/lib/renderer.component");
+
+var React = _interopRequireWildcard(require("react"));
 
 var gridClass = function gridClass() {
   var size = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 12;

@@ -1,0 +1,37 @@
+{
+  "name": "@serlo-org/editor-plugin-equations",
+  "version": "0.0.0",
+  "bugs": {
+    "url": "https://github.com/serlo-org/ory-editor-plugins/issues"
+  },
+  "author": "Serlo Education e.V.",
+  "license": "Apache-2.0",
+  "main": "./lib/index.js",
+  "files": [
+    "./lib",
+    "./src",
+    "babel.config.js",
+    "tsconfig.json"
+  ],
+  "repository": "serlo-org/ory-editor-plugins",
+  "scripts": {
+    "prebuild": "rimraf lib",
+    "build": "npm-run-all build:*",
+    "build:javascript": "babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
+    "ci": "npm-run-all ci:*",
+    "ci:types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react-beautiful-dnd": "^9.0.2"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "@splish-me/editor-ui": "^0.0.0",
+    "@splish-me/ory-editor-core": "^0.0.3",
+    "react": "^16.4.2",
+    "react-dom": "^16.3.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
