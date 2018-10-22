@@ -2,16 +2,14 @@ import * as R from 'ramda'
 import * as React from 'react'
 import {
   Editable,
-  EditableIdentifier,
   createEditableIdentifier
 } from '@splish-me/editor-core/lib/editable.component'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faMinus, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { css, cx } from 'emotion'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
 import { Equations, EquationsProps } from './equations.component'
-import { stat } from 'fs'
 
 export class EquationsEditable extends React.Component<EquationsProps> {
   addButton = () => {
@@ -37,7 +35,7 @@ export class EquationsEditable extends React.Component<EquationsProps> {
 
   public render() {
     const { readOnly, state } = this.props
-
+    console.log(state)
     if (!readOnly) {
       return (
         <React.Fragment>
@@ -82,36 +80,39 @@ export class EquationsEditable extends React.Component<EquationsProps> {
                                 {...provided.draggableProps}
                                 {...provided.dragHandleProps}
                               >
-                                {step.explanation === undefined ? null : (
-                                  <div className="col-xs-12">
-                                    <button
-                                      onClick={this.removeButton(index)}
-                                      className={css({
-                                        borderRadius: '50%',
-                                        outline: 'none',
-                                        width: '35px',
-                                        height: '35px',
-                                        border: 'none',
-                                        float: 'right',
-                                        background: 'transparent',
-                                        position: 'relative',
-                                        top: '-15px',
-                                        right: '-30px'
-                                      })}
-                                    >
-                                      <FontAwesomeIcon icon={faTimes} />
-                                    </button>
-                                    <strong>Explanation</strong>
-                                    <div
-                                      className={css({
-                                        cursor: 'auto',
-                                        background: '#fff'
-                                      })}
-                                    >
-                                      <Editable id={step.explanation} />
-                                    </div>
-                                  </div>
-                                )}
+                                <div className="col-xs-12">
+                                  <button
+                                    onClick={this.removeButton(index)}
+                                    className={css({
+                                      borderRadius: '50%',
+                                      outline: 'none',
+                                      width: '35px',
+                                      height: '35px',
+                                      border: 'none',
+                                      float: 'right',
+                                      background: 'transparent',
+                                      position: 'relative',
+                                      top: '-15px',
+                                      right: '-30px'
+                                    })}
+                                  >
+                                    <FontAwesomeIcon icon={faTimes} />
+                                  </button>
+                                  {step.type === 'step' ? (
+                                    <React.Fragment>
+                                      <strong>Explanation</strong>
+                                      <div
+                                        className={css({
+                                          cursor: 'auto',
+                                          background: '#fff'
+                                        })}
+                                      >
+                                        <Editable id={step.explanation} />
+                                      </div>
+                                    </React.Fragment>
+                                  ) : null}
+                                </div>
+
                                 <div className="col-xs-12">
                                   <strong>Content</strong>
                                   <div

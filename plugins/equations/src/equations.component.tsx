@@ -6,12 +6,70 @@ import * as R from 'ramda'
 import * as React from 'react'
 
 export interface Step {
+  type: 'step'
   content: EditableIdentifier
-  explanation?: EditableIdentifier
+  explanation: EditableIdentifier
+}
+
+export interface Content {
+  type: 'content'
+  content: EditableIdentifier
+}
+
+interface OneCol {
+  type: '1-col'
+  content: EditableIdentifier
+}
+
+interface TwoCols {
+  type: '2-cols'
+  content: [EditableIdentifier, EditableIdentifier | undefined]
+}
+
+const getExplanation = (
+  step: Content | Step
+): EditableIdentifier | undefined => {
+  if (step.type === 'step') {
+    return step.explanation
+  }
+
+  return undefined
+}
+
+const makeRows = (steps: Array<Content | Step>): Array<OneCol | TwoCols> => {
+  let pendingContent: EditableIdentifier | undefined = undefined
+  const ret: Array<OneCol | TwoCols> = []
+
+  steps.forEach(step => {
+    if (pendingContent) {
+      ret.push({
+        type: '2-cols',
+        content: [pendingContent, getExplanation(step)]
+      })
+    }
+
+    if ((!pendingContent && step.type === 'step') || step.type === 'content') {
+      ret.push({
+        type: '1-col',
+        content: step.type === 'step' ? step.explanation : step.content
+      })
+    }
+
+    pendingContent = step.type === 'step' ? step.content : undefined
+  })
+
+  if (pendingContent) {
+    ret.push({
+      type: '2-cols',
+      content: [pendingContent, undefined]
+    })
+  }
+
+  return ret
 }
 
 export interface EquationsProps {
-  state: { steps: Array<Step> }
+  state: { steps: Array<Step | Content> }
 }
 
 export interface EquationsState {
@@ -28,19 +86,20 @@ enum Phase {
   height = 3
 }
 
-export class Equations extends React.Component<EquationsProps> {
+export class Equations extends React.Component<EquationsProps, EquationsState> {
   private calculateLayout() {
+    const rows = makeRows(this.props.state.steps)
+
     this.setState({
-      iteration: (this.state.iteration || 0) + 1,
       phase: Phase.hiddenRender,
-      width: this.props.state.steps.map(() => {
+      width: rows.map(() => {
         return undefined
       }),
-      contentHeight: this.props.state.steps.map(() => {
+      contentHeight: rows.map(() => {
         return undefined
       }),
       explanationHeight: R.init(
-        this.props.state.steps.map(() => {
+        rows.map(() => {
           return undefined
         })
       )
@@ -60,42 +119,40 @@ export class Equations extends React.Component<EquationsProps> {
   }
   private renderHidden() {
     const { state } = this.props
-
-    const contents = state.steps.map(step => {
-      return step.content
-    })
-
-    const [firstExplanation, ...explanations] = state.steps.map(step => {
-      return step.explanation
-    })
-
-    const rows = R.zip(contents, [...explanations, undefined])
+    const rows = makeRows(state.steps)
 
     if (this.state.phase < Phase.hiddenRender) {
       return null
     }
     return (
-      <div key={this.state.iteration}>
-        {firstExplanation === undefined ? null : (
-          <div
-            // className="row"
-            style={{
-              visibility: this.state.phase < Phase.height ? 'hidden' : undefined
-            }}
-          >
-            <div>
-              <Editable id={firstExplanation} />
-            </div>
-          </div>
-        )}
+      <div>
         {rows.map((row, index) => {
+          if (row.type === '1-col') {
+            return (
+              <div
+                key={index}
+                // className="row"
+                style={{
+                  visibility:
+                    this.state.phase < Phase.height ? 'hidden' : undefined
+                }}
+              >
+                <div>
+                  <Editable id={row.content} />
+                </div>
+              </div>
+            )
+          }
+
           let column = false
           if (this.state.phase === Phase.height) {
             const diff =
               (this.state.explanationHeight[index] || 0) -
-              this.state.contentHeight[index]
+              (this.state.contentHeight[index] || 0)
             if (diff > 30) column = true
           }
+
+          console.log(this.state.width)
           return (
             <div
               key={index}
@@ -115,7 +172,8 @@ export class Equations extends React.Component<EquationsProps> {
                   width:
                     this.state.phase < Phase.maxWidth
                       ? 'auto'
-                      : R.reduce(R.max, 0, this.state.width) + 10
+                      : R.reduce(R.max, 0, this.state.width.filter(Boolean)) +
+                        10
                 }}
                 ref={ref => {
                   if (index === 0) {
@@ -145,9 +203,11 @@ export class Equations extends React.Component<EquationsProps> {
                         }
                       },
                       () => {
-                        const all = R.all(width => {
-                          return width !== undefined
-                        }, this.state.width)
+                        const all = this.state.width.every((width, index) => {
+                          return (
+                            width !== undefined || rows[index].type === '1-col'
+                          )
+                        })
 
                         if (all) {
                           this.setState(state => {
@@ -175,17 +235,25 @@ export class Equations extends React.Component<EquationsProps> {
                         }
                       },
                       () => {
-                        const all = R.all(
-                          contentHeight => {
-                            return contentHeight !== undefined
-                          },
-                          [
-                            ...this.state.contentHeight,
-                            ...this.state.explanationHeight
-                          ]
+                        const allContent = this.state.contentHeight.every(
+                          (contentHeight, index) => {
+                            return (
+                              contentHeight !== undefined ||
+                              rows[index].type === '1-col'
+                            )
+                          }
                         )
 
-                        if (all) {
+                        const allExplanations = this.state.explanationHeight.every(
+                          (explanationHeight, index) => {
+                            return (
+                              explanationHeight !== undefined ||
+                              rows[index].type === '1-col'
+                            )
+                          }
+                        )
+
+                        if (allContent && allExplanations) {
                           this.setState(state => {
                             if (state.phase < Phase.height) {
                               return { phase: Phase.height }
@@ -199,9 +267,9 @@ export class Equations extends React.Component<EquationsProps> {
                   }
                 }}
               >
-                <Editable id={row[0]} />
+                <Editable id={row.content[0]} />
               </div>
-              {row[1] === undefined ? null : (
+              {row.content[1] === undefined ? null : (
                 <div
                   ref={ref => {
                     if (!ref) {
@@ -223,17 +291,25 @@ export class Equations extends React.Component<EquationsProps> {
                           }
                         },
                         () => {
-                          const all = R.all(
-                            explanationHeight => {
-                              return explanationHeight !== undefined
-                            },
-                            [
-                              ...this.state.contentHeight,
-                              ...this.state.explanationHeight
-                            ]
+                          const allContent = this.state.contentHeight.every(
+                            (contentHeight, index) => {
+                              return (
+                                contentHeight !== undefined ||
+                                rows[index].type === '1-col'
+                              )
+                            }
                           )
 
-                          if (all) {
+                          const allExplanations = this.state.explanationHeight.every(
+                            (explanationHeight, index) => {
+                              return (
+                                explanationHeight !== undefined ||
+                                rows[index].type === '1-col'
+                              )
+                            }
+                          )
+
+                          if (allContent && allExplanations) {
                             this.setState(state => {
                               if (state.phase < Phase.height) {
                                 return { phase: Phase.height }
@@ -247,7 +323,7 @@ export class Equations extends React.Component<EquationsProps> {
                     }
                   }}
                 >
-                  <Editable id={row[1]} />
+                  <Editable id={row.content[1]} />
                 </div>
               )}
             </div>
@@ -259,35 +335,29 @@ export class Equations extends React.Component<EquationsProps> {
   public render() {
     const { state } = this.props
 
-    const contents = state.steps.map(step => {
-      return step.content
-    })
-
-    const [firstExplanation, ...explanations] = state.steps.map(step => {
-      return step.explanation
-    })
-
-    const rows = R.zip(contents, [...explanations, undefined])
+    const rows = makeRows(state.steps)
     return (
       <React.Fragment>
         {this.state.phase === Phase.noJS ? (
           <React.Fragment>
-            {firstExplanation === undefined ? null : (
-              <div className="row">
-                <div className="col-sm-12">
-                  <Editable id={firstExplanation} />
-                </div>
-              </div>
-            )}
             {rows.map((row, index) => {
+              if (row.type === '1-col') {
+                return (
+                  <div key={index} className="row">
+                    <div className="col-sm-12">
+                      <Editable id={row.content} />
+                    </div>
+                  </div>
+                )
+              }
               return (
                 <div key={index} className="row">
                   <div className="col-sm-12 col-md-6">
-                    <Editable id={row[0]} />
+                    <Editable id={row.content[0]} />
                   </div>
-                  {row[1] === undefined ? null : (
+                  {row.content[1] === undefined ? null : (
                     <div className="col-sm-12 col-md-6">
-                      <Editable id={row[1]} />
+                      <Editable id={row.content[1]} />
                     </div>
                   )}
                 </div>

@@ -12,11 +12,14 @@ export default {
   text: 'Step by Step',
 
   createInitialState: (): EquationsProps['state'] => {
-    return { steps: [
-      {
-        content: createEditableIdentifier(),
-        explanation: createEditableIdentifier()
-      }
-    ]}
+    return {
+      steps: [
+        {
+          type: 'step',
+          content: createEditableIdentifier(),
+          explanation: createEditableIdentifier()
+        }
+      ]
+    }
   }
 }

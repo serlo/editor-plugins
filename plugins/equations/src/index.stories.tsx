@@ -9,9 +9,28 @@ import {
   renderHTMLRenderer
 } from '../../../.storybook/helpers'
 import plugin from '.'
+import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
 storiesOf('Equations', module)
   .add('Editable (initial state)', () => {
     const content = createStateForContentPlugin({ plugin })
+
+    return renderEditable(content)
+  })
+
+  .add('Editable mit content', () => {
+    const content = createStateForContentPlugin({
+      plugin,
+      initialState: {
+        steps: [
+          { type: 'content', content: createEditableIdentifier() },
+          {
+            type: 'step',
+            content: createEditableIdentifier(),
+            explanation: createEditableIdentifier()
+          }
+        ]
+      }
+    })
 
     return renderEditable(content)
   })
