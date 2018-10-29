@@ -20,7 +20,8 @@ export class EquationsEditable extends React.Component<EquationsProps> {
         ...state.steps,
         {
           content: createEditableIdentifier(),
-          explanation: createEditableIdentifier()
+          explanation: createEditableIdentifier(),
+          type: 'step'
         }
       ]
     })
@@ -98,20 +99,57 @@ export class EquationsEditable extends React.Component<EquationsProps> {
                                   >
                                     <FontAwesomeIcon icon={faTimes} />
                                   </button>
-                                  {step.type === 'step' ? (
-                                    <React.Fragment>
-                                      <strong>Explanation</strong>
-                                      <div
-                                        className={css({
-                                          cursor: 'auto',
-                                          background: '#fff'
-                                        })}
-                                      >
-                                        <Editable id={step.explanation} />
-                                      </div>
-                                    </React.Fragment>
-                                  ) : null}
+                                  <form
+                                    onChange={event => {
+                                      const newSteps = [
+                                        ...this.props.state.steps
+                                      ]
+
+                                      const type = event.target.value
+                                      newSteps[index] = {
+                                        type,
+                                        content: newSteps[index].content,
+                                        explanation:
+                                          type === 'step'
+                                            ? createEditableIdentifier()
+                                            : undefined
+                                      }
+                                      this.props.onChange({ steps: newSteps })
+                                    }}
+                                  >
+                                    <label>
+                                      <input
+                                        type="radio"
+                                        name="type"
+                                        value="step"
+                                        defaultChecked={step.type === 'step'}
+                                      />
+                                      with Explanation
+                                    </label>
+                                    <label>
+                                      <input
+                                        type="radio"
+                                        name="type"
+                                        value="content"
+                                        defaultChecked={step.type === 'content'}
+                                      />
+                                      without Explanation
+                                    </label>
+                                  </form>
                                 </div>
+                                {step.type === 'step' ? (
+                                  <div className="col-xs-12">
+                                    <strong>Explanation</strong>
+                                    <div
+                                      className={css({
+                                        cursor: 'auto',
+                                        background: '#fff'
+                                      })}
+                                    >
+                                      <Editable id={step.explanation} />
+                                    </div>
+                                  </div>
+                                ) : null}
 
                                 <div className="col-xs-12">
                                   <strong>Content</strong>
