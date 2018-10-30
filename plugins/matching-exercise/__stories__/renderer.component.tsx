@@ -8,6 +8,7 @@ import {
 } from '../../../.storybook/helpers'
 import plugin from '../src'
 import { MatchingExerciseRenderer } from '../src/renderer.component'
+import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
 
 storiesOf('Matching Exercise/Renderer', module)
   .add('Funktion/Ableitung', () => {

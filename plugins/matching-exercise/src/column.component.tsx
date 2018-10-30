@@ -13,7 +13,7 @@ export interface ColumnProps {
 
 export class Column extends React.Component<ColumnProps> {
   public render() {
-    const { id, blocks, title } = this.props
+    const { id, blocks, title, children } = this.props
 
     return (
       <React.Fragment>
@@ -34,6 +34,7 @@ export class Column extends React.Component<ColumnProps> {
                   return <Block key={block.id} block={block} index={index} />
                 })}
                 {provided.placeholder}
+                {children}
               </div>
             )
           }}
