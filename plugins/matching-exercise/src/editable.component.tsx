@@ -10,15 +10,36 @@ import {
   Editable
 } from '@splish-me/editor-core/lib/editable.component'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 import Select from 'react-select'
+import { MatchingExerciseRenderer } from './renderer.component'
 
-interface MatchingExercisePluginState {
+export interface MatchingExercisePluginState {
   solution: Array<[number, number]>
   blockContent: Array<EditableIdentifier>
 }
 
 export class MatchingExerciseEditable extends React.Component {
+  removeButtonStack = rowIndex => () => {
+    const { onChange, state } = this.props
+
+    const newBlockContent = [...state.blockContent]
+    newBlockContent.splice(rowIndex, 1)
+
+    onChange({
+      blockContent: newBlockContent
+    })
+  }
+  removeButtonSolution = rowIndex => () => {
+    const { onChange, state } = this.props
+
+    const newSolution = [...state.solution]
+    newSolution.splice(rowIndex, 1)
+
+    onChange({
+      solution: newSolution
+    })
+  }
   addButtonStack = () => {
     const { onChange, state } = this.props
 
@@ -56,6 +77,7 @@ export class MatchingExerciseEditable extends React.Component {
 
   public render() {
     const { solution, blockContent } = this.props.state
+    const { readOnly } = this.props
     const stack: B[] = blockContent.map((id, index) => {
       const content = <Editable id={id} />
       return {
@@ -73,10 +95,43 @@ export class MatchingExerciseEditable extends React.Component {
     const leftSideTitle = 'Linke Seite'
     const rightSideTitle = 'Rechte Seite'
 
+    /*     if (readOnly) {
+      return <MatchingExerciseRenderer {...this.props} />
+    } */
     return (
       <DragDropContext>
         <div style={{ display: 'flex' }}>
-          <Column id="stack" blocks={stack}>
+          <Column
+            id="stack"
+            blocks={stack}
+            renderBlock={(block, index) => {
+              return (
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <div
+                    className={css({
+                      flexGrow: 1
+                    })}
+                  >
+                    {block}
+                  </div>
+                  <button
+                    onClick={this.removeButtonStack(index)}
+                    className={css({
+                      borderRadius: '50%',
+                      outline: 'none',
+                      width: '35px',
+                      height: '35px',
+                      border: 'none',
+                      display: 'block',
+                      margin: '5px'
+                    })}
+                  >
+                    <FontAwesomeIcon icon={faMinus} />
+                  </button>
+                </div>
+              )
+            }}
+          >
             <button
               onClick={this.addButtonStack}
               className={css({
@@ -95,13 +150,36 @@ export class MatchingExerciseEditable extends React.Component {
           <Column id="leftSide" blocks={[]} title={leftSideTitle}>
             {solution.map(([left, right], index) => {
               return (
-                <Select
+                <div
                   key={index}
-                  options={options}
-                  value={options[left]}
-                  onChange={this.leftSideChange(index)}
-                  getOptionLabel={option => `block-${option.value}`}
-                />
+                  style={{ display: 'flex', alignItems: 'center' }}
+                >
+                  <Select
+                    options={options}
+                    value={options[left]}
+                    onChange={this.leftSideChange(index)}
+                    getOptionLabel={option => `block-${option.value}`}
+                    className={css({
+                      flexGrow: 1,
+                      margin: '5px'
+                    })}
+                  />
+                  <button
+                    onClick={this.removeButtonSolution(index)}
+                    className={css({
+                      borderRadius: '50%',
+                      outline: 'none',
+                      width: '35px',
+                      height: '35px',
+                      border: 'none',
+                      display: 'block',
+                      margin: '5px',
+                      marginLeft: '0'
+                    })}
+                  >
+                    <FontAwesomeIcon icon={faMinus} />
+                  </button>
+                </div>
               )
             })}
             <button
@@ -122,13 +200,37 @@ export class MatchingExerciseEditable extends React.Component {
           <Column id="rightSide" blocks={[]} title={rightSideTitle}>
             {solution.map(([left, right], index) => {
               return (
-                <Select
+                <div
                   key={index}
-                  options={options}
-                  value={options[right]}
-                  onChange={this.rightSideChange(index)}
-                  getOptionLabel={option => `block-${option.value}`}
-                />
+                  style={{ display: 'flex', alignItems: 'center' }}
+                >
+                  <Select
+                    key={index}
+                    options={options}
+                    value={options[right]}
+                    onChange={this.rightSideChange(index)}
+                    getOptionLabel={option => `block-${option.value}`}
+                    className={css({
+                      flexGrow: 1,
+                      margin: '5px'
+                    })}
+                  />
+                  <button
+                    onClick={this.removeButtonSolution(index)}
+                    className={css({
+                      borderRadius: '50%',
+                      outline: 'none',
+                      width: '35px',
+                      height: '35px',
+                      border: 'none',
+                      display: 'block',
+                      margin: '5px',
+                      marginLeft: '0'
+                    })}
+                  >
+                    <FontAwesomeIcon icon={faMinus} />
+                  </button>
+                </div>
               )
             })}
             <button

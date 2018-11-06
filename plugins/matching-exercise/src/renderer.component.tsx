@@ -3,19 +3,31 @@ import * as React from 'react'
 import { DragDropContext } from 'react-beautiful-dnd'
 import { Block } from './types'
 import { Column } from './column.component'
+import {
+  MatchingExerciseEditable,
+  MatchingExercisePluginState
+} from './editable.component'
+import {
+  Editable,
+  EditableIdentifier
+} from '@splish-me/editor-core/lib/editable.component'
 
-export interface State {
-  leftSide: number[]
-  rightSide: number[]
-  stack: number[]
-  solution: Array<[number, number]>
-  // [leftSideIndex: number]: number
-  // }
+interface MatchingExerciseRendererProps {
+  state: MatchingExercisePluginState
 }
 
-export const isCorrect = (state: State) => {
+interface MatchingExerciseRendererState {
+  leftSide: Block[]
+  rightSide: Block[]
+  stack: Block[]
+}
+
+export const isCorrect = (
+  pluginState: MatchingExercisePluginState,
+  state: MatchingExerciseRendererState
+) => {
   let correct = true
-  const solutionCopy = [...state.solution]
+  const solutionCopy = [...pluginState.solution]
 
   if (state.leftSide.length !== state.rightSide.length) {
     return false
@@ -25,7 +37,7 @@ export const isCorrect = (state: State) => {
     const rightItem = state.rightSide[index]
 
     const found = solutionCopy.findIndex(pair => {
-      return pair[0] === leftItem && pair[1] === rightItem
+      return pair[0] === leftItem.block && pair[1] === rightItem.block
     })
 
     if (found < 0) {
@@ -41,30 +53,19 @@ export const isCorrect = (state: State) => {
 export const generateBlocks = ({
   solution,
   blockContent
-}: {
-  solution: State['solution']
-  blockContent: MatchingExerciseRendererProps['blockContent']
-}): string[] => {
+}: MatchingExercisePluginState): number[] => {
   const s = solution as Array<number[]>
-  const usedBlocks = ([] as number[]).concat(...s).map(block => {
-    return block.toString()
-  })
-  const unusedBlocks = Object.keys(blockContent).filter(block => {
-    return usedBlocks.indexOf(block) < 0
-  })
+  const usedBlocks = ([] as number[]).concat(...s)
+
+  const unusedBlocks = blockContent
+    .map((_content, block) => {
+      return block
+    })
+    .filter(block => {
+      return usedBlocks.indexOf(block) < 0
+    })
 
   return [...usedBlocks, ...unusedBlocks]
-}
-
-interface MatchingExerciseRendererProps {
-  solution: State['solution']
-  blockContent: Array<React.ReactNode>
-}
-
-interface MatchingExerciseRendererState {
-  leftSide: Block[]
-  rightSide: Block[]
-  stack: Block[]
 }
 
 export class MatchingExerciseRenderer extends React.Component<
@@ -74,15 +75,12 @@ export class MatchingExerciseRenderer extends React.Component<
   constructor(props: MatchingExerciseRendererProps) {
     super(props)
 
-    const blocks = generateBlocks({
-      solution: props.solution,
-      blockContent: props.blockContent
-    }).map((item, index) => {
+    const blocks = generateBlocks(props.state).map((item, index) => {
       return {
-        id: index,
+        id: `${index}`,
         // FIXME:
         block: item,
-        content: props.blockContent[item]
+        content: item //<Editable id={props.state.blockContent[item]} />
       }
     })
 
@@ -173,17 +171,7 @@ export class MatchingExerciseRenderer extends React.Component<
             color: silver;
           `}
           onClick={() => {
-            const correct = isCorrect({
-              solution: this.props.solution,
-              // TODO: should be unified
-              leftSide: this.state.leftSide.map(item =>
-                parseInt(item.block, 10)
-              ),
-              rightSide: this.state.rightSide.map(item =>
-                parseInt(item.block, 10)
-              ),
-              stack: this.state.stack.map(item => parseInt(item.block, 10))
-            })
+            const correct = isCorrect(this.props.state, this.state)
 
             alert(correct ? 'Richtig' : 'Falsch')
           }}

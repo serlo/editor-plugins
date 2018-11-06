@@ -9,11 +9,17 @@ export interface ColumnProps {
   id: string
   blocks: B[]
   title?: string
+  renderBlock: (block: React.ReactNode, index: number) => React.ReactNode
 }
 
 export class Column extends React.Component<ColumnProps> {
+  static defaultProps: Pick<ColumnProps, 'renderBlock'> = {
+    renderBlock: block => {
+      return block
+    }
+  }
   public render() {
-    const { id, blocks, title, children } = this.props
+    const { id, blocks, title, children, renderBlock } = this.props
 
     return (
       <React.Fragment>
@@ -31,7 +37,14 @@ export class Column extends React.Component<ColumnProps> {
               >
                 <strong>{title}</strong>
                 {blocks.map((block, index) => {
-                  return <Block key={block.id} block={block} index={index} />
+                  return (
+                    <React.Fragment key={block.id}>
+                      {renderBlock(
+                        <Block block={block} index={index} />,
+                        index
+                      )}
+                    </React.Fragment>
+                  )
                 })}
                 {provided.placeholder}
                 {children}
