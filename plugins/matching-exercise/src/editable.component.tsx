@@ -95,9 +95,10 @@ export class MatchingExerciseEditable extends React.Component {
     const leftSideTitle = 'Linke Seite'
     const rightSideTitle = 'Rechte Seite'
 
-    /*     if (readOnly) {
+    /* if (readOnly) {
       return <MatchingExerciseRenderer {...this.props} />
-    } */
+    }
+     */
     return (
       <DragDropContext>
         <div style={{ display: 'flex' }}>
