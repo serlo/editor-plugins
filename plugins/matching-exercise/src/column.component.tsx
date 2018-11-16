@@ -9,6 +9,7 @@ export interface ColumnProps {
   id: string
   blocks: B[]
   title?: string
+  check?: boolean[]
   renderBlock: (block: React.ReactNode, index: number) => React.ReactNode
 }
 
@@ -19,7 +20,7 @@ export class Column extends React.Component<ColumnProps> {
     }
   }
   public render() {
-    const { id, blocks, title, children, renderBlock } = this.props
+    const { id, blocks, title, children, renderBlock, check } = this.props
 
     return (
       <React.Fragment>
@@ -37,12 +38,19 @@ export class Column extends React.Component<ColumnProps> {
               >
                 <strong>{title}</strong>
                 {blocks.map((block, index) => {
+                  let feedback
+
+                  if (check) {
+                    feedback = check[index] ? 'Richtig' : 'Falsch'
+                  }
+
                   return (
                     <React.Fragment key={block.id}>
                       {renderBlock(
                         <Block block={block} index={index} />,
                         index
                       )}
+                      {feedback}
                     </React.Fragment>
                   )
                 })}

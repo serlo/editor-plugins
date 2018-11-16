@@ -1,87 +1,131 @@
-import { State, isCorrect, generateBlocks } from '../src/renderer.component'
+import { MatchingExerciseRendererState } from '../src/renderer.component'
+import {
+  generateBlocks,
+  createBlocks,
+  combineBlocks,
+  isCorrect
+} from '../src/helpers'
+import { MatchingExercisePluginState } from '../src/editable.component'
+import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
 
 describe('Matching Exercise: isCorrect', () => {
   test('empty state', () => {
-    const state: State = {
+    const pluginState: MatchingExercisePluginState = {
+      solution: [],
+      blockContent: []
+    }
+    const state: MatchingExerciseRendererState = {
       leftSide: [],
       rightSide: [],
-      stack: [],
-      solution: []
+      stack: []
     }
-
-    expect(isCorrect(state)).toEqual(true)
+    expect(isCorrect(pluginState, state)).toEqual(true)
   })
 
   test('one incorrect pair', () => {
-    const state: State = {
-      leftSide: [0],
-      rightSide: [1],
-      stack: [],
-      solution: []
+    const pluginState: MatchingExercisePluginState = {
+      solution: [],
+      blockContent: []
     }
-
-    expect(isCorrect(state)).toEqual(false)
+    const state: MatchingExerciseRendererState = {
+      leftSide: [createBlocks(0, 'left', pluginState)],
+      rightSide: [createBlocks(1, 'right', pluginState)],
+      stack: []
+    }
+    expect(isCorrect(pluginState, state)).toEqual(false)
   })
 
   test('one swapped pair', () => {
-    const state: State = {
-      leftSide: [1],
-      rightSide: [0],
-      stack: [],
-      solution: [[0, 1]]
+    const pluginState: MatchingExercisePluginState = {
+      solution: [[0, 1]],
+      blockContent: []
     }
-
-    expect(isCorrect(state)).toEqual(false)
+    const state: MatchingExerciseRendererState = {
+      leftSide: [createBlocks(1, 'left', pluginState)],
+      rightSide: [createBlocks(0, 'right', pluginState)],
+      stack: []
+    }
+    expect(isCorrect(pluginState, state)).toEqual(false)
   })
 
   test('one missing pair', () => {
-    const state: State = {
+    const pluginState: MatchingExercisePluginState = {
+      solution: [[0, 1]],
+      blockContent: []
+    }
+    const state: MatchingExerciseRendererState = {
       leftSide: [],
       rightSide: [],
-      stack: [0, 1],
-      solution: [[0, 1]]
+      stack: [
+        createBlocks(0, 'stack', pluginState),
+        createBlocks(1, 'stack', pluginState)
+      ]
     }
-
-    expect(isCorrect(state)).toEqual(false)
+    expect(isCorrect(pluginState, state)).toEqual(false)
   })
 
   test('duplicate in right side', () => {
-    const state: State = {
-      leftSide: [0, 1],
-      rightSide: [2, 2],
-      stack: [],
-      solution: [[1, 2], [0, 2]]
+    const pluginState: MatchingExercisePluginState = {
+      solution: [[1, 2], [0, 2]],
+      blockContent: []
     }
-
-    expect(isCorrect(state)).toEqual(true)
+    const state: MatchingExerciseRendererState = {
+      leftSide: [
+        createBlocks(0, 'left-0', pluginState),
+        createBlocks(1, 'left-1', pluginState)
+      ],
+      rightSide: [
+        createBlocks(2, 'right-0', pluginState),
+        createBlocks(2, 'right-1', pluginState)
+      ],
+      stack: []
+    }
+    expect(isCorrect(pluginState, state)).toEqual(true)
   })
 
   test('duplicate in left side', () => {
-    const state: State = {
-      leftSide: [0, 0],
-      rightSide: [1, 2],
-      stack: [],
-      solution: [[0, 1], [0, 2]]
+    const pluginState: MatchingExercisePluginState = {
+      solution: [[0, 1], [0, 2]],
+      blockContent: []
     }
-
-    expect(isCorrect(state)).toEqual(true)
+    const state: MatchingExerciseRendererState = {
+      leftSide: [
+        createBlocks(0, 'left-0', pluginState),
+        createBlocks(0, 'left-1', pluginState)
+      ],
+      rightSide: [
+        createBlocks(1, 'right-0', pluginState),
+        createBlocks(2, 'right-1', pluginState)
+      ],
+      stack: []
+    }
+    expect(isCorrect(pluginState, state)).toEqual(true)
   })
 
   test('unmatched pair', () => {
-    const state: State = {
-      leftSide: [0, 0],
-      rightSide: [1, 2, 3],
-      stack: [],
-      solution: [[0, 1], [0, 2]]
+    const pluginState: MatchingExercisePluginState = {
+      solution: [[0, 1], [0, 2]],
+      blockContent: []
     }
-
-    expect(isCorrect(state)).toEqual(false)
+    const state: MatchingExerciseRendererState = {
+      leftSide: [
+        createBlocks(0, 'left-0', pluginState),
+        createBlocks(0, 'left-1', pluginState)
+      ],
+      rightSide: [
+        createBlocks(1, 'right-0', pluginState),
+        createBlocks(2, 'right-1', pluginState),
+        createBlocks(3, 'right-2', pluginState)
+      ],
+      stack: []
+    }
+    expect(isCorrect(pluginState, state)).toEqual(false)
   })
 })
 
 describe('Matching Exercise: generateBlocks', () => {
   test('empty state', () => {
-    const blocks = generateBlocks({
+    const blocks = combineBlocks({
       solution: [],
       blockContent: []
     })
@@ -90,29 +134,38 @@ describe('Matching Exercise: generateBlocks', () => {
   })
 
   test('one solution', () => {
-    const blocks = generateBlocks({
+    const blocks = combineBlocks({
       solution: [[0, 1]],
-      blockContent: [0, 1]
+      blockContent: [createEditableIdentifier(), createEditableIdentifier()]
     })
 
-    expect(blocks.sort()).toEqual(['0', '1'].sort())
+    expect(blocks.sort()).toEqual([0, 1].sort())
   })
 
   test('two solutions', () => {
-    const blocks = generateBlocks({
+    const blocks = combineBlocks({
       solution: [[0, 1], [1, 2]],
-      blockContent: [0, 1, 2]
+      blockContent: [
+        createEditableIdentifier(),
+        createEditableIdentifier(),
+        createEditableIdentifier()
+      ]
     })
 
-    expect(blocks.sort()).toEqual(['0', '1', '1', '2'].sort())
+    expect(blocks.sort()).toEqual([0, 1, 1, 2].sort())
   })
 
   test('two solutions, one missing block', () => {
-    const blocks = generateBlocks({
+    const blocks = combineBlocks({
       solution: [[0, 1], [1, 2]],
-      blockContent: [0, 1, 2, 3]
+      blockContent: [
+        createEditableIdentifier(),
+        createEditableIdentifier(),
+        createEditableIdentifier(),
+        createEditableIdentifier()
+      ]
     })
 
-    expect(blocks.sort()).toEqual(['0', '1', '1', '2', '3'].sort())
+    expect(blocks.sort()).toEqual([0, 1, 1, 2, 3].sort())
   })
 })

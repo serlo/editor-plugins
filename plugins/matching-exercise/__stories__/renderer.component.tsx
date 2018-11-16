@@ -9,6 +9,8 @@ import {
 import plugin from '../src'
 import { MatchingExerciseRenderer } from '../src/renderer.component'
 import { MatchingExerciseFeedback } from '../src/feedback.component'
+import { MatchingExerciseSolution } from '../src/solution.component'
+import { MatchingExerciseMobile } from '../src/mobile.component'
 import {
   createEditableIdentifier,
   EditableIdentifier
@@ -47,7 +49,7 @@ storiesOf('Matching Exercise/Renderer', module)
       />
     )
   })
-  .add('Funktion/Ableitung Lösung', () => {
+  .add('Funktion/Ableitung Feedback', () => {
     return (
       <MatchingExerciseFeedback
         state={{
@@ -56,7 +58,40 @@ storiesOf('Matching Exercise/Renderer', module)
           blockContent: [
             createEditableIdentifier('2x+2'),
             createEditableIdentifier('2'),
-            createEditableIdentifier('0')
+            createEditableIdentifier('0'),
+            createEditableIdentifier('5x')
+          ]
+        }}
+      />
+    )
+  })
+  .add('Funktion/Ableitung Lösung', () => {
+    return (
+      <MatchingExerciseSolution
+        state={{
+          solution: [[0, 1], [1, 2]],
+          // blockContent: ['2x + 2', '2', '0','5x]
+          blockContent: [
+            createEditableIdentifier('2x+2'),
+            createEditableIdentifier('2'),
+            createEditableIdentifier('0'),
+            createEditableIdentifier('5x')
+          ]
+        }}
+      />
+    )
+  })
+  .add('Funktion/Ableitung Mobil', () => {
+    return (
+      <MatchingExerciseMobile
+        state={{
+          solution: [[0, 1], [1, 2]],
+          // blockContent: ['2x + 2', '2', '0','5x]
+          blockContent: [
+            createEditableIdentifier('2x+2'),
+            createEditableIdentifier('2'),
+            createEditableIdentifier('0'),
+            createEditableIdentifier('5x')
           ]
         }}
       />

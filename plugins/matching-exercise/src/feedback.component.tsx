@@ -12,6 +12,9 @@ import {
   MatchingExercisePluginState
 } from './editable.component'
 import { Block } from './types'
+import { isCorrectPerRow, combineBlocks } from './helpers'
+import { create } from 'jss'
+import * as R from 'ramda'
 
 interface MatchingExerciseRendererProps {
   state: MatchingExercisePluginState
@@ -21,24 +24,7 @@ interface MatchingExerciseRendererState {
   leftSide: Block[]
   rightSide: Block[]
   stack: Block[]
-}
-
-const generateBlocks = ({
-  solution,
-  blockContent
-}: MatchingExercisePluginState): number[] => {
-  const s = solution as Array<number[]>
-  const usedBlocks = ([] as number[]).concat(...s)
-
-  const unusedBlocks = blockContent
-    .map((_content, block) => {
-      return block
-    })
-    .filter(block => {
-      return usedBlocks.indexOf(block) < 0
-    })
-
-  return [...usedBlocks, ...unusedBlocks]
+  check?: boolean[]
 }
 
 export class MatchingExerciseFeedback extends React.Component<
@@ -48,7 +34,7 @@ export class MatchingExerciseFeedback extends React.Component<
   constructor(props: MatchingExerciseRendererProps) {
     super(props)
 
-    const blocks = generateBlocks(props.state).map((item, index) => {
+    const blocks = combineBlocks(props.state).map((item, index) => {
       return {
         id: `${index}`,
         // FIXME:
@@ -56,30 +42,16 @@ export class MatchingExerciseFeedback extends React.Component<
         content: item //<Editable id={props.state.blockContent[item]} />
       }
     })
-    const left = []
-    const right = []
-    const stacks = []
-    blocks.forEach(element => {
-      props.state.solution.map(pair => {
-        if (element.block === pair[0]) {
-          left.push(element)
-        } else if (element.block === pair[1]) {
-          right.push(element)
-        } else {
-          stacks.push(element)
-        }
-      })
-    })
     this.state = {
-      leftSide: left,
-      rightSide: right,
-      stack: stacks
+      leftSide: [],
+      rightSide: [],
+      stack: blocks
     }
   }
 
   render() {
     console.log(this.state)
-    const { leftSide, rightSide, stack } = this.state
+    const { leftSide, rightSide, stack, check } = this.state
 
     console.log(
       [...leftSide, ...rightSide, ...stack].map(item => {
@@ -89,10 +61,48 @@ export class MatchingExerciseFeedback extends React.Component<
         }
       })
     )
+
     return (
       <React.Fragment>
         <DragDropContext
-        // onDragStart={(...args) => console.log('onDragStart', args)}
+          // onDragStart={(...args) => console.log('onDragStart', args)}
+          onDragEnd={result => {
+            const { source, destination } = result
+
+            if (!destination) {
+              // TODO: insert into stack
+              return
+            }
+
+            const sourceId = source.droppableId as
+              | 'leftSide'
+              | 'rightSide'
+              | 'stack'
+            const sourceList = [...this.state[sourceId]]
+            const [temp] = sourceList.splice(source.index, 1)
+
+            if (source.droppableId === destination.droppableId) {
+              sourceList.splice(destination.index, 0, temp)
+
+              // @ts-ignore FIXME:
+              this.setState({
+                [sourceId]: sourceList
+              })
+            } else {
+              const destinationId = destination.droppableId as
+                | 'leftSide'
+                | 'rightSide'
+                | 'stack'
+              const destinationList = [...this.state[destinationId]]
+              destinationList.splice(destination.index, 0, temp)
+
+              // @ts-ignore FIXME:
+              this.setState({
+                [sourceId]: sourceList,
+                [destinationId]: destinationList
+              })
+            }
+          }}
         >
           {' '}
           <div
@@ -112,10 +122,35 @@ export class MatchingExerciseFeedback extends React.Component<
           >
             {' '}
             <Column id="stack" blocks={stack} />
-            <Column id="leftSide" blocks={leftSide} title="Funktion" />
-            <Column id="rightSide" blocks={rightSide} title="Ableitung" />
+            <Column
+              id="leftSide"
+              blocks={leftSide}
+              check={check}
+              title="Funktion"
+            />
+            <Column
+              id="rightSide"
+              blocks={rightSide}
+              check={check}
+              title="Ableitung"
+            />
           </div>
         </DragDropContext>
+        <button
+          className={css`
+            background: gold;
+            color: silver;
+          `}
+          onClick={() => {
+            const entries = R.zip(this.state.leftSide, this.state.rightSide)
+            const solutionCheck = entries.map(tuple => {
+              return isCorrectPerRow(this.props.state, tuple as [Block, Block])
+            })
+            this.setState({ check: solutionCheck })
+          }}
+        >
+          Submit
+        </button>
       </React.Fragment>
     )
   }

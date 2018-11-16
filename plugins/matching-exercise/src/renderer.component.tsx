@@ -11,61 +11,16 @@ import {
   Editable,
   EditableIdentifier
 } from '@splish-me/editor-core/lib/editable.component'
+import { generateBlocks, combineBlocks, isCorrect } from './helpers'
 
-interface MatchingExerciseRendererProps {
+export interface MatchingExerciseRendererProps {
   state: MatchingExercisePluginState
 }
 
-interface MatchingExerciseRendererState {
+export interface MatchingExerciseRendererState {
   leftSide: Block[]
   rightSide: Block[]
   stack: Block[]
-}
-
-export const isCorrect = (
-  pluginState: MatchingExercisePluginState,
-  state: MatchingExerciseRendererState
-) => {
-  let correct = true
-  const solutionCopy = [...pluginState.solution]
-
-  if (state.leftSide.length !== state.rightSide.length) {
-    return false
-  }
-
-  state.leftSide.forEach((leftItem, index) => {
-    const rightItem = state.rightSide[index]
-
-    const found = solutionCopy.findIndex(pair => {
-      return pair[0] === leftItem.block && pair[1] === rightItem.block
-    })
-
-    if (found < 0) {
-      correct = false
-    } else {
-      solutionCopy.splice(found, 1)
-    }
-  })
-
-  return correct && solutionCopy.length === 0
-}
-
-export const generateBlocks = ({
-  solution,
-  blockContent
-}: MatchingExercisePluginState): number[] => {
-  const s = solution as Array<number[]>
-  const usedBlocks = ([] as number[]).concat(...s)
-
-  const unusedBlocks = blockContent
-    .map((_content, block) => {
-      return block
-    })
-    .filter(block => {
-      return usedBlocks.indexOf(block) < 0
-    })
-
-  return [...usedBlocks, ...unusedBlocks]
 }
 
 export class MatchingExerciseRenderer extends React.Component<
@@ -75,7 +30,7 @@ export class MatchingExerciseRenderer extends React.Component<
   constructor(props: MatchingExerciseRendererProps) {
     super(props)
 
-    const blocks = generateBlocks(props.state).map((item, index) => {
+    const blocks = combineBlocks(props.state).map((item, index) => {
       return {
         id: `${index}`,
         // FIXME:
