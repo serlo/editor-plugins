@@ -3,8 +3,8 @@ import {
   createEditableIdentifier
 } from '@splish-me/editor-core/lib/editable.component'
 import * as React from 'react'
-import { ScMcRenderer } from './renderer.component'
-import { ScMcChoice } from './choice.component'
+import { ScMcRenderer, ScMcRendererProps } from './renderer.component'
+import { ScMcChoiceEditable } from './choice-editable.component'
 import { ScMcFeedback } from './feedback.component'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
@@ -13,8 +13,16 @@ import Dropdown from '@splish-me/editor-ui/lib/sidebar-elements/dropdown'
 import * as R from 'ramda'
 import { css } from 'emotion'
 
-export class ScMcEditable extends React.Component {
-  handleCheckboxChange = index => event => {
+export interface ScMcEditableProps extends ScMcRendererProps {
+  readOnly: boolean
+  focused: boolean
+  onChange: (newState: Partial<ScMcRendererProps['state']>) => void
+}
+
+export class ScMcEditable extends React.Component<ScMcEditableProps> {
+  handleCheckboxChange = (index: number) => (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const target = event.target
     const value = target.checked
 
@@ -29,7 +37,7 @@ export class ScMcEditable extends React.Component {
       answers: R.update(index, newAnswer, state.answers)
     })
   }
-  handleRadioButtonChange = rightanswerIndex => _event => {
+  handleRadioButtonChange = (rightanswerIndex: number) => () => {
     const { state, onChange } = this.props
     onChange({
       answers: state.answers.map((answer, index) => {
@@ -37,7 +45,7 @@ export class ScMcEditable extends React.Component {
       })
     })
   }
-  handleSCMCChange = event => {
+  handleSCMCChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const { onChange, state } = this.props
     let helper
     if (event.target.value === 'Single Choice') {
@@ -45,7 +53,7 @@ export class ScMcEditable extends React.Component {
     } else helper = false
     onChange({
       isSingleChoice: helper,
-      answers: state.answers.map((answer, index) => {
+      answers: state.answers.map(answer => {
         return { ...answer, isCorrect: false }
       })
     })
@@ -67,7 +75,7 @@ export class ScMcEditable extends React.Component {
 
   render() {
     const { readOnly, state, focused } = this.props
-    const { answers, isSingleChoice, globalFeedback } = state
+    const { answers, isSingleChoice } = state
 
     return (
       <React.Fragment>
@@ -94,7 +102,7 @@ export class ScMcEditable extends React.Component {
                   })}
                   key={index}
                 >
-                  <label className={css({ float: 'left', margin: '10px 0px' })}>
+                  <label className={css({ float: 'left', margin: '10px 0' })}>
                     <span
                       className={css({
                         marginRight: '10px',
@@ -103,33 +111,17 @@ export class ScMcEditable extends React.Component {
                     >
                       richtige Antwort
                     </span>
-                    {isSingleChoice ? (
-                      <input
-                        checked={answer.isCorrect}
-                        type="radio"
-                        name="scRadio"
-                        onChange={this.handleRadioButtonChange(index)}
-                      />
-                    ) : (
-                      <input
-                        checked={answer.isCorrect}
-                        className="checkboxstyle"
-                        type="checkbox"
-                        onChange={this.handleCheckboxChange(index)}
-                      />
-                    )}
+
+                    <input
+                      checked={answer.isCorrect}
+                      type={isSingleChoice ? 'radio' : 'checkbox'}
+                      onChange={this.handleRadioButtonChange(index)}
+                    />
                   </label>
 
-                  <ScMcChoice
-                    removeButton={this.removeButton}
-                    key={index}
-                    index={index}
-                    isSingleChoice={isSingleChoice}
-                    focused={focused}
-                    {...this.props}
-                  >
+                  <ScMcChoiceEditable key={index} index={index} {...this.props}>
                     <Editable id={answer.id} />
-                  </ScMcChoice>
+                  </ScMcChoiceEditable>
                   {answer.feedback ? (
                     <ScMcFeedback>
                       <Editable id={answer.feedback} />

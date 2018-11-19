@@ -1,13 +1,17 @@
-import { Editable } from '@splish-me/editor-core/lib/editable.component'
+import {
+  Editable,
+  EditableIdentifier
+} from '@splish-me/editor-core/lib/editable.component'
 import * as React from 'react'
 import * as R from 'ramda'
 import { css } from 'emotion'
 
-import { ScMcChoice } from './choice.component'
+import { ScMcChoiceRenderer } from './choice-renderer.component'
 import { ScMcFeedback } from './feedback.component'
 export interface Answer {
   isCorrect: boolean
   feedback: React.ReactNode
+  id: EditableIdentifier
 }
 export interface Button {
   selected: boolean
@@ -74,14 +78,14 @@ export class ScMcRenderer extends React.Component<
     const button = this.state.buttons[index]
     return (
       <React.Fragment key={index}>
-        <ScMcChoice
+        <ScMcChoiceRenderer
           index={index}
           onClick={this.selectButton(index)}
           {...button}
           {...this.props}
         >
           <Editable id={answer.id} />
-        </ScMcChoice>
+        </ScMcChoiceRenderer>
         {this.showFeedback({ button, answer })}
       </React.Fragment>
     )
