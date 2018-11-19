@@ -94,12 +94,18 @@ export class ScMcEditable extends React.Component {
                   })}
                   key={index}
                 >
-                  <label className="float">
-                    richtige Antwort
+                  <label className={css({ float: 'left', margin: '10px 0px' })}>
+                    <span
+                      className={css({
+                        marginRight: '10px',
+                        paddingBottom: '5px'
+                      })}
+                    >
+                      richtige Antwort
+                    </span>
                     {isSingleChoice ? (
                       <input
                         checked={answer.isCorrect}
-                        className="checkboxstyle"
                         type="radio"
                         name="scRadio"
                         onChange={this.handleRadioButtonChange(index)}

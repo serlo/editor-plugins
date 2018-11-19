@@ -17,6 +17,83 @@ export interface ChoiceProps {
   focused: boolean
 }
 export class ScMcChoice extends React.Component<ChoiceProps> {
+  render() {
+    const {
+      readOnly,
+      state,
+      children,
+      index,
+      onClick,
+      selected,
+      showFeedback,
+      focused
+    } = this.props
+    // FIXME:
+    const { isCorrect, feedback } = state.answers[index]
+
+    return (
+      <React.Fragment>
+        {!readOnly && focused ? (
+          <div
+            className={css({
+              float: 'right'
+            })}
+          >
+            <button
+              onClick={this.removeAnswer}
+              style={{ marginRight: '5px' }}
+              className="btn btn-default"
+            >
+              <FontAwesomeIcon icon={faTrashAlt} />
+            </button>
+            {isCorrect ? null : (
+              <button onClick={this.addFeedback} className="btn btn-default">
+                {feedback ? (
+                  <span>
+                    <FontAwesomeIcon icon={faTrashAlt} /> Feedback
+                  </span>
+                ) : (
+                  <span>
+                    <FontAwesomeIcon icon={faPlus} /> Feedback
+                  </span>
+                )}
+              </button>
+            )}
+          </div>
+        ) : null}
+        <div
+          className={cx(
+            'btn',
+            css({
+              borderBottom: '3px solid transparent',
+              minWidth: '20px',
+              backgroundColor: showFeedback
+                ? isCorrect
+                  ? '#95bc1a'
+                  : 'red'
+                : selected
+                  ? '#d9edf7'
+                  : '#f8f8f8',
+              margin: '5px 0 0',
+              paddingLeft: '5px',
+              paddingTop: '10px',
+              boxShadow: 'none',
+              transition: 'background-color 0.5s ease',
+              '&:hover': {
+                borderBottom:
+                  isCorrect && showFeedback ? undefined : '3px solid #d9edf7'
+              },
+              cursor:
+                isCorrect && showFeedback ? 'default !important' : undefined
+            })
+          )}
+          onClick={isCorrect && showFeedback ? null : onClick}
+        >
+          {children}
+        </div>
+      </React.Fragment>
+    )
+  }
   handleCheckboxChange = event => {
     const target = event.target
 
@@ -53,83 +130,5 @@ export class ScMcChoice extends React.Component<ChoiceProps> {
     onChange({
       answers: R.remove(index, 1, state.answers)
     })
-  }
-
-  render() {
-    const {
-      readOnly,
-      state,
-      children,
-      index,
-      onClick,
-      selected,
-      showFeedback,
-      focused
-    } = this.props
-    // FIXME:
-    const { isCorrect, feedback } = state.answers[index]
-
-    return (
-      <React.Fragment>
-        {readOnly && focused ? (
-          <div
-            className={css({
-              float: 'right'
-            })}
-          >
-            <button
-              onClick={this.removeAnswer}
-              style={{ marginRight: '5px' }}
-              className="btn btn-default"
-            >
-              <FontAwesomeIcon icon={faTrashAlt} />
-            </button>
-            {isCorrect ? null : (
-              <button onClick={this.addFeedback} className="btn btn-default">
-                {feedback ? (
-                  <span>
-                    <FontAwesomeIcon icon={faTrashAlt} /> Feedback
-                  </span>
-                ) : (
-                  <span>
-                    <FontAwesomeIcon icon={faPlus} /> Feedback
-                  </span>
-                )}
-              </button>
-            )}
-          </div>
-        ) : null}
-        <div
-          className={cx(
-            'btn',
-            css({
-              borderBottom: '3px solid transparent',
-              backgroundColor: showFeedback
-                ? isCorrect
-                  ? '#95bc1a'
-                  : 'red'
-                : selected
-                  ? '#d9edf7'
-                  : '#f8f8f8',
-              width: '100%',
-              margin: '5px 0 0',
-              paddingLeft: '5px',
-              paddingTop: '10px',
-              boxShadow: 'none',
-              transition: 'background-color 0.5s ease',
-              '&:hover': {
-                borderBottom:
-                  isCorrect && showFeedback ? undefined : '3px solid #d9edf7'
-              },
-              cursor:
-                isCorrect && showFeedback ? 'default !important' : undefined
-            })
-          )}
-          onClick={isCorrect && showFeedback ? null : onClick}
-        >
-          {children}
-        </div>
-      </React.Fragment>
-    )
   }
 }

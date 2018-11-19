@@ -5,7 +5,6 @@ import { css } from 'emotion'
 
 import { ScMcChoice } from './choice.component'
 import { ScMcFeedback } from './feedback.component'
-
 export interface Answer {
   isCorrect: boolean
   feedback: React.ReactNode
@@ -25,7 +24,7 @@ interface ScMcRendererState {
   buttons: Button[]
   globalFeedback: string
   showGlobalFeedback: boolean
-  isCorrect: boolean
+  solved: boolean
 }
 
 export class ScMcRenderer extends React.Component<
@@ -43,24 +42,38 @@ export class ScMcRenderer extends React.Component<
       }),
       globalFeedback: '',
       showGlobalFeedback: false,
-      isCorrect: false
+      solved: false
     }
   }
 
   public render() {
     return (
-      <React.Fragment>
-        {this.props.state.answers.map(this.showAnswer)}
+      <div
+        ref={ref => {
+          if (ref) {
+            console.log('container', ref.clientWidth)
+          }
+        }}
+      >
+        <div
+          style={{ display: 'inline-block' }}
+          ref={ref => {
+            if (ref) {
+              console.log('buttons', ref.clientWidth)
+            }
+          }}
+        >
+          {this.props.state.answers.map(this.showAnswer)}
+        </div>
         {this.showGlobalFeedback()}
         {this.showSubmitButton()}
-      </React.Fragment>
+      </div>
     )
   }
   private showAnswer = (answer: Answer, index: number): React.ReactNode => {
     const button = this.state.buttons[index]
     return (
       <React.Fragment key={index}>
-        {/* Fixme: pass showFeedback */}
         <ScMcChoice
           index={index}
           onClick={this.selectButton(index)}
@@ -99,10 +112,10 @@ export class ScMcRenderer extends React.Component<
     )
   }
   private showGlobalFeedback(): React.ReactNode {
-    const { showGlobalFeedback, globalFeedback, isCorrect } = this.state
+    const { showGlobalFeedback, globalFeedback, solved } = this.state
     if (showGlobalFeedback) {
       return (
-        <ScMcFeedback boxFree isTrueAnswer={isCorrect}>
+        <ScMcFeedback boxFree isTrueAnswer={solved}>
           {globalFeedback}
         </ScMcFeedback>
       )
@@ -148,6 +161,7 @@ export class ScMcRenderer extends React.Component<
     this.setState({
       showGlobalFeedback: true,
       buttons: nextButtonStates,
+      solved: mistakes === 0,
       globalFeedback: this.getGlobalFeedback({ mistakes, missingSolutions })
     })
   }
