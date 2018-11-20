@@ -3,6 +3,7 @@ import * as React from 'react'
 import { DragDropContext } from 'react-beautiful-dnd'
 import { Block } from './types'
 import { MobileColumn as Column } from './mobile.column.component'
+import { MobileRow as Row } from './mobile.row.component'
 import {
   MatchingExerciseEditable,
   MatchingExercisePluginState
@@ -11,7 +12,14 @@ import {
   Editable,
   EditableIdentifier
 } from '@splish-me/editor-core/lib/editable.component'
-import { generateBlocks, combineBlocks, isCorrect } from './helpers'
+import {
+  generateBlocks,
+  combineBlocks,
+  isCorrect,
+  isCorrectPerRow
+} from './helpers'
+import * as R from 'ramda'
+import { Stack } from 'immutable'
 
 interface MatchingExerciseRendererProps {
   state: MatchingExercisePluginState
@@ -45,12 +53,47 @@ export class MatchingExerciseMobile extends React.Component<
       stack: blocks
     }
   }
-  moveBlock = (block: Block) => {
+  moveBlock = (index: number) => (block: Block) => {
     const side =
       this.state.leftSide > this.state.rightSide ? 'rightSide' : 'leftSide'
     const newSide = [...this.state[side]]
     newSide.push(block)
-    this.setState({ [side as 'leftSide' | 'rightSide']: newSide })
+    const newStack = [...this.state.stack]
+    newStack.splice(index, 1)
+    console.log(newStack)
+    this.setState(
+      { [side as 'leftSide' | 'rightSide']: newSide, stack: newStack },
+      () => {
+        if (side === 'rightSide') {
+          const test = isCorrectPerRow(this.props.state, [
+            R.last(this.state.leftSide),
+            R.last(this.state.rightSide)
+          ])
+          if (!test) {
+            const newLeftSide = [...this.state.leftSide]
+            const left = newLeftSide.pop()
+            const newRightSide = [...this.state.rightSide]
+            const right = newRightSide.pop()
+            const newStack = [...this.state.stack]
+            newStack.push(left, right)
+            setTimeout(() => {
+              this.setState({
+                leftSide: newLeftSide,
+                rightSide: newRightSide,
+                stack: newStack
+              })
+            }, 2000)
+          }
+        }
+      }
+    )
+  }
+  undo = (block: Block) => {
+    const newLeftSide = [...this.state.leftSide]
+    newLeftSide.pop()
+    const newStack = [...this.state.stack]
+    newStack.push(block)
+    this.setState({ leftSide: newLeftSide, stack: newStack })
   }
   render() {
     console.log(this.state)
@@ -71,35 +114,20 @@ export class MatchingExerciseMobile extends React.Component<
             margin: '0 auto';
           `}
         >
-          <Column id="stack" blocks={stack} move={this.moveBlock} />
+          <Column blocks={stack} move={this.moveBlock} />
         </div>
 
-        <div
-          className={css`
-            display: flex;
-          `}
-          ref={div => {
-            if (!div) {
-              return
-            }
-
-            console.log(div.clientHeight)
-
-            // @ts-ignore FIXME:
-            div.style = `height: ${div.clientHeight}px`
-          }}
-        >
-          <Column
-            id="leftSide"
-            blocks={leftSide}
-            title="Funktion"
-            width="50%"
-          />
-          <Column
-            id="rightSide"
-            blocks={rightSide}
-            title="Ableitung"
-            width="50%"
+        <div>
+          <Row
+            blocks={R.zip(
+              leftSide as (Block | undefined)[],
+              (rightSide as (Block | undefined)[]).concat(
+                R.repeat(undefined, leftSide.length - rightSide.length)
+              )
+            )}
+            title="Funktion/Ableitung"
+            state={this.props.state}
+            undo={this.undo}
           />
         </div>
         <button
@@ -110,10 +138,10 @@ export class MatchingExerciseMobile extends React.Component<
           onClick={() => {
             const correct = isCorrect(this.props.state, this.state)
 
-            alert(correct ? 'Richtig' : 'Falsch')
+            alert(correct ? 'Richtig' : 'Es fehlen noch Lösungen')
           }}
         >
-          Submit
+          Bin fertig :)
         </button>
       </React.Fragment>
     )

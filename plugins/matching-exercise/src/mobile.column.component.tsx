@@ -1,19 +1,22 @@
 import { css } from 'emotion'
 import * as React from 'react'
-// @ts-ignore
-import { Droppable, Draggable } from 'react-beautiful-dnd'
 import { Block as B } from './types'
 import { MobileBlock as Block } from './mobile.block.component'
+import posed, { PoseGroup } from 'react-pose'
 
 export interface ColumnProps {
-  id: string
   blocks: B[]
   title?: string
   check?: boolean[]
   width?: string
-  move?: (block: Block) => void
+  move?: (index: number) => (block: B) => void
   renderBlock: (block: React.ReactNode, index: number) => React.ReactNode
 }
+
+const AnimatedColumn = posed.div({
+  enter: { opacity: 1 },
+  exit: { opacity: 0 }
+})
 
 export class MobileColumn extends React.Component<ColumnProps> {
   static defaultProps: Pick<ColumnProps, 'renderBlock'> = {
@@ -22,45 +25,41 @@ export class MobileColumn extends React.Component<ColumnProps> {
     }
   }
   public render() {
-    const {
-      id,
-      blocks,
-      title,
-      children,
-      renderBlock,
-      check,
-      width,
-      move
-    } = this.props
+    const { blocks, title, renderBlock, check, width, move } = this.props
 
     return (
       <React.Fragment>
         <div
           className={css`
-            background: red;
+            background: white;
             width: ${width};
             margin: 10px;
+            padding: 3px;
           `}
         >
           <strong>{title}</strong>
-          {blocks.map((block, index) => {
-            let feedback
+          <PoseGroup>
+            {blocks.map((block, index) => {
+              let feedback
 
-            if (check) {
-              feedback = check[index] ? 'Richtig' : 'Falsch'
-            }
+              if (check) {
+                feedback = check[index] ? 'Richtig' : 'Falsch'
+              }
 
-            return (
-              <React.Fragment key={block.id}>
-                {renderBlock(
-                  <Block block={block} index={index} move={move} />,
-                  index
-                )}
-                {feedback}
-              </React.Fragment>
-            )
-          })}
-          {children}
+              return (
+                <AnimatedColumn key={block.id}>
+                  {renderBlock(
+                    <Block
+                      block={block}
+                      move={move ? move(index) : undefined}
+                    />,
+                    index
+                  )}
+                  {feedback}
+                </AnimatedColumn>
+              )
+            })}
+          </PoseGroup>
         </div>
       </React.Fragment>
     )
