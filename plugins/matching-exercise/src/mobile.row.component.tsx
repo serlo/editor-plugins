@@ -28,9 +28,13 @@ export class MobileRow extends React.Component<ColumnProps> {
   public render() {
     const { blocks, title, renderBlock, state, undo } = this.props
 
-    const last = R.last(blocks) || []
-    const additionalRow =
-      R.isEmpty(blocks) || (last[0] && last[1]) ? [[undefined, undefined]] : []
+    const rows = [...blocks]
+    const last = R.last(blocks)
+    const lastRowComplete = Boolean(!last || (last[0] && last[1]))
+
+    if (lastRowComplete) {
+      rows.push([undefined, undefined])
+    }
 
     return (
       <React.Fragment>
@@ -41,81 +45,79 @@ export class MobileRow extends React.Component<ColumnProps> {
         >
           <strong>{title}</strong>
           <PoseGroup>
-            {[...blocks, ...additionalRow].map(
-              ([leftBlock, rightBlock], index) => {
-                let correct = false
-                let wrong = false
-                if (leftBlock && rightBlock) {
-                  const test = isCorrectPerRow(state, [leftBlock, rightBlock])
-                  correct = test
-                  wrong = !test
-                }
-                return (
-                  <AnimatedRow
-                    key={index}
+            {rows.map(([leftBlock, rightBlock], index) => {
+              let correct = false
+              let wrong = false
+              if (leftBlock && rightBlock) {
+                const test = isCorrectPerRow(state, [leftBlock, rightBlock])
+                correct = test
+                wrong = !test
+              }
+              return (
+                <AnimatedRow
+                  key={index}
+                  className={css`
+                    display: flex;
+                    background: white;
+                    padding: 3px;
+                    margin: 7px;
+                    min-height: 40px;
+                  `}
+                >
+                  <div
                     className={css`
-                      display: flex;
-                      background: white;
-                      padding: 3px;
-                      margin: 7px;
-                      min-height: 40px;
+                      width: 50%;
                     `}
                   >
-                    <div
-                      className={css`
-                        width: 50%;
-                      `}
-                    >
-                      {leftBlock ? (
-                        renderBlock(
-                          <Block
-                            block={leftBlock}
-                            active
-                            correct={correct}
-                            wrong={wrong}
-                            move={rightBlock ? undefined : undo}
-                          />,
-                          index
-                        )
-                      ) : (
-                        <div
-                          className={css`
-                            border: 3px dashed #d9edf7;
-                            height: calc(100% - 10px);
-                            margin: 5px;
-                          `}
-                        />
-                      )}
-                    </div>
-                    <div
-                      className={css`
-                        width: 50%;
-                      `}
-                    >
-                      {rightBlock ? (
-                        renderBlock(
-                          <Block
-                            block={rightBlock}
-                            active
-                            correct={correct}
-                            wrong={wrong}
-                          />,
-                          index
-                        )
-                      ) : leftBlock ? (
-                        <div
-                          className={css`
-                            border: 3px dashed #d9edf7;
-                            height: calc(100% - 10px);
-                            margin: 5px;
-                          `}
-                        />
-                      ) : null}
-                    </div>
-                  </AnimatedRow>
-                )
-              }
-            )}
+                    {leftBlock ? (
+                      renderBlock(
+                        <Block
+                          block={leftBlock}
+                          active
+                          correct={correct}
+                          wrong={wrong}
+                          move={rightBlock ? undefined : undo}
+                        />,
+                        index
+                      )
+                    ) : (
+                      <div
+                        className={css`
+                          border: 3px dashed #d9edf7;
+                          height: calc(100% - 10px);
+                          margin: 5px;
+                        `}
+                      />
+                    )}
+                  </div>
+                  <div
+                    className={css`
+                      width: 50%;
+                    `}
+                  >
+                    {rightBlock ? (
+                      renderBlock(
+                        <Block
+                          block={rightBlock}
+                          active
+                          correct={correct}
+                          wrong={wrong}
+                        />,
+                        index
+                      )
+                    ) : leftBlock ? (
+                      <div
+                        className={css`
+                          border: 3px dashed #d9edf7;
+                          height: calc(100% - 10px);
+                          margin: 5px;
+                        `}
+                      />
+                    ) : null}
+                  </div>
+                </AnimatedRow>
+              )
+            })}
           </PoseGroup>
         </div>
       </React.Fragment>

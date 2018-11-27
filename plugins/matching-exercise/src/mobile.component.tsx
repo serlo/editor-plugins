@@ -136,9 +136,31 @@ export class MatchingExerciseMobile extends React.Component<
             color: silver;
           `}
           onClick={() => {
-            const correct = isCorrect(this.props.state, this.state)
+            const removeIncompletePairs = (): Promise<void> => {
+              return new Promise(resolve => {
+                if (this.state.leftSide.length > this.state.rightSide.length) {
+                  let newLeftSide = [...this.state.leftSide]
+                  const block = newLeftSide.pop() as Block
+                  const newStack = [...this.state.stack, block]
+                  this.setState(
+                    { leftSide: newLeftSide, stack: newStack },
+                    () => {
+                      setTimeout(() => {
+                        resolve()
+                      }, 0)
+                    }
+                  )
+                } else {
+                  resolve()
+                }
+              })
+            }
 
-            alert(correct ? 'Richtig' : 'Es fehlen noch Lösungen')
+            removeIncompletePairs().then(() => {
+              const correct = isCorrect(this.props.state, this.state)
+
+              alert(correct ? 'Richtig' : 'Es fehlen noch Lösungen')
+            })
           }}
         >
           Bin fertig :)

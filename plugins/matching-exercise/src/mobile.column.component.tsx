@@ -3,6 +3,7 @@ import * as React from 'react'
 import { Block as B } from './types'
 import { MobileBlock as Block } from './mobile.block.component'
 import posed, { PoseGroup } from 'react-pose'
+import Masonry from 'react-masonry-component'
 
 export interface ColumnProps {
   blocks: B[]
@@ -38,7 +39,7 @@ export class MobileColumn extends React.Component<ColumnProps> {
           `}
         >
           <strong>{title}</strong>
-          <PoseGroup>
+          <Masonry>
             {blocks.map((block, index) => {
               let feedback
 
@@ -59,7 +60,7 @@ export class MobileColumn extends React.Component<ColumnProps> {
                 </AnimatedColumn>
               )
             })}
-          </PoseGroup>
+          </Masonry>
         </div>
       </React.Fragment>
     )
