@@ -30,10 +30,14 @@ export class ScMcChoiceRenderer extends React.Component<ChoiceRendererProps> {
               transition: 'background-color 0.5s ease',
               '&:hover': {
                 borderBottom:
-                  isCorrect && showFeedback ? undefined : '3px solid #d9edf7'
+                  (isCorrect && showFeedback) || !onClick
+                    ? undefined
+                    : '3px solid #d9edf7'
               },
               cursor:
-                isCorrect && showFeedback ? 'default !important' : undefined
+                (isCorrect && showFeedback) || !onClick
+                  ? 'default !important'
+                  : undefined
             })
           )}
           onClick={isCorrect && showFeedback ? undefined : onClick}
