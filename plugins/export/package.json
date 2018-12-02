@@ -29,7 +29,7 @@
     "@serlo-org/editor-plugin-table": "^0.0.2",
     "@splish-me/editor-plugin-divider": "^0.0.2",
     "@splish-me/editor-plugin-image": "^0.0.4",
-    "@splish-me/editor-plugin-slate": "^0.0.11",
+    "@splish-me/editor-plugin-slate": "^0.0.12",
     "@splish-me/editor-plugin-spacer": "^0.0.2"
   },
   "devDependencies": {
