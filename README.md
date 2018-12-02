@@ -22,9 +22,9 @@ To add a new plugin you create a folder in `plugins/layout` for LayoutPlugins or
 
 In the folder you need a few things (they can be copied as templates from the folder `plugins/template`:
 
-* `package.json`: with `name` as used for import, `"version": "0.0.0"` (so it is resolved correctly by `lerna`), scripts as in the other plugins and `peerDependencies` to `react` and `react-dom`
-* `README.md`: with the package name for later npm export
-* `src` folder with the source files for the plugin.
+- `package.json`: with `name` as used for import, `"version": "0.0.0"` (so it is resolved correctly by `lerna`), scripts as in the other plugins and `peerDependencies` to `react` and `react-dom`
+- `README.md`: with the package name for later npm export
+- `src` folder with the source files for the plugin.
 
 ### Test new plugins in the example
 

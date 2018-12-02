@@ -77,19 +77,14 @@ class Display extends Component {
     const { width, height } = this.state
     return (
       <div>
-        { src ? (
+        {src ? (
           <iframe
             title={src}
             scrolling="no"
-            src={
-              'https://www.geogebra.org/material/iframe/id/' +
-              src
-            }
+            src={'https://www.geogebra.org/material/iframe/id/' + src}
             width="100%"
             height={
-              containerWidth
-                ? containerWidth * height / width
-                : undefined
+              containerWidth ? (containerWidth * height) / width : undefined
             }
             style={{
               border: '0px',
@@ -97,14 +92,19 @@ class Display extends Component {
             }}
           />
         ) : (
-          <div style={{
-            width: '100%',
-            textAlign: 'center',
-            border: '2px lightgrey solid',
-            borderRadius: '4px',
-            padding: '10px'
-          }}>
-            <img src="https://cdn.geogebra.org/static/img/GeoGebra-logo.png" alt="Geogebra" />
+          <div
+            style={{
+              width: '100%',
+              textAlign: 'center',
+              border: '2px lightgrey solid',
+              borderRadius: '4px',
+              padding: '10px'
+            }}
+          >
+            <img
+              src="https://cdn.geogebra.org/static/img/GeoGebra-logo.png"
+              alt="Geogebra"
+            />
           </div>
         )}
       </div>

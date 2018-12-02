@@ -105,8 +105,8 @@ export class ScMcChoice extends React.Component {
                   ? '#95bc1a'
                   : 'red'
                 : selected
-                  ? '#d9edf7'
-                  : '#f8f8f8',
+                ? '#d9edf7'
+                : '#f8f8f8',
               width: '100%',
               margin: '5px 0 0',
               paddingLeft: '5px',
