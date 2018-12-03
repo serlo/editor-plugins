@@ -35,7 +35,8 @@
       ],
       "@serlo-org/editor-plugin-solution/*": ["./plugins/solution/src/*"],
       "@serlo-org/editor-plugin-spoiler/*": ["./plugins/spoiler/src/*"],
-      "@serlo-org/editor-plugin-table/*": ["./plugins/table/src/*"]
+      "@serlo-org/editor-plugin-table/*": ["./plugins/table/src/*"],
+      "@serlo-org/editor-plugin-equations/*": ["./plugins/equations/src/*"]
     }
   }
 }

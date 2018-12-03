@@ -11,6 +11,7 @@ import spacer from '@splish-me/editor-plugin-spacer'
 import spoiler from '@serlo-org/editor-plugin-spoiler/index.render'
 import table from '@serlo-org/editor-plugin-table/index.render'
 import textfield from '@serlo-org/editor-plugin-input-exercise/index.render'
+import equations from '@serlo-org/editor-plugin-equations/index.render'
 
 import pluginFactory from './plugins'
 import { slateRenderPlugin } from './slate.render'
@@ -29,7 +30,8 @@ const pluginMapping = {
   spacer: spacer,
   spoiler: spoiler,
   table: table,
-  textfield: textfield
+  textfield: textfield,
+  equations: equations
 }
 
 export default pluginFactory(pluginMapping)

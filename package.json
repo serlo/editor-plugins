@@ -12,7 +12,8 @@
     "@splish-me/ory-editor-core": "^0.0.5",
     "emotion": "^9.2.10",
     "font-awesome": "^4.7.0",
-    "react-emotion": "^9.2.10"
+    "react-emotion": "^9.2.10",
+    "taskbook": "^0.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",

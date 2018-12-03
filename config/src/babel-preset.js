@@ -47,7 +47,8 @@ module.exports = () => {
           ...createAlias('@serlo-org/editor-plugin-sc-mc-exercise'),
           ...createAlias('@serlo-org/editor-plugin-solution'),
           ...createAlias('@serlo-org/editor-plugin-spoiler'),
-          ...createAlias('@serlo-org/editor-plugin-table')
+          ...createAlias('@serlo-org/editor-plugin-table'),
+          ...createAlias('@serlo-org/editor-plugin-equations')
         }
       }
     ]

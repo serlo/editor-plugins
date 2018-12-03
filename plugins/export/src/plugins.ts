@@ -8,7 +8,8 @@ const defaultPlugins = [
   'license',
   'injection',
   'table',
-  'blockquote'
+  'blockquote',
+  'equations'
 ]
 
 const exercisePlugins = ['scMcExercise', 'textfield', 'solution', 'hint']
