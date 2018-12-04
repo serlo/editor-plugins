@@ -31,7 +31,7 @@ interface ScMcRendererState {
   solved: boolean
 }
 
-export class ScMcRendererTest extends React.Component<
+export class ScMcRendererFeedback extends React.Component<
   ScMcRendererProps,
   ScMcRendererState
 > {
@@ -59,16 +59,7 @@ export class ScMcRendererTest extends React.Component<
           }
         }}
       >
-        <div
-          style={{ display: 'inline-block' }}
-          ref={ref => {
-            if (ref) {
-              console.log('buttons', ref.clientWidth)
-            }
-          }}
-        >
-          {this.props.state.answers.map(this.showAnswer)}
-        </div>
+        <div>{this.props.state.answers.map(this.showAnswer)}</div>
         {this.showGlobalFeedback()}
         {this.showSubmitButton()}
       </div>
@@ -86,7 +77,7 @@ export class ScMcRendererTest extends React.Component<
         >
           <Editable id={answer.id} />
         </ScMcChoiceRenderer>
-        {/*this.showFeedback({ button, answer })*/}
+        {this.showFeedback({ button, answer })}
       </React.Fragment>
     )
   }
@@ -158,8 +149,8 @@ export class ScMcRendererTest extends React.Component<
     )
 
     const nextButtonStates = buttons.map((button, i) => ({
-      selected: mistakes !== 0 ? false : button.selected,
-      showFeedback: mistakes !== 0 ? false : button.selected
+      selected: button.selected && answers[i].isCorrect,
+      showFeedback: button.selected
     }))
 
     this.setState({
@@ -200,6 +191,8 @@ export class ScMcRendererTest extends React.Component<
   }): string {
     if (mistakes === 0) {
       return 'Sehr gut!'
+    } else if (mistakes === missingSolutions) {
+      return 'Fast! Dir fehlt noch mindestens eine richtige Antwort'
     } else {
       return 'Das stimmt so leider nicht.'
     }

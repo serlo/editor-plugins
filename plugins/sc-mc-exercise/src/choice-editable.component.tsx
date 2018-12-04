@@ -22,7 +22,7 @@ export class ScMcChoiceEditable extends React.Component<ChoiceProps> {
 
     return (
       <React.Fragment>
-        {!readOnly && focused ? (
+        {!readOnly ? (
           <div
             className={css({
               float: 'right'
@@ -49,7 +49,9 @@ export class ScMcChoiceEditable extends React.Component<ChoiceProps> {
             )}
           </div>
         ) : null}
-        <ScMcChoiceRenderer {...this.props} />
+        <div className={css({ clear: 'both' })}>
+          <ScMcChoiceRenderer {...this.props} />
+        </div>
       </React.Fragment>
     )
   }

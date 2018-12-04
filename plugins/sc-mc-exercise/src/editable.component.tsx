@@ -115,7 +115,11 @@ export class ScMcEditable extends React.Component<ScMcEditableProps> {
                     <input
                       checked={answer.isCorrect}
                       type={isSingleChoice ? 'radio' : 'checkbox'}
-                      onChange={this.handleRadioButtonChange(index)}
+                      onChange={
+                        isSingleChoice
+                          ? this.handleRadioButtonChange(index)
+                          : this.handleCheckboxChange(index)
+                      }
                     />
                   </label>
 

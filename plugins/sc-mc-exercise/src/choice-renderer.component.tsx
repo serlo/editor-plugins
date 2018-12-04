@@ -18,7 +18,7 @@ export class ScMcChoiceRenderer extends React.Component<ChoiceRendererProps> {
       <React.Fragment>
         <div
           className={cx(
-            'btn',
+            //'btn',
             css({
               borderBottom: '3px solid transparent',
               minWidth: '20px',
@@ -54,7 +54,7 @@ export class ScMcChoiceRenderer extends React.Component<ChoiceRendererProps> {
     return showFeedback
       ? isCorrect
         ? '#95bc1a'
-        : 'red'
+        : '#f7b07c'
       : selected
         ? '#d9edf7'
         : '#f8f8f8'
