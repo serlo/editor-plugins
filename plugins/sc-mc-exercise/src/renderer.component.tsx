@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { css } from 'emotion'
 
-import { ScMcRendererFeedback } from './renderer-feedback.component'
+import { ScMcRendererInteractive } from './renderer-interactive.component'
 import { ScMcRendererSolution } from './renderer-solution.component'
 import { ScMcPluginState } from './types'
 
@@ -22,7 +22,7 @@ export class ScMcRenderer extends React.Component<
   ScMcRendererProps,
   ScMcRendererState
 > {
-  state = { mode: Mode.feedback }
+  state = { mode: Mode.test }
   public render() {
     return (
       <React.Fragment>
@@ -37,7 +37,7 @@ export class ScMcRenderer extends React.Component<
     switch (this.state.mode) {
       case Mode.test:
         return (
-          <ScMcRendererFeedback
+          <ScMcRendererInteractive
             key="test"
             {...this.props}
             nextButtonStateAfterSubmit={({ button, mistakes }) => {
@@ -50,7 +50,7 @@ export class ScMcRenderer extends React.Component<
         )
       case Mode.feedback:
         return (
-          <ScMcRendererFeedback
+          <ScMcRendererInteractive
             key="feedback"
             {...this.props}
             getFeedback={({ mistakes, missingSolutions }) => {

@@ -11,7 +11,7 @@ export interface Button {
   selected: boolean
   showFeedback: boolean
 }
-export interface ScMcRendererProps {
+export interface ScMcRendererInteractiveProps {
   state: ScMcPluginState
   getFeedback?: (
     params: {
@@ -37,15 +37,15 @@ interface ScMcRendererState {
   solved: boolean
 }
 
-export class ScMcRendererFeedback extends React.Component<
-  ScMcRendererProps,
+export class ScMcRendererInteractive extends React.Component<
+  ScMcRendererInteractiveProps,
   ScMcRendererState
 > {
   static defaultProps = {
     getFeedback: () => undefined
   }
 
-  constructor(props: ScMcRendererProps) {
+  constructor(props: ScMcRendererInteractiveProps) {
     super(props)
     this.state = {
       buttons: props.state.answers.map(() => {
