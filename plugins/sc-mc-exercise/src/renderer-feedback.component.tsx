@@ -1,27 +1,33 @@
-import {
-  Editable,
-  EditableIdentifier
-} from '@splish-me/editor-core/lib/editable.component'
+import { Editable } from '@splish-me/editor-core/lib/editable.component'
 import * as React from 'react'
 import * as R from 'ramda'
 import { css } from 'emotion'
 
 import { ScMcChoiceRenderer } from './choice-renderer.component'
 import { ScMcFeedback } from './feedback.component'
-export interface Answer {
-  isCorrect: boolean
-  feedback: React.ReactNode
-  id: EditableIdentifier
-}
+import { Answer, ScMcPluginState } from './types'
+
 export interface Button {
   selected: boolean
   showFeedback: boolean
 }
 export interface ScMcRendererProps {
-  state: {
-    answers: Answer[]
-    isSingleChoice: boolean
-  }
+  state: ScMcPluginState
+  getFeedback?: (
+    params: {
+      mistakes: number
+      missingSolutions: number
+    }
+  ) => string | undefined
+  nextButtonStateAfterSubmit: (
+    params: {
+      button: Button
+      answer: Answer
+      mistakes: number
+      missingSolutions: number
+    }
+  ) => Button
+  showFeedback?: boolean
 }
 
 interface ScMcRendererState {
@@ -35,6 +41,10 @@ export class ScMcRendererFeedback extends React.Component<
   ScMcRendererProps,
   ScMcRendererState
 > {
+  static defaultProps = {
+    getFeedback: () => undefined
+  }
+
   constructor(props: ScMcRendererProps) {
     super(props)
     this.state = {
@@ -52,17 +62,11 @@ export class ScMcRendererFeedback extends React.Component<
 
   public render() {
     return (
-      <div
-        ref={ref => {
-          if (ref) {
-            console.log('container', ref.clientWidth)
-          }
-        }}
-      >
+      <React.Fragment>
         <div>{this.props.state.answers.map(this.showAnswer)}</div>
         {this.showGlobalFeedback()}
         {this.showSubmitButton()}
-      </div>
+      </React.Fragment>
     )
   }
   private showAnswer = (answer: Answer, index: number): React.ReactNode => {
@@ -72,12 +76,12 @@ export class ScMcRendererFeedback extends React.Component<
         <ScMcChoiceRenderer
           index={index}
           onClick={this.selectButton(index)}
-          {...button}
-          {...this.props}
+          {...this.props} // showFeedback: true
+          {...button} // showFeedback: false
         >
           <Editable id={answer.id} />
         </ScMcChoiceRenderer>
-        {this.showFeedback({ button, answer })}
+        {this.props.showFeedback ? this.showFeedback({ button, answer }) : null}
       </React.Fragment>
     )
   }
@@ -148,10 +152,14 @@ export class ScMcRendererFeedback extends React.Component<
       temp
     )
 
-    const nextButtonStates = buttons.map((button, i) => ({
-      selected: button.selected && answers[i].isCorrect,
-      showFeedback: button.selected
-    }))
+    const nextButtonStates = buttons.map((button, i) => {
+      return this.props.nextButtonStateAfterSubmit({
+        button,
+        answer: answers[i],
+        mistakes,
+        missingSolutions
+      })
+    })
 
     this.setState({
       showGlobalFeedback: true,
@@ -189,10 +197,18 @@ export class ScMcRendererFeedback extends React.Component<
     mistakes: number
     missingSolutions: number
   }): string {
+    // FIXME:
+    const feedback = this.props.getFeedback!({
+      mistakes,
+      missingSolutions
+    })
+
+    if (feedback) {
+      return feedback
+    }
+
     if (mistakes === 0) {
       return 'Sehr gut!'
-    } else if (mistakes === missingSolutions) {
-      return 'Fast! Dir fehlt noch mindestens eine richtige Antwort'
     } else {
       return 'Das stimmt so leider nicht.'
     }

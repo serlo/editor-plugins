@@ -1,27 +1,18 @@
-import {
-  Editable,
-  EditableIdentifier
-} from '@splish-me/editor-core/lib/editable.component'
+import { Editable } from '@splish-me/editor-core/lib/editable.component'
 import * as React from 'react'
 import * as R from 'ramda'
 import { css } from 'emotion'
 
 import { ScMcChoiceRenderer } from './choice-renderer.component'
 import { ScMcFeedback } from './feedback.component'
-export interface Answer {
-  isCorrect: boolean
-  feedback: React.ReactNode
-  id: EditableIdentifier
-}
+import { Answer, ScMcPluginState } from './types'
+
 export interface Button {
   selected: boolean
   showFeedback: boolean
 }
-export interface ScMcRendererProps {
-  state: {
-    answers: Answer[]
-    isSingleChoice: boolean
-  }
+export interface ScMcRendererTestProps {
+  state: ScMcPluginState
 }
 
 interface ScMcRendererState {
@@ -32,10 +23,10 @@ interface ScMcRendererState {
 }
 
 export class ScMcRendererTest extends React.Component<
-  ScMcRendererProps,
+  ScMcRendererTestProps,
   ScMcRendererState
 > {
-  constructor(props: ScMcRendererProps) {
+  constructor(props: ScMcRendererTestProps) {
     super(props)
     this.state = {
       buttons: props.state.answers.map(() => {
@@ -52,17 +43,11 @@ export class ScMcRendererTest extends React.Component<
 
   public render() {
     return (
-      <div
-        ref={ref => {
-          if (ref) {
-            console.log('container', ref.clientWidth)
-          }
-        }}
-      >
+      <React.Fragment>
         <div>{this.props.state.answers.map(this.showAnswer)}</div>
         {this.showGlobalFeedback()}
         {this.showSubmitButton()}
-      </div>
+      </React.Fragment>
     )
   }
   private showAnswer = (answer: Answer, index: number): React.ReactNode => {
@@ -82,30 +67,6 @@ export class ScMcRendererTest extends React.Component<
     )
   }
 
-  private showFeedback({
-    answer,
-    button
-  }: {
-    answer: Answer
-    button: Button
-  }): React.ReactNode {
-    if (!button.showFeedback) {
-      return null
-    }
-    if (answer.feedback) {
-      return (
-        <ScMcFeedback>
-          <Editable id={answer.feedback} />
-        </ScMcFeedback>
-      )
-    }
-    if (answer.isCorrect) {
-      return null
-    }
-    return (
-      <ScMcFeedback>Leider falsch! versuche es doch noch einmal!</ScMcFeedback>
-    )
-  }
   private showGlobalFeedback(): React.ReactNode {
     const { showGlobalFeedback, globalFeedback, solved } = this.state
     if (showGlobalFeedback) {
@@ -183,8 +144,7 @@ export class ScMcRendererTest extends React.Component<
     }
   }
   private getGlobalFeedback({
-    mistakes,
-    missingSolutions
+    mistakes
   }: {
     mistakes: number
     missingSolutions: number

@@ -1,29 +1,12 @@
-import {
-  Editable,
-  EditableIdentifier
-} from '@splish-me/editor-core/lib/editable.component'
 import * as React from 'react'
-import * as R from 'ramda'
 import { css } from 'emotion'
 
-import { ScMcChoiceRenderer } from './choice-renderer.component'
 import { ScMcRendererFeedback } from './renderer-feedback.component'
-import { ScMcRendererTest } from './renderer-test.component'
 import { ScMcRendererSolution } from './renderer-solution.component'
-export interface Answer {
-  isCorrect: boolean
-  feedback: React.ReactNode
-  id: EditableIdentifier
-}
-export interface Button {
-  selected: boolean
-  showFeedback: boolean
-}
+import { ScMcPluginState } from './types'
+
 export interface ScMcRendererProps {
-  state: {
-    answers: Answer[]
-    isSingleChoice: boolean
-  }
+  state: ScMcPluginState
 }
 
 enum Mode {
@@ -39,7 +22,7 @@ export class ScMcRenderer extends React.Component<
   ScMcRendererProps,
   ScMcRendererState
 > {
-  state = { mode: Mode.test }
+  state = { mode: Mode.feedback }
   public render() {
     return (
       <React.Fragment>
@@ -53,9 +36,39 @@ export class ScMcRenderer extends React.Component<
   private renderRenderer(): React.ReactNode {
     switch (this.state.mode) {
       case Mode.test:
-        return <ScMcRendererTest {...this.props} />
+        return (
+          <ScMcRendererFeedback
+            key="test"
+            {...this.props}
+            nextButtonStateAfterSubmit={({ button, mistakes }) => {
+              return {
+                selected: mistakes !== 0 ? false : button.selected,
+                showFeedback: mistakes !== 0 ? false : button.selected
+              }
+            }}
+          />
+        )
       case Mode.feedback:
-        return <ScMcRendererFeedback {...this.props} />
+        return (
+          <ScMcRendererFeedback
+            key="feedback"
+            {...this.props}
+            getFeedback={({ mistakes, missingSolutions }) => {
+              if (mistakes > 0 && mistakes === missingSolutions) {
+                return 'Fast! Dir fehlt noch mindestens eine richtige Antwort'
+              }
+
+              return undefined
+            }}
+            nextButtonStateAfterSubmit={({ button, answer }) => {
+              return {
+                selected: button.selected && answer.isCorrect,
+                showFeedback: button.selected
+              }
+            }}
+            showFeedback
+          />
+        )
       case Mode.solution:
         return <ScMcRendererSolution {...this.props} />
     }
