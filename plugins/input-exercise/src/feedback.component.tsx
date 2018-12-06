@@ -1,7 +1,11 @@
 import { css } from 'emotion'
-import React, { Component } from 'react'
+import * as React from 'react'
 
-export class Feedback extends Component {
+export interface FeedbackProps {
+  boxFree?: boolean
+  isTrueAnswer?: boolean
+}
+export class Feedback extends React.Component<FeedbackProps> {
   render() {
     return (
       <React.Fragment>
