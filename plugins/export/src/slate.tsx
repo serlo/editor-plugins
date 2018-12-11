@@ -1,11 +1,6 @@
 import { defaultPlugins } from '@splish-me/editor-plugin-slate/lib/default-plugins'
 import { defaultNode } from '@splish-me/editor-plugin-slate/lib/default-node'
 import { createUiPlugin } from '@splish-me/editor-plugin-slate/lib/plugins/ui'
-import {
-  createKatexPlugin,
-  isKatex,
-  insertKatex
-} from '@splish-me/editor-plugin-slate/lib/plugins/katex'
 import { setParagraph } from '@splish-me/editor-plugin-slate/lib/plugins/paragraph'
 import ButtonGroup, {
   Button
@@ -43,6 +38,8 @@ import {
 } from '@splish-me/editor-plugin-slate/lib/plugins/lists'
 import { Change, Value } from 'slate'
 import { createSlatePlugin } from '@splish-me/editor-plugin-slate'
+
+import { createKatexPlugin, isKatex, insertKatex } from './slate-plugin-katex'
 
 class Component extends React.Component<{
   onChange: (change: Change) => void

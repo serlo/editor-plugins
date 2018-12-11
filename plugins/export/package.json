@@ -11,8 +11,7 @@
   "scripts": {
     "prebuild": "rimraf lib",
     "build": "npm-run-all build:*",
-    "build:javascript":
-      "NODE_ENV=production babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
+    "build:javascript": "NODE_ENV=production babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
     "ci": "npm-run-all ci:*",
     "ci:types": "tsc --noEmit"
   },
@@ -30,15 +29,21 @@
     "@splish-me/editor-plugin-divider": "^0.0.2",
     "@splish-me/editor-plugin-image": "^0.0.4",
     "@splish-me/editor-plugin-slate": "^0.0.12",
-    "@splish-me/editor-plugin-spacer": "^0.0.2"
+    "@splish-me/editor-plugin-spacer": "^0.0.2",
+    "axios": "^0.18.0",
+    "katex": "^0.10.0",
+    "lodash": "^4.0.0"
   },
   "devDependencies": {
+    "@types/lodash": "^4.0.0",
     "@types/slate": "^0.40.0",
+    "@types/slate-react": "^0.18.0",
     "rimraf": "^2.6.2"
   },
   "peerDependencies": {
     "react": "^16.4.2",
-    "react-dom": "^16.3.1"
+    "react-dom": "^16.3.1",
+    "slate-react": "^0.18.0"
   },
   "publishConfig": {
     "access": "public"
