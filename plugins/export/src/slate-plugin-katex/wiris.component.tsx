@@ -23,6 +23,7 @@ export class Wiris extends React.Component<WirisProps> {
       this.initWiris()
     } else {
       require('https://www.wiris.net/demo/editor/editor').then(() => {
+        // @ts-ignore
         wiris = com.wiris.jsEditor.JsEditor.newInstance({
           language: 'en' // FIXME:
         })
@@ -59,7 +60,7 @@ export class Wiris extends React.Component<WirisProps> {
 
   private static async latexToMML(latex: LaTeX): Promise<MathML> {
     const { data } = await axios.get(
-      `${'https://www.wiris.net/demo/editor/latex2mathml'}?latex=${encodeURIComponent(
+      `https://www.wiris.net/demo/editor/latex2mathml?latex=${encodeURIComponent(
         latex
       )}`
     )
@@ -69,7 +70,7 @@ export class Wiris extends React.Component<WirisProps> {
 
   private static async mmlToLatex(mml: MathML): Promise<LaTeX> {
     const { data } = await axios.get(
-      `${'https://www.wiris.net/demo/editor/mathml2latex'}?mml=${encodeURIComponent(
+      `https://www.wiris.net/demo/editor/mathml2latex?mml=${encodeURIComponent(
         mml
       )}`
     )
