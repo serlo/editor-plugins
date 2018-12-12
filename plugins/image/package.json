@@ -1,0 +1,46 @@
+{
+  "name": "@serlo-org/editor-plugin-image",
+  "version": "0.0.0",
+  "bugs": {
+    "url": "https://github.com/serlo-org/ory-editor-plugins/issues"
+  },
+  "author": "Serlo Education e.V.",
+  "contributors": [],
+  "license": "Apache-2.0",
+  "main": "lib/index.js",
+  "files": [
+    "./lib",
+    "./src",
+    "babel.config.js",
+    "tsconfig.json"
+  ],
+  "repository": "serlo-org/ory-editor-plugins",
+  "scripts": {
+    "prepbuild": "rimraf dist",
+    "build": "npm-run-all build:*",
+    "build:javascript": "NODE_ENV=production babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "ci": "npm-run-all ci:*",
+    "ci:types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.4",
+    "@fortawesome/free-solid-svg-icons": "^5.3.1",
+    "@fortawesome/react-fontawesome": "^0.1.3",
+    "@navjobs/upload": "^3.1.3"
+  },
+  "devDependencies": {
+    "@types/ramda": "^0.25.39",
+    "rimraf": "^2.6.2"
+  },
+  "peerDependencies": {
+    "@splish-me/editor-ui": "^0.0.0",
+    "@splish-me/ory-editor-core": "^0.0.5",
+    "emotion": "^9.0.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.3.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

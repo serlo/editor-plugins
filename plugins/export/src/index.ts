@@ -3,6 +3,7 @@ import divider from '@splish-me/editor-plugin-divider'
 import geogebra from '@serlo-org/editor-plugin-geogebra'
 import highlight from '@serlo-org/editor-plugin-highlight'
 import hint from '@serlo-org/editor-plugin-hint'
+import createImage from '@serlo-org/editor-plugin-image'
 import injection from '@serlo-org/editor-plugin-injection'
 import license from '@serlo-org/editor-plugin-license'
 import scMcExercise from '@serlo-org/editor-plugin-sc-mc-exercise'
@@ -21,8 +22,13 @@ const pluginMapping = {
   geogebra: geogebra,
   highlight: highlight,
   hint: hint,
-  // FIXME:
-  // image: image,
+  image: createImage({
+    upload: {
+      url: '/attachment/upload',
+      maxFileSize: 2000000,
+      allowedExtensions: ['gif', 'jpg', 'jpeg', 'png', 'svg']
+    }
+  }),
   injection: injection,
   license: license,
   scMcExercise: scMcExercise,
