@@ -23,8 +23,8 @@
   "peerDependencies": {
     "react": "^16.4.2",
     "react-dom": "^16.3.1",
-    "@splish-me/editor-ui": "^0.0.0",
-    "@splish-me/ory-editor-core": "^0.0.5"
+    "@splish-me/editor-ui": "^0.2.0",
+    "@splish-me/ory-editor-core": "^0.2.0"
   },
   "publishConfig": {
     "access": "public"

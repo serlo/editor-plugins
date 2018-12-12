@@ -33,8 +33,8 @@
     "rimraf": "^2.6.2"
   },
   "peerDependencies": {
-    "@splish-me/editor-ui": "^0.0.0",
-    "@splish-me/ory-editor-core": "^0.0.5",
+    "@splish-me/editor-ui": "^0.2.0",
+    "@splish-me/ory-editor-core": "^0.2.0",
     "emotion": "^9.0.0",
     "react": "^16.4.2",
     "react-dom": "^16.3.1"

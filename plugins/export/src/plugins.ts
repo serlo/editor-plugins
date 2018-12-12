@@ -1,6 +1,7 @@
 const defaultPlugins = [
   'slate',
-  'image',
+  // FIXME:
+  // 'image',
   'divider',
   'spacer',
   'spoiler',

@@ -18,7 +18,7 @@
   "dependencies": {},
   "devDependencies": {},
   "peerDependencies": {
-    "@splish-me/editor-core": "^0.0.1",
+    "@splish-me/editor-core": "^0.2.0",
     "ory-editor-core": "^0.2.25",
     "react": "^16.4.2",
     "react-dom": "^16.3.1"

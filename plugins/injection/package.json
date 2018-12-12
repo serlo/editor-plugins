@@ -27,7 +27,7 @@
     "jquery": "^3.3.1"
   },
   "peerDependencies": {
-    "@splish-me/editor-ui": "^0.0.0",
+    "@splish-me/editor-ui": "^0.2.0",
     "jquery": "^3.3.1",
     "react": "^16.4.2",
     "react-dom": "^16.3.1"

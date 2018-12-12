@@ -2,7 +2,6 @@ import blockquote from '@serlo-org/editor-plugin-blockquote'
 import divider from '@splish-me/editor-plugin-divider'
 import geogebra from '@serlo-org/editor-plugin-geogebra'
 import hint from '@serlo-org/editor-plugin-hint'
-import image from '@splish-me/editor-plugin-image'
 import injection from '@serlo-org/editor-plugin-injection'
 import license from '@serlo-org/editor-plugin-license'
 import scMcExercise from '@serlo-org/editor-plugin-sc-mc-exercise'
@@ -20,7 +19,8 @@ const pluginMapping = {
   divider: divider,
   geogebra: geogebra,
   hint: hint,
-  image: image,
+  // FIXME:
+  // image: image,
   injection: injection,
   license: license,
   scMcExercise: scMcExercise,
