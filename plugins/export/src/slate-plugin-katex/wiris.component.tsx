@@ -41,8 +41,8 @@ export class Wiris extends React.Component<WirisProps> {
           width: '100%',
           height: '100%',
           backgroundColor: 'rgb(0,0,0,0.3)',
-          left: '0%',
-          top: '0%',
+          left: 0,
+          top: 0,
           position: 'fixed',
           zIndex: 9000
         })}
@@ -63,7 +63,7 @@ export class Wiris extends React.Component<WirisProps> {
               margin: '10px'
             })}
           />
-          <div className={css({ backgroundColor: 'white', margin: '10px' })}>
+          <div className={css({ background: '#ffffff', margin: '10px' })}>
             <button className="btn btn-cancel" onClick={this.props.onCancel}>
               Cancel
             </button>
