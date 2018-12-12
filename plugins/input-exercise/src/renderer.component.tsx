@@ -1,19 +1,34 @@
-import { Editable } from '@splish-me/editor-core/lib/editable.component'
+import {
+  Editable,
+  EditableIdentifier
+} from '@splish-me/editor-core/lib/editable.component'
 import * as React from 'react'
 import S from 'string'
 import A from 'algebra.js'
+import { Feedback } from './feedback.component'
 
-import { Feedback } from './Feedback'
+export interface WrongAnswerProps {
+  id: EditableIdentifier
+  value: string
+  feedback: EditableIdentifier
+}
+export interface InputfieldRendererProps {
+  state: {
+    correctValue: string
+    wrongAnswers: WrongAnswerProps[]
+    type: string
+  }
+}
 
-export default class Display extends React.Component {
+export class Display extends React.Component<InputfieldRendererProps> {
   state = {
     positiveFeedback: false,
-    negativeFeedbackIndex: null,
+    negativeFeedbackIndex: -1,
     showFeedback: false
   }
   input = React.createRef()
 
-  checkAnswer = event => {
+  checkAnswer = (event: React.FormEvent) => {
     event.preventDefault()
     const { state } = this.props
     const { correctValue, wrongAnswers, type } = state
@@ -25,7 +40,7 @@ export default class Display extends React.Component {
     ) {
       this.setState({ positiveFeedback: true, showFeedback: true })
     } else {
-      const index = wrongAnswers.findIndex(wrongAnswer => {
+      const index = wrongAnswers.findIndex((wrongAnswer: WrongAnswerProps) => {
         return this.matchesInput(
           { type: type, value: wrongAnswer.value },
           this.input.current.value
@@ -40,7 +55,7 @@ export default class Display extends React.Component {
     }
   }
 
-  matchesInput = (field, input) => {
+  matchesInput = (field: { type: string; value: string }, input: string) => {
     try {
       const solution = this.normalize(field.type, field.value)
       const submission = this.normalize(field.type, input)
@@ -58,8 +73,8 @@ export default class Display extends React.Component {
     }
   }
 
-  normalize = (type, string) => {
-    const normalizeNumber = function(string) {
+  normalize = (type: string, string: string) => {
+    const normalizeNumber = function(string: string) {
       return S(string).replaceAll(',', '.').s
     }
     const temp = S(string).collapseWhitespace()
@@ -79,7 +94,7 @@ export default class Display extends React.Component {
 
   render() {
     const { state } = this.props
-    const { correctValue, type, wrongAnswers } = state
+    const { type, wrongAnswers } = state
     return (
       <div className="new-text-exercise active">
         <form className="input-challenge-group" onSubmit={this.checkAnswer}>
