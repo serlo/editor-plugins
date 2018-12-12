@@ -1,4 +1,7 @@
 import Checkbox from '@splish-me/editor-ui/lib/sidebar-elements/checkbox'
+import ButtonGroup, {
+  Button
+} from '@splish-me/editor-ui/lib/sidebar-elements/button'
 import Textarea from '@splish-me/editor-ui/lib/sidebar-elements/textarea'
 import { renderIntoSidebar } from '@splish-me/editor-ui/lib/plugin-sidebar.component'
 import { debounce } from 'lodash'
@@ -8,6 +11,7 @@ import { RenderNodeProps } from 'slate-react'
 
 import { SerializeNodeProps, SlatePlugin } from '@splish-me/editor-plugin-slate'
 import { Math } from './math.component'
+import { Wiris } from '@serlo-org/editor-plugins/slate-plugin-katex/wiris.component'
 
 export const katexBlockNode = '@splish-me/katex-block'
 export const katexInlineNode = '@splish-me/katex-inline'
@@ -20,6 +24,7 @@ export interface KatexPluginOptions {
 interface DefaultEditorComponentState {
   lastValue: string
   value: string
+  showWiris: boolean
 }
 
 class DefaultEditorComponent extends React.Component<
@@ -28,7 +33,8 @@ class DefaultEditorComponent extends React.Component<
 > {
   public state: DefaultEditorComponentState = {
     lastValue: (this.props.node as Inline).data.get('formula'),
-    value: (this.props.node as Inline).data.get('formula')
+    value: (this.props.node as Inline).data.get('formula'),
+    showWiris: false
   }
 
   static getDerivedStateFromProps(
@@ -85,10 +91,10 @@ class DefaultEditorComponent extends React.Component<
     return (
       <span {...attributes}>
         <Math formula={formula} inline={inline} />
+
         {isSelected
           ? renderIntoSidebar(
               <React.Fragment>
-                <button>Start wiris</button>
                 <Textarea
                   ref={this.input}
                   label="Formula"
@@ -101,6 +107,15 @@ class DefaultEditorComponent extends React.Component<
                   }}
                   placeholder="\\frac{1}{2}"
                 />
+                <ButtonGroup>
+                  <Button
+                    onClick={() => {
+                      this.setState({ showWiris: true })
+                    }}
+                  >
+                    Open Wiris
+                  </Button>
+                </ButtonGroup>
                 <Checkbox
                   value={inline}
                   label="Inline"
@@ -130,6 +145,18 @@ class DefaultEditorComponent extends React.Component<
               </React.Fragment>
             )
           : null}
+        {this.state.showWiris ? (
+          <Wiris
+            initialSrc={value}
+            onSave={newValue => {
+              this.setState({ value: newValue, showWiris: false })
+              this.handleChange(newValue)
+            }}
+            onCancel={() => {
+              this.setState({ showWiris: false })
+            }}
+          />
+        ) : null}
       </span>
     )
   }

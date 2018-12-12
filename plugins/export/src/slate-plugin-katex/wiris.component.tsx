@@ -1,5 +1,6 @@
 import * as React from 'react'
 import axios from 'axios'
+import { css, cx } from 'emotion'
 
 type MathML = string
 type LaTeX = string
@@ -13,6 +14,7 @@ let wiris: {
 export interface WirisProps {
   initialSrc: LaTeX
   onSave: (src: LaTeX) => void
+  onCancel: () => void
 }
 
 export class Wiris extends React.Component<WirisProps> {
@@ -34,9 +36,42 @@ export class Wiris extends React.Component<WirisProps> {
 
   public render() {
     return (
-      <div style={{ height: '400px' }}>
-        <div ref={this.container} style={{ height: '400px' }} />
-        <button onClick={this.save}>Save</button>
+      <div
+        className={css({
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'rgb(0,0,0,0.3)',
+          left: '0%',
+          top: '0%',
+          position: 'fixed',
+          zIndex: 9000
+        })}
+      >
+        <div
+          className={css({
+            position: 'absolute',
+            backgroundColor: 'white',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%,-50%)'
+          })}
+        >
+          <div
+            ref={this.container}
+            className={css({
+              height: '400px',
+              margin: '10px'
+            })}
+          />
+          <div className={css({ backgroundColor: 'white', margin: '10px' })}>
+            <button className="btn btn-cancel" onClick={this.props.onCancel}>
+              Cancel
+            </button>
+            <button className="btn btn-success pull-right" onClick={this.save}>
+              Save
+            </button>
+          </div>
+        </div>
       </div>
     )
   }
