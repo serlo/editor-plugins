@@ -113,8 +113,16 @@ export const createImageComponent = (config: Config) => {
                 </React.Fragment>
               )
             : null}
-          {src ? (
-            <ImageRenderer state={this.props.state} readOnly={readOnly} />
+          {src || this.state.imagePreview ? (
+            <ImageRenderer
+              state={{
+                ...this.props.state,
+                src: this.state.imagePreview
+                  ? this.state.imagePreview.dataUrl
+                  : src
+              }}
+              readOnly={readOnly}
+            />
           ) : (
             <div>
               <div
@@ -124,7 +132,7 @@ export const createImageComponent = (config: Config) => {
                   textAlign: 'center'
                 })}
               >
-                <FontAwesomeIcon icon={faImages} size="lg" />
+                <FontAwesomeIcon icon={faImages} size="5x" />
               </div>
             </div>
           )}

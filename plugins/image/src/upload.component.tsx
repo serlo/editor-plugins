@@ -2,6 +2,7 @@ import * as React from 'react'
 //@ts-ignore
 import { Uploader, UploadField } from '@navjobs/upload'
 import { UploadProps } from './types'
+import Text from '@splish-me/editor-ui/lib/sidebar-elements/sidebartext'
 
 enum FileError {
   TOO_MANY_FILES,
@@ -66,13 +67,33 @@ export class Upload extends React.Component<UploadProps> {
     }
   }
 
+  readFile(file: File) {
+    return new Promise(resolve => {
+      const reader = new FileReader()
+
+      reader.onload = function(e: ProgressEvent) {
+        const dataUrl = e.target.result
+        resolve({ file, dataUrl })
+      }
+
+      reader.readAsDataURL(file)
+    })
+  }
+
   render() {
+    const { config } = this.props
     return (
       <Uploader
         request={{
-          fileName: 'file',
-          url: this.props.config.url,
-          method: 'POST'
+          fileName: config.paramName,
+          url: config.url,
+          method: 'POST',
+          fields: config.getAdditionalFields
+            ? config.getAdditionalFields()
+            : {},
+          headers: {
+            Accept: 'application/json'
+          }
         }}
         onComplete={({ response }: any) => {
           if (this.props.onImageUploaded) {
@@ -80,15 +101,23 @@ export class Upload extends React.Component<UploadProps> {
             this.props.onImageUploaded({ url })
           }
         }}
+        onError={() => {
+          alert(this.handleErrors([FileError.UPLOAD_FAILED]))
+        }}
+        uploadOnSelection={true}
       >
         {({
           onFiles,
           progress,
-          complete
+          complete,
+          canceled,
+          failed
         }: {
           onFiles: Function
           progress?: number
           complete?: boolean
+          canceled?: boolean
+          failed?: boolean
         }) => (
           <div>
             <UploadField
@@ -97,8 +126,9 @@ export class Upload extends React.Component<UploadProps> {
                 if (!validation.valid) {
                   alert(validation.errors.join('\n'))
                 } else {
-                  if (this.props.onImageLoaded) {
-                    this.props.onImageLoaded({ file: files[0] })
+                  const { onImageLoaded } = this.props
+                  if (onImageLoaded) {
+                    this.readFile(files[0]).then(data => onImageLoaded(data))
                   }
                   onFiles(files)
                 }
@@ -109,8 +139,12 @@ export class Upload extends React.Component<UploadProps> {
             >
               <button>Durchsuchen...</button>
             </UploadField>
-            {progress ? `Progress: ${progress}` : null}
-            {complete ? 'Complete!' : null}
+            <Text>
+              {progress ? `Progress: ${progress}` : null}
+              {complete ? 'Complete!' : null}
+              {canceled ? 'Canceled!' : null}
+              {failed ? 'Failed!' : null}
+            </Text>
           </div>
         )}
       </Uploader>

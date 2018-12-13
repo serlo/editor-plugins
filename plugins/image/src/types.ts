@@ -6,6 +6,8 @@ export interface UploadConfig {
   url: string
   maxFileSize: number
   allowedExtensions: string[]
+  paramName?: string
+  getAdditionalFields?: Function
 }
 
 export interface UploadProps {
@@ -35,6 +37,7 @@ export interface ImageComponentProps {
 
 export interface ImageLoaded {
   file: File
+  dataUrl: string
 }
 
 export interface ImageUploaded {

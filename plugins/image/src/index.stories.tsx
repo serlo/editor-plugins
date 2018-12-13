@@ -9,7 +9,7 @@ import createPlugin from '.'
 const plugin = createPlugin({
   upload: {
     url: 'https://de.serlo.org/attachment/upload',
-    maxFileSize: 2000000,
+    maxFileSize: 2 * 1024 * 1024,
     allowedExtensions: ['gif', 'jpg', 'jpeg', 'png', 'svg']
   }
 })

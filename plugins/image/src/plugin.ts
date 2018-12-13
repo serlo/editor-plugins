@@ -1,6 +1,4 @@
-const { name, version } = require('../package.json')
-
 export const plugin = {
-  name: name.replace('editor-plugin-', ''),
-  version
+  name: '@splish-me/image',
+  version: '0.0.5'
 }

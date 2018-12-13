@@ -16,19 +16,28 @@ import textfield from '@serlo-org/editor-plugin-input-exercise'
 import pluginFactory from './plugins'
 import { slatePlugin } from './slate'
 
+const image = createImage({
+  upload: {
+    url: 'https://serlo-upload.free.beeceptor.com',
+    paramName: 'attachment[file]',
+    maxFileSize: 2 * 1024 * 1024,
+    allowedExtensions: ['gif', 'jpg', 'jpeg', 'png', 'svg'],
+    getAdditionalFields: () => {
+      return {
+        type: 'file',
+        csrf: window.csrf
+      }
+    }
+  }
+})
+
 const pluginMapping = {
   blockquote: blockquote,
   divider: divider,
   geogebra: geogebra,
   highlight: highlight,
   hint: hint,
-  image: createImage({
-    upload: {
-      url: '/attachment/upload',
-      maxFileSize: 2000000,
-      allowedExtensions: ['gif', 'jpg', 'jpeg', 'png', 'svg']
-    }
-  }),
+  image: image,
   injection: injection,
   license: license,
   scMcExercise: scMcExercise,

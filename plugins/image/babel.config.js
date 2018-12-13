@@ -3,6 +3,6 @@ module.exports = api => {
   api.cache(isProduction)
 
   return {
-    presets: ['@splish-me/editor-babel-preset/src', '@babel/preset-flow']
+    presets: ['@serlo-org/ory-editor-plugins-config/src/babel-preset']
   }
 }
