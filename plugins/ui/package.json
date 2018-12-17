@@ -1,6 +1,6 @@
 {
-  "name": "@serlo-org/editor-plugin-hint",
-  "version": "0.0.3",
+  "name": "@serlo-org/editor-ui",
+  "version": "0.0.0",
   "bugs": {
     "url": "https://github.com/serlo-org/ory-editor-plugins/issues"
   },
@@ -22,16 +22,13 @@
     "ci": "npm-run-all ci:*",
     "ci:types": "tsc --noEmit"
   },
-  "dependencies": {
-    "@serlo-org/editor-ui": "^0.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/react": "^16.0.0"
   },
   "peerDependencies": {
-    "react": "^16.4.2",
-    "react-dom": "^16.3.1",
-    "@splish-me/editor-core": "^0.2.0"
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   },
   "publishConfig": {
     "access": "public"
