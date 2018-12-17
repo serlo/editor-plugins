@@ -3,10 +3,6 @@ import * as React from 'react'
 
 import { BlockquotePluginState } from './types'
 
-export interface BlockquoteRendererProps {
-  state: BlockquotePluginState
-}
-
 export class BlockquoteRenderer extends React.Component<BlockquoteRendererProps> {
   public render() {
     const { state } = this.props
@@ -16,4 +12,8 @@ export class BlockquoteRenderer extends React.Component<BlockquoteRendererProps>
       </blockquote>
     )
   }
+}
+
+export interface BlockquoteRendererProps {
+  state: BlockquotePluginState
 }

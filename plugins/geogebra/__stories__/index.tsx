@@ -5,9 +5,9 @@ import {
   renderEditable,
   renderHTMLRenderer
 } from '../../../.storybook/helpers'
-import plugin from '.'
+import plugin from '../src'
 
-storiesOf('Geogebra', module)
+storiesOf('GeoGebra', module)
   .add('Editable (initial state)', () => {
     const content = createStateForContentPlugin({ plugin })
 

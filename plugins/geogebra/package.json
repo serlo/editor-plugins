@@ -7,26 +7,33 @@
   "author": "Serlo Education e.V.",
   "license": "Apache-2.0",
   "main": "./lib/index.js",
-  "files": ["./lib", "./src", "babel.config.js", "tsconfig.json"],
+  "files": [
+    "./lib",
+    "./src",
+    "babel.config.js",
+    "tsconfig.json"
+  ],
   "repository": "serlo-org/ory-editor-plugins",
   "scripts": {
     "prebuild": "rimraf lib",
     "build": "npm-run-all build:*",
-    "build:javascript":
-      "NODE_ENV=production babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
+    "build:javascript": "NODE_ENV=production babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
     "ci": "npm-run-all ci:*",
     "ci:types": "tsc --noEmit"
   },
   "dependencies": {
-    "lodash.debounce": "^4.0.8",
-    "superagent": "^3.8.2"
+    "axios": "^0.18.0",
+    "lodash": "^4.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/lodash": "^4.0.0",
+    "@types/react": "^16.0.0"
+  },
   "peerDependencies": {
     "@splish-me/editor-ui": "^0.2.0",
     "@splish-me/ory-editor-core": "^0.2.0",
-    "react": "^16.4.2",
-    "react-dom": "^16.3.1"
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   },
   "publishConfig": {
     "access": "public"
