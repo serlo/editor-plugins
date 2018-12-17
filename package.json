@@ -41,6 +41,7 @@
     "precommit": "lint-staged",
     "build": "lerna run build",
     "build:watch": "lerna run --parallel build:watch",
+    "ci": "lerna run --parallel ci",
     "format": "prettier --single-quote --no-semi --write \"{{plugins/**/src/**,.storybook/**,example}/*,*}.{ts,tsx,js,jsx,json,md,css}\"",
     "start": "npm-run-all storybook",
     "storybook": "start-storybook -p 9009 -s ./.storybook/public",
