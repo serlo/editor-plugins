@@ -2,7 +2,7 @@ import { css } from 'emotion'
 import * as React from 'react'
 
 export class Hint extends React.Component<HintProps, HintState> {
-  public state: HintState = { hidden: false }
+  public state: HintState = { hidden: true }
 
   onToggle = () => {
     this.setState({ hidden: !this.state.hidden })
