@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 import SyntaxHighlight from 'react-syntax-highlighter'
-import { light } from 'react-syntax-highlighter/styles/prism'
 
-class Display extends Component {
+import { HighlightPluginState } from './types'
+
+export class HighlightRenderer extends React.Component<HighlightRendererProps> {
   render() {
     const { state } = this.props
     const { text, language, lineNumbers } = state
@@ -11,7 +12,6 @@ class Display extends Component {
       <SyntaxHighlight
         language={language || 'text'}
         showLineNumbers={lineNumbers || false}
-        style={light}
       >
         {text || 'Switch into edit mode then paste your sourcecode here...'}
       </SyntaxHighlight>
@@ -19,4 +19,6 @@ class Display extends Component {
   }
 }
 
-export default Display
+export interface HighlightRendererProps {
+  state: HighlightPluginState
+}

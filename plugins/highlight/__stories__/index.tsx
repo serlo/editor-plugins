@@ -6,9 +6,9 @@ import {
   renderEditable,
   renderHTMLRenderer
 } from '../../../.storybook/helpers'
-import plugin from '.'
+import plugin from '../src'
 
-storiesOf('Highlight', module)
+storiesOf('Code Highlight', module)
   .add('Editable (initial state)', () => {
     const content = createStateForContentPlugin({ plugin })
 

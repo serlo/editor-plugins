@@ -1,6 +1,7 @@
 import blockquote from '@serlo-org/editor-plugin-blockquote/lib/index.render'
 import divider from '@splish-me/editor-plugin-divider'
 import geogebra from '@serlo-org/editor-plugin-geogebra/lib/index.render'
+import highlight from '@serlo-org/editor-plugin-highlight/lib/index.render'
 import hint from '@serlo-org/editor-plugin-hint/lib/index.render'
 import injection from '@serlo-org/editor-plugin-injection'
 import license from '@serlo-org/editor-plugin-license/lib/index.render'
@@ -18,6 +19,7 @@ const pluginMapping = {
   blockquote: blockquote,
   divider: divider,
   geogebra: geogebra,
+  highlight: highlight,
   hint: hint,
   // FIXME:
   // image: image,
