@@ -8,7 +8,7 @@ export interface BlockquoteRendererProps {
 }
 
 export class BlockquoteRenderer extends React.Component<BlockquoteRendererProps> {
-  render() {
+  public render() {
     const { state } = this.props
     return (
       <blockquote>

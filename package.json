@@ -39,7 +39,7 @@
   },
   "scripts": {
     "precommit": "lint-staged",
-    "build": "lerna run --parallel build",
+    "build": "lerna run build",
     "build:watch": "lerna run --parallel build:watch",
     "format": "prettier --single-quote --no-semi --write \"{{plugins/**/src/**,.storybook/**,example}/*,*}.{ts,tsx,js,jsx,json,md,css}\"",
     "start": "npm-run-all storybook",

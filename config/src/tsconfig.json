@@ -7,7 +7,7 @@
     "jsx": "react",
     "module": "commonjs",
     "moduleResolution": "node",
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
@@ -15,27 +15,6 @@
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,
     "strictNullChecks": true,
-    "target": "es6",
-    "baseUrl": "../../",
-    "paths": {
-      "@serlo-org/html-renderer/*": ["./htmlRenderer/src/*"],
-      "@serlo-org/editor-plugin-blockquote/*": ["./plugins/blockquote/src/*"],
-      "@serlo-org/editor-plugins/*": ["./plugins/export/src/*"],
-      "@serlo-org/editor-plugin-geogebra/*": ["./plugins/geogebra/src/*"],
-      "@serlo-org/editor-plugin-highlight/*": ["./plugins/highlight/src/*"],
-      "@serlo-org/editor-plugin-hint/*": ["./plugins/hint/src/*"],
-      "@serlo-org/editor-plugin-infobox/*": ["./plugins/infobox/src/*"],
-      "@serlo-org/editor-plugin-injection/*": ["./plugins/injection/src/*"],
-      "@serlo-org/editor-plugin-input-exercise/*": [
-        "./plugins/input-exercise/src/*"
-      ],
-      "@serlo-org/editor-plugin-license/*": ["./plugins/license/src/*"],
-      "@serlo-org/editor-plugin-sc-mc-exercise/*": [
-        "./plugins/sc-mc-exercise/src/*"
-      ],
-      "@serlo-org/editor-plugin-solution/*": ["./plugins/solution/src/*"],
-      "@serlo-org/editor-plugin-spoiler/*": ["./plugins/spoiler/src/*"],
-      "@serlo-org/editor-plugin-table/*": ["./plugins/table/src/*"]
-    }
+    "target": "es6"
   }
 }

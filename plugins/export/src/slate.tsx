@@ -32,8 +32,8 @@ import {
 } from '@splish-me/editor-plugin-slate/lib/plugins/code'
 import {
   isUnorderedList,
-  createToggleUnorderedList,
-  createToggleOrderedList,
+  toggleUnorderedList,
+  toggleOrderedList,
   isOrderedList
 } from '@splish-me/editor-plugin-slate/lib/plugins/lists'
 import { Change, Value } from 'slate'
@@ -136,7 +136,7 @@ class Component extends React.Component<{
           <Button
             active={isUnorderedList(value.change())}
             onClick={() => {
-              applyChange(createToggleUnorderedList(defaultNode))
+              applyChange(toggleUnorderedList)
             }}
           >
             ul
@@ -144,7 +144,7 @@ class Component extends React.Component<{
           <Button
             active={isOrderedList(value.change())}
             onClick={() => {
-              applyChange(createToggleOrderedList(defaultNode))
+              applyChange(toggleOrderedList)
             }}
           >
             ol
@@ -165,6 +165,5 @@ const plugins = [
 ]
 
 export const slatePlugin = createSlatePlugin({
-  plugins,
-  defaultNode
+  plugins
 })

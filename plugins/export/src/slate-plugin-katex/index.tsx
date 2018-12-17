@@ -11,7 +11,7 @@ import { RenderNodeProps } from 'slate-react'
 
 import { SerializeNodeProps, SlatePlugin } from '@splish-me/editor-plugin-slate'
 import { Math } from './math.component'
-import { Wiris } from '@serlo-org/editor-plugins/slate-plugin-katex/wiris.component'
+import { Wiris } from './wiris.component'
 
 export const katexBlockNode = '@splish-me/katex-block'
 export const katexInlineNode = '@splish-me/katex-inline'

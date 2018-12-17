@@ -20,7 +20,7 @@ import '@splish-me/ory-editor-core/src/index.css'
 import 'katex/dist/katex.css'
 
 import createEditorPlugins, { defaultPlugin } from '@serlo-org/editor-plugins'
-import createRenderPlugins from '@serlo-org/editor-plugins/index.render'
+import createRenderPlugins from '@serlo-org/editor-plugins/lib/index.render'
 
 const editorPlugins = createEditorPlugins('text-exercise')
 const renderPlugins = createRenderPlugins('text-exercise')
