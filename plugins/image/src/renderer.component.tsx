@@ -17,7 +17,7 @@ export class ImageRenderer extends React.Component<ImageRendererProps> {
     )
     return (
       <div>
-        {state.href && readOnly ? (
+        {href && readOnly ? (
           <a href={href} target={target} rel={rel}>
             {Image}
           </a>

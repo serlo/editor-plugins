@@ -7,7 +7,6 @@ import Textfield from '@splish-me/editor-ui/lib/sidebar-elements/textfield'
 import Textarea from '@splish-me/editor-ui/lib/sidebar-elements/textarea'
 import Checkbox from '@splish-me/editor-ui/lib/sidebar-elements/checkbox'
 import { ImageRenderer } from './renderer.component'
-import { ChangeEvent } from 'react'
 import { Upload } from '@serlo-org/editor-plugin-image/upload.component'
 import {
   Config,
@@ -33,14 +32,13 @@ export const createImageComponent = (config: Config) => {
     }
 
     handleChange = (name: string) => (
-      event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+      event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
     ) => {
-      let change: any = {}
-      change[name] = event.target.value
+      const change = { [name]: event.target.value }
       this.props.onChange(change)
     }
 
-    handleTargetChange(event: ChangeEvent<HTMLInputElement>) {
+    handleTargetChange(event: React.ChangeEvent<HTMLInputElement>) {
       if (event.target.checked) {
         this.props.onChange({
           target: '_blank',

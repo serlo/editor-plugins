@@ -9,8 +9,8 @@
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "files": [
-    "./lib",
-    "./src",
+    "lib",
+    "src",
     "babel.config.js",
     "tsconfig.json"
   ],

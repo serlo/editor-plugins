@@ -1,62 +1,61 @@
 import * as React from 'react'
 //@ts-ignore
 import { Uploader, UploadField } from '@navjobs/upload'
-import { UploadProps } from './types'
+import { FileError,FileErrorCode, UploadProps } from "./types";
 import Text from '@splish-me/editor-ui/lib/sidebar-elements/sidebartext'
 
-enum FileError {
-  TOO_MANY_FILES,
-  NO_FILE_SELECTED,
-  BAD_EXTENSION,
-  FILE_TOO_BIG,
-  UPLOAD_FAILED
-}
 
 export class Upload extends React.Component<UploadProps> {
   matchesAllowedExtensions(fileName: string) {
-    const patternPart = this.props.config.allowedExtensions
-      ? this.props.config.allowedExtensions.map(a => a.toLowerCase()).join('|')
-      : ''
-    const pattern = '(' + patternPart.replace(/\./g, '\\.') + ')$'
-    return new RegExp(pattern, 'i').test(fileName.toLowerCase())
+    const extension = fileName.slice(fileName.lastIndexOf('.')+1)
+    return this.props.config.allowedExtensions.indexOf(extension) >= 0;
   }
 
-  handleErrors(errors: FileError[]): string[] {
-    return errors.map(error => {
-      switch (error) {
-        case FileError.TOO_MANY_FILES:
-          return 'You only can upload one file'
-        case FileError.NO_FILE_SELECTED:
-          return 'No file selected'
-        case FileError.BAD_EXTENSION:
-          return 'Not an accepted file type'
-        case FileError.FILE_TOO_BIG:
-          return 'Filesize is too big'
-        case FileError.UPLOAD_FAILED:
-          return 'Error while uploading'
-      }
-    })
+  handleErrors(errors: FileErrorCode[]): FileError[] {
+    return errors.map(error => ({
+      errorCode: error,
+      message: this.errorCodeToMessage(error)
+    }))
+  }
+  defaultOnError(errors: FileError[]): void {
+    alert(errors.map(error => error.message).join('\n'))
   }
 
-  validateFiles(files: FileList): { valid: boolean; errors: string[] } {
+
+  errorCodeToMessage(error: FileErrorCode) {
+    switch (error) {
+      case FileErrorCode.TOO_MANY_FILES:
+        return 'You can only upload one file'
+      case FileErrorCode.NO_FILE_SELECTED:
+        return 'No file selected'
+      case FileErrorCode.BAD_EXTENSION:
+        return 'Not an accepted file type'
+      case FileErrorCode.FILE_TOO_BIG:
+        return 'Filesize is too big'
+      case FileErrorCode.UPLOAD_FAILED:
+        return 'Error while uploading'
+    }
+  }
+
+  validateFiles(files: FileList): { valid: boolean; errors: FileError[] } {
     let valid = true,
-      uploadErrors: FileError[] = []
+      uploadErrors: FileErrorCode[] = []
 
     if (!files || !files[0]) {
-      uploadErrors = [...uploadErrors, FileError.NO_FILE_SELECTED]
+      uploadErrors = [...uploadErrors, FileErrorCode.NO_FILE_SELECTED]
       valid = false
     } else {
       if (files.length > 1) {
-        uploadErrors = [...uploadErrors, FileError.TOO_MANY_FILES]
+        uploadErrors = [...uploadErrors, FileErrorCode.TOO_MANY_FILES]
         valid = false
       }
       const file = files[0]
       if (!this.matchesAllowedExtensions(file.name)) {
-        uploadErrors = [...uploadErrors, FileError.BAD_EXTENSION]
+        uploadErrors = [...uploadErrors, FileErrorCode.BAD_EXTENSION]
         valid = false
       }
       if (file.size > this.props.config.maxFileSize) {
-        uploadErrors = [...uploadErrors, FileError.FILE_TOO_BIG]
+        uploadErrors = [...uploadErrors, FileErrorCode.FILE_TOO_BIG]
         valid = false
       }
     }
@@ -102,9 +101,14 @@ export class Upload extends React.Component<UploadProps> {
           }
         }}
         onError={() => {
-          alert(this.handleErrors([FileError.UPLOAD_FAILED]))
+          const errors = this.handleErrors([FileErrorCode.UPLOAD_FAILED])
+          if (this.props.onError) {
+            this.props.onError(errors)
+          } else {
+            this.defaultOnError(errors)
+          }
         }}
-        uploadOnSelection={true}
+        uploadOnSelection
       >
         {({
           onFiles,
@@ -124,7 +128,11 @@ export class Upload extends React.Component<UploadProps> {
               onFiles={(files: FileList) => {
                 const validation = this.validateFiles(files)
                 if (!validation.valid) {
-                  alert(validation.errors.join('\n'))
+                  if (this.props.onError) {
+                    this.props.onError(validation.errors)
+                  } else {
+                    this.defaultOnError(validation.errors)
+                  }
                 } else {
                   const { onImageLoaded } = this.props
                   if (onImageLoaded) {
