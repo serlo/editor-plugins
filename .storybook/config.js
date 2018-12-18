@@ -9,20 +9,23 @@ setOptions({
 })
 
 const reqExample = require.context('../example', true, /\.stories\.(tsx?|js)$/)
-const reqPlugins = require.context('../plugins', true, /\.stories\.(tsx?|js)$/)
+const reqPlugins = require.context(
+  '../plugins',
+  true,
+  /(__stories__\/.*|\.stories)\.(tsx?|js)$/
+)
+
+const requireContext = req => {
+  req.keys().forEach(file => {
+    if (file.indexOf('/lib/') === -1) {
+      req(file)
+    }
+  })
+}
 
 const loadStories = () => {
-  reqExample.keys().forEach(file => {
-    if (file.indexOf('/lib/') === -1) {
-      reqExample(file)
-    }
-  })
-
-  reqPlugins.keys().forEach(file => {
-    if (file.indexOf('/lib/') === -1) {
-      reqPlugins(file)
-    }
-  })
+  requireContext(reqExample)
+  requireContext(reqPlugins)
 }
 
 configure(loadStories, module)

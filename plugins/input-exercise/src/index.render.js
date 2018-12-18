@@ -1,6 +1,6 @@
 import plugin from './plugin'
-import Textfield from './Textfield'
+import Inputfield from './editable.component'
 export default {
   ...plugin,
-  Component: Textfield
+  Component: Inputfield
 }

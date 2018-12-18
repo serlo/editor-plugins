@@ -14,18 +14,16 @@ import { ModeToolbar } from '@splish-me/editor-ui/lib/mode-toolbar.component'
 import { Sidebar } from '@splish-me/editor-ui/lib/sidebar.component'
 import { AddSidebar } from '@splish-me/editor-ui/lib/add-sidebar.component'
 import { PluginSidebar } from '@splish-me/editor-ui/lib/plugin-sidebar.component'
-import { HtmlRenderer } from '@serlo-org/html-renderer/src'
+import { HtmlRenderer } from '@serlo-org/html-renderer'
 
 import '@splish-me/ory-editor-core/src/index.css'
 import 'katex/dist/katex.css'
 
-import createEditorPlugins, {
-  defaultPlugin
-} from '@serlo-org/editor-plugins/src'
-import createRenderPlugins from '@serlo-org/editor-plugins/src/index.render'
+import createEditorPlugins, { defaultPlugin } from '@serlo-org/editor-plugins'
+import createRenderPlugins from '@serlo-org/editor-plugins/lib/index.render'
 
-const editorPlugins = createEditorPlugins('text-exercise')
-const renderPlugins = createRenderPlugins('text-exercise')
+const editorPlugins = createEditorPlugins('all')
+const renderPlugins = createRenderPlugins('all')
 
 console.log(editorPlugins)
 

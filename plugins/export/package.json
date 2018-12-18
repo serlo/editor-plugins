@@ -1,6 +1,6 @@
 {
   "name": "@serlo-org/editor-plugins",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "bugs": {
     "url": "https://github.com/serlo-org/ory-editor-plugins/issues"
   },
@@ -11,8 +11,7 @@
   "scripts": {
     "prebuild": "rimraf lib",
     "build": "npm-run-all build:*",
-    "build:javascript":
-      "babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
+    "build:javascript": "NODE_ENV=production babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
     "ci": "npm-run-all ci:*",
     "ci:types": "tsc --noEmit"
   },
@@ -20,6 +19,7 @@
     "@serlo-org/editor-plugin-blockquote": "^0.0.0",
     "@serlo-org/editor-plugin-geogebra": "^0.0.5",
     "@serlo-org/editor-plugin-hint": "^0.0.3",
+    "@serlo-org/editor-plugin-image": "^0.0.5",
     "@serlo-org/editor-plugin-injection": "^0.0.2",
     "@serlo-org/editor-plugin-input-exercise": "^0.0.3",
     "@serlo-org/editor-plugin-license": "^0.0.1",
@@ -27,18 +27,21 @@
     "@serlo-org/editor-plugin-solution": "^0.0.2",
     "@serlo-org/editor-plugin-spoiler": "^0.0.4",
     "@serlo-org/editor-plugin-table": "^0.0.2",
-    "@splish-me/editor-plugin-divider": "^0.0.2",
-    "@splish-me/editor-plugin-image": "^0.0.4",
-    "@splish-me/editor-plugin-slate": "^0.0.11",
-    "@splish-me/editor-plugin-spacer": "^0.0.2"
+    "@splish-me/editor-plugin-divider": "^0.2.0",
+    "@splish-me/editor-plugin-slate": "^0.2.0",
+    "@splish-me/editor-plugin-spacer": "^0.2.0",
+    "axios": "^0.18.0",
+    "katex": "^0.10.0",
+    "lodash": "^4.0.0"
   },
   "devDependencies": {
-    "@types/slate": "^0.40.0",
+    "@types/lodash": "^4.0.0",
     "rimraf": "^2.6.2"
   },
   "peerDependencies": {
     "react": "^16.4.2",
-    "react-dom": "^16.3.1"
+    "react-dom": "^16.3.1",
+    "slate-react": "^0.18.0"
   },
   "publishConfig": {
     "access": "public"
