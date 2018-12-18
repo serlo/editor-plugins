@@ -43,7 +43,7 @@ export const createStateForLayoutPlugin = props =>
 export const renderEditable = state => {
   const r = new Renderer(state)
 
-  return (
+  return r.renderContainer(
     <SerloArticle controls={r.renderControls()}>
       {r.renderEditable()}
     </SerloArticle>

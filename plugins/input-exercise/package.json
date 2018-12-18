@@ -1,0 +1,35 @@
+{
+  "name": "@serlo-org/editor-plugin-input-exercise",
+  "version": "0.0.3",
+  "bugs": {
+    "url": "https://github.com/serlo-org/ory-editor-plugins/issues"
+  },
+  "author": "Serlo Education e.V.",
+  "contributors": [],
+  "license": "Apache-2.0",
+  "main": "lib/index.js",
+  "files": ["./lib", "./src", "babel.config.js", "tsconfig.json"],
+  "repository": "serlo-org/ory-editor-plugins",
+  "scripts": {
+    "build": "npm-run-all build:*",
+    "build:javascript":
+      "NODE_ENV=production babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "ci": "npm-run-all ci:*",
+    "ci:types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "algebra.js": "^0.2.6",
+    "string": "^3.3.3"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.3.1",
+    "@splish-me/editor-ui": "^0.2.0",
+    "@splish-me/ory-editor-core": "^0.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

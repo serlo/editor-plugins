@@ -3,92 +3,106 @@ import * as React from 'react'
 import 'font-awesome/css/font-awesome.css'
 
 // The editor core
-import Editor, { Editable } from 'ory-editor-core'
-import { HTMLRenderer } from 'ory-editor-renderer'
+import { EditorConsumer } from '@splish-me/editor-core/lib/contexts'
+import {
+  Editable,
+  createEditableIdentifier
+} from '@splish-me/editor-core/lib/editable.component'
+import { Editor as E } from '@splish-me/editor-core/lib/editor.component'
+import { EditorHelpersConsumer } from '@splish-me/editor-core/lib/contexts'
+import { ModeToolbar } from '@splish-me/editor-ui/lib/mode-toolbar.component'
+import { Sidebar } from '@splish-me/editor-ui/lib/sidebar.component'
+import { AddSidebar } from '@splish-me/editor-ui/lib/add-sidebar.component'
+import { PluginSidebar } from '@splish-me/editor-ui/lib/plugin-sidebar.component'
+import { HtmlRenderer } from '@serlo-org/html-renderer'
 
-import 'ory-editor-core/lib/index.css' // we also want to load the stylesheets
+import '@splish-me/ory-editor-core/src/index.css'
+import 'katex/dist/katex.css'
 
-// Require our ui components (optional). You can implement and use your own ui too!
-import { Trash, DisplayModeToggle, Toolbar } from 'ory-editor-ui'
-import 'ory-editor-ui/lib/index.css'
+import createEditorPlugins, { defaultPlugin } from '@serlo-org/editor-plugins'
+import createRenderPlugins from '@serlo-org/editor-plugins/lib/index.render'
 
-import slate from 'ory-editor-plugins-slate'
-import 'ory-editor-plugins-slate/lib/index.css'
-import divider from 'ory-editor-plugins-divider'
-import 'ory-editor-plugins-divider/lib/index.css'
-import spacer from 'ory-editor-plugins-spacer'
-import 'ory-editor-plugins-spacer/lib/index.css'
-import image from 'ory-editor-plugins-image'
-import 'ory-editor-plugins-image/lib/index.css'
-import video from 'ory-editor-plugins-video'
-import 'ory-editor-plugins-video/lib/index.css'
-
-import spoiler from '@serlo-org/ory-editor-plugins-spoiler/src'
-import '@serlo-org/ory-editor-plugins-spoiler/src/index.css'
-import infobox from '@serlo-org/ory-editor-plugins-infobox/src'
-import infoboxRender from '@serlo-org/ory-editor-plugins-infobox/src/index.render'
-import '@serlo-org/ory-editor-plugins-infobox/src/index.css'
-import highlight from '@serlo-org/ory-editor-plugins-highlight/src'
-import highlightRender from '@serlo-org/ory-editor-plugins-highlight/src/index.render'
-import '@serlo-org/ory-editor-plugins-highlight/src/index.css'
-import geogebra from '@serlo-org/ory-editor-plugins-geogebra/src'
-import geogebraRender from '@serlo-org/ory-editor-plugins-geogebra/src/index.render'
-import '@serlo-org/ory-editor-plugins-geogebra/src/index.css'
-
-require('react-tap-event-plugin')() // react-tap-event-plugin is required by material-ui which is used by ory-editor-ui so we need to call it here
-
-// Define which plugins we want to use. We only have slate and parallax available, so load those.
-const editorPlugins = {
-  content: [slate(), spacer, image, video, divider, geogebra, highlight],
-  layout: [
-    infobox({ defaultPlugin: slate() }),
-    spoiler({ defaultPlugin: slate() })
-  ]
-}
-
-const renderPlugins = {
-  content: [
-    slate(),
-    spacer,
-    image,
-    video,
-    divider,
-    geogebraRender,
-    highlightRender
-  ],
-  layout: [
-    infoboxRender({ defaultPlugin: slate() }),
-    spoiler({ defaultPlugin: slate() })
-  ]
-}
+const editorPlugins = createEditorPlugins('all')
+const renderPlugins = createRenderPlugins('all')
 
 export class Renderer {
   constructor(content) {
     this.content = content
-    this.editor = new Editor({
-      plugins: editorPlugins,
-      // pass the content state - you can add multiple editables here
-      editables: [content]
-    })
+  }
+
+  renderContainer(children) {
+    return (
+      <E defaultPlugin={defaultPlugin} plugins={editorPlugins}>
+        <EditorConsumer>
+          {({ currentMode }) => {
+            return (
+              <React.Fragment>
+                <ModeToolbar />
+                <Sidebar
+                  active={currentMode !== 'preview'}
+                  hideToggle={currentMode === 'layout'}
+                >
+                  {currentMode === 'layout' ? (
+                    <AddSidebar />
+                  ) : (
+                    <PluginSidebar />
+                  )}
+                </Sidebar>
+              </React.Fragment>
+            )
+          }}
+        </EditorConsumer>
+        {children}
+      </E>
+    )
   }
 
   renderEditable() {
-    this.editor.trigger.mode.edit()
-
-    return <Editable editor={this.editor} id={this.content.id} />
-  }
-
-  renderControls() {
+    const rootId = createEditableIdentifier()
     return (
       <div>
-        <Trash editor={this.editor} />
-        <DisplayModeToggle editor={this.editor} />
-        <Toolbar editor={this.editor} />
+        <Editable id={rootId} initialState={this.content} />
+        <EditorHelpersConsumer>
+          {({ undo, redo, serializeState }) => (
+            <React.Fragment>
+              <button
+                onClick={() => {
+                  undo()
+                }}
+              >
+                Undo
+              </button>
+              <button
+                onClick={() => {
+                  redo()
+                }}
+              >
+                Redo
+              </button>
+              <button
+                onClick={() => {
+                  console.log(
+                    'state',
+                    JSON.stringify({
+                      state: JSON.stringify(serializeState(rootId))
+                    })
+                  )
+                }}
+              >
+                Save
+              </button>
+            </React.Fragment>
+          )}
+        </EditorHelpersConsumer>
       </div>
     )
   }
 
+  renderControls() {
+    return null
+  }
+
   renderHTMLRenderer() {
-    return <HTMLRenderer state={this.content} plugins={renderPlugins} />
+    return <HtmlRenderer state={this.content} plugins={renderPlugins} />
   }
 }
