@@ -17,7 +17,7 @@
   "repository": "serlo-org/ory-editor-plugins",
   "scripts": {
     "build": "npm-run-all build:*",
-    "build:javascript": "babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
+    "build:javascript": "NODE_ENV=production babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
     "build:types": "tsc --emitDeclarationOnly",
     "ci": "npm-run-all ci:*",
     "ci:types": "tsc --noEmit"
@@ -25,8 +25,8 @@
   "dependencies": {},
   "devDependencies": {},
   "peerDependencies": {
-    "@splish-me/editor-core": "^0.0.0",
-    "@splish-me/editor-ui": "^0.0.0",
+    "@splish-me/editor-core": "^0.2.0",
+    "@splish-me/editor-ui": "^0.2.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1"
   },

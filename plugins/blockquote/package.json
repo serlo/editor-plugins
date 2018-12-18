@@ -10,17 +10,20 @@
   "main": "lib/index.js",
   "repository": "serlo-org/ory-editor-plugins",
   "scripts": {
+    "prebuild": "rimraf lib",
     "build": "npm-run-all build:*",
-    "build:javascript":
-      "babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
+    "build:javascript": "NODE_ENV=production babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
+    "build:types": "tsc --emitDeclarationOnly",
     "ci": "npm-run-all ci:*",
     "ci:types": "tsc --noEmit"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/react": "^16.0.0"
+  },
   "peerDependencies": {
-    "react": "^16.4.2",
-    "react-dom": "^16.3.1"
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   },
   "publishConfig": {
     "access": "public"
