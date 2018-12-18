@@ -14,13 +14,17 @@ export class SolutionEditor extends React.Component<SolutionEditorProps> {
     }
 
     return (
-      <Hint kind="Lösung" shown title={(
-        <input
-          onChange={e => onChange({ title: e.target.value })}
-          value={state.title}
-          placeholder="Optionaler Hinweistitel"
-        />
-      )}>
+      <Hint
+        kind="Lösung"
+        shown
+        title={
+          <input
+            onChange={e => onChange({ title: e.target.value })}
+            value={state.title}
+            placeholder="Optionaler Hinweistitel"
+          />
+        }
+      >
         <Editable id={state.content} />
       </Hint>
     )
@@ -28,7 +32,7 @@ export class SolutionEditor extends React.Component<SolutionEditorProps> {
 }
 
 export interface SolutionEditorProps {
-  onChange: (state: Partial<SolutionPluginState>) => void,
-  state: SolutionPluginState,
+  onChange: (state: Partial<SolutionPluginState>) => void
+  state: SolutionPluginState
   readOnly?: boolean
 }

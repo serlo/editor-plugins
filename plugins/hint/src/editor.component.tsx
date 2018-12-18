@@ -14,13 +14,17 @@ export class HintEditor extends React.Component<HintEditorProps> {
     }
 
     return (
-      <Hint kind="Tipp" shown title={(
-        <input
-          onChange={e => onChange({ title: e.target.value })}
-          value={state.title}
-          placeholder="Optionaler Hinweistitel"
-        />
-      )}>
+      <Hint
+        kind="Tipp"
+        shown
+        title={
+          <input
+            onChange={e => onChange({ title: e.target.value })}
+            value={state.title}
+            placeholder="Optionaler Hinweistitel"
+          />
+        }
+      >
         <Editable id={state.content} />
       </Hint>
     )
@@ -28,7 +32,7 @@ export class HintEditor extends React.Component<HintEditorProps> {
 }
 
 export interface HintEditorProps {
-  onChange: (state: Partial<HintPluginState>) => void,
-  state: HintPluginState,
+  onChange: (state: Partial<HintPluginState>) => void
+  state: HintPluginState
   readOnly?: boolean
 }

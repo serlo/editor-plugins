@@ -2,7 +2,7 @@ import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.co
 
 import { plugin } from './plugin'
 import { BlockquotePluginState } from './types'
-import { BlockquoteRenderer }from './renderer.component'
+import { BlockquoteRenderer } from './renderer.component'
 
 export default {
   ...plugin,
