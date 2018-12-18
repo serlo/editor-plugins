@@ -351,45 +351,7 @@ export class SerloArticle extends React.Component {
                           </ul>
                         </div>
                       </div>
-                      <ol id="breadcrumbs">
-                        <li>
-                          <a href="/mathe">
-                            <span>Mathematik</span>
-                            <i className="fa fa-angle-left" />
-                          </a>
-                        </li>
-                        <li className="hidden">
-                          <a>
-                            …<i className="fa fa-angle-left" />
-                          </a>
-                        </li>
-                        <li>
-                          <a href="/mathe/5">
-                            <span>Alle Themen</span>
-                            <i className="fa fa-angle-left" />
-                          </a>
-                        </li>
-                        <li>
-                          <a href="/mathe/geometrie">
-                            <span>Geometrie</span>
-                            <i className="fa fa-angle-left" />
-                          </a>
-                        </li>
-                        <li>
-                          <a href="/mathe/geometrie/konstruktion-geometrischen-objekten">
-                            <span>Konstruktion von geometrischen Objekten</span>
-                            <i className="fa fa-angle-left" />
-                          </a>
-                        </li>
-                        <li>
-                          <span>Dreiecke konstruieren</span>
-                        </li>
-                        <li className="backlink">
-                          <a href="/mathe/geometrie/konstruktion-geometrischen-objekten">
-                            <i className="fa fa-chevron-left" />
-                          </a>
-                        </li>
-                      </ol>
+                      <ol id="breadcrumbs" />
                     </div>
                     <div id="search-content">
                       <form

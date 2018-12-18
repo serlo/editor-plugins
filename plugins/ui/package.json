@@ -1,0 +1,36 @@
+{
+  "name": "@serlo-org/editor-ui",
+  "version": "0.0.0",
+  "bugs": {
+    "url": "https://github.com/serlo-org/ory-editor-plugins/issues"
+  },
+  "author": "Serlo Education e.V.",
+  "contributors": [],
+  "license": "Apache-2.0",
+  "main": "lib/index.js",
+  "files": [
+    "./lib",
+    "./src",
+    "babel.config.js",
+    "tsconfig.json"
+  ],
+  "repository": "serlo-org/ory-editor-plugins",
+  "scripts": {
+    "build": "npm-run-all build:*",
+    "build:javascript": "NODE_ENV=production babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "ci": "npm-run-all ci:*",
+    "ci:types": "tsc --noEmit"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/react": "^16.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

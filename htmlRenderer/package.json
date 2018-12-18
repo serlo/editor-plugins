@@ -11,14 +11,14 @@
   "scripts": {
     "build": "npm-run-all build:*",
     "build:javascript":
-      "babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
+      "NODE_ENV=production babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
     "ci": "npm-run-all ci:*",
     "ci:types": "tsc --noEmit"
   },
   "dependencies": {},
   "devDependencies": {},
   "peerDependencies": {
-    "@splish-me/editor-core": "^0.0.1",
+    "@splish-me/editor-core": "^0.2.0",
     "ory-editor-core": "^0.2.25",
     "react": "^16.4.2",
     "react-dom": "^16.3.1"
