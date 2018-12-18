@@ -9,7 +9,7 @@ export class ImageRenderer extends React.Component<ImageRendererProps> {
     const Image = (
       <img
         className={css({
-          width: '100%'
+          maxWidth: '100%'
         })}
         src={src}
         alt={description}
