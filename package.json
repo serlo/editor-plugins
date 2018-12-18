@@ -1,10 +1,18 @@
 {
-  "name": "@serlo-org/ory-editor-plugins-workspace",
-  "workspaces": [
-    "config",
-    "packages/*",
-    "plugins/*"
-  ],
+  "name": "@serlo-org/editor-plugins-workspace",
+  "version": "0.0.0",
+  "license": "Apache-2.0",
+  "author": "Serlo Education e.V.",
+  "scripts": {
+    "precommit": "lint-staged",
+    "build": "lerna run build",
+    "ci": "lerna run --parallel ci",
+    "format": "prettier --write \"{{{packages,plugins}/*/src/**,.storybook/**,example/**}/*,*}.{js,jsx,ts,tsx,css,scss,json,md,markdown}\"",
+    "start": "npm-run-all storybook",
+    "storybook": "start-storybook -p 9009 -s ./.storybook/public",
+    "build-storybook": "build-storybook",
+    "test": "jest"
+  },
   "dependencies": {
     "@babel/runtime": "^7.0.0",
     "@splish-me/editor-core": "^0.2.0",
@@ -38,35 +46,16 @@
     "typescript": "^3.0.0",
     "webpack-require-http": "^0.4.0"
   },
-  "scripts": {
-    "precommit": "lint-staged",
-    "build": "lerna run build",
-    "build:watch": "lerna run --parallel build:watch",
-    "ci": "lerna run --parallel ci",
-    "format": "prettier --single-quote --no-semi --write \"{{plugins/**/src/**,.storybook/**,example}/*,*}.{ts,tsx,js,jsx,json,md,css}\"",
-    "start": "npm-run-all storybook",
-    "storybook": "start-storybook -p 9009 -s ./.storybook/public",
-    "build-storybook": "build-storybook",
-    "test": "jest"
-  },
   "private": true,
   "lint-staged": {
-    "{{plugins/**/src/**,.storybook/**,example}/*,*}.{ts,tsx,js,jsx,json,md,css}": [
-      "prettier --single-quote --no-semi --write",
+    "{{{packages,plugins}/*/src/**,.storybook/**,example/**}/*,*}.{js,jsx,ts,tsx,css,scss,json,md,markdown}": [
+      "prettier --write",
       "git add"
     ]
   },
-  "jest": {
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
-    "transform": {
-      "^.+\\.(tsx?|js)$": "babel-jest"
-    },
-    "testMatch": [
-      "**/__tests__/**/*.+(ts?(x)|js)"
-    ]
-  }
+  "workspaces": [
+    "config",
+    "packages/*",
+    "plugins/*"
+  ]
 }
