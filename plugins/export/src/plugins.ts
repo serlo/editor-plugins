@@ -14,7 +14,13 @@ const defaultPlugins = [
 
 const newPlugins = ['highlight', 'matchingExercise', 'stepByStep', 'equations']
 
-const exercisePlugins = ['scMcExercise', 'textfield', 'solution', 'hint', 'stepByStep']
+const exercisePlugins = [
+  'scMcExercise',
+  'textfield',
+  'solution',
+  'hint',
+  'stepByStep'
+]
 
 export default pluginMapping => editableType => {
   const plugins = choosePlugins(editableType)
