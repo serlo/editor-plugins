@@ -1,19 +1,20 @@
-import * as React from 'react'
 import { faImages } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { css } from 'emotion'
 import { renderIntoSidebar } from '@splish-me/editor-ui/lib/plugin-sidebar.component'
 import Textfield from '@splish-me/editor-ui/lib/sidebar-elements/textfield'
 import Textarea from '@splish-me/editor-ui/lib/sidebar-elements/textarea'
 import Checkbox from '@splish-me/editor-ui/lib/sidebar-elements/checkbox'
+import { css } from 'emotion'
+import * as React from 'react'
+
 import { ImageRenderer } from './renderer.component'
-import { Upload } from '@serlo-org/editor-plugin-image/upload.component'
 import {
   Config,
   ImageComponentProps,
   ImageLoaded,
   ImageUploaded
 } from './types'
+import { Upload } from './upload.component'
 
 type ImageComponentState = {
   imagePreview?: ImageLoaded

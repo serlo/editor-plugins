@@ -33,7 +33,7 @@ export class GeoGebraEditor extends React.Component<GeoGebraEditorProps> {
 }
 
 export interface GeoGebraEditorProps {
-  onChange: (state: GeoGebraPluginState) => void,
+  onChange: (state: GeoGebraPluginState) => void
   state: GeoGebraPluginState
   focused?: boolean
   readOnly?: boolean

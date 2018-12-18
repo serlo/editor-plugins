@@ -1,6 +1,7 @@
 import blockquote from '@serlo-org/editor-plugin-blockquote/lib/index.render'
 import divider from '@splish-me/editor-plugin-divider'
 import geogebra from '@serlo-org/editor-plugin-geogebra/lib/index.render'
+import highlight from '@serlo-org/editor-plugin-highlight/lib/index.render'
 import hint from '@serlo-org/editor-plugin-hint/lib/index.render'
 import createImageRender from '@serlo-org/editor-plugin-image/lib/index.render'
 import injection from '@serlo-org/editor-plugin-injection'

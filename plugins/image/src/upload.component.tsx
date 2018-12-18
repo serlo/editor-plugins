@@ -1,14 +1,13 @@
-import * as React from 'react'
-//@ts-ignore
 import { Uploader, UploadField } from '@navjobs/upload'
-import { FileError,FileErrorCode, UploadProps } from "./types";
-import Text from '@splish-me/editor-ui/lib/sidebar-elements/sidebartext'
+import { UploadProgress } from '@serlo-org/editor-ui/lib/upload-progress.component'
+import * as React from 'react'
 
+import { FileError, FileErrorCode, UploadProps } from './types'
 
 export class Upload extends React.Component<UploadProps> {
   matchesAllowedExtensions(fileName: string) {
-    const extension = fileName.slice(fileName.lastIndexOf('.')+1)
-    return this.props.config.allowedExtensions.indexOf(extension) >= 0;
+    const extension = fileName.slice(fileName.lastIndexOf('.') + 1)
+    return this.props.config.allowedExtensions.indexOf(extension) >= 0
   }
 
   handleErrors(errors: FileErrorCode[]): FileError[] {
@@ -20,7 +19,6 @@ export class Upload extends React.Component<UploadProps> {
   defaultOnError(errors: FileError[]): void {
     alert(errors.map(error => error.message).join('\n'))
   }
-
 
   errorCodeToMessage(error: FileErrorCode) {
     switch (error) {
@@ -71,6 +69,7 @@ export class Upload extends React.Component<UploadProps> {
       const reader = new FileReader()
 
       reader.onload = function(e: ProgressEvent) {
+        // @ts-ignore FIXME
         const dataUrl = e.target.result
         resolve({ file, dataUrl })
       }
@@ -112,10 +111,7 @@ export class Upload extends React.Component<UploadProps> {
       >
         {({
           onFiles,
-          progress,
-          complete,
-          canceled,
-          failed
+          ...progressProps,
         }: {
           onFiles: Function
           progress?: number
@@ -146,13 +142,8 @@ export class Upload extends React.Component<UploadProps> {
               }}
             >
               <button>Durchsuchen...</button>
+              <UploadProgress {...progressProps} />
             </UploadField>
-            <Text>
-              {progress ? `Progress: ${progress}` : null}
-              {complete ? 'Complete!' : null}
-              {canceled ? 'Canceled!' : null}
-              {failed ? 'Failed!' : null}
-            </Text>
           </div>
         )}
       </Uploader>

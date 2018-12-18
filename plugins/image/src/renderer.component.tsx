@@ -1,5 +1,6 @@
-import * as React from 'react'
 import { css } from 'emotion'
+import * as React from 'react'
+
 import { ImageRendererProps } from './types'
 
 export class ImageRenderer extends React.Component<ImageRendererProps> {

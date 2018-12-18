@@ -1,7 +1,6 @@
 const defaultPlugins = [
   'slate',
-  // FIXME:
-  // 'image',
+  'image',
   'divider',
   'spacer',
   'spoiler',
@@ -12,9 +11,7 @@ const defaultPlugins = [
   'blockquote'
 ]
 
-const newPlugins = [
-  'highlight'
-]
+const newPlugins = ['highlight']
 
 const exercisePlugins = ['scMcExercise', 'textfield', 'solution', 'hint']
 

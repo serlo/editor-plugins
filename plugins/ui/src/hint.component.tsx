@@ -19,9 +19,7 @@ export class Hint extends React.Component<HintProps, HintState> {
           marginBottom: '20px',
           border: hidden ? 'none' : '1px solid #d9edf7',
           borderRadius: '2px',
-          boxShadow: hidden
-            ? 'none'
-            : '0 1px 1px rgba(0, 0, 0, 0.05)'
+          boxShadow: hidden ? 'none' : '0 1px 1px rgba(0, 0, 0, 0.05)'
         })}
       >
         <div
@@ -68,7 +66,7 @@ export class Hint extends React.Component<HintProps, HintState> {
 export interface HintProps {
   title: React.ReactNode
   children: React.ReactNode
-  kind: string,
+  kind: string
   shown?: boolean
 }
 

@@ -1,5 +1,5 @@
 export interface HighlightPluginState {
-  text?: string,
-  language?: string,
+  text?: string
+  language?: string
   lineNumbers?: boolean
 }

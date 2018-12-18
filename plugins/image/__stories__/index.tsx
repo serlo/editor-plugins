@@ -1,10 +1,11 @@
 import { storiesOf } from '@storybook/react'
+
 import {
   createStateForContentPlugin,
   renderEditable,
   renderHTMLRenderer
 } from '../../../.storybook/helpers'
-import createPlugin from '.'
+import createPlugin from '../src'
 
 const plugin = createPlugin({
   upload: {

@@ -3,5 +3,5 @@ import { HintRenderer } from './renderer.component'
 
 export default {
   ...plugin,
-  Component: HintRenderer,
+  Component: HintRenderer
 }

@@ -19,7 +19,7 @@ export enum FileErrorCode {
 }
 
 export type FileError = {
-  errorCode: FileErrorCode,
+  errorCode: FileErrorCode
   message: string
 }
 
