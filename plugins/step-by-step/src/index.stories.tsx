@@ -10,7 +10,7 @@ import {
 } from '../../../.storybook/helpers'
 import plugin from '.'
 import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
-storiesOf('Equations', module)
+storiesOf('Step by step', module)
   .add('Editable (initial state)', () => {
     const content = createStateForContentPlugin({ plugin })
 
