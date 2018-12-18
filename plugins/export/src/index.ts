@@ -12,7 +12,6 @@ import solution from '@serlo-org/editor-plugin-solution'
 import spoiler from '@serlo-org/editor-plugin-spoiler'
 import table from '@serlo-org/editor-plugin-table'
 import divider from '@splish-me/editor-plugin-divider'
-import image from '@splish-me/editor-plugin-image'
 import spacer from '@splish-me/editor-plugin-spacer'
 
 import pluginFactory from './plugins'
