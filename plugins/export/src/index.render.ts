@@ -19,7 +19,7 @@ import table from '@serlo-org/editor-plugin-table/lib/index.render'
 import textfield from '@serlo-org/editor-plugin-input-exercise/lib/index.render'
 
 import pluginFactory from './plugins'
-import {slateRenderPlugin} from './slate.render'
+import { slateRenderPlugin } from './slate.render'
 
 const pluginMapping = {
   blockquote: blockquote,
