@@ -1,12 +1,11 @@
 import { storiesOf } from '@storybook/react'
+
 import {
   createStateForContentPlugin,
   renderEditable,
   renderHTMLRenderer
 } from '../../../.storybook/helpers'
 import plugin from '.'
-import { ScMcRendererSolution } from './solution.component'
-import * as React from 'react'
 
 storiesOf('ScMc', module)
   .add('Editable (initial state)', () => {

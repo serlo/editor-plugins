@@ -17,7 +17,7 @@ export interface ChoiceProps extends ChoiceRendererProps {
 
 export class ScMcChoiceEditable extends React.Component<ChoiceProps> {
   render() {
-    const { readOnly, state, index, focused } = this.props
+    const { readOnly, state, index } = this.props
     const { isCorrect, feedback } = state.answers[index]
 
     return (

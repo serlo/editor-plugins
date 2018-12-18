@@ -1,7 +1,4 @@
-import {
-  Editable,
-  createEditableIdentifier
-} from '@splish-me/editor-core/lib/editable.component'
+import { createEditableIdentifier, Editable } from '@splish-me/editor-core/lib/editable.component'
 import * as React from 'react'
 import { ScMcRenderer, ScMcRendererProps } from './renderer.component'
 import { ScMcChoiceEditable } from './choice-editable.component'
@@ -47,12 +44,8 @@ export class ScMcEditable extends React.Component<ScMcEditableProps> {
   }
   handleSCMCChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const { onChange, state } = this.props
-    let helper
-    if (event.target.value === 'Single Choice') {
-      helper = true
-    } else helper = false
     onChange({
-      isSingleChoice: helper,
+      isSingleChoice: event.target.value === 'Single Choice',
       answers: state.answers.map(answer => {
         return { ...answer, isCorrect: false }
       })

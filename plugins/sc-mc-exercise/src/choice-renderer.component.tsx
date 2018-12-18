@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { css, cx } from 'emotion'
-import { Answer } from './renderer.component'
+
+import { Answer } from './types'
 
 export interface ChoiceRendererProps {
   index: number
