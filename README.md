@@ -1,6 +1,6 @@
-# ory-editor-plugins
+# Editor Plugins
 
-This is a monorepo for all plugins for the [Ory Editor](https://github.com/ory/editor) created for the E-Learning Website [www.serlo.org](https://de.serlo.org).
+This is a monorepo for all plugins for the [Splish Editor](https://github.com/splish-me/editor) created for the E-Learning Website [www.serlo.org](https://de.serlo.org).
 
 ## Run the storybook
 
