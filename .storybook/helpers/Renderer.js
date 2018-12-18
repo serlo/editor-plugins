@@ -25,8 +25,6 @@ import createRenderPlugins from '@serlo-org/editor-plugins/lib/index.render'
 const editorPlugins = createEditorPlugins('all')
 const renderPlugins = createRenderPlugins('all')
 
-console.log(editorPlugins)
-
 export class Renderer {
   constructor(content) {
     this.content = content
