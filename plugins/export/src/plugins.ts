@@ -12,7 +12,7 @@ const defaultPlugins = [
   'equations'
 ]
 
-const newPlugins = ['highlight', 'matchingExercise', 'stepByStep']
+const newPlugins = ['highlight', 'matchingExercise', 'stepByStep', 'equations']
 
 const exercisePlugins = ['scMcExercise', 'textfield', 'solution', 'hint', 'stepByStep']
 

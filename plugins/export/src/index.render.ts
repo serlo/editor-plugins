@@ -14,6 +14,7 @@ import spoiler from '@serlo-org/editor-plugin-spoiler/lib/index.render'
 import table from '@serlo-org/editor-plugin-table/lib/index.render'
 import textfield from '@serlo-org/editor-plugin-input-exercise/lib/index.render'
 import stepByStep from '@serlo-org/editor-plugin-step-by-step/lib/index.render'
+import equations from '@serlo-org/editor-plugin-equations/lib/index.render'
 
 import pluginFactory from './plugins'
 import { slateRenderPlugin } from './slate.render'
@@ -35,7 +36,8 @@ const pluginMapping = {
   spoiler: spoiler,
   table: table,
   textfield: textfield,
-  stepByStep: stepByStep
+  stepByStep: stepByStep,
+  equations: equations
 }
 
 export default pluginFactory(pluginMapping)

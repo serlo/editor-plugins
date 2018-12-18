@@ -14,6 +14,7 @@ import table from '@serlo-org/editor-plugin-table'
 import divider from '@splish-me/editor-plugin-divider'
 import spacer from '@splish-me/editor-plugin-spacer'
 import stepByStep from '@serlo-org/editor-plugin-step-by-step'
+import equations from '@serlo-org/editor-plugin-equations'
 
 import pluginFactory from './plugins'
 import { slatePlugin } from './slate'
@@ -50,7 +51,8 @@ const pluginMapping = {
   spoiler: spoiler,
   table: table,
   textfield: textfield,
-  stepByStep: stepByStep
+  stepByStep: stepByStep,
+  equations: equations
 }
 
 export default pluginFactory(pluginMapping)

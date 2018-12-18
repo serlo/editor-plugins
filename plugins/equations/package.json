@@ -16,7 +16,7 @@
   ],
   "repository": "serlo-org/ory-editor-plugins",
   "scripts": {
-    "prepbuild": "rimraf dist",
+    "prepbuild": "rimraf lib",
     "build": "npm-run-all build:*",
     "build:javascript": "babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
     "build:types": "tsc --emitDeclarationOnly",
