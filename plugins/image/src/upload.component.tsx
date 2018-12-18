@@ -111,7 +111,7 @@ export class Upload extends React.Component<UploadProps> {
       >
         {({
           onFiles,
-          ...progressProps,
+          ...progressProps
         }: {
           onFiles: Function
           progress?: number

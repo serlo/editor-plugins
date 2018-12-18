@@ -66,6 +66,7 @@ export const createImageComponent = (config: Config) => {
     render() {
       const { readOnly, focused } = this.props
       const { src, description, href, target } = this.props.state
+
       return (
         <React.Fragment>
           {focused
