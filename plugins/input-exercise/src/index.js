@@ -1,10 +1,10 @@
 import plugin from './plugin'
 import * as React from 'react'
-import Textfield from './Textfield'
+import Inputfield from './editable.component'
 
 export default {
   ...plugin,
-  Component: Textfield,
+  Component: Inputfield,
   IconComponent: <img src={null} />,
   text: 'Eingabefeld',
   createInitialState: () => ({

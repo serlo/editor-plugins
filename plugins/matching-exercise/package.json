@@ -17,7 +17,7 @@
   "scripts": {
     "prebuild": "rimraf lib",
     "build": "npm-run-all build:*",
-    "build:javascript": "babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
+    "build:javascript": "NODE_ENV=production sbabel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
     "ci": "npm-run-all ci:*",
     "ci:types": "tsc --noEmit"
   },
@@ -30,8 +30,8 @@
   },
   "devDependencies": {},
   "peerDependencies": {
-    "@splish-me/editor-ui": "^0.0.0",
-    "@splish-me/ory-editor-core": "^0.0.3",
+    "@splish-me/editor-ui": "^0.2.0",
+    "@splish-me/ory-editor-core": "^0.2.0",
     "react": "^16.4.2",
     "react-dom": "^16.3.1"
   },

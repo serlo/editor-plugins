@@ -11,13 +11,9 @@ const defaultPlugins = [
   'blockquote'
 ]
 
-const exercisePlugins = [
-  'scMcExercise',
-  'textfield',
-  'solution',
-  'hint',
-  'matchingExercise'
-]
+const newPlugins = ['highlight', 'matchingExercise']
+
+const exercisePlugins = ['scMcExercise', 'textfield', 'solution', 'hint']
 
 export default pluginMapping => editableType => {
   const plugins = choosePlugins(editableType)
@@ -27,6 +23,10 @@ export default pluginMapping => editableType => {
 const choosePlugins = type => {
   if (type === 'text-exercise' || type === 'grouped-text-exercise') {
     return [...defaultPlugins, ...exercisePlugins]
+  }
+
+  if (type === 'all') {
+    return [...defaultPlugins, ...exercisePlugins, ...newPlugins]
   }
 
   return defaultPlugins
