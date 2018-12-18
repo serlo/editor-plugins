@@ -1,29 +1,33 @@
+import {
+  Editable,
+  EditableIdentifier
+} from '@splish-me/editor-core/lib/editable.component'
 import { css } from 'emotion'
 import * as React from 'react'
 import { DragDropContext } from 'react-beautiful-dnd'
-import { Block } from './types'
+
 import { Column } from './column.component'
 import {
   MatchingExerciseEditable,
   MatchingExercisePluginState
 } from './editable.component'
-import {
-  Editable,
-  EditableIdentifier
-} from '@splish-me/editor-core/lib/editable.component'
-import { generateBlocks, combineBlocks, isCorrect } from './helpers'
+import { Block } from './types'
+import { isCorrectPerRow, combineBlocks } from './helpers'
+import { create } from 'jss'
+import * as R from 'ramda'
 
-export interface MatchingExerciseRendererProps {
+interface MatchingExerciseRendererProps {
   state: MatchingExercisePluginState
 }
 
-export interface MatchingExerciseRendererState {
+interface MatchingExerciseRendererState {
   leftSide: Block[]
   rightSide: Block[]
   stack: Block[]
+  check?: boolean[]
 }
 
-export class MatchingExerciseRenderer extends React.Component<
+export class MatchingExerciseFeedback extends React.Component<
   MatchingExerciseRendererProps,
   MatchingExerciseRendererState
 > {
@@ -38,7 +42,6 @@ export class MatchingExerciseRenderer extends React.Component<
         content: item //<Editable id={props.state.blockContent[item]} />
       }
     })
-
     this.state = {
       leftSide: [],
       rightSide: [],
@@ -48,7 +51,7 @@ export class MatchingExerciseRenderer extends React.Component<
 
   render() {
     console.log(this.state)
-    const { leftSide, rightSide, stack } = this.state
+    const { leftSide, rightSide, stack, check } = this.state
 
     console.log(
       [...leftSide, ...rightSide, ...stack].map(item => {
@@ -58,6 +61,7 @@ export class MatchingExerciseRenderer extends React.Component<
         }
       })
     )
+
     return (
       <React.Fragment>
         <DragDropContext
@@ -100,6 +104,7 @@ export class MatchingExerciseRenderer extends React.Component<
             }
           }}
         >
+          {' '}
           <div
             className={css`
               display: flex;
@@ -115,9 +120,20 @@ export class MatchingExerciseRenderer extends React.Component<
               div.style = `height: ${div.clientHeight}px`
             }}
           >
+            {' '}
             <Column id="stack" blocks={stack} />
-            <Column id="leftSide" blocks={leftSide} title="Funktion" />
-            <Column id="rightSide" blocks={rightSide} title="Ableitung" />
+            <Column
+              id="leftSide"
+              blocks={leftSide}
+              check={check}
+              title="Funktion"
+            />
+            <Column
+              id="rightSide"
+              blocks={rightSide}
+              check={check}
+              title="Ableitung"
+            />
           </div>
         </DragDropContext>
         <button
@@ -126,9 +142,11 @@ export class MatchingExerciseRenderer extends React.Component<
             color: silver;
           `}
           onClick={() => {
-            const correct = isCorrect(this.props.state, this.state)
-
-            alert(correct ? 'Richtig' : 'Falsch')
+            const entries = R.zip(this.state.leftSide, this.state.rightSide)
+            const solutionCheck = entries.map(tuple => {
+              return isCorrectPerRow(this.props.state, tuple as [Block, Block])
+            })
+            this.setState({ check: solutionCheck })
           }}
         >
           Submit

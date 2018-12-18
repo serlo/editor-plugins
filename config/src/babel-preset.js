@@ -1,13 +1,6 @@
 module.exports = () => {
   const presets = [
-    [
-      '@babel/preset-env',
-      {
-        targets: {
-          browsers: ['>0.25%']
-        }
-      }
-    ],
+    ['@babel/preset-env', { targets: { browsers: ['>0.25%'] } }],
     '@babel/preset-typescript',
     '@babel/preset-react'
   ]
@@ -24,5 +17,8 @@ module.exports = () => {
     '@babel/plugin-proposal-json-strings'
   ]
 
-  return { plugins, presets }
+  return {
+    plugins,
+    presets
+  }
 }

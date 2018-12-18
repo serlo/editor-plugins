@@ -1,4 +1,7 @@
-import { createEditableIdentifier, Editable } from '@splish-me/editor-core/lib/editable.component'
+import {
+  createEditableIdentifier,
+  Editable
+} from '@splish-me/editor-core/lib/editable.component'
 import * as React from 'react'
 import { ScMcRenderer, ScMcRendererProps } from './renderer.component'
 import { ScMcChoiceEditable } from './choice-editable.component'

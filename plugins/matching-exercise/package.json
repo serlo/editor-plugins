@@ -17,13 +17,16 @@
   "scripts": {
     "prebuild": "rimraf lib",
     "build": "npm-run-all build:*",
-    "build:javascript": "NODE_ENV=production sbabel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
+    "build:javascript": "NODE_ENV=production babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
     "ci": "npm-run-all ci:*",
     "ci:types": "tsc --noEmit"
   },
   "dependencies": {
     "emotion": "^9.2.9",
-    "react-beautiful-dnd": "^9.0.2"
+    "react-beautiful-dnd": "^9.0.2",
+    "react-masonry-component": "^6.2.1",
+    "react-pose": "^4.0.2",
+    "react-select": "^2.1.1"
   },
   "devDependencies": {},
   "peerDependencies": {

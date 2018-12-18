@@ -1,13 +1,14 @@
 import blockquote from '@serlo-org/editor-plugin-blockquote/lib/index.render'
-import divider from '@splish-me/editor-plugin-divider'
 import geogebra from '@serlo-org/editor-plugin-geogebra/lib/index.render'
 import highlight from '@serlo-org/editor-plugin-highlight/lib/index.render'
 import hint from '@serlo-org/editor-plugin-hint/lib/index.render'
 import createImageRender from '@serlo-org/editor-plugin-image/lib/index.render'
 import injection from '@serlo-org/editor-plugin-injection'
 import license from '@serlo-org/editor-plugin-license/lib/index.render'
+import matchingExercise from '@serlo-org/editor-plugin-matching-exercise/lib/index.render'
 import scMcExercise from '@serlo-org/editor-plugin-sc-mc-exercise/lib/index.render'
 import solution from '@serlo-org/editor-plugin-solution/lib/index.render'
+import divider from '@splish-me/editor-plugin-divider'
 import spacer from '@splish-me/editor-plugin-spacer'
 import spoiler from '@serlo-org/editor-plugin-spoiler/lib/index.render'
 import table from '@serlo-org/editor-plugin-table/lib/index.render'
@@ -25,6 +26,7 @@ const pluginMapping = {
   image: createImageRender(),
   injection: injection,
   license: license,
+  matchingExercise: matchingExercise,
   scMcExercise: scMcExercise,
   slate: slateRenderPlugin,
   solution: solution,

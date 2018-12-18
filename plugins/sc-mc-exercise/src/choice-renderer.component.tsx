@@ -57,7 +57,7 @@ export class ScMcChoiceRenderer extends React.Component<ChoiceRendererProps> {
         ? '#95bc1a'
         : '#f7b07c'
       : selected
-        ? '#d9edf7'
-        : '#f8f8f8'
+      ? '#d9edf7'
+      : '#f8f8f8'
   }
 }

@@ -11,7 +11,7 @@ const defaultPlugins = [
   'blockquote'
 ]
 
-const newPlugins = ['highlight']
+const newPlugins = ['highlight', 'matchingExercise']
 
 const exercisePlugins = ['scMcExercise', 'textfield', 'solution', 'hint']
 
