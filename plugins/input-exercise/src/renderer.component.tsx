@@ -12,7 +12,7 @@ export interface WrongAnswerProps {
   value: string
   feedback: EditableIdentifier
 }
-export interface InputfieldRendererProps {
+export interface InputExerciseRendererProps {
   state: {
     correctValue: string
     wrongAnswers: WrongAnswerProps[]
@@ -20,33 +20,36 @@ export interface InputfieldRendererProps {
   }
 }
 
-export class Display extends React.Component<InputfieldRendererProps> {
+export class InputExerciseRenderer extends React.Component<
+  InputExerciseRendererProps
+> {
   state = {
     positiveFeedback: false,
     negativeFeedbackIndex: -1,
     showFeedback: false
   }
-  input = React.createRef()
+  input = React.createRef<HTMLInputElement>()
 
   checkAnswer = (event: React.FormEvent) => {
+    const input = this.input.current
+
+    if (!input) {
+      return
+    }
+
     event.preventDefault()
     const { state } = this.props
     const { correctValue, wrongAnswers, type } = state
-    if (
-      this.matchesInput(
-        { type: type, value: correctValue },
-        this.input.current.value
-      )
-    ) {
+    if (this.matchesInput({ type: type, value: correctValue }, input.value)) {
       this.setState({ positiveFeedback: true, showFeedback: true })
     } else {
       const index = wrongAnswers.findIndex((wrongAnswer: WrongAnswerProps) => {
         return this.matchesInput(
           { type: type, value: wrongAnswer.value },
-          this.input.current.value
+          input.value
         )
       })
-      // const matchedAnswer = wrongAnswers[index] || {}
+
       this.setState({
         negativeFeedbackIndex: index,
         showFeedback: true,
@@ -62,7 +65,6 @@ export class Display extends React.Component<InputfieldRendererProps> {
 
       switch (field.type) {
         case 'input-expression-equal-match-challenge':
-          console.log(solution, submission)
           return solution.subtract(submission).toString() === '0'
         default:
           return solution === submission

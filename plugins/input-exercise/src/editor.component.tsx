@@ -4,8 +4,8 @@ import {
   createEditableIdentifier
 } from '@splish-me/editor-core/lib/editable.component'
 import {
-  Display,
-  InputfieldRendererProps,
+  InputExerciseRenderer,
+  InputExerciseRendererProps,
   WrongAnswerProps
 } from './renderer.component'
 import { Feedback } from './feedback.component'
@@ -15,8 +15,8 @@ import SBTextfield from '@splish-me/editor-ui/lib/sidebar-elements/textfield'
 import { css } from 'emotion'
 import * as R from 'ramda'
 
-export interface InputfieldProps extends InputfieldRendererProps {
-  onChange: (newState: Partial<InputfieldRendererProps['state']>) => void
+export interface InputExerciseEditorProps extends InputExerciseRendererProps {
+  onChange: (newState: Partial<InputExerciseRendererProps['state']>) => void
   readOnly: boolean
   focused: boolean
 }
@@ -35,7 +35,7 @@ const types = [
     type: 'input-expression-equal-match-challenge'
   }
 ]
-export default class Inputfield extends React.Component<InputfieldProps> {
+export class InputExerciseEditor extends React.Component<InputExerciseEditorProps> {
   translateDataType(type: string) {
     for (let i = 0; i < types.length; i++) {
       if (type === types[i].type) return types[i].name
@@ -49,7 +49,7 @@ export default class Inputfield extends React.Component<InputfieldProps> {
     return ''
   }
 
-  handleTypeChange = (event: React.ChangeEvent) => {
+  handleTypeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value
     const { onChange } = this.props
     onChange({
@@ -85,7 +85,7 @@ export default class Inputfield extends React.Component<InputfieldProps> {
       wrongAnswers: R.remove(index, 1, state.wrongAnswers)
     })
   }
-  wrongAnswerChange = (index: number) => (event: React.ChangeEvent) => {
+  wrongAnswerChange = (index: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
     const target = event.target
     const value = target.value
 
@@ -123,10 +123,10 @@ export default class Inputfield extends React.Component<InputfieldProps> {
             )
           : null}
         {readOnly ? (
-          <Display {...this.props} />
+          <InputExerciseRenderer {...this.props} />
         ) : (
           <React.Fragment>
-            <Display {...this.props} />
+            <InputExerciseRenderer {...this.props} />
             {wrongAnswers.map(
               (wrongAnswer: WrongAnswerProps, index: number) => {
                 return (

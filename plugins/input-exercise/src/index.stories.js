@@ -1,6 +1,5 @@
-// storybook stories here... See the corresponding file in other plugins and https://storybook.js.org/basics/writing-stories/
-import { storiesOf } from '@storybook/react'
 import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
+import { storiesOf } from '@storybook/react'
 import {
   createStateForContentPlugin,
   renderEditable,
