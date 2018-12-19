@@ -1,9 +1,9 @@
 import { css } from 'emotion'
-import React, { Component } from 'react'
-import ReactMarkdown from 'react-markdown'
+import * as React from 'react'
+import * as ReactMarkdown from 'react-markdown'
 
-export default class Display extends Component {
-  render() {
+export class TableRenderer extends React.Component<TableRendererProps> {
+  public render() {
     const { state, defaultSrc } = this.props
     const { src } = state
     return (
@@ -25,4 +25,13 @@ export default class Display extends Component {
       </div>
     )
   }
+}
+
+export interface TableRendererProps {
+  state: TablePluginState,
+  defaultSrc?: string
+}
+
+interface TablePluginState {
+  src: string
 }

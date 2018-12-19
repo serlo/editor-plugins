@@ -1,11 +1,13 @@
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
+
 import {
   createStateForContentPlugin,
   renderEditable,
   renderHTMLRenderer
 } from '../../../.storybook/helpers'
 import plugin from '.'
+
 storiesOf('Markdown Table', module)
   .add('Editable (initial state)', () => {
     const content = createStateForContentPlugin({ plugin })
