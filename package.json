@@ -7,7 +7,7 @@
     "precommit": "lint-staged",
     "build": "lerna run build",
     "ci": "lerna run --parallel ci",
-    "format": "prettier --write \"{{{packages,plugins}/*/src/**,.storybook/**,example/**}/*,*}.{js,jsx,ts,tsx,css,scss,json,md,markdown}\"",
+    "format": "prettier --write \"{{{packages,plugins}/**,.storybook/**,example/**}/*,*}.{js,jsx,ts,tsx,css,scss,json,md,markdown}\"",
     "start": "npm-run-all storybook",
     "storybook": "start-storybook -p 9009 -s ./.storybook/public",
     "prebuild-storybook": "yarn build",
@@ -51,7 +51,7 @@
   },
   "private": true,
   "lint-staged": {
-    "{{{packages,plugins}/*/src/**,.storybook/**,example/**}/*,*}.{js,jsx,ts,tsx,css,scss,json,md,markdown}": [
+    "{{{packages,plugins}/**,.storybook/**,example/**}/*,*}.{js,jsx,ts,tsx,css,scss,json,md,markdown}": [
       "prettier --write",
       "git add"
     ]

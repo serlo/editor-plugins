@@ -5,7 +5,10 @@
     "url": "https://github.com/serlo-org/ory-editor-plugins/issues"
   },
   "author": "Serlo Education e.V.",
-  "contributors": ["@nawtrobar", "@knorrke"],
+  "contributors": [
+    "@nawtrobar",
+    "@knorrke"
+  ],
   "license": "Apache-2.0",
   "files": [
     "lib",
@@ -18,7 +21,8 @@
   "scripts": {
     "prebuild": "rimraf lib",
     "build": "npm-run-all build:*",
-"build:javascript": "cross-env NODE_ENV=production babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js","build:types": "tsc --emitDeclarationOnly",
+    "build:javascript": "cross-env NODE_ENV=production babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
+    "build:types": "tsc --emitDeclarationOnly",
     "ci": "npm-run-all ci:*",
     "ci:types": "tsc --noEmit"
   },

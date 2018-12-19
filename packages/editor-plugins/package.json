@@ -17,7 +17,8 @@
   "scripts": {
     "prebuild": "rimraf lib",
     "build": "npm-run-all build:*",
-"build:javascript": "cross-env NODE_ENV=production babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js","ci": "npm-run-all ci:*",
+    "build:javascript": "cross-env NODE_ENV=production babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
+    "ci": "npm-run-all ci:*",
     "ci:types": "tsc --noEmit"
   },
   "dependencies": {
