@@ -105,6 +105,7 @@ export class EquationsEditable extends React.Component<EquationsProps> {
                                         ...this.props.state.steps
                                       ]
 
+                                      // @ts-ignore TODO:
                                       const type = event.target.value
                                       newSteps[index] = {
                                         type,
