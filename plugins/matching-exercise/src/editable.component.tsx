@@ -1,9 +1,3 @@
-import * as React from 'react'
-import { Column } from './column.component'
-import { Block as B } from './types'
-// @ts-ignore
-import { DragDropContext } from 'react-beautiful-dnd'
-import { css } from 'emotion'
 import {
   createEditableIdentifier,
   EditableIdentifier,
@@ -11,15 +5,26 @@ import {
 } from '@splish-me/editor-core/lib/editable.component'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
+import { css } from 'emotion'
+import * as React from 'react'
+// @ts-ignore
+import { DragDropContext } from 'react-beautiful-dnd'
 import Select from 'react-select'
-import { MatchingExerciseRenderer } from './renderer.component'
+
+import { Column } from './column.component'
+import { Block as B } from './types'
 
 export interface MatchingExercisePluginState {
   solution: Array<[number, number]>
   blockContent: Array<EditableIdentifier>
 }
 
-export class MatchingExerciseEditable extends React.Component {
+export interface MatchingExerciseEditableProps {
+  onChange: (state: Partial<MatchingExercisePluginState>) => void
+  state: MatchingExercisePluginState,
+}
+
+export class MatchingExerciseEditable extends React.Component<MatchingExerciseEditableProps> {
   removeButtonStack = rowIndex => () => {
     const { onChange, state } = this.props
 
@@ -77,8 +82,8 @@ export class MatchingExerciseEditable extends React.Component {
 
   public render() {
     const { solution, blockContent } = this.props.state
-    const { readOnly } = this.props
-    const stack: B[] = blockContent.map((id, index) => {
+    const stack: B[] = blockContent
+      .map((id, index) => {
       const content = <Editable id={id} />
       return {
         id: `stack-${id.id}`,
@@ -86,7 +91,7 @@ export class MatchingExerciseEditable extends React.Component {
         content: content
       }
     })
-    const options = blockContent.map((id, index) => {
+    const options = blockContent.map((_id, index) => {
       return {
         value: index
       }
@@ -149,7 +154,7 @@ export class MatchingExerciseEditable extends React.Component {
             </button>
           </Column>
           <Column id="leftSide" blocks={[]} title={leftSideTitle}>
-            {solution.map(([left, right], index) => {
+            {solution.map(([left], index) => {
               return (
                 <div
                   key={index}
@@ -199,7 +204,7 @@ export class MatchingExerciseEditable extends React.Component {
             </button>
           </Column>
           <Column id="rightSide" blocks={[]} title={rightSideTitle}>
-            {solution.map(([left, right], index) => {
+            {solution.map(([_left, right], index) => {
               return (
                 <div
                   key={index}
@@ -254,3 +259,5 @@ export class MatchingExerciseEditable extends React.Component {
     )
   }
 }
+
+

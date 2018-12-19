@@ -4,14 +4,9 @@ import { DragDropContext } from 'react-beautiful-dnd'
 import { Block } from './types'
 import { Column } from './column.component'
 import {
-  MatchingExerciseEditable,
   MatchingExercisePluginState
 } from './editable.component'
-import {
-  Editable,
-  EditableIdentifier
-} from '@splish-me/editor-core/lib/editable.component'
-import { generateBlocks, combineBlocks, isCorrect } from './helpers'
+import { combineBlocks, isCorrect } from './helpers'
 
 export interface MatchingExerciseRendererProps {
   state: MatchingExercisePluginState

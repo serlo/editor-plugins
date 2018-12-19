@@ -1,19 +1,13 @@
-import {
-  Editable,
-  EditableIdentifier
-} from '@splish-me/editor-core/lib/editable.component'
 import { css } from 'emotion'
 import * as React from 'react'
 import { DragDropContext } from 'react-beautiful-dnd'
 
 import { Column } from './column.component'
 import {
-  MatchingExerciseEditable,
   MatchingExercisePluginState
 } from './editable.component'
 import { Block } from './types'
 import { isCorrectPerRow, combineBlocks } from './helpers'
-import { create } from 'jss'
 import * as R from 'ramda'
 
 interface MatchingExerciseRendererProps {

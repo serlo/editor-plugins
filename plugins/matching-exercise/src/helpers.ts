@@ -2,7 +2,6 @@ import { MatchingExercisePluginState } from './editable.component'
 import { MatchingExerciseRendererState } from './renderer.component'
 import { Block as B } from './types'
 import * as R from 'ramda'
-import { plugin } from './plugin'
 
 export const generateBlocks = ({
   solution,
@@ -31,7 +30,6 @@ export const generateBlocks = ({
 export const createBlocks = (
   blockNumber: number,
   index: string,
-  state: MatchingExercisePluginState
 ) => {
   return {
     id: `${index}`,
@@ -47,8 +45,12 @@ export const combineBlocks = (state: MatchingExercisePluginState) => {
 
 export const isCorrectPerRow = (
   pluginState: MatchingExercisePluginState,
-  [left, right]: [B, B]
+  [left, right]: [B | undefined, B | undefined]
 ) => {
+  if (left === undefined || right === undefined) {
+    return false
+  }
+
   let correct = true
 
   const found = pluginState.solution.findIndex(pair => {

@@ -1,25 +1,11 @@
-import {
-  Editable,
-  EditableIdentifier
-} from '@splish-me/editor-core/lib/editable.component'
 import { css } from 'emotion'
 import * as React from 'react'
 import { DragDropContext } from 'react-beautiful-dnd'
 
 import { Column } from './column.component'
-import {
-  MatchingExerciseEditable,
-  MatchingExercisePluginState
-} from './editable.component'
+import { MatchingExercisePluginState } from './editable.component'
 import { Block } from './types'
-import {
-  generateBlocks,
-  createBlocks,
-  isCorrect,
-  isCorrectPerRow
-} from './helpers'
-import { create } from 'jss'
-import * as R from 'ramda'
+import { generateBlocks, createBlocks } from './helpers'
 
 interface MatchingExerciseRendererProps {
   state: MatchingExercisePluginState
@@ -49,10 +35,10 @@ export class MatchingExerciseSolution extends React.Component<
       }
     )
     const leftBlocks = props.state.solution.map(([left, _right], index) => {
-      return createBlocks(left, `left-${index}`, props.state)
+      return createBlocks(left, `left-${index}`)
     })
     const rightBlocks = props.state.solution.map(([_left, right], index) => {
-      return createBlocks(right, `right-${index}`, props.state)
+      return createBlocks(right, `right-${index}`)
     })
     this.state = {
       leftSide: leftBlocks,
@@ -76,9 +62,7 @@ export class MatchingExerciseSolution extends React.Component<
 
     return (
       <React.Fragment>
-        <DragDropContext
-        // onDragStart={(...args) => console.log('onDragStart', args)}
-        >
+        <DragDropContext>
           {' '}
           <div
             className={css`

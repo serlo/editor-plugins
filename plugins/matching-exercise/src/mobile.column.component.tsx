@@ -2,7 +2,7 @@ import { css } from 'emotion'
 import * as React from 'react'
 import { Block as B } from './types'
 import { MobileBlock as Block } from './mobile.block.component'
-import posed, { PoseGroup } from 'react-pose'
+import posed from 'react-pose'
 import Masonry from 'react-masonry-component'
 
 export interface ColumnProps {

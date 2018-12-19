@@ -1,25 +1,11 @@
 import { css } from 'emotion'
 import * as React from 'react'
-import { DragDropContext } from 'react-beautiful-dnd'
-import { Block } from './types'
+import { Block as B, Block } from './types'
 import { MobileColumn as Column } from './mobile.column.component'
 import { MobileRow as Row } from './mobile.row.component'
-import {
-  MatchingExerciseEditable,
-  MatchingExercisePluginState
-} from './editable.component'
-import {
-  Editable,
-  EditableIdentifier
-} from '@splish-me/editor-core/lib/editable.component'
-import {
-  generateBlocks,
-  combineBlocks,
-  isCorrect,
-  isCorrectPerRow
-} from './helpers'
+import { MatchingExercisePluginState } from './editable.component'
+import { combineBlocks, isCorrect, isCorrectPerRow } from './helpers'
 import * as R from 'ramda'
-import { Stack } from 'immutable'
 
 interface MatchingExerciseRendererProps {
   state: MatchingExercisePluginState
@@ -60,9 +46,9 @@ export class MatchingExerciseMobile extends React.Component<
     newSide.push(block)
     const newStack = [...this.state.stack]
     newStack.splice(index, 1)
-    console.log(newStack)
+
     this.setState(
-      { [side as 'leftSide' | 'rightSide']: newSide, stack: newStack },
+      { [side]: newSide, stack: newStack } as Pick<MatchingExerciseRendererState, "stack" | typeof side>,
       () => {
         if (side === 'rightSide') {
           const test = isCorrectPerRow(this.props.state, [
@@ -72,8 +58,18 @@ export class MatchingExerciseMobile extends React.Component<
           if (!test) {
             const newLeftSide = [...this.state.leftSide]
             const left = newLeftSide.pop()
+
+            if (!left) {
+              return
+            }
+
             const newRightSide = [...this.state.rightSide]
             const right = newRightSide.pop()
+
+            if (!right) {
+              return
+            }
+
             const newStack = [...this.state.stack]
             newStack.push(left, right)
             setTimeout(() => {
@@ -107,6 +103,12 @@ export class MatchingExerciseMobile extends React.Component<
         }
       })
     )
+    const blocks = R.zip(
+      leftSide as (Block | undefined)[],
+      (rightSide as (Block | undefined)[]).concat(
+        R.repeat(undefined, leftSide.length - rightSide.length)
+      )
+    ) as [B | undefined, B | undefined][]
     return (
       <React.Fragment>
         <div
@@ -119,12 +121,7 @@ export class MatchingExerciseMobile extends React.Component<
 
         <div>
           <Row
-            blocks={R.zip(
-              leftSide as (Block | undefined)[],
-              (rightSide as (Block | undefined)[]).concat(
-                R.repeat(undefined, leftSide.length - rightSide.length)
-              )
-            )}
+            blocks={blocks}
             title="Funktion/Ableitung"
             state={this.props.state}
             undo={this.undo}
