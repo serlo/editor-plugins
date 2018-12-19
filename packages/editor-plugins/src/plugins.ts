@@ -1,32 +1,53 @@
-const defaultPlugins = [
-  'slate',
-  'image',
-  'spoiler',
-  'geogebra',
-  'license',
-  'injection',
-  'table',
-  'blockquote',
-  'equations',
-  'anchor'
-]
+import * as React from 'react'
 
-const newPlugins = ['highlight', 'matchingExercise', 'stepByStep', 'equations']
-
-const exercisePlugins = [
-  'scMcExercise',
-  'textfield',
-  'solution',
-  'hint',
-  'stepByStep'
-]
-
-export default pluginMapping => editableType => {
-  const plugins = choosePlugins(editableType)
-  return plugins.map(plugin => pluginMapping[plugin])
+export enum Plugin {
+  Slate = 'slate',
+  Image = 'image',
+  Spoiler = 'spoiler',
+  GeoGebra = 'geo-gebra',
+  License = 'license',
+  Injection = 'injection',
+  Highlight = 'highlight',
+  MatchingExercise = 'matching-exercise',
+  StepByStep = 'step-by-step',
+  ScMcExercise = 'sc-mc-exercise',
+  InputExercise = 'input-exercise',
+  Hint = 'hint',
+  Solution = 'solution',
+  Table = 'table',
+  Equations = 'equation',
+  Blockquote = 'blockquote',
+  Anchor = 'anchor'
 }
 
-const choosePlugins = type => {
+const defaultPlugins: Plugin[] = [
+  Plugin.Slate,
+  Plugin.Image,
+  Plugin.Spoiler,
+  Plugin.GeoGebra,
+  Plugin.License,
+  Plugin.Injection,
+  Plugin.Table,
+  Plugin.Blockquote,
+  Plugin.Equations,
+  Plugin.Anchor
+]
+
+const newPlugins = [
+  Plugin.Highlight,
+  Plugin.MatchingExercise,
+  Plugin.StepByStep,
+  Plugin.InputExercise
+]
+
+const exercisePlugins = [Plugin.Hint, Plugin.Solution, Plugin.ScMcExercise]
+
+export default (pluginRegistry: PluginRegistry) => editableType => {
+  const plugins = choosePlugins(editableType)
+  return plugins.map(plugin => pluginRegistry[plugin])
+}
+
+function choosePlugins(type: string) {
   if (type === 'text-exercise' || type === 'grouped-text-exercise') {
     return [...defaultPlugins, ...exercisePlugins]
   }
@@ -37,3 +58,12 @@ const choosePlugins = type => {
 
   return defaultPlugins
 }
+
+export type PluginRegistry = Record<
+  Plugin,
+  {
+    name: string
+    version: string
+    Component: React.ComponentType<any>
+  }
+>

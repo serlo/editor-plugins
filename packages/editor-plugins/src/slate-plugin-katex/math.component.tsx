@@ -17,6 +17,8 @@ const createMathComponent = (Component, { displayMode }) => {
     MathComponentProps,
     MathComponentState
   > {
+    public state: MathComponentState = { html: '' }
+
     public render() {
       const { error, html } = this.state
       const { renderError } = this.props
