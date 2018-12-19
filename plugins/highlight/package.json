@@ -2,7 +2,7 @@
   "name": "@serlo-org/editor-plugin-highlight",
   "version": "0.0.0",
   "bugs": {
-    "url": "https://github.com/serlo-org/ory-editor-plugins/issues"
+    "url": "https://github.com/serlo-org/editor-plugins/issues"
   },
   "author": "Serlo Education e.V.",
   "contributors": [
@@ -18,7 +18,7 @@
     "tsconfig.json"
   ],
   "main": "lib/index.js",
-  "repository": "serlo-org/ory-editor-plugins",
+  "repository": "serlo-org/editor-plugins",
   "scripts": {
     "prebuild": "rimraf lib",
     "build": "npm-run-all build:*",
@@ -37,7 +37,7 @@
   },
   "peerDependencies": {
     "@splish-me/editor-ui": "^0.2.0",
-    "@splish-me/ory-editor-core": "^0.2.0",
+    "@splish-me/editor-core": "^0.2.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },

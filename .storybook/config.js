@@ -3,7 +3,7 @@ import { configure } from '@storybook/react'
 
 setOptions({
   name: 'ORY Editor Plugins',
-  url: 'https://github.com/serlo-org/ory-editor-plugins',
+  url: 'https://github.com/serlo-org/editor-plugins',
   showStoriesPanel: true,
   showAddonPanel: false
 })
