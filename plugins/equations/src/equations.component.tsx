@@ -16,8 +16,14 @@ interface StepFit {
   fits: boolean
 }
 
+interface EquationsPluginState {
+  steps: Array<Step>
+}
+
 export interface EquationsProps {
-  state: { steps: Array<Step> }
+  onChange: (state: Partial<EquationsPluginState>) => void
+  state: EquationsPluginState
+  readOnly?: boolean
 }
 
 export interface EquationsState {
@@ -87,9 +93,10 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
     let tempWidthLeftDouble = R.clone(this.state.widthLeftDouble)
     let tempWidthRightSingle = R.clone(this.state.widthRightSingle)
     let tempWidthRightDouble = R.clone(this.state.widthRightDouble)
-    let rows: Array<StepFit>
+    let rows: Array<StepFit> = []
     let changed = true
     let updated = false
+
     while (changed) {
       changed = false
       rows = state.steps.map((step, index) => {
@@ -134,16 +141,18 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
         } as StepFit
       })
     }
+
     if (this.state.phase < Phase.hiddenRender) {
       return null
     }
+
     return (
       <div>
         {rows.map((row, index) => {
           return (
             <div
               key={index}
-              //2 Listen zur Ausrichtung
+              // 2 Listen zur Ausrichtung
 
               style={{
                 display: 'flex',
@@ -160,10 +169,8 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
                   return
                 }
                 if (this.state.phase === Phase.hiddenRender) {
-                  this.setState(state => {
-                    return {
-                      containerWidth: ref.offsetWidth
-                    }
+                  this.setState({
+                    containerWidth: ref.offsetWidth
                   })
                 }
                 if (this.state.phase < Phase.newLine && updated) {
@@ -181,7 +188,7 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
             >
               <div
                 style={{
-                  flexShrink: '0',
+                  flexShrink: 0,
                   paddingRight: '5px',
                   textAlign: row.fits ? 'right' : undefined,
                   width:
@@ -235,7 +242,7 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
 
               <div
                 style={{
-                  flexShrink: '0',
+                  flexShrink: 0,
                   display: 'flex',
                   alignItems: 'flex-start',
                   paddingLeft: row.fits ? undefined : '20px'

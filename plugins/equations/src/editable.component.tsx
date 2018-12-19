@@ -9,6 +9,7 @@ import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { css, cx } from 'emotion'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { Equations, EquationsProps } from './equations.component'
+
 export class EquationsEditable extends React.Component<EquationsProps> {
   addButton = () => {
     const { onChange, state } = this.props

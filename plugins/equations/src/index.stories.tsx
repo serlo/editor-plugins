@@ -1,13 +1,12 @@
+import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
 import { storiesOf } from '@storybook/react'
-import * as React from 'react'
-import { Equations } from './equations.component'
+
 import {
   createStateForContentPlugin,
-  renderEditable,
-  renderHTMLRenderer
+  renderEditable
 } from '../../../.storybook/helpers'
 import plugin from '.'
-import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
+
 storiesOf('Equations', module)
   .add('Editable (initial state)', () => {
     const content = createStateForContentPlugin({ plugin })
