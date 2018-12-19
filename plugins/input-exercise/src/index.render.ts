@@ -1,7 +1,7 @@
 import { plugin } from './plugin'
-import { InputExerciseEditor} from './editor.component'
+import { InputExerciseRenderer } from './renderer.component'
 
 export default {
   ...plugin,
-  Component: InputExerciseEditor
+  Component: InputExerciseRenderer
 }

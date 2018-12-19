@@ -1,15 +1,14 @@
 import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
-import * as React from 'react'
-
-import Lizenz from './Lizenz'
-import plugin from './plugin'
+import { plugin } from './plugin'
+import { License } from './license.component'
 
 export default {
   ...plugin,
-  Component: Lizenz,
   text: 'Lizenzangabe',
+  Component: License,
   createInitialState: () => ({
     license: 0,
     content: createEditableIdentifier()
   })
 }
+

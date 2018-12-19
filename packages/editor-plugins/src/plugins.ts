@@ -1,8 +1,6 @@
 const defaultPlugins = [
   'slate',
   'image',
-  'divider',
-  'spacer',
   'spoiler',
   'geogebra',
   'license',

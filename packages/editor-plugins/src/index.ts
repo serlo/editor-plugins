@@ -11,8 +11,6 @@ import scMcExercise from '@serlo-org/editor-plugin-sc-mc-exercise/src'
 import solution from '@serlo-org/editor-plugin-solution'
 import spoiler from '@serlo-org/editor-plugin-spoiler'
 import table from '@serlo-org/editor-plugin-table'
-import divider from '@splish-me/editor-plugin-divider'
-import spacer from '@splish-me/editor-plugin-spacer'
 import stepByStep from '@serlo-org/editor-plugin-step-by-step'
 import equations from '@serlo-org/editor-plugin-equations'
 
@@ -36,7 +34,6 @@ const image = createImage({
 
 const pluginMapping = {
   blockquote: blockquote,
-  divider: divider,
   geogebra: geogebra,
   highlight: highlight,
   hint: hint,
@@ -47,7 +44,6 @@ const pluginMapping = {
   scMcExercise: scMcExercise,
   slate: slatePlugin,
   solution: solution,
-  spacer: spacer,
   spoiler: spoiler,
   table: table,
   textfield: textfield,
