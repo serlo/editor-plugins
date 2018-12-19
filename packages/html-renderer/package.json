@@ -9,9 +9,10 @@
   "main": "lib/index.js",
   "repository": "serlo-org/ory-editor-plugins",
   "scripts": {
+    "prebuild": "rimraf lib",
     "build": "npm-run-all build:*",
-    "build:javascript":
-      "NODE_ENV=production babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
+    "build:javascript": "NODE_ENV=production babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
+    "build:types": "tsc --emitDeclarationOnly",
     "ci": "npm-run-all ci:*",
     "ci:types": "tsc --noEmit"
   },
