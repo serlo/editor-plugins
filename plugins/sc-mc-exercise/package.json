@@ -7,13 +7,13 @@
   "author": "Serlo Education e.V.",
   "contributors": [],
   "license": "Apache-2.0",
-  "main": "lib/index.js",
   "files": [
-    "./lib",
-    "./src",
+    "lib",
+    "src",
     "babel.config.js",
     "tsconfig.json"
   ],
+  "main": "lib/index.js",
   "repository": "serlo-org/ory-editor-plugins",
   "scripts": {
     "prebuild": "rimraf lib",
