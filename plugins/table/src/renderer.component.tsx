@@ -28,7 +28,7 @@ export class TableRenderer extends React.Component<TableRendererProps> {
 }
 
 export interface TableRendererProps {
-  state: TablePluginState,
+  state: TablePluginState
   defaultSrc?: string
 }
 
