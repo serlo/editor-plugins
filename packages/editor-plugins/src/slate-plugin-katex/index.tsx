@@ -40,7 +40,7 @@ class DefaultEditorComponent extends React.Component<
   static getDerivedStateFromProps(
     props: RenderNodeProps,
     state: DefaultEditorComponentState
-  ): DefaultEditorComponentState | null {
+  ): Partial<DefaultEditorComponentState> | null {
     const newValue = (props.node as Inline).data.get('formula')
 
     if (newValue === state.lastValue) {

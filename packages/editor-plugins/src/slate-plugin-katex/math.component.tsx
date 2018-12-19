@@ -2,48 +2,22 @@ import KaTeX from 'katex'
 import * as React from 'react'
 
 const createMathComponent = (Component, { displayMode }) => {
-  class MathComponent extends React.Component {
-    constructor(props) {
-      super(props)
+  interface MathComponentProps {
+    math: string
+    errorColor?: string
+    renderError: (error: Error) => React.ReactNode
+  }
 
-      this.usedProp = props.math ? 'math' : 'children'
+  interface MathComponentState {
+    html: string
+    error?: Error
+  }
 
-      this.state = this.createNewState(null, props)
-    }
-
-    componentWillReceiveProps() {
-      this.setState(this.createNewState)
-    }
-
-    shouldComponentUpdate(nextProps) {
-      return nextProps[this.usedProp] !== this.props[this.usedProp]
-    }
-
-    createNewState(prevState, props) {
-      try {
-        const html = this.generateHtml(props)
-
-        return { html, error: undefined }
-      } catch (error) {
-        if (error instanceof KaTeX.ParseError || error instanceof TypeError) {
-          return { error }
-        }
-
-        throw error
-      }
-    }
-
-    generateHtml(props) {
-      const { errorColor, renderError } = props
-
-      return KaTeX.renderToString(props[this.usedProp], {
-        displayMode,
-        errorColor,
-        throwOnError: !!renderError
-      })
-    }
-
-    render() {
+  class MathComponent extends React.Component<
+    MathComponentProps,
+    MathComponentState
+  > {
+    public render() {
       const { error, html } = this.state
       const { renderError } = this.props
 
@@ -56,6 +30,32 @@ const createMathComponent = (Component, { displayMode }) => {
       }
 
       return <Component html={html} />
+    }
+
+    public shouldComponentUpdate(nextProps: MathComponentProps) {
+      return nextProps.math !== this.props.math
+    }
+
+    static getDerivedStateFromProps(
+      props: MathComponentProps
+    ): Partial<MathComponentState> {
+      try {
+        const { errorColor, renderError } = props
+
+        const html = KaTeX.renderToString(props.math, {
+          displayMode,
+          errorColor,
+          throwOnError: !!renderError
+        })
+
+        return { html, error: undefined }
+      } catch (error) {
+        if (error instanceof KaTeX.ParseError || error instanceof TypeError) {
+          return { error }
+        }
+
+        throw error
+      }
     }
   }
 
@@ -113,21 +113,29 @@ const handleError = (formula, error, inline, oldErrorPosition) => {
   )
 }
 
-export const Math = ({ inline, formula, oldErrorPosition }) => {
-  // hack... empty string doesn't work. FIXME
-  if (!formula) {
-    return null
-  }
+export class Math extends React.Component<MathProps> {
+  public render() {
+    const { inline, formula, oldErrorPosition } = this.props
 
-  const Component = inline ? InlineMath : BlockMath
-  return (
-    <Component
-      math={formula}
-      renderError={error =>
-        handleError(formula, error, inline, oldErrorPosition)
-      }
-    />
-  )
+    if (!formula) {
+      return null
+    }
+
+    const Component = inline ? InlineMath : BlockMath
+
+    return (
+      <Component
+        math={formula}
+        renderError={error =>
+          handleError(formula, error, inline, oldErrorPosition)
+        }
+      />
+    )
+  }
 }
 
-export default Math
+export interface MathProps {
+  formula?: string
+  inline?: boolean
+  oldErrorPosition?: unknown
+}

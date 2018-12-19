@@ -26,7 +26,7 @@ const image = createImage({
     getAdditionalFields: () => {
       return {
         type: 'file',
-        csrf: window.csrf
+        csrf: ((window as unknown) as { csrf: string }).csrf
       }
     }
   }
