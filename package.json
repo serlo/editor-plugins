@@ -10,7 +10,7 @@
     "format": "prettier --write \"{{{packages,plugins}/*/src/**,.storybook/**,example/**}/*,*}.{js,jsx,ts,tsx,css,scss,json,md,markdown}\"",
     "start": "npm-run-all storybook",
     "storybook": "start-storybook -p 9009 -s ./.storybook/public",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -c .storybook -s ./.storybook/public -o dist",
     "test": "jest"
   },
   "dependencies": {
