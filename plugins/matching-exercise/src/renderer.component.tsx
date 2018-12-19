@@ -3,9 +3,7 @@ import * as React from 'react'
 import { DragDropContext } from 'react-beautiful-dnd'
 import { Block } from './types'
 import { Column } from './column.component'
-import {
-  MatchingExercisePluginState
-} from './editable.component'
+import { MatchingExercisePluginState } from './editable.component'
 import { combineBlocks, isCorrect } from './helpers'
 
 export interface MatchingExerciseRendererProps {

@@ -3,9 +3,7 @@ import * as React from 'react'
 import { DragDropContext } from 'react-beautiful-dnd'
 
 import { Column } from './column.component'
-import {
-  MatchingExercisePluginState
-} from './editable.component'
+import { MatchingExercisePluginState } from './editable.component'
 import { Block } from './types'
 import { isCorrectPerRow, combineBlocks } from './helpers'
 import * as R from 'ramda'

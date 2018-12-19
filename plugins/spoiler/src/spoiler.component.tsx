@@ -1,4 +1,7 @@
-import { Editable, EditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
+import {
+  Editable,
+  EditableIdentifier
+} from '@splish-me/editor-core/lib/editable.component'
 import { css } from 'emotion'
 import * as React from 'react'
 
@@ -81,9 +84,9 @@ export class Spoiler extends React.Component<SpoilerProps, SpoilerState> {
 }
 
 export interface SpoilerProps {
-  onChange: (state: Partial<SpoilerPluginState>) => void,
-  state: SpoilerPluginState,
-  readOnly?: boolean,
+  onChange: (state: Partial<SpoilerPluginState>) => void
+  state: SpoilerPluginState
+  readOnly?: boolean
 }
 
 export interface SpoilerPluginState {

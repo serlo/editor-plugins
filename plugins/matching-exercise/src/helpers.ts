@@ -27,10 +27,7 @@ export const generateBlocks = ({
   }
 }
 
-export const createBlocks = (
-  blockNumber: number,
-  index: string,
-) => {
+export const createBlocks = (blockNumber: number, index: string) => {
   return {
     id: `${index}`,
     block: blockNumber,

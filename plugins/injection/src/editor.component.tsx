@@ -11,14 +11,16 @@ export class InjectionEditor extends React.Component<InjectionEditorProps> {
     return (
       <React.Fragment>
         <InjectionRenderer {...props} />
-        {focused ? renderIntoSidebar(
-          <Textfield
-            label="Injection Element"
-            placeholder="/12345"
-            onChange={this.handleChange}
-            value={props.state.src}
-          />
-        ) : null}
+        {focused
+          ? renderIntoSidebar(
+              <Textfield
+                label="Injection Element"
+                placeholder="/12345"
+                onChange={this.handleChange}
+                value={props.state.src}
+              />
+            )
+          : null}
       </React.Fragment>
     )
   }
@@ -29,6 +31,6 @@ export class InjectionEditor extends React.Component<InjectionEditorProps> {
 }
 
 export interface InjectionEditorProps extends InjectionRendererProps {
-  onChange: (state: Partial<InjectionRendererProps["state"]>) => void,
+  onChange: (state: Partial<InjectionRendererProps['state']>) => void
   focused?: boolean
 }

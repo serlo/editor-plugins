@@ -35,7 +35,9 @@ const types = [
     type: 'input-expression-equal-match-challenge'
   }
 ]
-export class InputExerciseEditor extends React.Component<InputExerciseEditorProps> {
+export class InputExerciseEditor extends React.Component<
+  InputExerciseEditorProps
+> {
   translateDataType(type: string) {
     for (let i = 0; i < types.length; i++) {
       if (type === types[i].type) return types[i].name
@@ -85,7 +87,9 @@ export class InputExerciseEditor extends React.Component<InputExerciseEditorProp
       wrongAnswers: R.remove(index, 1, state.wrongAnswers)
     })
   }
-  wrongAnswerChange = (index: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
+  wrongAnswerChange = (index: number) => (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const target = event.target
     const value = target.value
 

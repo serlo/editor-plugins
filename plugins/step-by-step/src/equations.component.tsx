@@ -69,7 +69,7 @@ const makeRows = (steps: Array<Content | Step>): Array<OneCol | TwoCols> => {
 }
 
 export interface EquationsProps {
-  onChange: (state: Partial<EquationsPluginState>) => void,
+  onChange: (state: Partial<EquationsPluginState>) => void
   state: EquationsPluginState
   readOnly?: boolean
 }

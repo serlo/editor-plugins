@@ -48,7 +48,10 @@ export class MatchingExerciseMobile extends React.Component<
     newStack.splice(index, 1)
 
     this.setState(
-      { [side]: newSide, stack: newStack } as Pick<MatchingExerciseRendererState, "stack" | typeof side>,
+      { [side]: newSide, stack: newStack } as Pick<
+        MatchingExerciseRendererState,
+        'stack' | typeof side
+      >,
       () => {
         if (side === 'rightSide') {
           const test = isCorrectPerRow(this.props.state, [

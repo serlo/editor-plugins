@@ -5,7 +5,7 @@ export default {
   ...plugin,
   Component: InjectionEditor,
   text: 'Injection',
-  createInitialState: (): InjectionEditorProps["state"] => {
+  createInitialState: (): InjectionEditorProps['state'] => {
     return {
       src: '',
       alt: ''

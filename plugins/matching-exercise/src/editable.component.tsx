@@ -21,10 +21,12 @@ export interface MatchingExercisePluginState {
 
 export interface MatchingExerciseEditableProps {
   onChange: (state: Partial<MatchingExercisePluginState>) => void
-  state: MatchingExercisePluginState,
+  state: MatchingExercisePluginState
 }
 
-export class MatchingExerciseEditable extends React.Component<MatchingExerciseEditableProps> {
+export class MatchingExerciseEditable extends React.Component<
+  MatchingExerciseEditableProps
+> {
   removeButtonStack = rowIndex => () => {
     const { onChange, state } = this.props
 
@@ -82,8 +84,7 @@ export class MatchingExerciseEditable extends React.Component<MatchingExerciseEd
 
   public render() {
     const { solution, blockContent } = this.props.state
-    const stack: B[] = blockContent
-      .map((id, index) => {
+    const stack: B[] = blockContent.map((id, index) => {
       const content = <Editable id={id} />
       return {
         id: `stack-${id.id}`,
@@ -259,5 +260,3 @@ export class MatchingExerciseEditable extends React.Component<MatchingExerciseEd
     )
   }
 }
-
-
