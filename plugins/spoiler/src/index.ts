@@ -1,13 +1,12 @@
-import Component from './Component'
 import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
-import plugin from './plugin'
+
+import { plugin } from './plugin'
+import { Spoiler } from './spoiler.component'
 
 export default {
   ...plugin,
-  Component: Component,
-
-  text: 'Hidden Text',
-
+  Component: Spoiler,
+  text: 'Lösung',
   createInitialState: () => ({
     content: createEditableIdentifier(),
     title: ''

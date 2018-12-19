@@ -1,15 +1,11 @@
-import { Editable } from '@splish-me/editor-core/lib/editable.component'
+import { Editable, EditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
 import { css } from 'emotion'
-import React, { Component } from 'react'
+import * as React from 'react'
 
-export default class PluginComponent extends Component {
-  state = { hidden: true }
+export class Spoiler extends React.Component<SpoilerProps, SpoilerState> {
+  public state: SpoilerState = { hidden: true }
 
-  onToggle = () => {
-    this.setState({ hidden: !this.state.hidden })
-  }
-
-  render() {
+  public render() {
     const { state, readOnly, onChange } = this.props
 
     return (
@@ -54,7 +50,9 @@ export default class PluginComponent extends Component {
                   color: '#ffffff'
                 }
               })}
-              onChange={e => onChange({ title: e.target.value })}
+              onChange={e => {
+                onChange({ title: e.target.value })
+              }}
               value={state.title}
               placeholder="Your Title Here"
             />
@@ -74,4 +72,25 @@ export default class PluginComponent extends Component {
       </div>
     )
   }
+
+  onToggle = () => {
+    this.setState(({ hidden }) => {
+      return { hidden: !hidden }
+    })
+  }
+}
+
+export interface SpoilerProps {
+  onChange: (state: Partial<SpoilerPluginState>) => void,
+  state: SpoilerPluginState,
+  readOnly?: boolean,
+}
+
+export interface SpoilerPluginState {
+  content: EditableIdentifier
+  title: string
+}
+
+interface SpoilerState {
+  hidden: boolean
 }
