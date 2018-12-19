@@ -1,6 +1,6 @@
-import * as React from 'react'
 import axios from 'axios'
-import { css, cx } from 'emotion'
+import { css } from 'emotion'
+import * as React from 'react'
 
 type MathML = string
 type LaTeX = string

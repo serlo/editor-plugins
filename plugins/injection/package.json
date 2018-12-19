@@ -7,28 +7,32 @@
   "author": "Serlo Education e.V.",
   "contributors": [],
   "license": "Apache-2.0",
-  "main": "./lib/index.js",
   "files": [
-    "./lib",
-    "./src",
+    "lib",
+    "src",
     "babel.config.js",
     "tsconfig.json"
   ],
+  "main": "lib/index.js",
   "repository": "serlo-org/ory-editor-plugins",
   "scripts": {
+    "prebuild": "rimraf lib",
     "build": "npm-run-all build:*",
     "build:javascript": "NODE_ENV=production babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
     "build:types": "tsc --emitDeclarationOnly",
     "ci": "npm-run-all ci:*",
     "ci:types": "tsc --noEmit"
   },
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.18.0",
+    "lodash": "^4.0.0"
+  },
   "devDependencies": {
-    "jquery": "^3.3.1"
+    "@types/lodash": "^4.0.0",
+    "@types/react": "^16.0.0"
   },
   "peerDependencies": {
     "@splish-me/editor-ui": "^0.2.0",
-    "jquery": "^3.3.1",
     "react": "^16.4.2",
     "react-dom": "^16.3.1"
   },
