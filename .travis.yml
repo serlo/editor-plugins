@@ -1,10 +1,12 @@
 language: node_js
 
 node_js:
-  - '8'
+  - 10
 
 install:
   - yarn
 
 script:
+  - yarn ci
+  - yarn test
   - yarn build

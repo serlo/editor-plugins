@@ -53,5 +53,4 @@ const pluginMapping = {
 
 export default pluginFactory(pluginMapping)
 
-const defaultPlugin = pluginMapping.slate
-export { defaultPlugin }
+export const defaultPlugin = pluginMapping.slate
