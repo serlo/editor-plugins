@@ -1,11 +1,12 @@
 import { css } from 'emotion'
 import * as React from 'react'
-import * as ReactMarkdown from 'react-markdown'
+import ReactMarkdown from 'react-markdown'
 
 export class TableRenderer extends React.Component<TableRendererProps> {
   public render() {
     const { state, defaultSrc } = this.props
     const { src } = state
+
     return (
       <div
         className={css({

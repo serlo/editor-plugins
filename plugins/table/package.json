@@ -24,8 +24,8 @@
     "ci:types": "tsc --noEmit"
   },
   "dependencies": {
-    "react-markdown": "^3.3.2",
-    "react-textarea-autosize": "^6.1.0"
+    "react-markdown": "^4.0.0",
+    "react-textarea-autosize": "^6.0.0"
   },
   "devDependencies": {},
   "peerDependencies": {
