@@ -13,7 +13,7 @@ import spoiler from '@serlo-org/editor-plugin-spoiler'
 import table from '@serlo-org/editor-plugin-table'
 import stepByStep from '@serlo-org/editor-plugin-step-by-step'
 import equations from '@serlo-org/editor-plugin-equations'
-
+import anchor from '@serlo-org/editor-plugin-anchor'
 import pluginFactory from './plugins'
 import { slatePlugin } from './slate'
 
@@ -48,7 +48,8 @@ const pluginMapping = {
   table: table,
   textfield: textfield,
   stepByStep: stepByStep,
-  equations: equations
+  equations: equations,
+  anchor: anchor
 }
 
 export default pluginFactory(pluginMapping)
