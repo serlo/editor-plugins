@@ -7,7 +7,8 @@ const defaultPlugins = [
   'injection',
   'table',
   'blockquote',
-  'equations'
+  'equations',
+  'anchor'
 ]
 
 const newPlugins = ['highlight', 'matchingExercise', 'stepByStep', 'equations']
