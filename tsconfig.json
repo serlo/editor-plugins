@@ -7,6 +7,7 @@
     "target": "esnext",
     "baseUrl": ".",
     "paths": {
+      "@serlo-org/editor-plugins": ["packages/editor-plugins/src"],
       "@serlo-org/editor-plugins-registry": [
         "packages/editor-plugins-registry/src"
       ],

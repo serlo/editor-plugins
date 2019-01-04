@@ -21,4 +21,4 @@
 // import { slateRenderPlugin } from './slate.render'
 import { createPlugins } from '@serlo-org/editor-plugins-registry'
 
-export default createPlugins({})
+export const plugins = createPlugins({})
