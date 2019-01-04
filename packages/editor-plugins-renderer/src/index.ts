@@ -19,6 +19,6 @@
 //
 // import pluginFactory, { Plugin, PluginRegistry } from './plugins'
 // import { slateRenderPlugin } from './slate.render'
-import { createPlugins } from '@serlo-org/editor-plugins-registry'
+import { createPluginFactory } from '@serlo-org/editor-plugins-registry'
 
-export const plugins = createPlugins({})
+export const createRendererPlugins = createPluginFactory({})

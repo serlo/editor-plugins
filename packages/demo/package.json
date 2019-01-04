@@ -14,16 +14,20 @@
     "start": "start-storybook -p 9009 -c .storybook"
   },
   "dependencies": {
+    "katex": "^0.10.0",
+    "ramda": "^0.26.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@storybook/react": "^4.0.0",
+    "@types/ramda": "^0.26.0",
     "@types/storybook__react": "^4.0.0",
     "babel-loader": "^8.0.0",
     "babel-plugin-module-resolver": "^3.0.0",
-    "babel-preset-react-app": "^7.0.0"
+    "babel-preset-react-app": "^7.0.0",
+    "webpack-require-http": "^0.4.0"
   },
   "private": true
 }

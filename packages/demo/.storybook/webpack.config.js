@@ -19,7 +19,8 @@ module.exports = (baseConfig, env, config) => {
                 '@serlo-org/editor-plugins-registry/src',
               '@serlo-org/editor-plugins-renderer':
                 '@serlo-org/editor-plugins-renderer/src',
-              '@serlo-org/html-renderer': '@serlo-org/html-renderer/src'
+              '@serlo-org/html-renderer': '@serlo-org/html-renderer/src',
+              '@serlo-org/storybook-helpers': '@serlo-org/storybook-helpers/src'
             }
           }
         ]
@@ -27,5 +28,6 @@ module.exports = (baseConfig, env, config) => {
     }
   })
   config.resolve.extensions.push('.ts', '.tsx')
+  config.externals = [require('webpack-require-http')]
   return config
 }

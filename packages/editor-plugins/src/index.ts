@@ -17,7 +17,7 @@
 
 import pluginFactory, { Plugin, PluginRegistry } from './plugins'
 import { slatePlugin } from './slate'
-import { createPlugins } from '@serlo-org/editor-plugins-registry'
+import { createPluginFactory } from '@serlo-org/editor-plugins-registry'
 
 // const image = createImage({
 //   upload: {
@@ -54,6 +54,7 @@ import { createPlugins } from '@serlo-org/editor-plugins-registry'
 //   [Plugin.Anchor]: anchor
 // }
 
-export const plugins = createPlugins({})
+export const createEditorPlugins = createPluginFactory({})
+export const defaultPlugin = null
 
 // export const defaultPlugin = pluginMapping.slate

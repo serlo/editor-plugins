@@ -1367,15 +1367,7 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.10"
 
-"@fortawesome/react-fontawesome@^0.1.0", "@fortawesome/react-fontawesome@^0.1.3":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.1.3.tgz#266b4047892c3d10498af1075d89252f74015b11"
-  integrity sha512-tc689l67rPZ7+ynZVUgOXY80rAt5KxvuH1qjPpJcbyJzJHzk5yhrD993BjsSEdPBLTtPqmvwynsO/XrAQqHbtg==
-  dependencies:
-    humps "^2.0.1"
-    prop-types "^15.5.10"
-
-"@fortawesome/react-fontawesome@fortawesome/react-fontawesome":
+"@fortawesome/react-fontawesome@^0.1.0", "@fortawesome/react-fontawesome@^0.1.3", "@fortawesome/react-fontawesome@fortawesome/react-fontawesome":
   version "0.1.3"
   resolved "https://codeload.github.com/fortawesome/react-fontawesome/tar.gz/a4084b5f9f19d32e87c0baace1b1c2451c5cbba7"
   dependencies:
@@ -2020,7 +2012,7 @@
   resolved "https://registry.yarnpkg.com/@splish-me/editor-core-types/-/editor-core-types-0.3.0-alpha.2.tgz#b9f49d0c2815bb95a01488dd73d35fc152ab5404"
   integrity sha512-ZzKmYt8Ie5sAIlhcrQrQiDcc0eKYiiH9bg+i5hCMdAqbSl/RHpfBTHYXGyNHF9bJ7x1sesj6NyBX9vnYhQ4cMg==
 
-"@splish-me/editor-core@^0.3.0-alpha":
+"@splish-me/editor-core@^0.3.0-alpha", "@splish-me/editor-core@^0.3.0-alpha.2":
   version "0.3.0-alpha.2"
   resolved "https://registry.yarnpkg.com/@splish-me/editor-core/-/editor-core-0.3.0-alpha.2.tgz#34327d2a1ab25e46c2e94343ccb0d3b471ea2c82"
   integrity sha512-pMaxDfkAUW9c7x9oP6YtSsq8qrDLpVlUAaLUjKQzDwXs/sXmcUIfvNsAUJgRCgt1DjHuVHEWLNLGd0SVB5Y9Mg==
@@ -2034,7 +2026,7 @@
     lodash "^4.0.0"
     ramda "^0.26.0"
 
-"@splish-me/editor-ui-add-sidebar@0.3.0-alpha.2":
+"@splish-me/editor-ui-add-sidebar@0.3.0-alpha.2", "@splish-me/editor-ui-add-sidebar@^0.3.0-alpha.2":
   version "0.3.0-alpha.2"
   resolved "https://registry.yarnpkg.com/@splish-me/editor-ui-add-sidebar/-/editor-ui-add-sidebar-0.3.0-alpha.2.tgz#07cc62fc502c9f1ea369ad09b752d257301c261e"
   integrity sha512-6nOyQyGXwt5cdiGwFZ21xHRqaRWVzLv0sKkHkCqb8Mb0ZV2QBbg6Avb0G/tTNDmYQwRdMIX3M4X1Yn0RfPE+Ig==
@@ -2043,7 +2035,7 @@
     classnames "^2.0.0"
     styled-components "^4.0.0"
 
-"@splish-me/editor-ui-mode-toolbar@0.3.0-alpha.2":
+"@splish-me/editor-ui-mode-toolbar@0.3.0-alpha.2", "@splish-me/editor-ui-mode-toolbar@^0.3.0-alpha.2":
   version "0.3.0-alpha.2"
   resolved "https://registry.yarnpkg.com/@splish-me/editor-ui-mode-toolbar/-/editor-ui-mode-toolbar-0.3.0-alpha.2.tgz#46dd9154afd2c6c00d35bbed0621329649a20fb7"
   integrity sha512-1EZrxrGl0P1EKtYYlxEUJJp8sjVqQ1GEhcB2rXNByCKlmeJCLKxzb85Xp8ZjAI058rXh3FsX+mj31SqYe130hQ==
@@ -2055,7 +2047,7 @@
     "@splish-me/ory-editor-core" "0.3.0-alpha.2"
     styled-components "^4.0.0"
 
-"@splish-me/editor-ui-plugin-sidebar@0.3.0-alpha.2":
+"@splish-me/editor-ui-plugin-sidebar@0.3.0-alpha.2", "@splish-me/editor-ui-plugin-sidebar@^0.3.0-alpha.2":
   version "0.3.0-alpha.2"
   resolved "https://registry.yarnpkg.com/@splish-me/editor-ui-plugin-sidebar/-/editor-ui-plugin-sidebar-0.3.0-alpha.2.tgz#debcf49523335b1fe9e7898ef30711f5be67ba93"
   integrity sha512-U/kVViK8voEzypWpCIoSdWjK4kU2/M6Lqq1IrOjsCggFi7FFgM5zp5AKlb2PmMAVFAwZ2CJT7FQRRoPHy4fsng==
@@ -2066,7 +2058,7 @@
     "@splish-me/ory-editor-core" "0.3.0-alpha.2"
     styled-components "^4.0.0"
 
-"@splish-me/editor-ui-sidebar@0.3.0-alpha.2":
+"@splish-me/editor-ui-sidebar@0.3.0-alpha.2", "@splish-me/editor-ui-sidebar@^0.3.0-alpha.2":
   version "0.3.0-alpha.2"
   resolved "https://registry.yarnpkg.com/@splish-me/editor-ui-sidebar/-/editor-ui-sidebar-0.3.0-alpha.2.tgz#36ae785555fc1622bed1cbd1172279647eaceb54"
   integrity sha512-e6oJfN+AjB6gXk1RpRFjmPQaK6MB8EIpt0a0Wdqfd8c7msVbKuv7O7p/dx3V3pHM6RFjXUkHyHVcuP1AkhTvBQ==
@@ -2699,6 +2691,11 @@
   resolved "https://registry.yarnpkg.com/@types/ramda/-/ramda-0.25.44.tgz#3e442ed487844a4fc33efed357d514940ef1b7fe"
   integrity sha512-LaaBuiDSTo4FlsgNMpKoIgnbq85PP/blpptQgNijtR/H5iXhtBtByCLUElIEuSVxyno1h0yfHYqDooa+C1spIg==
 
+"@types/ramda@^0.26.0":
+  version "0.26.0"
+  resolved "https://registry.yarnpkg.com/@types/ramda/-/ramda-0.26.0.tgz#ce45c2c61b3e510f907cc84941c8cdb99f089b6a"
+  integrity sha512-6FCz2E3SrkgbuV3piRNfjThSRyMbcIxHknnGYPfrg4k55PHnNRR80boVdl1AME/KfDW+FBVmKrKPyRbFo8HjaQ==
+
 "@types/react-syntax-highlighter@^10.0.0":
   version "10.1.0"
   resolved "https://registry.yarnpkg.com/@types/react-syntax-highlighter/-/react-syntax-highlighter-10.1.0.tgz#9c534e29bbe05dba9beae1234f3ae944836685d4"
@@ -2726,6 +2723,13 @@
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.2.tgz#5dc0a7f76809b7518c0df58689cd16a19bd751c6"
   integrity sha512-iHI60IbyfQilNubmxsq4zqSjdynlmc2Q/QvH9kjzg9+CCYVVzq1O6tc7VBzSygIwnmOt07w80IG6HDQvjv3Liw==
+
+"@types/uuid@^3.0.0":
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-3.4.4.tgz#7af69360fa65ef0decb41fd150bf4ca5c0cefdf5"
+  integrity sha512-tPIgT0GUmdJQNSHxp0X2jnpQfBSTfGxUMc/2CXBU2mnyTFVYVa2ojpoQ74w0U2yn2vw3jnC640+77lkFFpdVDw==
+  dependencies:
+    "@types/node" "*"
 
 "@types/vfile-message@*":
   version "1.0.1"
@@ -5750,7 +5754,7 @@ commander@2.17.x, commander@~2.17.1:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.17.1.tgz#bd77ab7de6de94205ceacc72f1716d29f20a77bf"
   integrity sha512-wPMUt6FnH2yzG95SA6mzjQOEKUU3aLaDEmzs1ti+1E9h+CsrZghRlqEM/EJ4KscsQVG8uNN4uVreUeT8+drlgg==
 
-commander@^2.14.1, commander@^2.15.0, commander@^2.19.0, commander@^2.9.0:
+commander@^2.14.1, commander@^2.15.0, commander@^2.16.0, commander@^2.19.0, commander@^2.9.0:
   version "2.19.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.19.0.tgz#f6198aa84e5b83c46054b94ddedbfed5ee9ff12a"
   integrity sha512-6tvAOO+D6OENvRAh524Dh9jcfKTYDQAqvqezbCW82xj5X0pSrcpxtvRKHLG0yBY6SD7PSDrJaj+0AiOcKVd1Xg==
@@ -10014,6 +10018,13 @@ jsprim@^1.2.2:
     extsprintf "1.3.0"
     json-schema "0.2.3"
     verror "1.10.0"
+
+katex@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/katex/-/katex-0.10.0.tgz#da562e5d0d5cc3aa602e27af8a9b8710bfbce765"
+  integrity sha512-/WRvx+L1eVBrLwX7QzKU1dQuaGnE7E8hDvx3VWfZh9HbMiCfsKWJNnYZ0S8ZMDAfAyDSofdyXIrH/hujF1fYXg==
+  dependencies:
+    commander "^2.16.0"
 
 keycode@^2.1.9, keycode@^2.2.0:
   version "2.2.0"

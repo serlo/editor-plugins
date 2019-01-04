@@ -44,7 +44,7 @@ const newPlugins = []
 // const exercisePlugins = [Plugin.Hint, Plugin.Solution, Plugin.ScMcExercise]
 const exercisePlugins = []
 
-export const createPlugins = (
+export const createPluginFactory = (
   pluginRegistry: PluginRegistry
 ) => editableType => {
   const plugins = choosePlugins(editableType)
