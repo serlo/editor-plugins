@@ -8,17 +8,9 @@ export const HtmlRenderer = createRenderer({
     return <div className="row">{children}</div>
   },
   renderRow({ children }) {
-    return (
-      <div className="row">
-        {children}
-      </div>
-    )
+    return <div className="row">{children}</div>
   },
   renderCell({ cell, children }) {
-    return (
-      <div className={gridClass(cell.size)}>
-        {children}
-      </div>
-    )
+    return <div className={gridClass(cell.size)}>{children}</div>
   }
 })
