@@ -36,7 +36,7 @@ const pluginMapping: PluginRegistry = {
   [Plugin.Table]: table,
   [Plugin.InputExercise]: inputExercise,
   [Plugin.StepByStep]: stepByStep,
-  [Plugin.Equations]: equations
+  [Plugin.Equations]: equations,
   [Plugin.Anchor]: anchor
 }
 
