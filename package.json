@@ -17,9 +17,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0",
-    "@splish-me/editor-core": "^0.2.0",
-    "@splish-me/editor-ui": "^0.2.0",
-    "@splish-me/ory-editor-core": "^0.2.0",
+    "@splish-me/editor-core": "^0.3.0-alpha",
+    "@splish-me/editor-ui": "^0.3.0-alpha",
     "emotion": "^9.2.10",
     "font-awesome": "^4.7.0",
     "react-emotion": "^9.2.10",
@@ -27,6 +26,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
+    "@splish-me/microbundle": "^0.9.0",
     "@storybook/addon-links": "^3.0.0",
     "@storybook/addon-options": "^3.0.0",
     "@storybook/addons": "^3.0.0",

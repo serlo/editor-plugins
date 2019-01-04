@@ -58,5 +58,8 @@ typings/
 .env
 
 # Compiled code
-packages/**/lib
-plugins/**/lib
+dist/
+lib/
+
+# Microbundle cache
+.rts2_cache*/
