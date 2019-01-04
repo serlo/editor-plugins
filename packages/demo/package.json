@@ -1,0 +1,29 @@
+{
+  "name": "@serlo-org/editor-plugins-demo",
+  "version": "0.0.0",
+  "bugs": {
+    "url": "https://github.com/serlo-org/editor-plugins/issues"
+  },
+  "author": "Serlo Education e.V.",
+  "license": "Apache-2.0",
+  "repository": "serlo-org/editor-plugins",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "ci": "tsc --noEmit",
+    "format": "prettier --write \"{{.storybook,__stories__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\"",
+    "start": "start-storybook -p 9009 -c .storybook"
+  },
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@storybook/react": "^4.0.0",
+    "@types/storybook__react": "^4.0.0",
+    "babel-loader": "^8.0.0",
+    "babel-plugin-module-resolver": "^3.0.0",
+    "babel-preset-react-app": "^7.0.0"
+  },
+  "private": true
+}
