@@ -1,8 +1,8 @@
-import { GeoGebraEditor } from './editor.component'
-import { plugin } from './plugin'
+import { GeogebraEditor } from './editor'
 
-export default {
-  ...plugin,
-  Component: GeoGebraEditor,
+export const geogebraPlugin = {
+  name: '@serlo-org/geogebra',
+  version: '0.0.5',
+  Component: GeogebraEditor,
   text: 'GeoGebra'
 }

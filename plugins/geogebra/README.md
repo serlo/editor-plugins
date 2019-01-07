@@ -1,1 +1,0 @@
-# ory-editor-plugins-geogebra

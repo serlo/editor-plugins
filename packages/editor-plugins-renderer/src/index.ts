@@ -16,6 +16,7 @@
 import { anchorRendererPlugin } from '@serlo-org/editor-plugin-anchor-renderer'
 import { blockquoteRendererPlugin } from '@serlo-org/editor-plugin-blockquote-renderer'
 import { equationsRendererPlugin } from '@serlo-org/editor-plugin-equations-renderer'
+import { geogebraRendererPlugin } from '@serlo-org/editor-plugin-geogebra-renderer'
 import { textRendererPlugin } from '@serlo-org/editor-plugin-text-renderer'
 import { createPluginFactory, Plugin } from '@serlo-org/editor-plugins-registry'
 
@@ -23,5 +24,6 @@ export const createRendererPlugins = createPluginFactory({
   [Plugin.Anchor]: anchorRendererPlugin,
   [Plugin.Blockquote]: blockquoteRendererPlugin,
   [Plugin.Equations]: equationsRendererPlugin,
+  [Plugin.Geogebra]: geogebraRendererPlugin,
   [Plugin.Text]: textRendererPlugin
 })

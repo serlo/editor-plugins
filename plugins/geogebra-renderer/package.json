@@ -1,5 +1,5 @@
 {
-  "name": "@serlo-org/editor-plugin-foobar-renderer",
+  "name": "@serlo-org/editor-plugin-geogebra-renderer",
   "version": "0.0.0",
   "bugs": {
     "url": "https://github.com/serlo-org/editor-plugins/issues"
@@ -19,11 +19,15 @@
     "format": "prettier --write \"{src/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "styled-components": "^4.0.0"
+    "@splish-me/ory-editor-core": "^0.3.0-alpha",
+    "axios": "^0.18.0",
+    "lodash": "^4.0.0",
+    "uuid": "^3.0.0"
   },
   "devDependencies": {
-    "@types/styled-components": "^4.0.0",
-    "@types/react": "^16.0.0"
+    "@types/lodash": "^4.0.0",
+    "@types/react": "^16.0.0",
+    "@types/uuid": "^3.0.0"
   },
   "peerDependencies": {
     "react": "^16.0.0"

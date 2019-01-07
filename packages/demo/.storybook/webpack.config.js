@@ -31,6 +31,10 @@ module.exports = (baseConfig, env, config) => {
                 '@serlo-org/editor-plugin-equations/src',
               '@serlo-org/editor-plugin-equations-renderer':
                 '@serlo-org/editor-plugin-equations-renderer/src',
+              '@serlo-org/editor-plugin-geogebra':
+                '@serlo-org/editor-plugin-geogebra/src',
+              '@serlo-org/editor-plugin-geogebra-renderer':
+                '@serlo-org/editor-plugin-geogebra-renderer/src',
               '@serlo-org/editor-plugin-text':
                 '@serlo-org/editor-plugin-text/src',
               '@serlo-org/editor-plugin-text-renderer':

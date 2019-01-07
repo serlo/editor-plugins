@@ -4,12 +4,12 @@ export enum Plugin {
   Anchor = 'anchor',
   Blockquote = 'blockquote',
   Equations = 'equations',
+  Geogebra = 'geogebra',
   Text = 'text'
 }
 // Slate = 'slate',
 // Image = 'image',
 // Spoiler = 'spoiler',
-// GeoGebra = 'geo-gebra',
 // License = 'license',
 // Injection = 'injection',
 // Highlight = 'highlight',
@@ -29,7 +29,12 @@ export enum Plugin {
 //   Plugin.Injection,
 //   Plugin.Table,
 // ]
-const defaultPlugins = [Plugin.Text, Plugin.Anchor, Plugin.Blockquote]
+const defaultPlugins = [
+  Plugin.Text,
+  Plugin.Anchor,
+  Plugin.Blockquote,
+  Plugin.Geogebra
+]
 
 // const newPlugins = [
 //   Plugin.Highlight,

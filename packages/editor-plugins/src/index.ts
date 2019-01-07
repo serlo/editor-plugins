@@ -14,6 +14,7 @@
 import { anchorPlugin } from '@serlo-org/editor-plugin-anchor'
 import { blockquotePlugin } from '@serlo-org/editor-plugin-blockquote'
 import { equationsPlugin } from '@serlo-org/editor-plugin-equations'
+import { geogebraPlugin } from '@serlo-org/editor-plugin-geogebra'
 import { textPlugin } from '@serlo-org/editor-plugin-text'
 import { createPluginFactory, Plugin } from '@serlo-org/editor-plugins-registry'
 
@@ -54,6 +55,7 @@ export const createEditorPlugins = createPluginFactory({
   [Plugin.Anchor]: anchorPlugin,
   [Plugin.Blockquote]: blockquotePlugin,
   [Plugin.Equations]: equationsPlugin,
+  [Plugin.Geogebra]: geogebraPlugin,
   [Plugin.Text]: textPlugin
 })
 export const defaultPlugin = textPlugin

@@ -26,6 +26,10 @@
       "@serlo-org/editor-plugin-equations-renderer": [
         "plugins/equations-renderer/src"
       ],
+      "@serlo-org/editor-plugin-geogebra": ["plugins/geogebra/src"],
+      "@serlo-org/editor-plugin-geogebra-renderer": [
+        "plugins/geogebra-renderer/src"
+      ],
       "@serlo-org/editor-plugin-text": ["plugins/text/src"],
       "@serlo-org/editor-plugin-text-renderer": ["plugins/text-renderer/src"],
       "@serlo-org/html-renderer": ["packages/html-renderer/src"],
