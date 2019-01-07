@@ -443,7 +443,7 @@ export class SerloArticle extends React.Component {
                 <div itemScope="" itemType="http://schema.org/Article">
                   <div className="page-header">
                     <h1>
-                      <span itemProp="name">Dreicke konstruieren</span>
+                      <span itemProp="name">Dreiecke konstruieren</span>
                     </h1>
                   </div>
                   <div itemProp="articleBody">

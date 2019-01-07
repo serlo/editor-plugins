@@ -19,6 +19,10 @@ module.exports = (baseConfig, env, config) => {
                 '@serlo-org/editor-plugins-registry/src',
               '@serlo-org/editor-plugins-renderer':
                 '@serlo-org/editor-plugins-renderer/src',
+              '@serlo-org/editor-plugin-text':
+                '@serlo-org/editor-plugin-text/src',
+              '@serlo-org/editor-plugin-text-renderer':
+                '@serlo-org/editor-plugin-text-renderer/src',
               '@serlo-org/html-renderer': '@serlo-org/html-renderer/src',
               '@serlo-org/storybook-helpers': '@serlo-org/storybook-helpers/src'
             }

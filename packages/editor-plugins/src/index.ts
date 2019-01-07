@@ -15,9 +15,8 @@
 // import equations from '@serlo-org/editor-plugin-equations'
 // import anchor from '@serlo-org/editor-plugin-anchor'
 
-import pluginFactory, { Plugin, PluginRegistry } from './plugins'
-import { slatePlugin } from './slate'
-import { createPluginFactory } from '@serlo-org/editor-plugins-registry'
+import { textPlugin } from '@serlo-org/editor-plugin-text'
+import { createPluginFactory, Plugin } from '@serlo-org/editor-plugins-registry'
 
 // const image = createImage({
 //   upload: {
@@ -54,7 +53,7 @@ import { createPluginFactory } from '@serlo-org/editor-plugins-registry'
 //   [Plugin.Anchor]: anchor
 // }
 
-export const createEditorPlugins = createPluginFactory({})
-export const defaultPlugin = null
-
-// export const defaultPlugin = pluginMapping.slate
+export const createEditorPlugins = createPluginFactory({
+  [Plugin.Text]: textPlugin
+})
+export const defaultPlugin = textPlugin

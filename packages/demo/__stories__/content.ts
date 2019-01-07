@@ -1,4 +1,4 @@
-// import { slatePlugin } from '@serlo-org/editor-plugins/lib/slate'
+import { textPlugin } from '@serlo-org/editor-plugin-text'
 import * as R from 'ramda'
 
 const preContent = {
@@ -278,19 +278,19 @@ const f = obj => {
     return obj
   }
 
-  // if (obj.content) {
-  //   const { content } = obj
-  //
-  //   if (content.plugin.name === slatePlugin.name) {
-  //     return {
-  //       ...obj,
-  //       content: {
-  //         ...content,
-  //         state: slatePlugin.serialize(slatePlugin.unserialize(content.state))
-  //       }
-  //     }
-  //   }
-  // }
+  if (obj.content) {
+    const { content } = obj
+
+    if (content.plugin.name === textPlugin.name) {
+      return {
+        ...obj,
+        content: {
+          ...content,
+          state: textPlugin.serialize(textPlugin.unserialize(content.state))
+        }
+      }
+    }
+  }
 
   return R.map(f, obj)
 }

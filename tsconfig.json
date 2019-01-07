@@ -14,6 +14,8 @@
       "@serlo-org/editor-plugins-renderer": [
         "packages/editor-plugins-renderer/src"
       ],
+      "@serlo-org/editor-plugin-text": ["plugins/text/src"],
+      "@serlo-org/editor-plugin-text-renderer": ["plugins/text-renderer/src"],
       "@serlo-org/html-renderer": ["packages/html-renderer/src"]
     }
   }

@@ -1,15 +1,19 @@
-import Checkbox from '@splish-me/editor-ui/lib/sidebar-elements/checkbox'
-import ButtonGroup, {
-  Button
-} from '@splish-me/editor-ui/lib/sidebar-elements/button'
-import Textarea from '@splish-me/editor-ui/lib/sidebar-elements/textarea'
-import { renderIntoSidebar } from '@splish-me/editor-ui/lib/plugin-sidebar.component'
+import {
+  NodeRendererProps,
+  NodeEditorProps,
+  TextPlugin
+} from '@splish-me/editor-plugin-text-plugin'
+import {
+  ButtonGroup,
+  Button,
+  Checkbox,
+  Textarea,
+  renderIntoSidebar
+} from '@splish-me/editor-ui-plugin-sidebar'
 import { debounce } from 'lodash'
 import * as React from 'react'
 import { Block, Change, Inline, Schema, BlockJSON, InlineJSON } from 'slate'
-import { RenderNodeProps } from 'slate-react'
 
-import { SerializeNodeProps, SlatePlugin } from '@splish-me/editor-plugin-slate'
 import { Math } from './math.component'
 import { Wiris } from './wiris.component'
 
@@ -17,8 +21,8 @@ export const katexBlockNode = '@splish-me/katex-block'
 export const katexInlineNode = '@splish-me/katex-inline'
 
 export interface KatexPluginOptions {
-  EditorComponent?: React.ComponentType<RenderNodeProps>
-  RenderComponent?: React.ComponentType<SerializeNodeProps>
+  EditorComponent?: React.ComponentType<NodeEditorProps>
+  RenderComponent?: React.ComponentType<NodeRendererProps>
 }
 
 interface DefaultEditorComponentState {
@@ -28,7 +32,7 @@ interface DefaultEditorComponentState {
 }
 
 class DefaultEditorComponent extends React.Component<
-  RenderNodeProps,
+  NodeEditorProps,
   DefaultEditorComponentState
 > {
   public state: DefaultEditorComponentState = {
@@ -38,7 +42,7 @@ class DefaultEditorComponent extends React.Component<
   }
 
   static getDerivedStateFromProps(
-    props: RenderNodeProps,
+    props: NodeEditorProps,
     state: DefaultEditorComponentState
   ): Partial<DefaultEditorComponentState> | null {
     const newValue = (props.node as Inline).data.get('formula')
@@ -78,7 +82,8 @@ class DefaultEditorComponent extends React.Component<
     })
   }, 500)
 
-  private input = React.createRef<Textarea>()
+  private input = React.createRef<Textarea>() as React.RefObject<Textarea> &
+    string
 
   public render() {
     const { attributes, node, isSelected } = this.props
@@ -162,7 +167,7 @@ class DefaultEditorComponent extends React.Component<
   }
 }
 
-class DefaultRendererComponent extends React.Component<SerializeNodeProps> {
+class DefaultRendererComponent extends React.Component<NodeRendererProps> {
   public render() {
     const { node } = this.props
 
@@ -203,7 +208,7 @@ export const insertKatex = (change: Change) => {
 export const createKatexPlugin = ({
   EditorComponent = DefaultEditorComponent,
   RenderComponent = DefaultRendererComponent
-}: KatexPluginOptions = {}): SlatePlugin => {
+}: KatexPluginOptions = {}): TextPlugin => {
   return {
     schema: Schema.fromJSON({
       inlines: {

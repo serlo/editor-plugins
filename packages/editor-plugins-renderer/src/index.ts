@@ -17,8 +17,9 @@
 // import equations from '@serlo-org/editor-plugin-equations/lib/index.render'
 // import anchor from '@serlo-org/editor-plugin-anchor/lib/index.render'
 //
-// import pluginFactory, { Plugin, PluginRegistry } from './plugins'
-// import { slateRenderPlugin } from './slate.render'
-import { createPluginFactory } from '@serlo-org/editor-plugins-registry'
+import { createPluginFactory, Plugin } from '@serlo-org/editor-plugins-registry'
+import { textRendererPlugin } from '@serlo-org/editor-plugin-text-renderer'
 
-export const createRendererPlugins = createPluginFactory({})
+export const createRendererPlugins = createPluginFactory({
+  [Plugin.Text]: textRendererPlugin
+})

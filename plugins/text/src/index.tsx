@@ -1,17 +1,21 @@
-import { defaultPlugins } from '@splish-me/editor-plugin-slate/lib/default-plugins'
-import { defaultNode } from '@splish-me/editor-plugin-slate/lib/default-node'
-import { createUiPlugin } from '@splish-me/editor-plugin-slate/lib/plugins/ui'
-import { setParagraph } from '@splish-me/editor-plugin-slate/lib/plugins/paragraph'
-import ButtonGroup, {
-  Button
-} from '@splish-me/editor-ui/lib/sidebar-elements/button'
-import * as R from 'ramda'
-import * as React from 'react'
+import { isCode, toggleCode } from '@splish-me/editor-plugin-text-plugin-code'
 import {
   HeadingLevel,
   createIsHeading,
   createSetHeading
-} from '@splish-me/editor-plugin-slate/lib/plugins/headings'
+} from '@splish-me/editor-plugin-text-plugin-headings'
+import {
+  isLink,
+  unwrapLink,
+  wrapLink
+} from '@splish-me/editor-plugin-text-plugin-link'
+import {
+  isUnorderedList,
+  toggleUnorderedList,
+  toggleOrderedList,
+  isOrderedList
+} from '@splish-me/editor-plugin-text-plugin-lists'
+import { setParagraph } from '@splish-me/editor-plugin-text-plugin-paragraph'
 import {
   isStrong,
   toggleStrong,
@@ -19,27 +23,18 @@ import {
   toggleEmphasize,
   isUnderlined,
   toggleUnderline
-} from '@splish-me/editor-plugin-slate/lib/plugins/rich-text'
+} from '@splish-me/editor-plugin-text-plugin-rich-text'
+import { createUiPlugin } from '@splish-me/editor-plugin-text-plugin-ui'
+import { createTextPlugin } from '@splish-me/editor-plugin-text'
+import { ButtonGroup, Button } from '@splish-me/editor-ui-plugin-sidebar'
 import {
-  isLink,
-  unwrapLink,
-  wrapLink
-} from '@splish-me/editor-plugin-slate/lib/plugins/link'
-
-import {
-  isCode,
-  toggleCode
-} from '@splish-me/editor-plugin-slate/lib/plugins/code'
-import {
-  isUnorderedList,
-  toggleUnorderedList,
-  toggleOrderedList,
-  isOrderedList
-} from '@splish-me/editor-plugin-slate/lib/plugins/lists'
+  plugins as rendererPlugins,
+  isKatex,
+  insertKatex
+} from '@serlo-org/editor-plugin-text-renderer'
+import * as R from 'ramda'
+import * as React from 'react'
 import { Change, Value } from 'slate'
-import { createSlatePlugin } from '@splish-me/editor-plugin-slate'
-
-import { createKatexPlugin, isKatex, insertKatex } from './slate-plugin-katex'
 
 class Component extends React.Component<{
   onChange: (change: Change) => void
@@ -156,14 +151,16 @@ class Component extends React.Component<{
 }
 
 const plugins = [
-  ...defaultPlugins,
-  createKatexPlugin(),
+  ...rendererPlugins,
   createUiPlugin({
-    defaultNode,
     Component
   })
 ]
 
-export const slatePlugin = createSlatePlugin({
-  plugins
-})
+export const textPlugin = {
+  ...createTextPlugin({
+    plugins
+  }),
+  name: '@splish-me/slate',
+  version: '0.0.11'
+}
