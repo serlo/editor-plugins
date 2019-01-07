@@ -1,7 +1,7 @@
 {
-  "extends": "../../config/src/tsconfig.json",
-  "include": ["src"],
+  "extends": "../../tsconfig.json",
+  "include": ["__stories__", "__tests__", "src"],
   "compilerOptions": {
-    "outDir": "lib"
+    "jsx": "react"
   }
 }

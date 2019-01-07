@@ -22,5 +22,5 @@ export class FoobarEditor extends React.Component<FoobarEditorProps> {
 export interface FoobarEditorProps extends FoobarRendererProps {
   focused?: boolean
   readOnly?: boolean
-  onChange: (state: FoobarPluginState) => void
+  onChange: (state: Partial<FoobarPluginState>) => void
 }

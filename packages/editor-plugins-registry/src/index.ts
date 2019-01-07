@@ -3,6 +3,7 @@ import * as React from 'react'
 export enum Plugin {
   Anchor = 'anchor',
   Blockquote = 'blockquote',
+  Equations = 'equations',
   Text = 'text'
 }
 // Slate = 'slate',
@@ -19,7 +20,6 @@ export enum Plugin {
 // Hint = 'hint',
 // Solution = 'solution',
 // Table = 'table',
-// Equations = 'equation',
 
 // const defaultPlugins = [
 //   Plugin.Image,
@@ -28,7 +28,6 @@ export enum Plugin {
 //   Plugin.License,
 //   Plugin.Injection,
 //   Plugin.Table,
-//   Plugin.Equations,
 // ]
 const defaultPlugins = [Plugin.Text, Plugin.Anchor, Plugin.Blockquote]
 
@@ -38,7 +37,7 @@ const defaultPlugins = [Plugin.Text, Plugin.Anchor, Plugin.Blockquote]
 //   Plugin.StepByStep,
 //   Plugin.InputExercise
 // ]
-const newPlugins = []
+const newPlugins = [Plugin.Equations]
 
 // const exercisePlugins = [Plugin.Hint, Plugin.Solution, Plugin.ScMcExercise]
 const exercisePlugins = []

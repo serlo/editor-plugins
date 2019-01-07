@@ -27,6 +27,10 @@ module.exports = (baseConfig, env, config) => {
                 '@serlo-org/editor-plugin-blockquote/src',
               '@serlo-org/editor-plugin-blockquote-renderer':
                 '@serlo-org/editor-plugin-blockquote-renderer/src',
+              '@serlo-org/editor-plugin-equations':
+                '@serlo-org/editor-plugin-equations/src',
+              '@serlo-org/editor-plugin-equations-renderer':
+                '@serlo-org/editor-plugin-equations-renderer/src',
               '@serlo-org/editor-plugin-text':
                 '@serlo-org/editor-plugin-text/src',
               '@serlo-org/editor-plugin-text-renderer':

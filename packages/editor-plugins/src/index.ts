@@ -11,9 +11,9 @@
 // import spoiler from '@serlo-org/editor-plugin-spoiler'
 // import table from '@serlo-org/editor-plugin-table'
 // import stepByStep from '@serlo-org/editor-plugin-step-by-step'
-// import equations from '@serlo-org/editor-plugin-equations'
 import { anchorPlugin } from '@serlo-org/editor-plugin-anchor'
 import { blockquotePlugin } from '@serlo-org/editor-plugin-blockquote'
+import { equationsPlugin } from '@serlo-org/editor-plugin-equations'
 import { textPlugin } from '@serlo-org/editor-plugin-text'
 import { createPluginFactory, Plugin } from '@serlo-org/editor-plugins-registry'
 
@@ -53,6 +53,7 @@ import { createPluginFactory, Plugin } from '@serlo-org/editor-plugins-registry'
 export const createEditorPlugins = createPluginFactory({
   [Plugin.Anchor]: anchorPlugin,
   [Plugin.Blockquote]: blockquotePlugin,
+  [Plugin.Equations]: equationsPlugin,
   [Plugin.Text]: textPlugin
 })
 export const defaultPlugin = textPlugin

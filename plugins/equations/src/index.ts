@@ -1,9 +1,15 @@
-import { EquationsEditable } from './editable.component'
-import { plugin } from './plugin'
+import { EquationsPluginState } from '@serlo-org/editor-plugin-equations-renderer'
 
-export default {
-  ...plugin,
-  Component: EquationsEditable,
+import { EquationsEditor } from './editor'
+
+export const equationsPlugin = {
+  name: '@serlo-org/equations',
+  version: '0.0.0',
+  Component: EquationsEditor,
   text: 'Gleichungssystem',
-  createInitialState: () => ({})
+  createInitialState: (): EquationsPluginState => {
+    return {
+      steps: []
+    }
+  }
 }

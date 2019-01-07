@@ -1,52 +1,14 @@
-import {
-  Editable,
-  EditableIdentifier
-} from '@splish-me/editor-core/lib/editable.component'
-import * as React from 'react'
+import { Document } from '@splish-me/editor-core-document'
 import * as R from 'ramda'
+import * as React from 'react'
 
-interface Step {
-  left: EditableIdentifier
-  right: EditableIdentifier
-  transform: EditableIdentifier
-}
+import { EquationsPluginState, Step } from '.'
 
-interface StepFit {
-  step: Step
-  fits: boolean
-}
-
-interface EquationsPluginState {
-  steps: Array<Step>
-}
-
-export interface EquationsProps {
-  onChange: (state: Partial<EquationsPluginState>) => void
-  state: EquationsPluginState
-  readOnly?: boolean
-}
-
-export interface EquationsState {
-  phase: Phase
-  widthLeftSingle: Array<number | undefined>
-  widthLeftDouble: Array<number | undefined>
-  widthRightSingle: Array<number | undefined>
-  widthRightDouble: Array<number | undefined>
-  widthTrans: Array<number | undefined>
-  containerWidth: number | undefined
-}
-
-enum Phase {
-  noJS = 0,
-  hiddenRender = 1,
-  maxWidthLeft = 2,
-  maxWidthRight = 3,
-  maxWidthTotal = 4,
-  newLine = 5
-}
-
-export class Equations extends React.Component<EquationsProps, EquationsState> {
-  state: EquationsState = {
+export class EquationsRenderer extends React.Component<
+  EquationsRendererProps,
+  EquationsRendererState
+> {
+  public state: EquationsState = {
     phase: Phase.noJS,
     widthLeftSingle: [],
     widthLeftDouble: [],
@@ -56,28 +18,35 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
     containerWidth: undefined
   }
 
-  private calculateLayout() {
-    const rows = this.props.state.steps
-
-    this.setState({
-      phase: Phase.hiddenRender,
-      widthLeftSingle: rows.map(() => {
-        return undefined
-      }),
-      widthLeftDouble: rows.map(() => {
-        return undefined
-      }),
-      widthRightSingle: rows.map(() => {
-        return undefined
-      }),
-      widthRightDouble: rows.map(() => {
-        return undefined
-      }),
-      widthTrans: rows.map(() => {
-        return undefined
-      }),
-      containerWidth: undefined
-    })
+  public render() {
+    const { state } = this.props
+    const rows = state.steps
+    return (
+      <React.Fragment>
+        {this.state.phase === Phase.noJS ? (
+          <React.Fragment>
+            {rows.map((row, index) => {
+              return (
+                <div key={index} className="row">
+                  <div className="col-sm-12 col-md-6">
+                    <Document state={row.left} />
+                  </div>
+                  <div className="col-sm-12 col-md-6">
+                    <Document state={row.right} />
+                  </div>
+                  {row.transform === undefined ? null : (
+                    <div className="col-sm-12 col-md-6">
+                      <Document state={row.transform} />
+                    </div>
+                  )}
+                </div>
+              )
+            })}
+          </React.Fragment>
+        ) : null}
+        {this.renderHidden()}
+      </React.Fragment>
+    )
   }
 
   public componentDidMount() {
@@ -88,6 +57,11 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
   }
 
   private renderHidden() {
+    interface StepFit {
+      step: Step
+      fits: boolean
+    }
+
     const { state } = this.props
     let tempWidthLeftSingle = R.clone(this.state.widthLeftSingle)
     let tempWidthLeftDouble = R.clone(this.state.widthLeftDouble)
@@ -107,11 +81,19 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
             tempWidthLeftDouble[index] || 0
           ) <= 20 ||
           R.max(
-            R.reduce(R.max, 0, tempWidthLeftSingle.filter(Boolean)),
+            R.reduce<number, number>(
+              R.max,
+              0,
+              tempWidthLeftSingle.filter(Boolean)
+            ),
             tempWidthLeftDouble[index] || 0
           ) +
             R.max(
-              R.reduce(R.max, 0, tempWidthRightSingle.filter(Boolean)),
+              R.reduce<number, number>(
+                R.max,
+                0,
+                tempWidthRightSingle.filter(Boolean)
+              ),
               tempWidthRightDouble[index] || 0
             ) +
             (this.state.widthTrans[index] || 0) <
@@ -153,7 +135,6 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
             <div
               key={index}
               // 2 Listen zur Ausrichtung
-
               style={{
                 display: 'flex',
                 alignItems: 'flex-start',
@@ -195,7 +176,7 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
                     this.state.phase < Phase.maxWidthLeft || !row.fits
                       ? 'auto'
                       : Math.ceil(
-                          R.reduce(
+                          R.reduce<number, number>(
                             R.max,
                             0,
                             this.state.widthLeftSingle.filter(Boolean)
@@ -237,7 +218,7 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
                   }
                 }}
               >
-                <Editable id={row.step.left} />
+                <Document state={row.step.left} />
               </div>
 
               <div
@@ -257,7 +238,7 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
                         ? 'auto'
                         : Math.ceil(
                             row.fits
-                              ? R.reduce(
+                              ? R.reduce<number, number>(
                                   R.max,
                                   0,
                                   this.state.widthRightSingle.filter(Boolean)
@@ -300,7 +281,7 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
                     }
                   }}
                 >
-                  <Editable id={row.step.right} />
+                  <Document state={row.step.right} />
                 </div>
                 {row.step.transform === undefined ? (
                   this.state.widthTrans[index] === undefined ? (
@@ -347,7 +328,7 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
                       }
                     }}
                   >
-                    <Editable id={row.step.transform} />
+                    <Document state={row.step.transform} />
                   </div>
                 )}
               </div>
@@ -358,34 +339,60 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
     )
   }
 
-  public render() {
-    const { state } = this.props
-    const rows = state.steps
-    return (
-      <React.Fragment>
-        {this.state.phase === Phase.noJS ? (
-          <React.Fragment>
-            {rows.map((row, index) => {
-              return (
-                <div key={index} className="row">
-                  <div className="col-sm-12 col-md-6">
-                    <Editable id={row.left} />
-                  </div>
-                  <div className="col-sm-12 col-md-6">
-                    <Editable id={row.right} />
-                  </div>
-                  {row.transform === undefined ? null : (
-                    <div className="col-sm-12 col-md-6">
-                      <Editable id={row.transform} />
-                    </div>
-                  )}
-                </div>
-              )
-            })}
-          </React.Fragment>
-        ) : null}
-        {this.renderHidden()}
-      </React.Fragment>
-    )
+  private calculateLayout() {
+    const rows = this.props.state.steps
+
+    this.setState({
+      phase: Phase.hiddenRender,
+      widthLeftSingle: rows.map(() => {
+        return undefined
+      }),
+      widthLeftDouble: rows.map(() => {
+        return undefined
+      }),
+      widthRightSingle: rows.map(() => {
+        return undefined
+      }),
+      widthRightDouble: rows.map(() => {
+        return undefined
+      }),
+      widthTrans: rows.map(() => {
+        return undefined
+      }),
+      containerWidth: undefined
+    })
   }
+}
+
+export interface EquationsRendererProps {
+  state: EquationsPluginState
+}
+
+export interface EquationsRendererState {
+  phase: Phase
+  widthLeftSingle: Array<number | undefined>
+  widthLeftDouble: Array<number | undefined>
+  widthRightSingle: Array<number | undefined>
+  widthRightDouble: Array<number | undefined>
+  widthTrans: Array<number | undefined>
+  containerWidth: number | undefined
+}
+
+enum Phase {
+  noJS = 0,
+  hiddenRender = 1,
+  maxWidthLeft = 2,
+  maxWidthRight = 3,
+  maxWidthTotal = 4,
+  newLine = 5
+}
+
+export interface EquationsState {
+  phase: Phase
+  widthLeftSingle: Array<number | undefined>
+  widthLeftDouble: Array<number | undefined>
+  widthRightSingle: Array<number | undefined>
+  widthRightDouble: Array<number | undefined>
+  widthTrans: Array<number | undefined>
+  containerWidth: number | undefined
 }

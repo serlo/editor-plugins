@@ -40,7 +40,7 @@ export const createStateForContentPlugin = props =>
 export const createStateForLayoutPlugin = props =>
   createStateForPlugin({ ...props, kind: 'layout' })
 
-export const renderEditable = state => {
+export const renderEditor = state => {
   const r = new Renderer(state)
 
   return r.renderContainer(
@@ -50,7 +50,7 @@ export const renderEditable = state => {
   )
 }
 
-export const renderHTMLRenderer = state => {
+export const renderRenderer = state => {
   const r = new Renderer(state)
 
   return <SerloContainer>{r.renderHTMLRenderer()}</SerloContainer>
