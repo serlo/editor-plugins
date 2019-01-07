@@ -19,6 +19,10 @@ module.exports = (baseConfig, env, config) => {
                 '@serlo-org/editor-plugins-registry/src',
               '@serlo-org/editor-plugins-renderer':
                 '@serlo-org/editor-plugins-renderer/src',
+              '@serlo-org/editor-plugin-anchor':
+                '@serlo-org/editor-plugin-anchor/src',
+              '@serlo-org/editor-plugin-anchor-renderer':
+                '@serlo-org/editor-plugin-anchor-renderer/src',
               '@serlo-org/editor-plugin-text':
                 '@serlo-org/editor-plugin-text/src',
               '@serlo-org/editor-plugin-text-renderer':

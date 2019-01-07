@@ -15,11 +15,11 @@
 // import inputExercise from '@serlo-org/editor-plugin-input-exercise/lib/index.render'
 // import stepByStep from '@serlo-org/editor-plugin-step-by-step/lib/index.render'
 // import equations from '@serlo-org/editor-plugin-equations/lib/index.render'
-// import anchor from '@serlo-org/editor-plugin-anchor/lib/index.render'
-//
+import { anchorRendererPlugin } from '@serlo-org/editor-plugin-anchor-renderer'
 import { createPluginFactory, Plugin } from '@serlo-org/editor-plugins-registry'
 import { textRendererPlugin } from '@serlo-org/editor-plugin-text-renderer'
 
 export const createRendererPlugins = createPluginFactory({
+  [Plugin.Anchor]: anchorRendererPlugin,
   [Plugin.Text]: textRendererPlugin
 })

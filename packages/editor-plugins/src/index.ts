@@ -13,8 +13,7 @@
 // import table from '@serlo-org/editor-plugin-table'
 // import stepByStep from '@serlo-org/editor-plugin-step-by-step'
 // import equations from '@serlo-org/editor-plugin-equations'
-// import anchor from '@serlo-org/editor-plugin-anchor'
-
+import { anchorPlugin } from '@serlo-org/editor-plugin-anchor'
 import { textPlugin } from '@serlo-org/editor-plugin-text'
 import { createPluginFactory, Plugin } from '@serlo-org/editor-plugins-registry'
 
@@ -50,10 +49,10 @@ import { createPluginFactory, Plugin } from '@serlo-org/editor-plugins-registry'
 //   [Plugin.InputExercise]: inputExercise,
 //   [Plugin.StepByStep]: stepByStep,
 //   [Plugin.Equations]: equations,
-//   [Plugin.Anchor]: anchor
 // }
 
 export const createEditorPlugins = createPluginFactory({
+  [Plugin.Anchor]: anchorPlugin,
   [Plugin.Text]: textPlugin
 })
 export const defaultPlugin = textPlugin

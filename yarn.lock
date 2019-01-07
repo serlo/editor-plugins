@@ -1314,13 +1314,6 @@
     humps "^2.0.1"
     prop-types "^15.5.10"
 
-"@fortawesome/react-fontawesome@fortawesome/react-fontawesome":
-  version "0.1.3"
-  resolved "https://codeload.github.com/fortawesome/react-fontawesome/tar.gz/a4084b5f9f19d32e87c0baace1b1c2451c5cbba7"
-  dependencies:
-    humps "^2.0.1"
-    prop-types "^15.5.10"
-
 "@lerna/add@^3.8.5":
   version "3.8.5"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.8.5.tgz#f7dec6b9ce20bc42d64bbb29381b62a918c8c7aa"
@@ -2792,6 +2785,15 @@
   dependencies:
     "@types/react" "*"
     "@types/webpack-env" "*"
+
+"@types/styled-components@^4.0.0":
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/@types/styled-components/-/styled-components-4.1.4.tgz#c6915ccee4413da2e1e81b4df9d7ea5b97eb56aa"
+  integrity sha512-zEj6BptOBBxob0hnNdr/qiXZjlC8EUVl7GDN1z+kp58zLtDBjbrbo+1yjL2Gi64IjhFaF7Qz4MbsDdbBuUa83A==
+  dependencies:
+    "@types/node" "*"
+    "@types/react" "*"
+    csstype "^2.2.0"
 
 "@types/unist@*", "@types/unist@^2.0.0":
   version "2.0.2"

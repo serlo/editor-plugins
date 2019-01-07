@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 export enum Plugin {
+  Anchor = 'anchor',
   Text = 'text'
 }
 // Slate = 'slate',
@@ -32,7 +33,7 @@ export enum Plugin {
 //   Plugin.Equations,
 //   Plugin.Anchor
 // ]
-const defaultPlugins = [Plugin.Text]
+const defaultPlugins = [Plugin.Text, Plugin.Anchor]
 
 // const newPlugins = [
 //   Plugin.Highlight,
