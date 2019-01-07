@@ -1,0 +1,34 @@
+{
+  "name": "@serlo-org/editor-plugin-foobar",
+  "version": "0.0.0",
+  "bugs": {
+    "url": "https://github.com/serlo-org/editor-plugins/issues"
+  },
+  "author": "Serlo Education e.V.",
+  "license": "Apache-2.0",
+  "umd:main": "dist/index.umd.js",
+  "module": "dist/index.mjs",
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "repository": "serlo-org/editor-plugins",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "splish-microbundle",
+    "build:watch": "splish-microbundle watch",
+    "ci": "tsc --noEmit",
+    "format": "prettier --write \"{src/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
+  },
+  "dependencies": {
+    "@serlo-org/editor-plugin-foobar-renderer": "^0.0.0",
+    "@splish-me/editor-ui-plugin-sidebar": "^0.3.0-alpha",
+    "styled-components": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/styled-components": "^4.0.0",
+    "@types/react": "^16.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0"
+  },
+  "private": true
+}
