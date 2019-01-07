@@ -2,6 +2,7 @@ import * as React from 'react'
 
 export enum Plugin {
   Anchor = 'anchor',
+  Blockquote = 'blockquote',
   Text = 'text'
 }
 // Slate = 'slate',
@@ -19,8 +20,6 @@ export enum Plugin {
 // Solution = 'solution',
 // Table = 'table',
 // Equations = 'equation',
-// Blockquote = 'blockquote',
-// Anchor = 'anchor'
 
 // const defaultPlugins = [
 //   Plugin.Image,
@@ -29,11 +28,9 @@ export enum Plugin {
 //   Plugin.License,
 //   Plugin.Injection,
 //   Plugin.Table,
-//   Plugin.Blockquote,
 //   Plugin.Equations,
-//   Plugin.Anchor
 // ]
-const defaultPlugins = [Plugin.Text, Plugin.Anchor]
+const defaultPlugins = [Plugin.Text, Plugin.Anchor, Plugin.Blockquote]
 
 // const newPlugins = [
 //   Plugin.Highlight,

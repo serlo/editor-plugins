@@ -18,6 +18,10 @@
       "@serlo-org/editor-plugin-anchor-renderer": [
         "plugins/anchor-renderer/src"
       ],
+      "@serlo-org/editor-plugin-blockquote": ["plugins/blockquote/src"],
+      "@serlo-org/editor-plugin-blockquote-renderer": [
+        "plugins/blockquote-renderer/src"
+      ],
       "@serlo-org/editor-plugin-text": ["plugins/text/src"],
       "@serlo-org/editor-plugin-text-renderer": ["plugins/text-renderer/src"],
       "@serlo-org/html-renderer": ["packages/html-renderer/src"]

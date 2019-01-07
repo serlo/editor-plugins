@@ -1,4 +1,3 @@
-// import blockquote from '@serlo-org/editor-plugin-blockquote'
 // import geogebra from '@serlo-org/editor-plugin-geogebra'
 // import highlight from '@serlo-org/editor-plugin-highlight'
 // import hint from '@serlo-org/editor-plugin-hint'
@@ -14,6 +13,7 @@
 // import stepByStep from '@serlo-org/editor-plugin-step-by-step'
 // import equations from '@serlo-org/editor-plugin-equations'
 import { anchorPlugin } from '@serlo-org/editor-plugin-anchor'
+import { blockquotePlugin } from '@serlo-org/editor-plugin-blockquote'
 import { textPlugin } from '@serlo-org/editor-plugin-text'
 import { createPluginFactory, Plugin } from '@serlo-org/editor-plugins-registry'
 
@@ -33,7 +33,6 @@ import { createPluginFactory, Plugin } from '@serlo-org/editor-plugins-registry'
 // })
 
 // const pluginMapping: PluginRegistry = {
-//   [Plugin.Blockquote]: blockquote,
 //   [Plugin.GeoGebra]: geogebra,
 //   [Plugin.Highlight]: highlight,
 //   [Plugin.Hint]: hint,
@@ -53,6 +52,7 @@ import { createPluginFactory, Plugin } from '@serlo-org/editor-plugins-registry'
 
 export const createEditorPlugins = createPluginFactory({
   [Plugin.Anchor]: anchorPlugin,
+  [Plugin.Blockquote]: blockquotePlugin,
   [Plugin.Text]: textPlugin
 })
 export const defaultPlugin = textPlugin

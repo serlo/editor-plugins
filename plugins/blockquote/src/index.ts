@@ -1,15 +1,17 @@
-import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
+import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 
-import { plugin } from './plugin'
-import { BlockquotePluginState } from './types'
-import { BlockquoteRenderer } from './renderer.component'
+import {
+  BlockquotePluginState,
+  BlockquoteRenderer
+} from '@serlo-org/editor-plugin-blockquote-renderer'
 
-export default {
-  ...plugin,
+export const blockquotePlugin = {
+  name: '@serlo-org/blockquote',
+  version: '0.0.0',
   Component: BlockquoteRenderer,
   text: 'Blockquote',
 
   createInitialState: (): BlockquotePluginState => ({
-    child: createEditableIdentifier()
+    child: createDocumentIdentifier()
   })
 }

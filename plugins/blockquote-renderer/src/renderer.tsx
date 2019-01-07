@@ -1,7 +1,7 @@
-import { Editable } from '@splish-me/editor-core/lib/editable.component'
+import { Document } from '@splish-me/editor-core-document'
 import * as React from 'react'
 
-import { BlockquotePluginState } from './types'
+import { BlockquotePluginState } from '.'
 
 export class BlockquoteRenderer extends React.Component<
   BlockquoteRendererProps
@@ -10,7 +10,7 @@ export class BlockquoteRenderer extends React.Component<
     const { state } = this.props
     return (
       <blockquote>
-        <Editable id={state.child} />
+        <Document state={state.child} />
       </blockquote>
     )
   }

@@ -1953,7 +1953,7 @@
   dependencies:
     "@splish-me/editor-core-types" "0.3.0-alpha.3"
 
-"@splish-me/editor-core-document@0.3.0-alpha.3":
+"@splish-me/editor-core-document@0.3.0-alpha.3", "@splish-me/editor-core-document@^0.3.0-alpha":
   version "0.3.0-alpha.3"
   resolved "https://registry.yarnpkg.com/@splish-me/editor-core-document/-/editor-core-document-0.3.0-alpha.3.tgz#2e5d32564ba0925c88e1e63258067103b01553be"
   integrity sha512-DZIfzr6V2lbPGr68aBaOfKr5JHQLXPuhyLArbrklLRn0ZB6q+ergHZld25f6U+yWf8IFQEdnVq4Nbo3v5UB6XQ==
@@ -1979,7 +1979,7 @@
     "@splish-me/editor-core-types" "0.3.0-alpha.3"
     "@splish-me/ory-editor-core" "0.3.0-alpha.3"
 
-"@splish-me/editor-core-types@0.3.0-alpha.3":
+"@splish-me/editor-core-types@0.3.0-alpha.3", "@splish-me/editor-core-types@^0.3.0-alpha":
   version "0.3.0-alpha.3"
   resolved "https://registry.yarnpkg.com/@splish-me/editor-core-types/-/editor-core-types-0.3.0-alpha.3.tgz#fe3457f91df8071b19e443f24e3f203db975ed80"
   integrity sha512-BdzlpinYKE1MkWb4vTsfFnXmqEoxablvgTY4BV/j8Cu27cox+sINcUQMkNiLjYNKP1OaykuQdVsC4ciNCkXbuA==

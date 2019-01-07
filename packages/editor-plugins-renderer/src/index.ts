@@ -1,4 +1,3 @@
-// import blockquote from '@serlo-org/editor-plugin-blockquote/lib/index.render'
 // import geogebra from '@serlo-org/editor-plugin-geogebra/lib/index.render'
 // import highlight from '@serlo-org/editor-plugin-highlight/lib/index.render'
 // import hint from '@serlo-org/editor-plugin-hint/lib/index.render'
@@ -16,10 +15,12 @@
 // import stepByStep from '@serlo-org/editor-plugin-step-by-step/lib/index.render'
 // import equations from '@serlo-org/editor-plugin-equations/lib/index.render'
 import { anchorRendererPlugin } from '@serlo-org/editor-plugin-anchor-renderer'
+import { blockquoteRendererPlugin } from '@serlo-org/editor-plugin-blockquote-renderer'
 import { createPluginFactory, Plugin } from '@serlo-org/editor-plugins-registry'
 import { textRendererPlugin } from '@serlo-org/editor-plugin-text-renderer'
 
 export const createRendererPlugins = createPluginFactory({
   [Plugin.Anchor]: anchorRendererPlugin,
+  [Plugin.Blockquote]: blockquoteRendererPlugin,
   [Plugin.Text]: textRendererPlugin
 })
