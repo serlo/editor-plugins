@@ -1,5 +1,5 @@
 {
-  "name": "@serlo-org/editor-plugins",
+  "name": "@serlo-org/editor-plugin-highlight-renderer",
   "version": "0.0.0",
   "bugs": {
     "url": "https://github.com/serlo-org/editor-plugins/issues"
@@ -19,13 +19,14 @@
     "format": "prettier --write \"{src/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@serlo-org/editor-plugin-anchor": "^0.0.0",
-    "@serlo-org/editor-plugin-blockquote": "^0.0.0",
-    "@serlo-org/editor-plugin-equations": "^0.0.0",
-    "@serlo-org/editor-plugin-geogebra": "^0.0.0",
-    "@serlo-org/editor-plugin-highlight": "^0.0.0",
-    "@serlo-org/editor-plugin-text": "^0.0.0",
-    "@serlo-org/editor-plugins-registry": "^0.0.0"
+    "react-syntax-highlighter": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/react-syntax-highlighter": "^10.0.0",
+    "@types/react": "^16.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0"
   },
   "publishConfig": {
     "access": "public"

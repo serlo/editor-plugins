@@ -1,8 +1,8 @@
-import { HighlightEditor } from './editor.component'
-import { plugin } from './plugin'
+import { HighlightEditor } from './editor'
 
-export default {
-  ...plugin,
+export const highlightPlugin = {
+  name: '@serlo-org/highlight',
+  version: '0.0.0',
   Component: HighlightEditor,
   text: 'Code Highlight'
 }

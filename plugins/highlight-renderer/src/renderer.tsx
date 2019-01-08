@@ -1,7 +1,7 @@
 import * as React from 'react'
 import SyntaxHighlight from 'react-syntax-highlighter'
 
-import { HighlightPluginState } from './types'
+import { HighlightPluginState } from '.'
 
 export class HighlightRenderer extends React.Component<HighlightRendererProps> {
   render() {

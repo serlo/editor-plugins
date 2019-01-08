@@ -5,6 +5,7 @@ export enum Plugin {
   Blockquote = 'blockquote',
   Equations = 'equations',
   Geogebra = 'geogebra',
+  Highlight = 'highlight',
   Text = 'text'
 }
 // Slate = 'slate',
@@ -37,12 +38,11 @@ const defaultPlugins = [
 ]
 
 // const newPlugins = [
-//   Plugin.Highlight,
 //   Plugin.MatchingExercise,
 //   Plugin.StepByStep,
 //   Plugin.InputExercise
 // ]
-const newPlugins = [Plugin.Equations]
+const newPlugins = [Plugin.Highlight, Plugin.Equations]
 
 // const exercisePlugins = [Plugin.Hint, Plugin.Solution, Plugin.ScMcExercise]
 const exercisePlugins = []

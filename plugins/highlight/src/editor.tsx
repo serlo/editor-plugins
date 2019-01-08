@@ -1,26 +1,17 @@
-import { renderIntoSidebar } from '@splish-me/editor-ui/lib/plugin-sidebar.component'
-import Textfield from '@splish-me/editor-ui/lib/sidebar-elements/textfield'
-import Checkbox from '@splish-me/editor-ui/lib/sidebar-elements/checkbox'
+import {
+  HighlightPluginState,
+  HighlightRenderer
+} from '@serlo-org/editor-plugin-highlight-renderer'
+import {
+  Checkbox,
+  Input,
+  renderIntoSidebar
+} from '@splish-me/editor-ui-plugin-sidebar'
 import * as React from 'react'
-
-import { HighlightPluginState } from './types'
-import { HighlightRenderer } from './renderer.component'
+import styled from 'styled-components'
 
 export class HighlightEditor extends React.Component<HighlightEditorProps> {
   public render(): React.ReactNode {
-    // TODO: use CSS-in-JS instead
-    const style = {
-      textarea: {
-        height: '250px',
-        width: '100%',
-        padding: '5px',
-        fontFamily: 'Menlo, Monaco, "Courier New", monospace'
-      },
-      spaceRight: {
-        marginRight: '5px'
-      }
-    }
-
     const { state, focused, readOnly } = this.props
 
     const { text, language, lineNumbers } = state
@@ -30,19 +21,18 @@ export class HighlightEditor extends React.Component<HighlightEditorProps> {
         {readOnly ? (
           <HighlightRenderer {...this.props} />
         ) : (
-          <textarea
+          <this.Textarea
             value={text}
             name="text"
             onChange={this.handleTextChange}
-            style={style.textarea}
           >
             {text}
-          </textarea>
+          </this.Textarea>
         )}
         {focused
           ? renderIntoSidebar(
               <React.Fragment>
-                <Textfield
+                <Input
                   value={language || 'text'}
                   label="Language"
                   onChange={this.handleLanguageChange}
@@ -89,6 +79,13 @@ export class HighlightEditor extends React.Component<HighlightEditorProps> {
       lineNumbers: event.target.checked
     })
   }
+
+  private Textarea = styled.textarea({
+    height: '250px',
+    width: '100%',
+    padding: '5px',
+    fontFamily: 'Menlo, Monaco, "Courier New", monospace'
+  })
 }
 
 export interface HighlightEditorProps {
