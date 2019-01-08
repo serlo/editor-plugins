@@ -1,8 +1,7 @@
-import { Sidebar } from '@splish-me/editor-ui/lib/sidebar.component'
+import { UploadProgress } from '@serlo-org/editor-ui'
+import { Sidebar } from '@splish-me/editor-ui-sidebar'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
-
-import { UploadProgress } from '../src/upload-progress.component'
 
 class DummyProvider extends React.Component<{}, { progress: number }> {
   state = { progress: 0 }

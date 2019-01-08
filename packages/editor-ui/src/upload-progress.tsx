@@ -1,11 +1,6 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as React from 'react'
-
-export interface UploadProgressProps {
-  progress?: number
-  complete?: boolean
-}
 
 export class UploadProgress extends React.Component<UploadProgressProps> {
   public render() {
@@ -21,4 +16,9 @@ export class UploadProgress extends React.Component<UploadProgressProps> {
 
     return null
   }
+}
+
+export interface UploadProgressProps {
+  progress?: number
+  complete?: boolean
 }

@@ -39,10 +39,15 @@ module.exports = (baseConfig, env, config) => {
                 '@serlo-org/editor-plugin-highlight/src',
               '@serlo-org/editor-plugin-highlight-renderer':
                 '@serlo-org/editor-plugin-highlight-renderer/src',
+              '@serlo-org/editor-plugin-hint':
+                '@serlo-org/editor-plugin-hint/src',
+              '@serlo-org/editor-plugin-hint-renderer':
+                '@serlo-org/editor-plugin-hint-renderer/src',
               '@serlo-org/editor-plugin-text':
                 '@serlo-org/editor-plugin-text/src',
               '@serlo-org/editor-plugin-text-renderer':
                 '@serlo-org/editor-plugin-text-renderer/src',
+              '@selro-org/editor-ui': '@serlo-org/editor-ui/src',
               '@serlo-org/html-renderer': '@serlo-org/html-renderer/src',
               '@serlo-org/storybook-helpers': '@serlo-org/storybook-helpers/src'
             }

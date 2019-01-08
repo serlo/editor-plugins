@@ -1,4 +1,3 @@
-// import hint from '@serlo-org/editor-plugin-hint'
 // import createImage from '@serlo-org/editor-plugin-image'
 // import injection from '@serlo-org/editor-plugin-injection'
 // import inputExercise from '@serlo-org/editor-plugin-input-exercise'
@@ -14,6 +13,7 @@ import { blockquotePlugin } from '@serlo-org/editor-plugin-blockquote'
 import { equationsPlugin } from '@serlo-org/editor-plugin-equations'
 import { geogebraPlugin } from '@serlo-org/editor-plugin-geogebra'
 import { highlightPlugin } from '@serlo-org/editor-plugin-highlight'
+import { hintPlugin } from '@serlo-org/editor-plugin-hint'
 import { textPlugin } from '@serlo-org/editor-plugin-text'
 import { createPluginFactory, Plugin } from '@serlo-org/editor-plugins-registry'
 
@@ -33,13 +33,11 @@ import { createPluginFactory, Plugin } from '@serlo-org/editor-plugins-registry'
 // })
 
 // const pluginMapping: PluginRegistry = {
-//   [Plugin.Hint]: hint,
 //   [Plugin.Image]: image,
 //   [Plugin.Injection]: injection,
 //   [Plugin.License]: license,
 //   [Plugin.MatchingExercise]: matchingExercise,
 //   [Plugin.ScMcExercise]: scMcExercise,
-//   [Plugin.Slate]: slatePlugin,
 //   [Plugin.Solution]: solution,
 //   [Plugin.Spoiler]: spoiler,
 //   [Plugin.Table]: table,
@@ -53,6 +51,7 @@ export const createEditorPlugins = createPluginFactory({
   [Plugin.Equations]: equationsPlugin,
   [Plugin.Geogebra]: geogebraPlugin,
   [Plugin.Highlight]: highlightPlugin,
+  [Plugin.Hint]: hintPlugin,
   [Plugin.Text]: textPlugin
 })
 export const defaultPlugin = textPlugin

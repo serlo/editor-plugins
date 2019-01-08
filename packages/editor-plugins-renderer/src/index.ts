@@ -1,4 +1,3 @@
-// import hint from '@serlo-org/editor-plugin-hint/lib/index.render'
 // import createImageRenderPlugin from '@serlo-org/editor-plugin-image/lib/index.render'
 // import injection from '@serlo-org/editor-plugin-injection/lib/index.render'
 // // TODO: create index.render
@@ -16,6 +15,7 @@ import { blockquoteRendererPlugin } from '@serlo-org/editor-plugin-blockquote-re
 import { equationsRendererPlugin } from '@serlo-org/editor-plugin-equations-renderer'
 import { geogebraRendererPlugin } from '@serlo-org/editor-plugin-geogebra-renderer'
 import { highlightRendererPlugin } from '@serlo-org/editor-plugin-highlight-renderer'
+import { hintRendererPlugin } from '@serlo-org/editor-plugin-hint-renderer'
 import { textRendererPlugin } from '@serlo-org/editor-plugin-text-renderer'
 import { createPluginFactory, Plugin } from '@serlo-org/editor-plugins-registry'
 
@@ -25,5 +25,6 @@ export const createRendererPlugins = createPluginFactory({
   [Plugin.Equations]: equationsRendererPlugin,
   [Plugin.Geogebra]: geogebraRendererPlugin,
   [Plugin.Highlight]: highlightRendererPlugin,
+  [Plugin.Hint]: hintRendererPlugin,
   [Plugin.Text]: textRendererPlugin
 })

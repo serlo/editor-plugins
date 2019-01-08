@@ -22,8 +22,9 @@
     "@serlo-org/editor-plugin-anchor": "^0.0.0",
     "@serlo-org/editor-plugin-blockquote": "^0.0.0",
     "@serlo-org/editor-plugin-equations": "^0.0.0",
-    "@serlo-org/editor-plugin-geogebra": "^0.0.0",
+    "@serlo-org/editor-plugin-geogebra": "^0.0.5",
     "@serlo-org/editor-plugin-highlight": "^0.0.0",
+    "@serlo-org/editor-plugin-hint": "^0.0.3",
     "@serlo-org/editor-plugin-text": "^0.0.0",
     "@serlo-org/editor-plugins-registry": "^0.0.0"
   },

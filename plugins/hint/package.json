@@ -1,38 +1,33 @@
 {
   "name": "@serlo-org/editor-plugin-hint",
-  "version": "0.0.3",
+  "version": "0.0.0",
   "bugs": {
     "url": "https://github.com/serlo-org/editor-plugins/issues"
   },
   "author": "Serlo Education e.V.",
-  "contributors": [],
   "license": "Apache-2.0",
-  "files": [
-    "lib",
-    "src",
-    "babel.config.js",
-    "tsconfig.json"
-  ],
-  "main": "lib/index.js",
+  "umd:main": "dist/index.umd.js",
+  "module": "dist/index.mjs",
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts",
   "repository": "serlo-org/editor-plugins",
   "scripts": {
-    "prebuild": "rimraf lib",
-    "build": "npm-run-all build:*",
-    "build:javascript": "cross-env NODE_ENV=production babel ./src --source-maps --out-dir ./lib --extensions .ts,.tsx,.js",
-    "build:types": "tsc --emitDeclarationOnly",
-    "ci": "npm-run-all ci:*",
-    "ci:types": "tsc --noEmit"
+    "prebuild": "rimraf dist",
+    "build": "splish-microbundle",
+    "build:watch": "splish-microbundle watch",
+    "ci": "tsc --noEmit",
+    "format": "prettier --write \"{src/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@serlo-org/editor-ui": "^0.0.0"
+    "@serlo-org/editor-plugin-hint-renderer": "^0.0.0",
+    "@serlo-org/editor-ui": "^0.0.0",
+    "@splish-me/editor-core-document": "^0.3.0-alpha"
   },
   "devDependencies": {
     "@types/react": "^16.0.0"
   },
   "peerDependencies": {
-    "react": "^16.4.2",
-    "react-dom": "^16.3.1",
-    "@splish-me/editor-core": "^0.2.0"
+    "react": "^16.0.0"
   },
   "publishConfig": {
     "access": "public"

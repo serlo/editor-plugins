@@ -1,39 +1,39 @@
-import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
+import { hintPlugin } from '@serlo-org/editor-plugin-hint'
+import { hintRendererPlugin } from '@serlo-org/editor-plugin-hint-renderer'
+import {
+  createStateForContentPlugin,
+  renderEditor,
+  renderRenderer
+} from '@serlo-org/storybook-helpers'
+import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 
-import {
-  createStateForContentPlugin,
-  renderEditable,
-  renderHTMLRenderer
-} from '../../../.storybook/helpers'
-import plugin from '../src'
-
 storiesOf('Hint', module)
   .add('Editable (initial state)', () => {
-    const content = createStateForContentPlugin({ plugin })
+    const content = createStateForContentPlugin({ plugin: hintPlugin })
 
-    return renderEditable(content)
+    return renderEditor(content)
   })
   .add('Editable (w/ state)', () => {
     const content = createStateForContentPlugin({
-      plugin,
+      plugin: hintPlugin,
       initialState: {
         title: 'Foobar',
-        content: createEditableIdentifier()
+        content: createDocumentIdentifier()
       }
     })
 
-    return renderEditable(content)
+    return renderEditor(content)
   })
   .add('Renderer', () => {
     const content = createStateForContentPlugin({
-      plugin,
+      plugin: hintRendererPlugin,
       initialState: {
         title: 'Foobar',
-        content: createEditableIdentifier()
+        content: createDocumentIdentifier()
       }
     })
 
-    return renderHTMLRenderer(content)
+    return renderRenderer(content)
   })

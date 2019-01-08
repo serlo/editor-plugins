@@ -1,9 +1,10 @@
-import { Hint } from '@serlo-org/editor-ui/lib/hint.component'
-import { Editable } from '@splish-me/editor-core/lib/editable.component'
+import {
+  HintPluginState,
+  HintRenderer
+} from '@serlo-org/editor-plugin-hint-renderer'
+import { Hint } from '@serlo-org/editor-ui'
+import { Document } from '@splish-me/editor-core-document'
 import * as React from 'react'
-
-import { HintPluginState } from './types'
-import { HintRenderer } from './renderer.component'
 
 export class HintEditor extends React.Component<HintEditorProps> {
   public render(): React.ReactNode {
@@ -25,7 +26,7 @@ export class HintEditor extends React.Component<HintEditorProps> {
           />
         }
       >
-        <Editable id={state.content} />
+        <Document state={state.content} />
       </Hint>
     )
   }

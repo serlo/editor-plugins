@@ -6,19 +6,17 @@ export enum Plugin {
   Equations = 'equations',
   Geogebra = 'geogebra',
   Highlight = 'highlight',
+  Hint = 'hint',
   Text = 'text'
 }
-// Slate = 'slate',
 // Image = 'image',
 // Spoiler = 'spoiler',
 // License = 'license',
 // Injection = 'injection',
-// Highlight = 'highlight',
 // MatchingExercise = 'matching-exercise',
 // StepByStep = 'step-by-step',
 // ScMcExercise = 'sc-mc-exercise',
 // InputExercise = 'input-exercise',
-// Hint = 'hint',
 // Solution = 'solution',
 // Table = 'table',
 
@@ -44,8 +42,8 @@ const defaultPlugins = [
 // ]
 const newPlugins = [Plugin.Highlight, Plugin.Equations]
 
-// const exercisePlugins = [Plugin.Hint, Plugin.Solution, Plugin.ScMcExercise]
-const exercisePlugins = []
+// const exercisePlugins = [Plugin.Solution, Plugin.ScMcExercise]
+const exercisePlugins = [Plugin.Hint]
 
 export const createPluginFactory = (
   pluginRegistry: PluginRegistry
