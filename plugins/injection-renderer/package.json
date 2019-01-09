@@ -1,5 +1,5 @@
 {
-  "name": "@serlo-org/editor-plugin-injection",
+  "name": "@serlo-org/editor-plugin-injection-renderer",
   "version": "0.0.0",
   "bugs": {
     "url": "https://github.com/serlo-org/editor-plugins/issues"
@@ -19,10 +19,12 @@
     "format": "prettier --write \"{src/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@serlo-org/editor-plugin-injection-renderer": "^0.0.0",
-    "@splish-me/editor-ui-plugin-sidebar": "^0.3.0-alpha"
+    "@serlo-org/editor-ui": "^0.0.0",
+    "axios": "^0.18.0",
+    "lodash": "^4.0.0"
   },
   "devDependencies": {
+    "@types/lodash": "^4.0.0",
     "@types/react": "^16.0.0"
   },
   "peerDependencies": {

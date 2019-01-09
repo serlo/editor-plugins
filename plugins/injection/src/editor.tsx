@@ -1,23 +1,24 @@
-import { renderIntoSidebar } from '@splish-me/editor-ui/lib/plugin-sidebar.component'
-import Textfield from '@splish-me/editor-ui/lib/sidebar-elements/textfield'
+import {
+  InjectionPluginState,
+  InjectionRenderer
+} from '@serlo-org/editor-plugin-injection-renderer'
+import { Input, renderIntoSidebar } from '@splish-me/editor-ui-plugin-sidebar'
 import * as React from 'react'
-
-import { InjectionRenderer, InjectionRendererProps } from './renderer.component'
 
 export class InjectionEditor extends React.Component<InjectionEditorProps> {
   public render() {
-    const { focused, ...props } = this.props
+    const { focused, readOnly, state } = this.props
 
     return (
       <React.Fragment>
-        <InjectionRenderer {...props} />
+        <InjectionRenderer disableCursorEvents={!readOnly} state={state} />
         {focused
           ? renderIntoSidebar(
-              <Textfield
+              <Input
                 label="Injection Element"
                 placeholder="/12345"
                 onChange={this.handleChange}
-                value={props.state.src}
+                value={state.src}
               />
             )
           : null}
@@ -30,7 +31,9 @@ export class InjectionEditor extends React.Component<InjectionEditorProps> {
   }
 }
 
-export interface InjectionEditorProps extends InjectionRendererProps {
-  onChange: (state: Partial<InjectionRendererProps['state']>) => void
+export interface InjectionEditorProps {
+  onChange: (state: Partial<InjectionPluginState>) => void
+  state: InjectionPluginState
   focused?: boolean
+  readOnly?: boolean
 }

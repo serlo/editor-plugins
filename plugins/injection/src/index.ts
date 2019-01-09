@@ -1,11 +1,13 @@
-import { InjectionEditor, InjectionEditorProps } from './editor.component'
-import { plugin } from './plugin'
+import { InjectionPluginState } from '@serlo-org/editor-plugin-injection-renderer'
 
-export default {
-  ...plugin,
+import { InjectionEditor } from './editor'
+
+export const injectionPlugin = {
+  name: '@serlo-org/injection',
+  version: '0.0.2',
   Component: InjectionEditor,
   text: 'Injection',
-  createInitialState: (): InjectionEditorProps['state'] => {
+  createInitialState: (): InjectionPluginState => {
     return {
       src: '',
       alt: ''

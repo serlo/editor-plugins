@@ -2,6 +2,8 @@ import axios from 'axios'
 import { debounce } from 'lodash'
 import * as React from 'react'
 
+import { InjectionPluginState } from '.'
+
 export class InjectionRenderer extends React.Component<
   InjectionRendererProps,
   InjectionRendererState
@@ -9,7 +11,7 @@ export class InjectionRenderer extends React.Component<
   public state: InjectionRendererState = {}
 
   public render() {
-    const { state, readOnly } = this.props
+    const { state, disableCursorEvents } = this.props
     const { loaded } = this.state
 
     const { alt, src } = state
@@ -30,11 +32,11 @@ export class InjectionRenderer extends React.Component<
         <a
           href={src}
           onClick={
-            readOnly
-              ? undefined
-              : e => {
+            disableCursorEvents
+              ? e => {
                   e.preventDefault()
                 }
+              : undefined
           }
         >
           {alt || 'Injection'}
@@ -90,8 +92,8 @@ export class InjectionRenderer extends React.Component<
 }
 
 export interface InjectionRendererProps {
-  readOnly?: boolean
-  state: { src: string; alt: string }
+  disableCursorEvents?: boolean
+  state: InjectionPluginState
 }
 
 export interface InjectionRendererState {

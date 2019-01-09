@@ -38,6 +38,10 @@
       "@serlo-org/editor-plugin-hint-renderer": ["plugins/hint-renderer/src"],
       "@serlo-org/editor-plugin-image": ["plugins/image/src"],
       "@serlo-org/editor-plugin-image-renderer": ["plugins/image-renderer/src"],
+      "@serlo-org/editor-plugin-injection": ["plugins/injection/src"],
+      "@serlo-org/editor-plugin-injection-renderer": [
+        "plugins/injection-renderer/src"
+      ],
       "@serlo-org/editor-plugin-text": ["plugins/text/src"],
       "@serlo-org/editor-plugin-text-renderer": ["plugins/text-renderer/src"],
       "@serlo-org/editor-ui": ["packages/editor-ui/src"],
