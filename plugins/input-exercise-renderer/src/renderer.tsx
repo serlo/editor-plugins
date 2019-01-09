@@ -1,9 +1,9 @@
 import { Document } from '@splish-me/editor-core-document'
+import { Feedback } from '@serlo-org/editor-ui'
 import A from 'algebra.js'
 import * as React from 'react'
 import S from 'string'
 
-import { Feedback } from './feedback'
 import { InputExercisePluginState, WrongAnswer } from '.'
 
 export class InputExerciseRenderer extends React.Component<

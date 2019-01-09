@@ -56,6 +56,10 @@
       "@serlo-org/editor-plugin-matching-exercise-renderer": [
         "plugins/matching-exercise-renderer/src"
       ],
+      "@serlo-org/editor-plugin-sc-mc-exercise": ["plugins/sc-mc-exercise/src"],
+      "@serlo-org/editor-plugin-sc-mc-exercise-renderer": [
+        "plugins/sc-mc-exercise-renderer/src"
+      ],
       "@serlo-org/editor-plugin-text": ["plugins/text/src"],
       "@serlo-org/editor-plugin-text-renderer": ["plugins/text-renderer/src"],
       "@serlo-org/editor-ui": ["packages/editor-ui/src"],

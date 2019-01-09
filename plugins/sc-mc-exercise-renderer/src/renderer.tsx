@@ -1,26 +1,13 @@
+import { styled } from '@serlo-org/editor-ui'
 import * as React from 'react'
-import { css } from 'emotion'
 
-import { ScMcRendererInteractive } from './renderer-interactive.component'
-import { ScMcRendererSolution } from './renderer-solution.component'
-import { ScMcPluginState } from './types'
+import { ScMcRendererInteractive } from './renderer-interactive'
+import { ScMcRendererSolution } from './renderer-solution'
+import { ScMcExercisePluginState } from '.'
 
-export interface ScMcRendererProps {
-  state: ScMcPluginState
-}
-
-enum Mode {
-  test = 'test',
-  feedback = 'feedback',
-  solution = 'solution'
-}
-interface ScMcRendererState {
-  mode: Mode
-}
-
-export class ScMcRenderer extends React.Component<
-  ScMcRendererProps,
-  ScMcRendererState
+export class ScMcExerciseRenderer extends React.Component<
+  ScMcExerciseRendererProps,
+  ScMcExerciseRendererState
 > {
   state = { mode: Mode.test }
   public render() {
@@ -76,18 +63,37 @@ export class ScMcRenderer extends React.Component<
 
   private renderModeButton(mode: Mode): React.ReactNode {
     return (
-      <button
-        className={css({ float: 'left', margin: '10px 0px' })}
+      <this.ToggleButton
         onClick={() => {
           this.toggleMode(mode)
         }}
         disabled={this.state.mode === mode}
       >
         {mode}
-      </button>
+      </this.ToggleButton>
     )
   }
+
   private toggleMode(mode: Mode) {
     this.setState({ mode })
   }
+
+  private ToggleButton = styled.button({
+    float: 'left',
+    margin: '10px 0px'
+  })
+}
+
+export interface ScMcExerciseRendererProps {
+  state: ScMcExercisePluginState
+}
+
+interface ScMcExerciseRendererState {
+  mode: Mode
+}
+
+enum Mode {
+  test = 'test',
+  feedback = 'feedback',
+  solution = 'solution'
 }

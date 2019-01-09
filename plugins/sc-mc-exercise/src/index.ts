@@ -1,21 +1,23 @@
-import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
+import { ScMcExercisePluginState } from '@serlo-org/editor-plugin-sc-mc-exercise-renderer'
+import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 
-import { ScMcEditable } from './editable.component'
-import { plugin } from './plugin'
+import { ScMcExerciseEditor } from './editor'
 
-export default {
-  ...plugin,
-  Component: ScMcEditable,
+export const scMcExercisePlugin = {
+  name: '@serlo-org/sc-mc-exercise',
+  version: '0.0.4',
+  Component: ScMcExerciseEditor,
   text: 'Single Choice Aufgabe',
-  createInitialState: () => ({
-    type: 'multiple',
-    isSingleChoice: false,
-    answers: [
-      {
-        id: createEditableIdentifier(),
-        isCorrect: false,
-        feedback: null
-      }
-    ]
-  })
+  createInitialState: (): ScMcExercisePluginState => {
+    return {
+      isSingleChoice: false,
+      answers: [
+        {
+          id: createDocumentIdentifier(),
+          isCorrect: false,
+          feedback: null
+        }
+      ]
+    }
+  }
 }

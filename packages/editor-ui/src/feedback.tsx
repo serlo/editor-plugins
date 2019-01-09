@@ -1,5 +1,6 @@
-import { styled } from '@serlo-org/editor-ui'
 import * as React from 'react'
+
+import { styled } from './styled'
 
 export class Feedback extends React.Component<FeedbackProps> {
   public render() {

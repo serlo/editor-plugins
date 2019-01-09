@@ -1,11 +1,10 @@
 import {
-  Feedback,
   InputExercisePluginState,
   InputExerciseRenderer,
   InputExerciseRendererProps,
   WrongAnswer
 } from '@serlo-org/editor-plugin-input-exercise-renderer'
-import { styled } from '@serlo-org/editor-ui'
+import { Feedback, styled } from '@serlo-org/editor-ui'
 import {
   Document,
   createDocumentIdentifier

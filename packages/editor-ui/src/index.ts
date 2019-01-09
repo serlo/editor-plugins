@@ -1,3 +1,4 @@
+export * from './feedback'
 export * from './hint'
 export * from './icon'
 export * from './styled'

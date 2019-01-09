@@ -20,5 +20,4 @@ export interface WrongAnswer {
   feedback: DocumentIdentifier
 }
 
-export * from './feedback'
 export * from './renderer'

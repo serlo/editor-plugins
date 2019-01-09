@@ -1,41 +1,10 @@
-import { Editable } from '@splish-me/editor-core/lib/editable.component'
+import { Document } from '@splish-me/editor-core-document'
+import { Feedback, styled } from '@serlo-org/editor-ui'
 import * as React from 'react'
 import * as R from 'ramda'
-import { css } from 'emotion'
 
-import { ScMcChoiceRenderer } from './choice-renderer.component'
-import { ScMcFeedback } from './feedback.component'
-import { Answer, ScMcPluginState } from './types'
-
-export interface Button {
-  selected: boolean
-  showFeedback: boolean
-}
-export interface ScMcRendererInteractiveProps {
-  state: ScMcPluginState
-  getFeedback?: (
-    params: {
-      mistakes: number
-      missingSolutions: number
-    }
-  ) => string | undefined
-  nextButtonStateAfterSubmit: (
-    params: {
-      button: Button
-      answer: Answer
-      mistakes: number
-      missingSolutions: number
-    }
-  ) => Button
-  showFeedback?: boolean
-}
-
-interface ScMcRendererState {
-  buttons: Button[]
-  globalFeedback: string
-  showGlobalFeedback: boolean
-  solved: boolean
-}
+import { ScMcExerciseChoiceRenderer } from './choice-renderer'
+import { Answer, ScMcExercisePluginState } from '.'
 
 export class ScMcRendererInteractive extends React.Component<
   ScMcRendererInteractiveProps,
@@ -73,14 +42,14 @@ export class ScMcRendererInteractive extends React.Component<
     const button = this.state.buttons[index]
     return (
       <React.Fragment key={index}>
-        <ScMcChoiceRenderer
+        <ScMcExerciseChoiceRenderer
           index={index}
           onClick={this.selectButton(index)}
           {...this.props} // showFeedback: true
           {...button} // showFeedback: false
         >
-          <Editable id={answer.id} />
-        </ScMcChoiceRenderer>
+          <Document state={answer.id} />
+        </ScMcExerciseChoiceRenderer>
         {this.props.showFeedback ? this.showFeedback({ button, answer }) : null}
       </React.Fragment>
     )
@@ -98,25 +67,23 @@ export class ScMcRendererInteractive extends React.Component<
     }
     if (answer.feedback) {
       return (
-        <ScMcFeedback>
-          <Editable id={answer.feedback} />
-        </ScMcFeedback>
+        <Feedback>
+          <Document state={answer.feedback} />
+        </Feedback>
       )
     }
     if (answer.isCorrect) {
       return null
     }
-    return (
-      <ScMcFeedback>Leider falsch! versuche es doch noch einmal!</ScMcFeedback>
-    )
+    return <Feedback>Leider falsch! versuche es doch noch einmal!</Feedback>
   }
   private showGlobalFeedback(): React.ReactNode {
     const { showGlobalFeedback, globalFeedback, solved } = this.state
     if (showGlobalFeedback) {
       return (
-        <ScMcFeedback boxFree isTrueAnswer={solved}>
+        <Feedback boxFree isTrueAnswer={solved}>
           {globalFeedback}
-        </ScMcFeedback>
+        </Feedback>
       )
     }
     return null
@@ -124,12 +91,7 @@ export class ScMcRendererInteractive extends React.Component<
 
   private showSubmitButton(): React.ReactNode {
     return (
-      <button
-        className={css({ float: 'right', margin: '10px 0px' })}
-        onClick={this.submitAnswer}
-      >
-        Submit
-      </button>
+      <this.SubmitButton onClick={this.submitAnswer}>Submit</this.SubmitButton>
     )
   }
 
@@ -213,4 +175,37 @@ export class ScMcRendererInteractive extends React.Component<
       return 'Das stimmt so leider nicht.'
     }
   }
+
+  private SubmitButton = styled.button({ float: 'right', margin: '10px 0px' })
+}
+
+export interface ScMcRendererInteractiveProps {
+  state: ScMcExercisePluginState
+  getFeedback?: (
+    params: {
+      mistakes: number
+      missingSolutions: number
+    }
+  ) => string | undefined
+  nextButtonStateAfterSubmit: (
+    params: {
+      button: Button
+      answer: Answer
+      mistakes: number
+      missingSolutions: number
+    }
+  ) => Button
+  showFeedback?: boolean
+}
+
+export interface ScMcRendererState {
+  buttons: Button[]
+  globalFeedback: string
+  showGlobalFeedback: boolean
+  solved: boolean
+}
+
+export interface Button {
+  selected: boolean
+  showFeedback: boolean
 }
