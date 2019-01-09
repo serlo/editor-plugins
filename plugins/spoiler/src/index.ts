@@ -1,14 +1,15 @@
-import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
+import { SpoilerPluginState } from '@serlo-org/editor-plugin-spoiler-renderer'
+import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 
-import { plugin } from './plugin'
-import { Spoiler } from './spoiler.component'
+import { SpoilerEditor } from './editor'
 
-export default {
-  ...plugin,
-  Component: Spoiler,
+export const spoilerPlugin = {
+  name: '@serlo-org/spoiler',
+  version: '0.0.4',
+  Component: SpoilerEditor,
   text: 'Lösung',
-  createInitialState: () => ({
-    content: createEditableIdentifier(),
+  createInitialState: (): SpoilerPluginState => ({
+    content: createDocumentIdentifier(),
     title: ''
   })
 }
