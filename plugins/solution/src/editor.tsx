@@ -1,16 +1,17 @@
-import { Hint } from '@serlo-org/editor-ui/lib/hint.component'
-import { Editable } from '@splish-me/editor-core/lib/editable.component'
+import {
+  SolutionPluginState,
+  SolutionRenderer
+} from '@serlo-org/editor-plugin-solution-renderer'
+import { Hint } from '@serlo-org/editor-ui'
+import { Document } from '@splish-me/editor-core-document'
 import * as React from 'react'
-
-import { SolutionPluginState } from './types'
-import { SolutionRenderer } from './renderer.component'
 
 export class SolutionEditor extends React.Component<SolutionEditorProps> {
   public render(): React.ReactNode {
     const { onChange, state, readOnly } = this.props
 
     if (readOnly) {
-      return <SolutionRenderer {...this.props} />
+      return <SolutionRenderer state={state} />
     }
 
     return (
@@ -25,7 +26,7 @@ export class SolutionEditor extends React.Component<SolutionEditorProps> {
           />
         }
       >
-        <Editable id={state.content} />
+        <Document state={state.content} />
       </Hint>
     )
   }

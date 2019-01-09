@@ -1,14 +1,14 @@
-import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
+import { SolutionPluginState } from '@serlo-org/editor-plugin-solution-renderer'
+import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 
-import { SolutionEditor } from './editor.component'
-import { plugin } from './plugin'
-import { SolutionPluginState } from './types'
+import { SolutionEditor } from './editor'
 
-export default {
-  ...plugin,
+export const solutionPlugin = {
+  name: '@serlo-org/solution',
+  version: '0.0.2',
   Component: SolutionEditor,
   text: 'Lösung',
   createInitialState: (): SolutionPluginState => ({
-    content: createEditableIdentifier()
+    content: createDocumentIdentifier()
   })
 }

@@ -1,39 +1,40 @@
-import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
+import { createDocumentIdentifier } from '@splish-me/editor-core-document'
+import { solutionRendererPlugin } from '@serlo-org/editor-plugin-solution-renderer'
+import {
+  createStateForContentPlugin,
+  renderEditor,
+  renderRenderer
+} from '@serlo-org/storybook-helpers'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 
-import {
-  createStateForContentPlugin,
-  renderEditable,
-  renderHTMLRenderer
-} from '../../../.storybook/helpers'
-import plugin from '../src'
+import { solutionPlugin } from '../src'
 
 storiesOf('Solution', module)
   .add('Editable (initial state)', () => {
-    const content = createStateForContentPlugin({ plugin })
+    const content = createStateForContentPlugin({ plugin: solutionPlugin })
 
-    return renderEditable(content)
+    return renderEditor(content)
   })
   .add('Editable (w/ state)', () => {
     const content = createStateForContentPlugin({
-      plugin,
+      plugin: solutionPlugin,
       initialState: {
         title: 'Foobar',
-        content: createEditableIdentifier()
+        content: createDocumentIdentifier()
       }
     })
 
-    return renderEditable(content)
+    return renderEditor(content)
   })
   .add('Renderer', () => {
     const content = createStateForContentPlugin({
-      plugin,
+      plugin: solutionRendererPlugin,
       initialState: {
         title: 'Foobar',
-        content: createEditableIdentifier()
+        content: createDocumentIdentifier()
       }
     })
 
-    return renderHTMLRenderer(content)
+    return renderRenderer(content)
   })
