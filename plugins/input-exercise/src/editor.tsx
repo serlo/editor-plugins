@@ -1,25 +1,22 @@
-import * as React from 'react'
 import {
-  Editable,
-  createEditableIdentifier
-} from '@splish-me/editor-core/lib/editable.component'
-import {
+  Feedback,
+  InputExercisePluginState,
   InputExerciseRenderer,
   InputExerciseRendererProps,
-  WrongAnswerProps
-} from './renderer.component'
-import { Feedback } from './feedback.component'
-import { renderIntoSidebar } from '@splish-me/editor-ui/lib/plugin-sidebar.component'
-import Dropdown from '@splish-me/editor-ui/lib/sidebar-elements/dropdown'
-import SBTextfield from '@splish-me/editor-ui/lib/sidebar-elements/textfield'
-import { css } from 'emotion'
+  WrongAnswer
+} from '@serlo-org/editor-plugin-input-exercise-renderer'
+import { styled } from '@serlo-org/editor-ui'
+import {
+  Document,
+  createDocumentIdentifier
+} from '@splish-me/editor-core-document'
+import {
+  Dropdown,
+  Input,
+  renderIntoSidebar
+} from '@splish-me/editor-ui-plugin-sidebar'
 import * as R from 'ramda'
-
-export interface InputExerciseEditorProps extends InputExerciseRendererProps {
-  onChange: (newState: Partial<InputExerciseRendererProps['state']>) => void
-  readOnly: boolean
-  focused: boolean
-}
+import * as React from 'react'
 
 const types = [
   {
@@ -35,6 +32,7 @@ const types = [
     type: 'input-expression-equal-match-challenge'
   }
 ]
+
 export class InputExerciseEditor extends React.Component<
   InputExerciseEditorProps
 > {
@@ -74,9 +72,9 @@ export class InputExerciseEditor extends React.Component<
       wrongAnswers: [
         ...wrongAnswers,
         {
-          id: createEditableIdentifier(),
+          id: createDocumentIdentifier(),
           value: '',
-          feedback: createEditableIdentifier()
+          feedback: createDocumentIdentifier()
         }
       ]
     })
@@ -118,7 +116,7 @@ export class InputExerciseEditor extends React.Component<
                   onChange={this.handleTypeChange}
                   value={this.translateDataType(type)}
                 />
-                <SBTextfield
+                <Input
                   label="richtige Antwort:"
                   value={correctValue}
                   onChange={this.setCorrectValue}
@@ -131,34 +129,32 @@ export class InputExerciseEditor extends React.Component<
         ) : (
           <React.Fragment>
             <InputExerciseRenderer {...this.props} />
-            {wrongAnswers.map(
-              (wrongAnswer: WrongAnswerProps, index: number) => {
-                return (
-                  <div key={index}>
-                    <label>
-                      falsche Antwort:
-                      <input
-                        type="text"
-                        value={wrongAnswer.value}
-                        placeholder="falsche Antwort eingeben"
-                        onChange={this.wrongAnswerChange(index)}
-                      />
-                    </label>
-                    <button onClick={this.removeAnswer(index)}>
-                      Löschen {/* <FontAwesomeIcon icon={faTrashAlt} /> */}
-                    </button>
-                    {wrongAnswer.feedback ? (
-                      <label className={css({ clear: 'both' })}>
-                        Feedback:
-                        <Feedback>
-                          <Editable id={wrongAnswer.feedback} />
-                        </Feedback>
-                      </label>
-                    ) : null}
-                  </div>
-                )
-              }
-            )}
+            {wrongAnswers.map((wrongAnswer: WrongAnswer, index: number) => {
+              return (
+                <div key={index}>
+                  <label>
+                    falsche Antwort:
+                    <input
+                      type="text"
+                      value={wrongAnswer.value}
+                      placeholder="falsche Antwort eingeben"
+                      onChange={this.wrongAnswerChange(index)}
+                    />
+                  </label>
+                  <button onClick={this.removeAnswer(index)}>
+                    Löschen {/* <FontAwesomeIcon icon={faTrashAlt} /> */}
+                  </button>
+                  {wrongAnswer.feedback ? (
+                    <this.Label>
+                      Feedback:
+                      <Feedback>
+                        <Document state={wrongAnswer.feedback} />
+                      </Feedback>
+                    </this.Label>
+                  ) : null}
+                </div>
+              )
+            })}
             <button onClick={this.addWrongAnswer}>
               Falsche Antwort hinzufügen
             </button>
@@ -167,4 +163,12 @@ export class InputExerciseEditor extends React.Component<
       </React.Fragment>
     )
   }
+
+  private Label = styled.label({ clear: 'both' })
+}
+
+export interface InputExerciseEditorProps extends InputExerciseRendererProps {
+  onChange: (newState: Partial<InputExercisePluginState>) => void
+  readOnly: boolean
+  focused: boolean
 }

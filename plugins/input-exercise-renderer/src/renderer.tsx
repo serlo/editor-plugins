@@ -1,24 +1,10 @@
-import {
-  Editable,
-  EditableIdentifier
-} from '@splish-me/editor-core/lib/editable.component'
+import { Document } from '@splish-me/editor-core-document'
+import A from 'algebra.js'
 import * as React from 'react'
 import S from 'string'
-import A from 'algebra.js'
-import { Feedback } from './feedback.component'
 
-export interface WrongAnswerProps {
-  id: EditableIdentifier
-  value: string
-  feedback: EditableIdentifier
-}
-export interface InputExerciseRendererProps {
-  state: {
-    correctValue: string
-    wrongAnswers: WrongAnswerProps[]
-    type: string
-  }
-}
+import { Feedback } from './feedback'
+import { InputExercisePluginState, WrongAnswer } from '.'
 
 export class InputExerciseRenderer extends React.Component<
   InputExerciseRendererProps
@@ -43,7 +29,7 @@ export class InputExerciseRenderer extends React.Component<
     if (this.matchesInput({ type: type, value: correctValue }, input.value)) {
       this.setState({ positiveFeedback: true, showFeedback: true })
     } else {
-      const index = wrongAnswers.findIndex((wrongAnswer: WrongAnswerProps) => {
+      const index = wrongAnswers.findIndex((wrongAnswer: WrongAnswer) => {
         return this.matchesInput(
           { type: type, value: wrongAnswer.value },
           input.value
@@ -123,8 +109,10 @@ export class InputExerciseRenderer extends React.Component<
               </div>
             ) : this.state.negativeFeedbackIndex !== -1 ? (
               <Feedback boxFree>
-                <Editable
-                  id={wrongAnswers[this.state.negativeFeedbackIndex].feedback}
+                <Document
+                  state={
+                    wrongAnswers[this.state.negativeFeedbackIndex].feedback
+                  }
                 />
               </Feedback>
             ) : (
@@ -148,4 +136,8 @@ export class InputExerciseRenderer extends React.Component<
       </div>
     )
   }
+}
+
+export interface InputExerciseRendererProps {
+  state: InputExercisePluginState
 }

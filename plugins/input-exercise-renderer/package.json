@@ -1,5 +1,5 @@
 {
-  "name": "@serlo-org/editor-plugin-input-exercise",
+  "name": "@serlo-org/editor-plugin-input-exercise-renderer",
   "version": "0.0.0",
   "bugs": {
     "url": "https://github.com/serlo-org/editor-plugins/issues"
@@ -19,14 +19,13 @@
     "format": "prettier --write \"{src/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@serlo-org/editor-plugin-input-exercise-renderer": "^0.0.0",
     "@serlo-org/editor-ui": "^0.0.0",
     "@splish-me/editor-core-document": "^0.3.0-alpha",
-    "@splish-me/editor-ui-plugin-sidebar": "^0.3.0-alpha",
-    "ramda": "^0.26.0"
+    "@splish-me/editor-core-types": "^0.3.0-alpha",
+    "algebra.js": "^0.2.0",
+    "string": "^3.0.0"
   },
   "devDependencies": {
-    "@types/ramda": "^0.26.0",
     "@types/react": "^16.0.0"
   },
   "peerDependencies": {
