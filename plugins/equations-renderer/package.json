@@ -21,11 +21,9 @@
   "dependencies": {
     "@splish-me/editor-core-document": "^0.3.0-alpha",
     "@splish-me/editor-core-types": "^0.3.0-alpha",
-    "ramda": "^0.26.0",
-    "styled-components": "^4.0.0"
+    "ramda": "^0.26.0"
   },
   "devDependencies": {
-    "@types/styled-components": "^4.0.0",
     "@types/ramda": "^0.26.0",
     "@types/react": "^16.0.0"
   },

@@ -1,9 +1,8 @@
-import { faImages } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   ImagePluginState,
   ImageRenderer
 } from '@serlo-org/editor-plugin-image-renderer'
+import { Icon, faImages, styled } from '@serlo-org/editor-ui'
 import {
   Checkbox,
   Input,
@@ -11,7 +10,6 @@ import {
   renderIntoSidebar
 } from '@splish-me/editor-ui-plugin-sidebar'
 import * as React from 'react'
-import styled from 'styled-components'
 
 import { Upload } from './upload'
 import { ImagePluginConfig } from '.'
@@ -88,7 +86,7 @@ export const createImageEditor = (
           ) : (
             <div>
               <this.ImgPlaceholderWrapper>
-                <FontAwesomeIcon icon={faImages} size="5x" />
+                <Icon icon={faImages} size="5x" />
               </this.ImgPlaceholderWrapper>
             </div>
           )}

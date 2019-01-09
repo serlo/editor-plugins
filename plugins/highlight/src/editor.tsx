@@ -2,13 +2,13 @@ import {
   HighlightPluginState,
   HighlightRenderer
 } from '@serlo-org/editor-plugin-highlight-renderer'
+import { styled } from '@serlo-org/editor-ui'
 import {
   Checkbox,
   Input,
   renderIntoSidebar
 } from '@splish-me/editor-ui-plugin-sidebar'
 import * as React from 'react'
-import styled from 'styled-components'
 
 export class HighlightEditor extends React.Component<HighlightEditorProps> {
   public render(): React.ReactNode {

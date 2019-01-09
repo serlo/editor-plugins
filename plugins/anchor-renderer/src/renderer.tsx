@@ -1,5 +1,5 @@
+import { styled } from '@serlo-org/editor-ui'
 import * as React from 'react'
-import styled from 'styled-components'
 
 import { AnchorPluginState } from '.'
 

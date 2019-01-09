@@ -1,6 +1,6 @@
-import { faSpinner } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as React from 'react'
+
+import { Icon, faSpinner } from './icon'
 
 export class UploadProgress extends React.Component<UploadProgressProps> {
   public render() {
@@ -11,7 +11,7 @@ export class UploadProgress extends React.Component<UploadProgressProps> {
     }
 
     if (progress > 0 && progress < 1) {
-      return <FontAwesomeIcon icon={faSpinner} spin color="#ffffff" size="lg" />
+      return <Icon icon={faSpinner} spin color="#ffffff" size="lg" />
     }
 
     return null

@@ -1,5 +1,4 @@
-import { faLink } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Icon, faLink } from '@serlo-org/editor-ui'
 import {
   AnchorPluginState,
   AnchorRenderer,
@@ -14,7 +13,7 @@ export class AnchorEditor extends React.Component<AnchorEditorProps> {
     const { id } = state
     return (
       <React.Fragment>
-        {isPreviewMode ? null : <FontAwesomeIcon icon={faLink} />}
+        {isPreviewMode ? null : <Icon icon={faLink} />}
         <AnchorRenderer state={state} />
         {focused
           ? renderIntoSidebar(

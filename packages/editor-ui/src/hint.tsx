@@ -1,5 +1,6 @@
 import * as React from 'react'
-import styled from 'styled-components'
+
+import { styled } from './styled'
 
 export class Hint extends React.Component<HintProps, HintState> {
   public state: HintState = { hidden: true }

@@ -19,16 +19,12 @@
     "format": "prettier --write \"{src/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@fortawesome/free-solid-svg-icons": "^5.0.0",
-    "@fortawesome/react-fontawesome": "^0.1.0",
     "@serlo-org/editor-plugin-equations-renderer": "^0.0.0",
     "@splish-me/editor-core-document": "^0.3.0-alpha",
     "ramda": "^0.26.0",
-    "react-beautiful-dnd": "^10.0.0",
-    "styled-components": "^4.0.0"
+    "react-beautiful-dnd": "^10.0.0"
   },
   "devDependencies": {
-    "@types/styled-components": "^4.0.0",
     "@types/ramda": "^0.26.0",
     "@types/react": "^16.0.0"
   },

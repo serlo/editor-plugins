@@ -20,12 +20,11 @@
   },
   "dependencies": {
     "@serlo-org/editor-plugin-highlight-renderer": "^0.0.0",
-    "@splish-me/editor-ui-plugin-sidebar": "^0.3.0-alpha",
-    "styled-components": "^4.0.0"
+    "@serlo-org/editor-ui": "^0.0.0",
+    "@splish-me/editor-ui-plugin-sidebar": "^0.3.0-alpha"
   },
   "devDependencies": {
-    "@types/react": "^16.0.0",
-    "@types/styled-components": "^4.0.0"
+    "@types/react": "^16.0.0"
   },
   "peerDependencies": {
     "react": "^16.0.0"

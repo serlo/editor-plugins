@@ -1,5 +1,4 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { Icon, faPlus, faTimes, styled } from '@serlo-org/editor-ui'
 import {
   EquationsPluginState,
   EquationsRenderer,
@@ -12,7 +11,6 @@ import {
 import * as R from 'ramda'
 import * as React from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
-import styled from 'styled-components'
 
 const DraggableContainer = styled.div({
   border: '1px solid #000',
@@ -112,7 +110,7 @@ export class EquationsEditor extends React.Component<EquationsEditorProps> {
                                   <RemoveButton
                                     onClick={this.removeButton(index)}
                                   >
-                                    <FontAwesomeIcon icon={faTimes} />
+                                    <Icon icon={faTimes} />
                                   </RemoveButton>
                                 </div>
                                 <div className="col-xs-4">
@@ -146,7 +144,7 @@ export class EquationsEditor extends React.Component<EquationsEditorProps> {
           </DragDropContext>
           <AddButtonWrapper>
             <AddButton onClick={this.addButton}>
-              <FontAwesomeIcon icon={faPlus} />
+              <Icon icon={faPlus} />
             </AddButton>
           </AddButtonWrapper>
         </React.Fragment>
