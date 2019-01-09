@@ -1,69 +1,31 @@
 import { faImages } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { renderIntoSidebar } from '@splish-me/editor-ui/lib/plugin-sidebar.component'
-import Textfield from '@splish-me/editor-ui/lib/sidebar-elements/textfield'
-import Textarea from '@splish-me/editor-ui/lib/sidebar-elements/textarea'
-import Checkbox from '@splish-me/editor-ui/lib/sidebar-elements/checkbox'
-import { css } from 'emotion'
-import * as React from 'react'
-
-import { ImageRenderer } from './renderer.component'
 import {
-  Config,
-  ImageComponentProps,
-  ImageLoaded,
-  ImageUploaded
-} from './types'
-import { Upload } from './upload.component'
+  ImagePluginState,
+  ImageRenderer
+} from '@serlo-org/editor-plugin-image-renderer'
+import {
+  Checkbox,
+  Input,
+  Textarea,
+  renderIntoSidebar
+} from '@splish-me/editor-ui-plugin-sidebar'
+import * as React from 'react'
+import styled from 'styled-components'
 
-type ImageComponentState = {
-  imagePreview?: ImageLoaded
-}
+import { Upload } from './upload'
+import { ImagePluginConfig } from '.'
 
-export const createImageComponent = (config: Config) => {
-  return class ImageComponent extends React.Component<
-    ImageComponentProps,
-    ImageComponentState
+export const createImageEditor = (
+  config: ImagePluginConfig
+): React.ComponentType<ImageEditorProps> => {
+  return class ImageEditor extends React.Component<
+    ImageEditorProps,
+    ImageEditorState
   > {
-    state: ImageComponentState
+    public state: ImageEditorState = {}
 
-    constructor(props: ImageComponentProps) {
-      super(props)
-      this.state = {}
-    }
-
-    handleChange = (name: string) => (
-      event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
-    ) => {
-      const change = { [name]: event.target.value }
-      this.props.onChange(change)
-    }
-
-    handleTargetChange(event: React.ChangeEvent<HTMLInputElement>) {
-      if (event.target.checked) {
-        this.props.onChange({
-          target: '_blank',
-          // noopener is safer but not supported in IE, so noreferrer adds some security
-          rel: 'noreferrer noopener'
-        })
-      } else {
-        this.props.onChange({
-          target: null,
-          rel: null
-        })
-      }
-    }
-
-    handleImageLoaded = (image: ImageLoaded) => {
-      this.setState({ imagePreview: image })
-    }
-
-    handleImageUploaded = (resp: ImageUploaded) => {
-      this.setState({ imagePreview: undefined })
-      this.props.onChange({ src: resp.url })
-    }
-
-    render() {
+    public render(): React.ReactNode {
       const { readOnly, focused } = this.props
       const { src, description, href, target } = this.props.state
 
@@ -72,7 +34,7 @@ export const createImageComponent = (config: Config) => {
           {focused
             ? renderIntoSidebar(
                 <React.Fragment>
-                  <Textfield
+                  <Input
                     placeholder="http://example.com/image.png"
                     label="Image location (url)"
                     value={src}
@@ -93,7 +55,7 @@ export const createImageComponent = (config: Config) => {
                     onChange={this.handleChange('description')}
                   />
                   <br />
-                  <Textfield
+                  <Input
                     placeholder="http://example.com"
                     label="Link location (url)"
                     type="text"
@@ -121,23 +83,78 @@ export const createImageComponent = (config: Config) => {
                   ? this.state.imagePreview.dataUrl
                   : src
               }}
-              readOnly={readOnly}
+              disableMouseEvents={!readOnly}
             />
           ) : (
             <div>
-              <div
-                className={css({
-                  position: 'relative',
-                  width: '100%',
-                  textAlign: 'center'
-                })}
-              >
+              <this.ImgPlaceholderWrapper>
                 <FontAwesomeIcon icon={faImages} size="5x" />
-              </div>
+              </this.ImgPlaceholderWrapper>
             </div>
           )}
         </React.Fragment>
       )
     }
+
+    private handleChange(name: string) {
+      return (
+        event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+      ) => {
+        const change = { [name]: event.target.value }
+        this.props.onChange(change)
+      }
+    }
+
+    private handleTargetChange = (
+      event: React.ChangeEvent<HTMLInputElement>
+    ) => {
+      if (event.target.checked) {
+        this.props.onChange({
+          target: '_blank',
+          // noopener is safer but not supported in IE, so noreferrer adds some security
+          rel: 'noreferrer noopener'
+        })
+      } else {
+        this.props.onChange({
+          target: null,
+          rel: null
+        })
+      }
+    }
+
+    private handleImageLoaded = (image: ImageLoaded) => {
+      this.setState({ imagePreview: image })
+    }
+
+    private handleImageUploaded = ({ url }: ImageUploaded) => {
+      this.setState({ imagePreview: undefined })
+      this.props.onChange({ src: url })
+    }
+
+    private ImgPlaceholderWrapper = styled.div({
+      position: 'relative',
+      width: '100%',
+      textAlign: 'center'
+    })
   }
+
+  interface ImageEditorState {
+    imagePreview?: ImageLoaded
+  }
+
+  interface ImageLoaded {
+    file: File
+    dataUrl: string
+  }
+
+  interface ImageUploaded {
+    url: string
+  }
+}
+
+export interface ImageEditorProps {
+  state: ImagePluginState
+  readOnly: boolean
+  focused: boolean
+  onChange: Function
 }

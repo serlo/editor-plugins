@@ -1,8 +1,6 @@
 import { Uploader, UploadField } from '@navjobs/upload'
-import { UploadProgress } from '@serlo-org/editor-ui/lib/upload-progress.component'
+import { UploadProgress } from '@serlo-org/editor-ui'
 import * as React from 'react'
-
-import { FileError, FileErrorCode, UploadProps } from './types'
 
 export class Upload extends React.Component<UploadProps> {
   matchesAllowedExtensions(fileName: string) {
@@ -149,4 +147,32 @@ export class Upload extends React.Component<UploadProps> {
       </Uploader>
     )
   }
+}
+
+export interface UploadProps {
+  config: UploadConfig
+  onError?: (errors: FileError[]) => void
+  onImageLoaded?: Function
+  onImageUploaded?: Function
+}
+
+export interface UploadConfig {
+  url: string
+  maxFileSize: number
+  allowedExtensions: string[]
+  paramName?: string
+  getAdditionalFields?: Function
+}
+
+type FileError = {
+  errorCode: FileErrorCode
+  message: string
+}
+
+enum FileErrorCode {
+  TOO_MANY_FILES,
+  NO_FILE_SELECTED,
+  BAD_EXTENSION,
+  FILE_TOO_BIG,
+  UPLOAD_FAILED
 }

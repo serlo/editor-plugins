@@ -36,9 +36,11 @@
       ],
       "@serlo-org/editor-plugin-hint": ["plugins/hint/src"],
       "@serlo-org/editor-plugin-hint-renderer": ["plugins/hint-renderer/src"],
-      "@serlo-org/editor-ui": ["packages/editor-ui/src"],
+      "@serlo-org/editor-plugin-image": ["plugins/image/src"],
+      "@serlo-org/editor-plugin-image-renderer": ["plugins/image-renderer/src"],
       "@serlo-org/editor-plugin-text": ["plugins/text/src"],
       "@serlo-org/editor-plugin-text-renderer": ["plugins/text-renderer/src"],
+      "@serlo-org/editor-ui": ["packages/editor-ui/src"],
       "@serlo-org/html-renderer": ["packages/html-renderer/src"],
       "@serlo-org/storybook-helpers": ["packages/storybook-helpers/src"]
     }

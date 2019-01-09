@@ -1,13 +1,19 @@
-import { createImageComponent } from './editable.component'
-import { plugin } from './plugin'
-import { Config } from './types'
+import { ImagePluginState } from '@serlo-org/editor-plugin-image-renderer'
 
-export default (config: Config) => ({
-  ...plugin,
-  Component: createImageComponent(config),
+import { createImageEditor } from './editor'
+import { UploadConfig } from './upload'
+
+export const createImagePlugin = (config: ImagePluginConfig) => ({
+  name: '@splish-me/image',
+  version: '0.0.5',
+  Component: createImageEditor(config),
   text: 'Bild',
-  createInitialState: () => ({
+  createInitialState: (): ImagePluginState => ({
     src: '',
     description: ''
   })
 })
+
+export interface ImagePluginConfig {
+  upload: UploadConfig
+}
