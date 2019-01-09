@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@serlo-org/editor-plugin-blockquote-renderer": "^0.0.0",
-    "@splish-me/editor-core-document": "^0.3.0-alpha"
+    "@splish-me/editor-core-document": "^0.3.0"
   },
   "devDependencies": {
     "@types/react": "^16.0.0"

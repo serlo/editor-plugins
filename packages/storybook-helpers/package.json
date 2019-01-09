@@ -19,11 +19,11 @@
     "format": "prettier --write \"{src/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@splish-me/editor-core": "^0.3.0-alpha.2",
-    "@splish-me/editor-ui-add-sidebar": "^0.3.0-alpha.2",
-    "@splish-me/editor-ui-mode-toolbar": "^0.3.0-alpha.2",
-    "@splish-me/editor-ui-plugin-sidebar": "^0.3.0-alpha.2",
-    "@splish-me/editor-ui-sidebar": "^0.3.0-alpha.2",
+    "@splish-me/editor-core": "^0.3.0",
+    "@splish-me/editor-ui-add-sidebar": "^0.3.0",
+    "@splish-me/editor-ui-mode-toolbar": "^0.3.0",
+    "@splish-me/editor-ui-plugin-sidebar": "^0.3.0",
+    "@splish-me/editor-ui-sidebar": "^0.3.0",
     "@serlo-org/editor-plugins": "^0.0.0",
     "@serlo-org/editor-plugins-renderer": "^0.0.0",
     "@serlo-org/html-renderer": "^0.0.0",

@@ -21,7 +21,7 @@
   "dependencies": {
     "@serlo-org/editor-plugin-matching-exercise-renderer": "^0.0.0",
     "@serlo-org/editor-ui": "^0.0.0",
-    "@splish-me/editor-core-document": "^0.3.0-alpha",
+    "@splish-me/editor-core-document": "^0.3.0",
     "react-beautiful-dnd": "^10.0.0",
     "react-select": "^2.0.0"
   },

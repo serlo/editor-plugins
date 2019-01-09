@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@serlo-org/editor-ui": "^0.0.0",
-    "@splish-me/editor-core-types": "^0.3.0-alpha",
+    "@splish-me/editor-core-types": "^0.3.0",
     "ramda": "^0.26.0",
     "react-masonry-component": "^6.0.0",
     "react-pose": "^4.0.0"

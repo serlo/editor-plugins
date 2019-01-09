@@ -25,7 +25,7 @@
     "@navjobs/upload": "^3.0.0",
     "@serlo-org/editor-plugin-image-renderer": "^0.0.0",
     "@serlo-org/editor-ui": "^0.0.0",
-    "@splish-me/editor-ui-plugin-sidebar": "^0.3.0-alpha"
+    "@splish-me/editor-ui-plugin-sidebar": "^0.3.0"
   },
   "devDependencies": {
     "@types/react": "^16.0.0"

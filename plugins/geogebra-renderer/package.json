@@ -19,7 +19,7 @@
     "format": "prettier --write \"{src/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@splish-me/ory-editor-core": "^0.3.0-alpha",
+    "@splish-me/ory-editor-core": "^0.3.0",
     "axios": "^0.18.0",
     "lodash": "^4.0.0",
     "uuid": "^3.0.0"

@@ -21,7 +21,7 @@
   "dependencies": {
     "@serlo-org/editor-plugin-spoiler-renderer": "^0.0.0",
     "@serlo-org/editor-ui": "^0.0.0",
-    "@splish-me/editor-core-document": "^0.3.0-alpha"
+    "@splish-me/editor-core-document": "^0.3.0"
   },
   "devDependencies": {
     "@types/react": "^16.0.0"

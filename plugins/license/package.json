@@ -20,8 +20,8 @@
   },
   "dependencies": {
     "@serlo-org/editor-plugin-license-renderer": "^0.0.0",
-    "@splish-me/editor-core-document": "^0.3.0-alpha",
-    "@splish-me/editor-ui-plugin-sidebar": "^0.3.0-alpha",
+    "@splish-me/editor-core-document": "^0.3.0",
+    "@splish-me/editor-ui-plugin-sidebar": "^0.3.0",
     "ramda": "^0.26.0"
   },
   "devDependencies": {

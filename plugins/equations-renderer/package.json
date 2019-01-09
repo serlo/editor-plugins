@@ -19,8 +19,8 @@
     "format": "prettier --write \"{src/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@splish-me/editor-core-document": "^0.3.0-alpha",
-    "@splish-me/editor-core-types": "^0.3.0-alpha",
+    "@splish-me/editor-core-document": "^0.3.0",
+    "@splish-me/editor-core-types": "^0.3.0",
     "ramda": "^0.26.0"
   },
   "devDependencies": {

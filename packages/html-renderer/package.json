@@ -19,7 +19,7 @@
     "format": "prettier --write \"{src/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@splish-me/editor-core-renderer": "^0.3.0-alpha"
+    "@splish-me/editor-core-renderer": "^0.3.0"
   },
   "devDependencies": {
     "@types/react": "^16.0.0"
