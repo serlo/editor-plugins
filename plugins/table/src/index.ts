@@ -1,8 +1,8 @@
-import { TableEditor } from './editor.component'
-import { plugin } from './plugin'
+import { TableEditor } from './editor'
 
-export default {
-  ...plugin,
+export const tablePlugin = {
+  name: '@serlo-org/table',
+  version: '0.0.2',
   Component: TableEditor,
   text: 'Table'
 }
