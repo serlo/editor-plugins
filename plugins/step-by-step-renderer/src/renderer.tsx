@@ -1,34 +1,13 @@
-import {
-  Editable,
-  EditableIdentifier
-} from '@splish-me/editor-core/lib/editable.component'
+import { Document } from '@splish-me/editor-core-document'
+import { DocumentIdentifier } from '@splish-me/editor-core-types'
 import * as R from 'ramda'
 import * as React from 'react'
 
-export interface Step {
-  type: 'step'
-  content: EditableIdentifier
-  explanation: EditableIdentifier
-}
-
-export interface Content {
-  type: 'content'
-  content: EditableIdentifier
-}
-
-interface OneCol {
-  type: '1-col'
-  content: EditableIdentifier
-}
-
-interface TwoCols {
-  type: '2-cols'
-  content: [EditableIdentifier, EditableIdentifier | undefined]
-}
+import { StepByStepPluginState, Content, Step } from '.'
 
 const getExplanation = (
   step: Content | Step
-): EditableIdentifier | undefined => {
+): DocumentIdentifier | undefined => {
   if (step.type === 'step') {
     return step.explanation
   }
@@ -37,7 +16,7 @@ const getExplanation = (
 }
 
 const makeRows = (steps: Array<Content | Step>): Array<OneCol | TwoCols> => {
-  let pendingContent: EditableIdentifier | undefined = undefined
+  let pendingContent: DocumentIdentifier | undefined = undefined
   const ret: Array<OneCol | TwoCols> = []
 
   steps.forEach(step => {
@@ -68,23 +47,6 @@ const makeRows = (steps: Array<Content | Step>): Array<OneCol | TwoCols> => {
   return ret
 }
 
-export interface EquationsProps {
-  onChange: (state: Partial<EquationsPluginState>) => void
-  state: EquationsPluginState
-  readOnly?: boolean
-}
-
-export interface EquationsPluginState {
-  steps: Array<Step | Content>
-}
-
-export interface EquationsState {
-  phase: Phase
-  width: Array<number | undefined>
-  contentHeight: Array<number | undefined>
-  explanationHeight: Array<number | undefined>
-}
-
 enum Phase {
   noJS = 0,
   hiddenRender = 1,
@@ -92,7 +54,10 @@ enum Phase {
   height = 3
 }
 
-export class Equations extends React.Component<EquationsProps, EquationsState> {
+export class StepByStepRenderer extends React.Component<
+  StepByStepRendererProps,
+  StepByStepState
+> {
   private calculateLayout() {
     const rows = makeRows(this.props.state.steps)
 
@@ -111,7 +76,7 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
       )
     })
   }
-  state: EquationsState = {
+  state: StepByStepState = {
     phase: Phase.noJS,
     width: [],
     contentHeight: [],
@@ -144,7 +109,7 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
                 }}
               >
                 <div>
-                  <Editable id={row.content} />
+                  <Document state={row.content} />
                 </div>
               </div>
             )
@@ -178,8 +143,11 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
                   width:
                     this.state.phase < Phase.maxWidth
                       ? 'auto'
-                      : R.reduce(R.max, 0, this.state.width.filter(Boolean)) +
-                        10
+                      : R.reduce<number, number>(
+                          R.max,
+                          0,
+                          this.state.width.filter(Boolean)
+                        ) + 10
                 }}
                 ref={ref => {
                   if (index === 0) {
@@ -273,7 +241,7 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
                   }
                 }}
               >
-                <Editable id={row.content[0]} />
+                <Document state={row.content[0]} />
               </div>
               {row.content[1] === undefined ? null : (
                 <div
@@ -329,7 +297,7 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
                     }
                   }}
                 >
-                  <Editable id={row.content[1]} />
+                  <Document state={row.content[1]} />
                 </div>
               )}
             </div>
@@ -351,7 +319,7 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
                 return (
                   <div key={index} className="row">
                     <div className="col-sm-12">
-                      <Editable id={row.content} />
+                      <Document state={row.content} />
                     </div>
                   </div>
                 )
@@ -359,11 +327,11 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
               return (
                 <div key={index} className="row">
                   <div className="col-sm-12 col-md-6">
-                    <Editable id={row.content[0]} />
+                    <Document state={row.content[0]} />
                   </div>
                   {row.content[1] === undefined ? null : (
                     <div className="col-sm-12 col-md-6">
-                      <Editable id={row.content[1]} />
+                      <Document state={row.content[1]} />
                     </div>
                   )}
                 </div>
@@ -375,4 +343,25 @@ export class Equations extends React.Component<EquationsProps, EquationsState> {
       </React.Fragment>
     )
   }
+}
+
+export interface StepByStepRendererProps {
+  state: StepByStepPluginState
+}
+
+export interface StepByStepState {
+  phase: Phase
+  width: Array<number | undefined>
+  contentHeight: Array<number | undefined>
+  explanationHeight: Array<number | undefined>
+}
+
+interface OneCol {
+  type: '1-col'
+  content: DocumentIdentifier
+}
+
+interface TwoCols {
+  type: '2-cols'
+  content: [DocumentIdentifier, DocumentIdentifier | undefined]
 }

@@ -6,7 +6,7 @@
   "repository": "serlo-org/editor-plugins",
   "scripts": {
     "precommit": "lint-staged",
-    "build": "lerna run build",
+    "build": "lerna run --stream build",
     "ci": "lerna run --parallel ci",
     "format": "prettier --write \"{{{packages,plugins,template}/**,.storybook/**,example/**}/*,*}.{js,jsx,ts,tsx,css,scss,json,md,markdown}\"",
     "start": "npm-run-all storybook",

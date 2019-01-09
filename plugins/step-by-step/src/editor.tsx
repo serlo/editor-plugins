@@ -1,17 +1,18 @@
+import {
+  StepByStepPluginState,
+  StepByStepRenderer,
+  StepByStepRendererProps
+} from '@serlo-org/editor-plugin-step-by-step-renderer'
+import { Icon, faPlus, faTimes, styled } from '@serlo-org/editor-ui'
+import {
+  createDocumentIdentifier,
+  Document
+} from '@splish-me/editor-core-document'
 import * as R from 'ramda'
 import * as React from 'react'
-import {
-  Editable,
-  createEditableIdentifier
-} from '@splish-me/editor-core/lib/editable.component'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons'
-import { css, cx } from 'emotion'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
-import { Equations, EquationsProps } from './equations.component'
-
-export class EquationsEditable extends React.Component<EquationsProps> {
+export class StepByStepEditor extends React.Component<StepByStepEditorProps> {
   addButton = () => {
     const { onChange, state } = this.props
 
@@ -19,8 +20,8 @@ export class EquationsEditable extends React.Component<EquationsProps> {
       steps: [
         ...state.steps,
         {
-          content: createEditableIdentifier(),
-          explanation: createEditableIdentifier(),
+          content: createDocumentIdentifier(),
+          explanation: createDocumentIdentifier(),
           type: 'step'
         }
       ]
@@ -67,38 +68,18 @@ export class EquationsEditable extends React.Component<EquationsProps> {
                         >
                           {(provided: any) => {
                             return (
-                              <div
-                                className={cx(
-                                  css({
-                                    border: '1px solid #000',
-                                    margin: '10px',
-                                    background: 'lightgrey',
-                                    padding: '10px'
-                                  }),
-                                  'row'
-                                )}
+                              <this.DraggableContainer
+                                className="row"
                                 ref={provided.innerRef}
                                 {...provided.draggableProps}
                                 {...provided.dragHandleProps}
                               >
                                 <div className="col-xs-12">
-                                  <button
+                                  <this.RemoveButton
                                     onClick={this.removeButton(index)}
-                                    className={css({
-                                      borderRadius: '50%',
-                                      outline: 'none',
-                                      width: '35px',
-                                      height: '35px',
-                                      border: 'none',
-                                      float: 'right',
-                                      background: 'transparent',
-                                      position: 'relative',
-                                      top: '-15px',
-                                      right: '-30px'
-                                    })}
                                   >
-                                    <FontAwesomeIcon icon={faTimes} />
-                                  </button>
+                                    <Icon icon={faTimes} />
+                                  </this.RemoveButton>
                                   <form
                                     onChange={event => {
                                       const newSteps = [
@@ -112,7 +93,7 @@ export class EquationsEditable extends React.Component<EquationsProps> {
                                         content: newSteps[index].content,
                                         explanation:
                                           type === 'step'
-                                            ? createEditableIdentifier()
+                                            ? createDocumentIdentifier()
                                             : undefined
                                       }
                                       this.props.onChange({ steps: newSteps })
@@ -141,29 +122,19 @@ export class EquationsEditable extends React.Component<EquationsProps> {
                                 {step.type === 'step' ? (
                                   <div className="col-xs-12">
                                     <strong>Explanation</strong>
-                                    <div
-                                      className={css({
-                                        cursor: 'auto',
-                                        background: '#fff'
-                                      })}
-                                    >
-                                      <Editable id={step.explanation} />
-                                    </div>
+                                    <this.StepFieldContainer>
+                                      <Document state={step.explanation} />
+                                    </this.StepFieldContainer>
                                   </div>
                                 ) : null}
 
                                 <div className="col-xs-12">
                                   <strong>Content</strong>
-                                  <div
-                                    className={css({
-                                      cursor: 'auto',
-                                      background: '#fff'
-                                    })}
-                                  >
-                                    <Editable id={step.content} />
-                                  </div>
+                                  <this.StepFieldContainer>
+                                    <Document state={step.content} />
+                                  </this.StepFieldContainer>
                                 </div>
-                              </div>
+                              </this.DraggableContainer>
                             )
                           }}
                         </Draggable>
@@ -174,29 +145,58 @@ export class EquationsEditable extends React.Component<EquationsProps> {
               }}
             </Droppable>
           </DragDropContext>
-          <div
-            className={css({
-              textAlign: 'center'
-            })}
-          >
-            <button
-              onClick={this.addButton}
-              className={css({
-                borderRadius: '50%',
-                outline: 'none',
-                width: '35px',
-                height: '35px',
-                border: 'none',
-                margin: 'auto'
-              })}
-            >
-              <FontAwesomeIcon icon={faPlus} />
-            </button>
-          </div>
+          <this.AddButtonContainer>
+            <this.AddButton onClick={this.addButton}>
+              <Icon icon={faPlus} />
+            </this.AddButton>
+          </this.AddButtonContainer>
         </React.Fragment>
       )
     }
 
-    return <Equations {...this.props} />
+    return <StepByStepRenderer state={state} />
   }
+
+  private DraggableContainer = styled.div({
+    border: '1px solid #000',
+    margin: '10px',
+    background: 'lightgrey',
+    padding: '10px'
+  })
+
+  private RemoveButton = styled.button({
+    borderRadius: '50%',
+    outline: 'none',
+    width: '35px',
+    height: '35px',
+    border: 'none',
+    float: 'right',
+    background: 'transparent',
+    position: 'relative',
+    top: '-15px',
+    right: '-30px'
+  })
+
+  private AddButtonContainer = styled.div({
+    textAlign: 'center'
+  })
+
+  private AddButton = styled.button({
+    borderRadius: '50%',
+    outline: 'none',
+    width: '35px',
+    height: '35px',
+    border: 'none',
+    margin: 'auto'
+  })
+
+  private StepFieldContainer = styled.div({
+    cursor: 'auto',
+    background: '#fff'
+  })
+}
+
+interface StepByStepEditorProps extends StepByStepRendererProps {
+  onChange: (state: Partial<StepByStepPluginState>) => void
+  readOnly?: boolean
 }

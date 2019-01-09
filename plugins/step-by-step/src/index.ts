@@ -1,21 +1,21 @@
-import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
+import { StepByStepPluginState } from '@serlo-org/editor-plugin-step-by-step-renderer'
+import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 
-import { EquationsEditable } from './editable.component'
-import { EquationsProps } from './equations.component'
-import { plugin } from './plugin'
+import { StepByStepEditor } from './editor'
 
 export default {
-  ...plugin,
-  Component: EquationsEditable,
+  name: '@serlo-org/step-by-step',
+  version: '0.0.0',
+  Component: StepByStepEditor,
   text: 'Step by Step',
 
-  createInitialState: (): EquationsProps['state'] => {
+  createInitialState: (): StepByStepPluginState => {
     return {
       steps: [
         {
           type: 'step',
-          content: createEditableIdentifier(),
-          explanation: createEditableIdentifier()
+          content: createDocumentIdentifier(),
+          explanation: createDocumentIdentifier()
         }
       ]
     }
