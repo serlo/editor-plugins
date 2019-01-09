@@ -1,5 +1,5 @@
 {
-  "name": "@serlo-org/editor-plugin-license",
+  "name": "@serlo-org/editor-plugin-license-renderer",
   "version": "0.0.0",
   "bugs": {
     "url": "https://github.com/serlo-org/editor-plugins/issues"
@@ -19,13 +19,10 @@
     "format": "prettier --write \"{src/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@serlo-org/editor-plugin-license-renderer": "^0.0.0",
     "@splish-me/editor-core-document": "^0.3.0-alpha",
-    "@splish-me/editor-ui-plugin-sidebar": "^0.3.0-alpha",
-    "ramda": "^0.26.0"
+    "@splish-me/editor-core-types": "^0.3.0-alpha"
   },
   "devDependencies": {
-    "@types/ramda": "^0.26.0",
     "@types/react": "^16.0.0"
   },
   "peerDependencies": {

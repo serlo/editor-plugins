@@ -1,9 +1,11 @@
 import {
-  Editable,
-  EditableIdentifier
-} from '@splish-me/editor-core/lib/editable.component'
-import Dropdown from '@splish-me/editor-ui/lib/sidebar-elements/dropdown'
-import { renderIntoSidebar } from '@splish-me/editor-ui/lib/plugin-sidebar.component'
+  LicensePluginState,
+  LicenseRenderer
+} from '@serlo-org/editor-plugin-license-renderer'
+import {
+  Dropdown,
+  renderIntoSidebar
+} from '@splish-me/editor-ui-plugin-sidebar'
 import * as R from 'ramda'
 import * as React from 'react'
 
@@ -22,7 +24,7 @@ const licenses = [
   }
 ]
 
-export class License extends React.Component<LicenseProps> {
+export class LicenseEditor extends React.Component<LicenseEditorProps> {
   render() {
     const { state, focused } = this.props
     return (
@@ -37,8 +39,7 @@ export class License extends React.Component<LicenseProps> {
               />
             )
           : null}
-        {console.log(state.license)}
-        <Editable id={state.content} />
+        <LicenseRenderer state={state} />
       </div>
     )
   }
@@ -76,13 +77,8 @@ export class License extends React.Component<LicenseProps> {
   }
 }
 
-export interface LicenseProps {
+export interface LicenseEditorProps {
   onChange: (state: Partial<LicensePluginState>) => void
   state: LicensePluginState
   focused?: boolean
-}
-
-interface LicensePluginState {
-  license: number
-  content: EditableIdentifier
 }

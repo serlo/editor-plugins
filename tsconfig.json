@@ -46,6 +46,10 @@
       "@serlo-org/editor-plugin-input-exercise-renderer": [
         "plugins/input-exercise-renderer/src"
       ],
+      "@serlo-org/editor-plugin-license": ["plugins/license/src"],
+      "@serlo-org/editor-plugin-license-renderer": [
+        "plugins/license-renderer/src"
+      ],
       "@serlo-org/editor-plugin-text": ["plugins/text/src"],
       "@serlo-org/editor-plugin-text-renderer": ["plugins/text-renderer/src"],
       "@serlo-org/editor-ui": ["packages/editor-ui/src"],

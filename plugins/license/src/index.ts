@@ -1,13 +1,15 @@
-import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
-import { plugin } from './plugin'
-import { License } from './license.component'
+import { LicensePluginState } from '@serlo-org/editor-plugin-license-renderer'
+import { createDocumentIdentifier } from '@splish-me/editor-core-document'
+
+import { LicenseEditor } from './editor'
 
 export default {
-  ...plugin,
+  name: '@serlo-org/license',
+  version: '0.0.0',
   text: 'Lizenzangabe',
-  Component: License,
-  createInitialState: () => ({
+  Component: LicenseEditor,
+  createInitialState: (): LicensePluginState => ({
     license: 0,
-    content: createEditableIdentifier()
+    content: createDocumentIdentifier()
   })
 }
