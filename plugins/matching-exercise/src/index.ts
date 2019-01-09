@@ -1,15 +1,16 @@
-import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
+import { MatchingExercisePluginState } from '@serlo-org/editor-plugin-matching-exercise-renderer'
+import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 
-import { MatchingExerciseEditable } from './editable.component'
-import { plugin } from './plugin'
+import { MatchingExerciseEditor } from './editor'
 
-export default {
-  ...plugin,
-  Component: MatchingExerciseEditable,
+export const matchingExercisePlugin = {
+  name: '@serlo-org/matching-exercise',
+  version: '0.0.0',
+  Component: MatchingExerciseEditor,
 
   text: 'Matching Exercise',
-  createInitialState: () => ({
+  createInitialState: (): MatchingExercisePluginState => ({
     solution: [[0, 0]],
-    blockContent: [createEditableIdentifier()]
+    blockContent: [createDocumentIdentifier()]
   })
 }

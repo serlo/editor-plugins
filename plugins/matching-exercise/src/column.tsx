@@ -1,17 +1,10 @@
-import { css } from 'emotion'
+import { Block as B } from '@serlo-org/editor-plugin-matching-exercise-renderer'
+import { styled } from '@serlo-org/editor-ui'
 import * as React from 'react'
 // @ts-ignore
 import { Droppable, Draggable } from 'react-beautiful-dnd'
-import { Block as B } from './types'
-import { Block } from './block.component'
 
-export interface ColumnProps {
-  id: string
-  blocks: B[]
-  title?: string
-  check?: boolean[]
-  renderBlock: (block: React.ReactNode, index: number) => React.ReactNode
-}
+import { Block } from './block'
 
 export class Column extends React.Component<ColumnProps> {
   static defaultProps: Pick<ColumnProps, 'renderBlock'> = {
@@ -27,12 +20,7 @@ export class Column extends React.Component<ColumnProps> {
         <Droppable droppableId={id} direction="vertical">
           {(provided: any) => {
             return (
-              <div
-                className={css`
-                  background: red;
-                  width: 33.33%;
-                  margin: 10px;
-                `}
+              <this.DroppableContainer
                 ref={provided.innerRef}
                 {...provided.droppableProps}
               >
@@ -56,11 +44,25 @@ export class Column extends React.Component<ColumnProps> {
                 })}
                 {provided.placeholder}
                 {children}
-              </div>
+              </this.DroppableContainer>
             )
           }}
         </Droppable>
       </React.Fragment>
     )
   }
+
+  private DroppableContainer = styled.div({
+    background: 'red',
+    width: '33.33%',
+    margin: '10px'
+  })
+}
+
+export interface ColumnProps {
+  id: string
+  blocks: B[]
+  title?: string
+  check?: boolean[]
+  renderBlock: (block: React.ReactNode, index: number) => React.ReactNode
 }

@@ -1,7 +1,10 @@
-import { MatchingExercisePluginState } from './editable.component'
-import { MatchingExerciseRendererState } from './renderer.component'
-import { Block as B } from './types'
 import * as R from 'ramda'
+
+import {
+  Block as B,
+  MatchingExercisePluginState,
+  MatchingExerciseRendererState
+} from '.'
 
 export const generateBlocks = ({
   solution,

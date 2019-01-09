@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["__stories__", "../matching-exercise-renderer/__tests__", "src"],
+  "include": ["__stories__", "__tests__", "src"],
   "compilerOptions": {
     "jsx": "react"
   }

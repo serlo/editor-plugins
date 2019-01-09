@@ -1,13 +1,8 @@
+import { Block as B } from '@serlo-org/editor-plugin-matching-exercise-renderer'
+import { styled } from '@serlo-org/editor-ui'
 import * as React from 'react'
 // @ts-ignore
 import { Draggable } from 'react-beautiful-dnd'
-import { Block as B } from './types'
-import { css } from 'emotion'
-
-export interface BlockProps {
-  block: B
-  index: number
-}
 
 export class Block extends React.Component<BlockProps> {
   render() {
@@ -16,23 +11,29 @@ export class Block extends React.Component<BlockProps> {
       <Draggable draggableId={block.id.toString()} index={index}>
         {(provided: any) => {
           return (
-            <div
-              className={css`
-                background: green;
-                margin: 5px;
-                padding: 5px;
-                color: white;
-                text-align: center;
-              `}
+            <this.DraggableContainer
               ref={provided.innerRef}
               {...provided.draggableProps}
               {...provided.dragHandleProps}
             >
               {block.content}
-            </div>
+            </this.DraggableContainer>
           )
         }}
       </Draggable>
     )
   }
+
+  private DraggableContainer = styled.div({
+    background: 'green',
+    margin: '5px',
+    padding: '5px',
+    color: 'white',
+    textAlign: 'center'
+  })
+}
+
+export interface BlockProps {
+  block: B
+  index: number
 }

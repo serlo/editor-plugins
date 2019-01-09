@@ -50,6 +50,12 @@
       "@serlo-org/editor-plugin-license-renderer": [
         "plugins/license-renderer/src"
       ],
+      "@serlo-org/editor-plugin-matching-exercise": [
+        "plugins/matching-exercise/src"
+      ],
+      "@serlo-org/editor-plugin-matching-exercise-renderer": [
+        "plugins/matching-exercise-renderer/src"
+      ],
       "@serlo-org/editor-plugin-text": ["plugins/text/src"],
       "@serlo-org/editor-plugin-text-renderer": ["plugins/text-renderer/src"],
       "@serlo-org/editor-ui": ["packages/editor-ui/src"],

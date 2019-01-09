@@ -1,12 +1,10 @@
-import { MatchingExerciseRendererState } from '../src/renderer.component'
+import { createDocumentIdentifier } from '@splish-me/editor-core-document'
+
+import { createBlocks, combineBlocks, isCorrect } from '../src/helpers'
 import {
-  generateBlocks,
-  createBlocks,
-  combineBlocks,
-  isCorrect
-} from '../src/helpers'
-import { MatchingExercisePluginState } from '../src/editable.component'
-import { createEditableIdentifier } from '@splish-me/editor-core/lib/editable.component'
+  MatchingExercisePluginState,
+  MatchingExerciseRendererState
+} from '../src'
 
 describe('Matching Exercise: isCorrect', () => {
   test('empty state', () => {
@@ -28,8 +26,8 @@ describe('Matching Exercise: isCorrect', () => {
       blockContent: []
     }
     const state: MatchingExerciseRendererState = {
-      leftSide: [createBlocks(0, 'left', pluginState)],
-      rightSide: [createBlocks(1, 'right', pluginState)],
+      leftSide: [createBlocks(0, 'left')],
+      rightSide: [createBlocks(1, 'right')],
       stack: []
     }
     expect(isCorrect(pluginState, state)).toEqual(false)
@@ -41,8 +39,8 @@ describe('Matching Exercise: isCorrect', () => {
       blockContent: []
     }
     const state: MatchingExerciseRendererState = {
-      leftSide: [createBlocks(1, 'left', pluginState)],
-      rightSide: [createBlocks(0, 'right', pluginState)],
+      leftSide: [createBlocks(1, 'left')],
+      rightSide: [createBlocks(0, 'right')],
       stack: []
     }
     expect(isCorrect(pluginState, state)).toEqual(false)
@@ -56,10 +54,7 @@ describe('Matching Exercise: isCorrect', () => {
     const state: MatchingExerciseRendererState = {
       leftSide: [],
       rightSide: [],
-      stack: [
-        createBlocks(0, 'stack', pluginState),
-        createBlocks(1, 'stack', pluginState)
-      ]
+      stack: [createBlocks(0, 'stack'), createBlocks(1, 'stack')]
     }
     expect(isCorrect(pluginState, state)).toEqual(false)
   })
@@ -70,14 +65,8 @@ describe('Matching Exercise: isCorrect', () => {
       blockContent: []
     }
     const state: MatchingExerciseRendererState = {
-      leftSide: [
-        createBlocks(0, 'left-0', pluginState),
-        createBlocks(1, 'left-1', pluginState)
-      ],
-      rightSide: [
-        createBlocks(2, 'right-0', pluginState),
-        createBlocks(2, 'right-1', pluginState)
-      ],
+      leftSide: [createBlocks(0, 'left-0'), createBlocks(1, 'left-1')],
+      rightSide: [createBlocks(2, 'right-0'), createBlocks(2, 'right-1')],
       stack: []
     }
     expect(isCorrect(pluginState, state)).toEqual(true)
@@ -89,14 +78,8 @@ describe('Matching Exercise: isCorrect', () => {
       blockContent: []
     }
     const state: MatchingExerciseRendererState = {
-      leftSide: [
-        createBlocks(0, 'left-0', pluginState),
-        createBlocks(0, 'left-1', pluginState)
-      ],
-      rightSide: [
-        createBlocks(1, 'right-0', pluginState),
-        createBlocks(2, 'right-1', pluginState)
-      ],
+      leftSide: [createBlocks(0, 'left-0'), createBlocks(0, 'left-1')],
+      rightSide: [createBlocks(1, 'right-0'), createBlocks(2, 'right-1')],
       stack: []
     }
     expect(isCorrect(pluginState, state)).toEqual(true)
@@ -108,14 +91,11 @@ describe('Matching Exercise: isCorrect', () => {
       blockContent: []
     }
     const state: MatchingExerciseRendererState = {
-      leftSide: [
-        createBlocks(0, 'left-0', pluginState),
-        createBlocks(0, 'left-1', pluginState)
-      ],
+      leftSide: [createBlocks(0, 'left-0'), createBlocks(0, 'left-1')],
       rightSide: [
-        createBlocks(1, 'right-0', pluginState),
-        createBlocks(2, 'right-1', pluginState),
-        createBlocks(3, 'right-2', pluginState)
+        createBlocks(1, 'right-0'),
+        createBlocks(2, 'right-1'),
+        createBlocks(3, 'right-2')
       ],
       stack: []
     }
@@ -136,7 +116,7 @@ describe('Matching Exercise: generateBlocks', () => {
   test('one solution', () => {
     const blocks = combineBlocks({
       solution: [[0, 1]],
-      blockContent: [createEditableIdentifier(), createEditableIdentifier()]
+      blockContent: [createDocumentIdentifier(), createDocumentIdentifier()]
     })
 
     expect(blocks.sort()).toEqual([0, 1].sort())
@@ -146,9 +126,9 @@ describe('Matching Exercise: generateBlocks', () => {
     const blocks = combineBlocks({
       solution: [[0, 1], [1, 2]],
       blockContent: [
-        createEditableIdentifier(),
-        createEditableIdentifier(),
-        createEditableIdentifier()
+        createDocumentIdentifier(),
+        createDocumentIdentifier(),
+        createDocumentIdentifier()
       ]
     })
 
@@ -159,10 +139,10 @@ describe('Matching Exercise: generateBlocks', () => {
     const blocks = combineBlocks({
       solution: [[0, 1], [1, 2]],
       blockContent: [
-        createEditableIdentifier(),
-        createEditableIdentifier(),
-        createEditableIdentifier(),
-        createEditableIdentifier()
+        createDocumentIdentifier(),
+        createDocumentIdentifier(),
+        createDocumentIdentifier(),
+        createDocumentIdentifier()
       ]
     })
 
