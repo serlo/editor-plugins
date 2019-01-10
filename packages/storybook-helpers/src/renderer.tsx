@@ -1,6 +1,6 @@
-import { createEditorPlugins, defaultPlugin } from '@serlo-org/editor-plugins'
-import { createRendererPlugins } from '@serlo-org/editor-plugins-renderer'
-import { HtmlRenderer } from '@serlo-org/html-renderer'
+import { createEditorPlugins, defaultPlugin } from '@serlo/editor-plugins'
+import { createRendererPlugins } from '@serlo/editor-plugins-renderer'
+import { HtmlRenderer } from '@serlo/html-renderer'
 import {
   EditorContext,
   EditorUtilsContext

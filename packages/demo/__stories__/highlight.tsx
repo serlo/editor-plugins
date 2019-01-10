@@ -1,10 +1,10 @@
-import { highlightPlugin } from '@serlo-org/editor-plugin-highlight'
-import { highlightRendererPlugin } from '@serlo-org/editor-plugin-highlight-renderer'
+import { highlightPlugin } from '@serlo/editor-plugin-highlight'
+import { highlightRendererPlugin } from '@serlo/editor-plugin-highlight-renderer'
 import {
   createStateForContentPlugin,
   renderEditor,
   renderRenderer
-} from '@serlo-org/storybook-helpers'
+} from '@serlo/storybook-helpers'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 

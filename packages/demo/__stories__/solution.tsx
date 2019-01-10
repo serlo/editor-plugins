@@ -1,11 +1,11 @@
 import { createDocumentIdentifier } from '@splish-me/editor-core-document'
-import { solutionPlugin } from '@serlo-org/editor-plugin-solution'
-import { solutionRendererPlugin } from '@serlo-org/editor-plugin-solution-renderer'
+import { solutionPlugin } from '@serlo/editor-plugin-solution'
+import { solutionRendererPlugin } from '@serlo/editor-plugin-solution-renderer'
 import {
   createStateForContentPlugin,
   renderEditor,
   renderRenderer
-} from '@serlo-org/storybook-helpers'
+} from '@serlo/storybook-helpers'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 

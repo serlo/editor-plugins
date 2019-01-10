@@ -1,10 +1,10 @@
-import { hintPlugin } from '@serlo-org/editor-plugin-hint'
-import { hintRendererPlugin } from '@serlo-org/editor-plugin-hint-renderer'
+import { hintPlugin } from '@serlo/editor-plugin-hint'
+import { hintRendererPlugin } from '@serlo/editor-plugin-hint-renderer'
 import {
   createStateForContentPlugin,
   renderEditor,
   renderRenderer
-} from '@serlo-org/storybook-helpers'
+} from '@serlo/storybook-helpers'
 import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'

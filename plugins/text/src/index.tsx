@@ -31,7 +31,7 @@ import {
   plugins as rendererPlugins,
   isKatex,
   insertKatex
-} from '@serlo-org/editor-plugin-text-renderer'
+} from '@serlo/editor-plugin-text-renderer'
 import * as R from 'ramda'
 import * as React from 'react'
 import { Change, Value } from 'slate'

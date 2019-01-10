@@ -1,4 +1,4 @@
-import { Hint } from '@serlo-org/editor-ui'
+import { Hint } from '@serlo/editor-ui'
 import { Document } from '@splish-me/editor-core-document'
 import * as React from 'react'
 

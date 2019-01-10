@@ -3,7 +3,7 @@ import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 import {
   BlockquotePluginState,
   BlockquoteRenderer
-} from '@serlo-org/editor-plugin-blockquote-renderer'
+} from '@serlo/editor-plugin-blockquote-renderer'
 
 export const blockquotePlugin = {
   name: '@serlo-org/blockquote',

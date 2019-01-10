@@ -1,4 +1,4 @@
-import { ImagePluginState } from '@serlo-org/editor-plugin-image-renderer'
+import { ImagePluginState } from '@serlo/editor-plugin-image-renderer'
 
 import { createImageEditor } from './editor'
 import { UploadConfig } from './upload'

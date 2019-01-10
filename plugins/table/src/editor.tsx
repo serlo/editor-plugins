@@ -2,8 +2,8 @@ import {
   TablePluginState,
   TableRenderer,
   TableRendererProps
-} from '@serlo-org/editor-plugin-table-renderer'
-import { styled } from '@serlo-org/editor-ui'
+} from '@serlo/editor-plugin-table-renderer'
+import { styled } from '@serlo/editor-ui'
 import * as React from 'react'
 import Textarea from 'react-textarea-autosize'
 

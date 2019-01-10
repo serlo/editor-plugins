@@ -1,4 +1,4 @@
-import { StepByStepPluginState } from '@serlo-org/editor-plugin-step-by-step-renderer'
+import { StepByStepPluginState } from '@serlo/editor-plugin-step-by-step-renderer'
 import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 
 import { StepByStepEditor } from './editor'

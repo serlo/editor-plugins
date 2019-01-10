@@ -1,5 +1,5 @@
 import { Document } from '@splish-me/editor-core-document'
-import { Feedback } from '@serlo-org/editor-ui'
+import { Feedback } from '@serlo/editor-ui'
 import A from 'algebra.js'
 import * as React from 'react'
 import S from 'string'

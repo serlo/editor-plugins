@@ -1,4 +1,4 @@
-import { InputExercisePluginState } from '@serlo-org/editor-plugin-input-exercise-renderer'
+import { InputExercisePluginState } from '@serlo/editor-plugin-input-exercise-renderer'
 
 import { InputExerciseEditor } from './editor'
 

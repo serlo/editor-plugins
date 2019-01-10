@@ -2,12 +2,12 @@ import {
   createStateForContentPlugin,
   renderEditor,
   renderRenderer
-} from '@serlo-org/storybook-helpers'
+} from '@serlo/storybook-helpers'
 import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 import { storiesOf } from '@storybook/react'
 
-import { inputExercisePlugin } from '@serlo-org/editor-plugin-input-exercise'
-import { inputExerciseRendererPlugin } from '@serlo-org/editor-plugin-input-exercise-renderer'
+import { inputExercisePlugin } from '@serlo/editor-plugin-input-exercise'
+import { inputExerciseRendererPlugin } from '@serlo/editor-plugin-input-exercise-renderer'
 
 storiesOf('InputTextExercise', module)
   .add('Editable (initial state)', () => {

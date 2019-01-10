@@ -1,4 +1,4 @@
-import { EquationsPluginState } from '@serlo-org/editor-plugin-equations-renderer'
+import { EquationsPluginState } from '@serlo/editor-plugin-equations-renderer'
 
 import { EquationsEditor } from './editor'
 

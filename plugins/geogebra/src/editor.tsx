@@ -1,7 +1,7 @@
 import {
   GeogebraPluginState,
   GeogebraRenderer
-} from '@serlo-org/editor-plugin-geogebra-renderer'
+} from '@serlo/editor-plugin-geogebra-renderer'
 import { renderIntoSidebar, Input } from '@splish-me/editor-ui-plugin-sidebar'
 import * as React from 'react'
 

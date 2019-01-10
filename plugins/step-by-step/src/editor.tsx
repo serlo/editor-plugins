@@ -2,8 +2,8 @@ import {
   StepByStepPluginState,
   StepByStepRenderer,
   StepByStepRendererProps
-} from '@serlo-org/editor-plugin-step-by-step-renderer'
-import { Icon, faPlus, faTimes, styled } from '@serlo-org/editor-ui'
+} from '@serlo/editor-plugin-step-by-step-renderer'
+import { Icon, faPlus, faTimes, styled } from '@serlo/editor-ui'
 import {
   createDocumentIdentifier,
   Document

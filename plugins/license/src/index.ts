@@ -1,4 +1,4 @@
-import { LicensePluginState } from '@serlo-org/editor-plugin-license-renderer'
+import { LicensePluginState } from '@serlo/editor-plugin-license-renderer'
 import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 
 import { LicenseEditor } from './editor'

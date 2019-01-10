@@ -1,10 +1,10 @@
-import { createImagePlugin } from '@serlo-org/editor-plugin-image'
-import { createImageRendererPlugin } from '@serlo-org/editor-plugin-image-renderer'
+import { createImagePlugin } from '@serlo/editor-plugin-image'
+import { createImageRendererPlugin } from '@serlo/editor-plugin-image-renderer'
 import {
   createStateForContentPlugin,
   renderEditor,
   renderRenderer
-} from '@serlo-org/storybook-helpers'
+} from '@serlo/storybook-helpers'
 import { storiesOf } from '@storybook/react'
 
 const plugin = createImagePlugin({

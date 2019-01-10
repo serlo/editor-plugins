@@ -1,4 +1,4 @@
-import { styled } from '@serlo-org/editor-ui'
+import { styled } from '@serlo/editor-ui'
 import * as R from 'ramda'
 import * as React from 'react'
 

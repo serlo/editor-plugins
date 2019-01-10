@@ -2,9 +2,9 @@ import {
   createStateForContentPlugin,
   renderEditor,
   renderRenderer
-} from '@serlo-org/storybook-helpers'
-import { tablePlugin } from '@serlo-org/editor-plugin-table'
-import { tableRendererPlugin } from '@serlo-org/editor-plugin-table-renderer'
+} from '@serlo/storybook-helpers'
+import { tablePlugin } from '@serlo/editor-plugin-table'
+import { tableRendererPlugin } from '@serlo/editor-plugin-table-renderer'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 

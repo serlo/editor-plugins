@@ -1,8 +1,8 @@
-import { equationsPlugin as plugin } from '@serlo-org/editor-plugin-equations'
+import { equationsPlugin as plugin } from '@serlo/editor-plugin-equations'
 import {
   createStateForContentPlugin,
   renderEditor
-} from '@serlo-org/storybook-helpers'
+} from '@serlo/storybook-helpers'
 import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 import { storiesOf } from '@storybook/react'
 

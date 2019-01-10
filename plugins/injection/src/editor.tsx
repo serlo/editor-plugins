@@ -1,7 +1,7 @@
 import {
   InjectionPluginState,
   InjectionRenderer
-} from '@serlo-org/editor-plugin-injection-renderer'
+} from '@serlo/editor-plugin-injection-renderer'
 import { Input, renderIntoSidebar } from '@splish-me/editor-ui-plugin-sidebar'
 import * as React from 'react'
 

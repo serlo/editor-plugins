@@ -1,8 +1,8 @@
 import {
   ImagePluginState,
   ImageRenderer
-} from '@serlo-org/editor-plugin-image-renderer'
-import { Icon, faImages, styled } from '@serlo-org/editor-ui'
+} from '@serlo/editor-plugin-image-renderer'
+import { Icon, faImages, styled } from '@serlo/editor-ui'
 import {
   Checkbox,
   Input,

@@ -1,5 +1,5 @@
-import { Block as B } from '@serlo-org/editor-plugin-matching-exercise-renderer'
-import { styled } from '@serlo-org/editor-ui'
+import { Block as B } from '@serlo/editor-plugin-matching-exercise-renderer'
+import { styled } from '@serlo/editor-ui'
 import * as React from 'react'
 // @ts-ignore
 import { Draggable } from 'react-beautiful-dnd'

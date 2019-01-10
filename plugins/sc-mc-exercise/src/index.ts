@@ -1,4 +1,4 @@
-import { ScMcExercisePluginState } from '@serlo-org/editor-plugin-sc-mc-exercise-renderer'
+import { ScMcExercisePluginState } from '@serlo/editor-plugin-sc-mc-exercise-renderer'
 import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 
 import { ScMcExerciseEditor } from './editor'

@@ -1,4 +1,4 @@
-import { UploadProgress } from '@serlo-org/editor-ui'
+import { UploadProgress } from '@serlo/editor-ui'
 import { Sidebar } from '@splish-me/editor-ui-sidebar'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'

@@ -3,8 +3,8 @@ import {
   InputExerciseRenderer,
   InputExerciseRendererProps,
   WrongAnswer
-} from '@serlo-org/editor-plugin-input-exercise-renderer'
-import { Feedback, styled } from '@serlo-org/editor-ui'
+} from '@serlo/editor-plugin-input-exercise-renderer'
+import { Feedback, styled } from '@serlo/editor-ui'
 import {
   Document,
   createDocumentIdentifier

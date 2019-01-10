@@ -1,4 +1,4 @@
-import { Wiris } from '@serlo-org/editor-plugin-text-renderer'
+import { Wiris } from '@serlo/editor-plugin-text-renderer'
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'

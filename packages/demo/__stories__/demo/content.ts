@@ -1,4 +1,4 @@
-import { textPlugin } from '@serlo-org/editor-plugin-text'
+import { textPlugin } from '@serlo/editor-plugin-text'
 import * as R from 'ramda'
 
 const preContent = {

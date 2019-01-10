@@ -1,4 +1,4 @@
-import { SolutionPluginState } from '@serlo-org/editor-plugin-solution-renderer'
+import { SolutionPluginState } from '@serlo/editor-plugin-solution-renderer'
 import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 
 import { SolutionEditor } from './editor'

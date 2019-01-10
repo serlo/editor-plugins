@@ -1,7 +1,7 @@
 import {
   FoobarPluginState,
   FoobarRenderer
-} from '@serlo-org/editor-plugin-foobar-renderer'
+} from '@serlo/editor-plugin-foobar-renderer'
 
 import { FoobarEditor } from './editor'
 

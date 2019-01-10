@@ -7,78 +7,72 @@
     "target": "esnext",
     "baseUrl": ".",
     "paths": {
-      "@serlo-org/editor-plugins": ["packages/editor-plugins/src"],
-      "@serlo-org/editor-plugins-registry": [
+      "@serlo/editor-plugins": ["packages/editor-plugins/src"],
+      "@serlo/editor-plugins-registry": [
         "packages/editor-plugins-registry/src"
       ],
-      "@serlo-org/editor-plugins-renderer": [
+      "@serlo/editor-plugins-renderer": [
         "packages/editor-plugins-renderer/src"
       ],
-      "@serlo-org/editor-plugin-anchor": ["plugins/anchor/src"],
-      "@serlo-org/editor-plugin-anchor-renderer": [
-        "plugins/anchor-renderer/src"
-      ],
-      "@serlo-org/editor-plugin-blockquote": ["plugins/blockquote/src"],
-      "@serlo-org/editor-plugin-blockquote-renderer": [
+      "@serlo/editor-plugin-anchor": ["plugins/anchor/src"],
+      "@serlo/editor-plugin-anchor-renderer": ["plugins/anchor-renderer/src"],
+      "@serlo/editor-plugin-blockquote": ["plugins/blockquote/src"],
+      "@serlo/editor-plugin-blockquote-renderer": [
         "plugins/blockquote-renderer/src"
       ],
-      "@serlo-org/editor-plugin-equations": ["plugins/equations/src"],
-      "@serlo-org/editor-plugin-equations-renderer": [
+      "@serlo/editor-plugin-equations": ["plugins/equations/src"],
+      "@serlo/editor-plugin-equations-renderer": [
         "plugins/equations-renderer/src"
       ],
-      "@serlo-org/editor-plugin-geogebra": ["plugins/geogebra/src"],
-      "@serlo-org/editor-plugin-geogebra-renderer": [
+      "@serlo/editor-plugin-geogebra": ["plugins/geogebra/src"],
+      "@serlo/editor-plugin-geogebra-renderer": [
         "plugins/geogebra-renderer/src"
       ],
-      "@serlo-org/editor-plugin-highlight": ["plugins/highlight/src"],
-      "@serlo-org/editor-plugin-highlight-renderer": [
+      "@serlo/editor-plugin-highlight": ["plugins/highlight/src"],
+      "@serlo/editor-plugin-highlight-renderer": [
         "plugins/highlight-renderer/src"
       ],
-      "@serlo-org/editor-plugin-hint": ["plugins/hint/src"],
-      "@serlo-org/editor-plugin-hint-renderer": ["plugins/hint-renderer/src"],
-      "@serlo-org/editor-plugin-image": ["plugins/image/src"],
-      "@serlo-org/editor-plugin-image-renderer": ["plugins/image-renderer/src"],
-      "@serlo-org/editor-plugin-injection": ["plugins/injection/src"],
-      "@serlo-org/editor-plugin-injection-renderer": [
+      "@serlo/editor-plugin-hint": ["plugins/hint/src"],
+      "@serlo/editor-plugin-hint-renderer": ["plugins/hint-renderer/src"],
+      "@serlo/editor-plugin-image": ["plugins/image/src"],
+      "@serlo/editor-plugin-image-renderer": ["plugins/image-renderer/src"],
+      "@serlo/editor-plugin-injection": ["plugins/injection/src"],
+      "@serlo/editor-plugin-injection-renderer": [
         "plugins/injection-renderer/src"
       ],
-      "@serlo-org/editor-plugin-input-exercise": ["plugins/input-exercise/src"],
-      "@serlo-org/editor-plugin-input-exercise-renderer": [
+      "@serlo/editor-plugin-input-exercise": ["plugins/input-exercise/src"],
+      "@serlo/editor-plugin-input-exercise-renderer": [
         "plugins/input-exercise-renderer/src"
       ],
-      "@serlo-org/editor-plugin-license": ["plugins/license/src"],
-      "@serlo-org/editor-plugin-license-renderer": [
-        "plugins/license-renderer/src"
-      ],
-      "@serlo-org/editor-plugin-matching-exercise": [
+      "@serlo/editor-plugin-license": ["plugins/license/src"],
+      "@serlo/editor-plugin-license-renderer": ["plugins/license-renderer/src"],
+      "@serlo/editor-plugin-matching-exercise": [
         "plugins/matching-exercise/src"
       ],
-      "@serlo-org/editor-plugin-matching-exercise-renderer": [
+      "@serlo/editor-plugin-matching-exercise-renderer": [
         "plugins/matching-exercise-renderer/src"
       ],
-      "@serlo-org/editor-plugin-sc-mc-exercise": ["plugins/sc-mc-exercise/src"],
-      "@serlo-org/editor-plugin-sc-mc-exercise-renderer": [
+      "@serlo/editor-plugin-sc-mc-exercise": ["plugins/sc-mc-exercise/src"],
+      "@serlo/editor-plugin-sc-mc-exercise-renderer": [
         "plugins/sc-mc-exercise-renderer/src"
       ],
-      "@serlo-org/editor-plugin-solution": ["plugins/solution/src"],
-      "@serlo-org/editor-plugin-solution-renderer": [
+      "@serlo/editor-plugin-solution": ["plugins/solution/src"],
+      "@serlo/editor-plugin-solution-renderer": [
         "plugins/solution-renderer/src"
       ],
-      "@serlo-org/editor-plugin-spoiler": ["plugins/spoiler/src"],
-      "@serlo-org/editor-plugin-spoiler-renderer": [
-        "plugins/spoiler-renderer/src"
-      ],
-      "@serlo-org/editor-plugin-step-by-step": ["plugins/step-by-step/src"],
-      "@serlo-org/editor-plugin-step-by-step-renderer": [
+      "@serlo/editor-plugin-spoiler": ["plugins/spoiler/src"],
+      "@serlo/editor-plugin-spoiler-renderer": ["plugins/spoiler-renderer/src"],
+      "@serlo/editor-plugin-step-by-step": ["plugins/step-by-step/src"],
+      "@serlo/editor-plugin-step-by-step-renderer": [
         "plugins/step-by-step-renderer/src"
       ],
-      "@serlo-org/editor-plugin-table": ["plugins/table/src"],
-      "@serlo-org/editor-plugin-table-renderer": ["plugins/table-renderer/src"],
-      "@serlo-org/editor-plugin-text": ["plugins/text/src"],
-      "@serlo-org/editor-plugin-text-renderer": ["plugins/text-renderer/src"],
-      "@serlo-org/editor-ui": ["packages/editor-ui/src"],
-      "@serlo-org/html-renderer": ["packages/html-renderer/src"],
-      "@serlo-org/storybook-helpers": ["packages/storybook-helpers/src"]
+      "@serlo/editor-plugin-table": ["plugins/table/src"],
+      "@serlo/editor-plugin-table-renderer": ["plugins/table-renderer/src"],
+      "@serlo/editor-plugin-text": ["plugins/text/src"],
+      "@serlo/editor-plugin-text-renderer": ["plugins/text-renderer/src"],
+      "@serlo/editor-ui": ["packages/editor-ui/src"],
+      "@serlo/html-renderer": ["packages/html-renderer/src"],
+      "@serlo/storybook-helpers": ["packages/storybook-helpers/src"]
     }
   }
 }

@@ -1,4 +1,4 @@
-import { MatchingExercisePluginState } from '@serlo-org/editor-plugin-matching-exercise-renderer'
+import { MatchingExercisePluginState } from '@serlo/editor-plugin-matching-exercise-renderer'
 import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 
 import { MatchingExerciseEditor } from './editor'

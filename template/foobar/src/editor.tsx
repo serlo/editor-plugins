@@ -3,7 +3,7 @@ import {
   FoobarPluginState,
   FoobarRenderer,
   FoobarRendererProps
-} from '@serlo-org/editor-plugin-foobar-renderer'
+} from '@serlo/editor-plugin-foobar-renderer'
 import { renderIntoSidebar, Text } from '@splish-me/editor-ui-plugin-sidebar'
 
 export class FoobarEditor extends React.Component<FoobarEditorProps> {

@@ -1,9 +1,9 @@
 {
-  "name": "@serlo-org/editor-plugins-workspace",
+  "name": "@serlo/editor-plugins-workspace",
   "version": "0.0.0",
   "license": "Apache-2.0",
   "author": "Serlo Education e.V.",
-  "repository": "serlo-org/editor-plugins",
+  "repository": "serlo/editor-plugins",
   "scripts": {
     "precommit": "lint-staged",
     "build": "lerna run --stream build",

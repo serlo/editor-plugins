@@ -1,4 +1,4 @@
-import { HintPluginState } from '@serlo-org/editor-plugin-hint-renderer'
+import { HintPluginState } from '@serlo/editor-plugin-hint-renderer'
 import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 
 import { HintEditor } from './editor'

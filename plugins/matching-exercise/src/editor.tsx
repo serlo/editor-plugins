@@ -1,8 +1,8 @@
 import {
   Block as B,
   MatchingExercisePluginState
-} from '@serlo-org/editor-plugin-matching-exercise-renderer'
-import { Icon, faPlus, faMinus, styled } from '@serlo-org/editor-ui'
+} from '@serlo/editor-plugin-matching-exercise-renderer'
+import { Icon, faPlus, faMinus, styled } from '@serlo/editor-ui'
 import {
   createDocumentIdentifier,
   Document

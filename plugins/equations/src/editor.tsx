@@ -1,9 +1,9 @@
-import { Icon, faPlus, faTimes, styled } from '@serlo-org/editor-ui'
+import { Icon, faPlus, faTimes, styled } from '@serlo/editor-ui'
 import {
   EquationsPluginState,
   EquationsRenderer,
   EquationsRendererProps
-} from '@serlo-org/editor-plugin-equations-renderer'
+} from '@serlo/editor-plugin-equations-renderer'
 import {
   Document,
   createDocumentIdentifier

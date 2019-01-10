@@ -1,8 +1,8 @@
 import {
   ScMcExercisePluginState,
   ScMcExerciseRenderer
-} from '@serlo-org/editor-plugin-sc-mc-exercise-renderer'
-import { Feedback, Icon, faPlus, styled } from '@serlo-org/editor-ui'
+} from '@serlo/editor-plugin-sc-mc-exercise-renderer'
+import { Feedback, Icon, faPlus, styled } from '@serlo/editor-ui'
 import {
   createDocumentIdentifier,
   Document

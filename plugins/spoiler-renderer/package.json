@@ -1,8 +1,8 @@
 {
-  "name": "@serlo-org/editor-plugin-spoiler-renderer",
+  "name": "@serlo/editor-plugin-spoiler-renderer",
   "version": "0.0.0",
   "bugs": {
-    "url": "https://github.com/serlo-org/editor-plugins/issues"
+    "url": "https://github.com/serlo/editor-plugins/issues"
   },
   "author": "Serlo Education e.V.",
   "license": "Apache-2.0",
@@ -11,7 +11,7 @@
   "module": "dist/index.mjs",
   "source": "src/index.ts",
   "types": "dist/index.d.ts",
-  "repository": "serlo-org/editor-plugins",
+  "repository": "serlo/editor-plugins",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "splish-microbundle",
@@ -20,7 +20,7 @@
     "format": "prettier --write \"{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@serlo-org/editor-ui": "^0.0.0",
+    "@serlo/editor-ui": "^0.0.0",
     "@splish-me/editor-core-document": "^0.4.0-alpha",
     "@splish-me/editor-core-types": "^0.4.0-alpha"
   },

@@ -1,4 +1,4 @@
-import { Icon, faPlus, faTrashAlt, styled } from '@serlo-org/editor-ui'
+import { Icon, faPlus, faTrashAlt, styled } from '@serlo/editor-ui'
 import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 import * as R from 'ramda'
 import * as React from 'react'
@@ -6,7 +6,7 @@ import * as React from 'react'
 import {
   ScMcExerciseChoiceRenderer,
   ScMcExerciseChoiceRendererProps
-} from '@serlo-org/editor-plugin-sc-mc-exercise-renderer'
+} from '@serlo/editor-plugin-sc-mc-exercise-renderer'
 
 export class ScMcChoiceEditor extends React.Component<ScMcChoiceEditorProps> {
   render() {

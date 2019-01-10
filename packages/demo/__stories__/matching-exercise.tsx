@@ -1,10 +1,10 @@
-import { matchingExercisePlugin as plugin } from '@serlo-org/editor-plugin-matching-exercise'
-import { MatchingExerciseRenderer } from '@serlo-org/editor-plugin-matching-exercise-renderer'
+import { matchingExercisePlugin as plugin } from '@serlo/editor-plugin-matching-exercise'
+import { MatchingExerciseRenderer } from '@serlo/editor-plugin-matching-exercise-renderer'
 import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 import {
   createStateForContentPlugin,
   renderEditor
-} from '@serlo-org/storybook-helpers'
+} from '@serlo/storybook-helpers'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 

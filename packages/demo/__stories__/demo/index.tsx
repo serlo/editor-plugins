@@ -5,7 +5,7 @@ import { renderToString } from 'react-dom/server'
 import 'font-awesome/css/font-awesome.css'
 import 'katex/dist/katex.css'
 
-import { renderEditor, renderRenderer } from '@serlo-org/storybook-helpers'
+import { renderEditor, renderRenderer } from '@serlo/storybook-helpers'
 import { content } from './content'
 
 storiesOf('Example', module)

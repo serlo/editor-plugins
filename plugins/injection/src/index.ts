@@ -1,4 +1,4 @@
-import { InjectionPluginState } from '@serlo-org/editor-plugin-injection-renderer'
+import { InjectionPluginState } from '@serlo/editor-plugin-injection-renderer'
 
 import { InjectionEditor } from './editor'
 

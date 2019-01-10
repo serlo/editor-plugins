@@ -1,9 +1,9 @@
-import { Icon, faLink } from '@serlo-org/editor-ui'
+import { Icon, faLink } from '@serlo/editor-ui'
 import {
   AnchorPluginState,
   AnchorRenderer,
   AnchorRendererProps
-} from '@serlo-org/editor-plugin-anchor-renderer'
+} from '@serlo/editor-plugin-anchor-renderer'
 import { Input, renderIntoSidebar } from '@splish-me/editor-ui-plugin-sidebar'
 import * as React from 'react'
 

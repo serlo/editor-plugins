@@ -1,9 +1,9 @@
-import { geogebraPlugin as plugin } from '@serlo-org/editor-plugin-geogebra'
+import { geogebraPlugin as plugin } from '@serlo/editor-plugin-geogebra'
 import {
   createStateForContentPlugin,
   renderEditor,
   renderRenderer
-} from '@serlo-org/storybook-helpers'
+} from '@serlo/storybook-helpers'
 import { storiesOf } from '@storybook/react'
 
 storiesOf('GeoGebra', module)

@@ -1,8 +1,8 @@
 import {
   SolutionPluginState,
   SolutionRenderer
-} from '@serlo-org/editor-plugin-solution-renderer'
-import { Hint } from '@serlo-org/editor-ui'
+} from '@serlo/editor-plugin-solution-renderer'
+import { Hint } from '@serlo/editor-ui'
 import { Document } from '@splish-me/editor-core-document'
 import * as React from 'react'
 

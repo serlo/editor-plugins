@@ -1,8 +1,8 @@
 import {
   SpoilerPluginState,
   SpoilerRenderer
-} from '@serlo-org/editor-plugin-spoiler-renderer'
-import { styled } from '@serlo-org/editor-ui'
+} from '@serlo/editor-plugin-spoiler-renderer'
+import { styled } from '@serlo/editor-ui'
 import * as React from 'react'
 
 export class SpoilerEditor extends React.Component<SpoilerEditorProps> {

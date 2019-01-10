@@ -1,7 +1,7 @@
 import {
   LicensePluginState,
   LicenseRenderer
-} from '@serlo-org/editor-plugin-license-renderer'
+} from '@serlo/editor-plugin-license-renderer'
 import {
   Dropdown,
   renderIntoSidebar

@@ -1,4 +1,4 @@
-import { styled } from '@serlo-org/editor-ui'
+import { styled } from '@serlo/editor-ui'
 import axios from 'axios'
 import * as React from 'react'
 

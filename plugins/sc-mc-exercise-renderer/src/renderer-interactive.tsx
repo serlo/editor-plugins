@@ -1,5 +1,5 @@
 import { Document } from '@splish-me/editor-core-document'
-import { Feedback, styled } from '@serlo-org/editor-ui'
+import { Feedback, styled } from '@serlo/editor-ui'
 import * as React from 'react'
 import * as R from 'ramda'
 

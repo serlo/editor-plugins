@@ -1,4 +1,4 @@
-import { SpoilerPluginState } from '@serlo-org/editor-plugin-spoiler-renderer'
+import { SpoilerPluginState } from '@serlo/editor-plugin-spoiler-renderer'
 import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 
 import { SpoilerEditor } from './editor'

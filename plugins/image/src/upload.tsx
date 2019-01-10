@@ -1,5 +1,5 @@
 import { Uploader, UploadField } from '@navjobs/upload'
-import { UploadProgress } from '@serlo-org/editor-ui'
+import { UploadProgress } from '@serlo/editor-ui'
 import * as React from 'react'
 
 export class Upload extends React.Component<UploadProps> {

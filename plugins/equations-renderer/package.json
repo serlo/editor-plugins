@@ -1,8 +1,8 @@
 {
-  "name": "@serlo-org/editor-plugin-equations-renderer",
+  "name": "@serlo/editor-plugin-equations-renderer",
   "version": "0.0.0",
   "bugs": {
-    "url": "https://github.com/serlo-org/editor-plugins/issues"
+    "url": "https://github.com/serlo/editor-plugins/issues"
   },
   "author": "Serlo Education e.V.",
   "license": "Apache-2.0",
@@ -11,7 +11,7 @@
   "module": "dist/index.mjs",
   "source": "src/index.ts",
   "types": "dist/index.d.ts",
-  "repository": "serlo-org/editor-plugins",
+  "repository": "serlo/editor-plugins",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "splish-microbundle",

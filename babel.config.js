@@ -3,6 +3,6 @@ module.exports = api => {
   api.cache(isProduction)
 
   return {
-    presets: ['@serlo-org/editor-plugins-config/src/babel-preset']
+    presets: ['@serlo/editor-plugins-config/src/babel-preset']
   }
 }

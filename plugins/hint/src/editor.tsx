@@ -1,8 +1,8 @@
 import {
   HintPluginState,
   HintRenderer
-} from '@serlo-org/editor-plugin-hint-renderer'
-import { Hint } from '@serlo-org/editor-ui'
+} from '@serlo/editor-plugin-hint-renderer'
+import { Hint } from '@serlo/editor-ui'
 import { Document } from '@splish-me/editor-core-document'
 import * as React from 'react'
 

@@ -1,8 +1,8 @@
 import {
   HighlightPluginState,
   HighlightRenderer
-} from '@serlo-org/editor-plugin-highlight-renderer'
-import { styled } from '@serlo-org/editor-ui'
+} from '@serlo/editor-plugin-highlight-renderer'
+import { styled } from '@serlo/editor-ui'
 import {
   Checkbox,
   Input,
