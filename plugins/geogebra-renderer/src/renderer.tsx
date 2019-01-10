@@ -1,6 +1,6 @@
-import { withDimensions } from '@splish-me/ory-editor-core'
 import axios from 'axios'
 import { debounce } from 'lodash'
+import withDimensions from 'ory-editor-core/lib/components/Dimensions'
 import * as React from 'react'
 import { v4 } from 'uuid'
 
@@ -79,6 +79,10 @@ export const GeogebraRenderer = withDimensions()(
     private mounted = false
 
     private requestHeight = debounce((src?: string) => {
+      if (!this.mounted) {
+        return
+      }
+
       if (!src) {
         return
       }

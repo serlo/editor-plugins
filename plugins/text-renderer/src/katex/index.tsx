@@ -17,6 +17,8 @@ import { Block, Change, Inline, Schema, BlockJSON, InlineJSON } from 'slate'
 import { Math } from './math.component'
 import { Wiris } from './wiris.component'
 
+export { Wiris }
+
 export const katexBlockNode = '@splish-me/katex-block'
 export const katexInlineNode = '@splish-me/katex-inline'
 

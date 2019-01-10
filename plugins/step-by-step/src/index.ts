@@ -3,7 +3,7 @@ import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 
 import { StepByStepEditor } from './editor'
 
-export default {
+export const stepByStepPlugin = {
   name: '@serlo-org/step-by-step',
   version: '0.0.0',
   Component: StepByStepEditor,

@@ -1,6 +1,6 @@
-module.exports = (baseConfig, env, config) => {
-  config.module.rules.push({
-    test: /\.(ts|tsx)$/,
+module.exports = (_baseConfig, _env, defaultConfig) => {
+  defaultConfig.module.rules.push({
+    test: /\.tsx?$/,
     loader: require.resolve('babel-loader'),
     options: {
       presets: [
@@ -43,11 +43,51 @@ module.exports = (baseConfig, env, config) => {
                 '@serlo-org/editor-plugin-hint/src',
               '@serlo-org/editor-plugin-hint-renderer':
                 '@serlo-org/editor-plugin-hint-renderer/src',
+              '@serlo-org/editor-plugin-image':
+                '@serlo-org/editor-plugin-image/src',
+              '@serlo-org/editor-plugin-image-renderer':
+                '@serlo-org/editor-plugin-image-renderer/src',
+              '@serlo-org/editor-plugin-injection':
+                '@serlo-org/editor-plugin-injection/src',
+              '@serlo-org/editor-plugin-injection-renderer':
+                '@serlo-org/editor-plugin-injection-renderer/src',
+              '@serlo-org/editor-plugin-input-exercise':
+                '@serlo-org/editor-plugin-input-exercise/src',
+              '@serlo-org/editor-plugin-input-exercise-renderer':
+                '@serlo-org/editor-plugin-input-exercise-renderer/src',
+              '@serlo-org/editor-plugin-license':
+                '@serlo-org/editor-plugin-license/src',
+              '@serlo-org/editor-plugin-license-renderer':
+                '@serlo-org/editor-plugin-license-renderer/src',
+              '@serlo-org/editor-plugin-matching-exercise':
+                '@serlo-org/editor-plugin-matching-exercise/src',
+              '@serlo-org/editor-plugin-matching-exercise-renderer':
+                '@serlo-org/editor-plugin-matching-exercise-renderer/src',
+              '@serlo-org/editor-plugin-sc-mc-exercise':
+                '@serlo-org/editor-plugin-sc-mc-exercise/src',
+              '@serlo-org/editor-plugin-sc-mc-exercise-renderer':
+                '@serlo-org/editor-plugin-sc-mc-exercise-renderer/src',
+              '@serlo-org/editor-plugin-solution':
+                '@serlo-org/editor-plugin-solution/src',
+              '@serlo-org/editor-plugin-solution-renderer':
+                '@serlo-org/editor-plugin-solution-renderer/src',
+              '@serlo-org/editor-plugin-spoiler':
+                '@serlo-org/editor-plugin-spoiler/src',
+              '@serlo-org/editor-plugin-spoiler-renderer':
+                '@serlo-org/editor-plugin-spoiler-renderer/src',
+              '@serlo-org/editor-plugin-step-by-step':
+                '@serlo-org/editor-plugin-step-by-step/src',
+              '@serlo-org/editor-plugin-step-by-step-renderer':
+                '@serlo-org/editor-plugin-step-by-step-renderer/src',
+              '@serlo-org/editor-plugin-table':
+                '@serlo-org/editor-plugin-table/src',
+              '@serlo-org/editor-plugin-table-renderer':
+                '@serlo-org/editor-plugin-table-renderer/src',
               '@serlo-org/editor-plugin-text':
                 '@serlo-org/editor-plugin-text/src',
               '@serlo-org/editor-plugin-text-renderer':
                 '@serlo-org/editor-plugin-text-renderer/src',
-              '@selro-org/editor-ui': '@serlo-org/editor-ui/src',
+              '@serlo-org/editor-ui': '@serlo-org/editor-ui/src',
               '@serlo-org/html-renderer': '@serlo-org/html-renderer/src',
               '@serlo-org/storybook-helpers': '@serlo-org/storybook-helpers/src'
             }
@@ -56,7 +96,8 @@ module.exports = (baseConfig, env, config) => {
       ]
     }
   })
-  config.resolve.extensions.push('.ts', '.tsx')
-  config.externals = [require('webpack-require-http')]
-  return config
+  defaultConfig.resolve.extensions.push('.ts', '.tsx')
+  defaultConfig.externals = [require('webpack-require-http')]
+
+  return defaultConfig
 }

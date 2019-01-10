@@ -1,6 +1,13 @@
+import { setOptions } from '@storybook/addon-options'
 import { configure } from '@storybook/react'
 
-// const req = require.context('../../..', true, /__stories__\/.+\.tsx$/)
+setOptions({
+  name: 'Editor Plugins',
+  url: 'https://github.com/serlo/editor-plugins',
+  showStoriesPanel: true,
+  showAddonPanel: false
+})
+
 const req = require.context('../__stories__', true, /\.tsx$/)
 
 function loadStories() {

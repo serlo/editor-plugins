@@ -1,4 +1,5 @@
 import { createDocumentIdentifier } from '@splish-me/editor-core-document'
+import { solutionPlugin } from '@serlo-org/editor-plugin-solution'
 import { solutionRendererPlugin } from '@serlo-org/editor-plugin-solution-renderer'
 import {
   createStateForContentPlugin,
@@ -7,8 +8,6 @@ import {
 } from '@serlo-org/storybook-helpers'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
-
-import { solutionPlugin } from '../src'
 
 storiesOf('Solution', module)
   .add('Editable (initial state)', () => {

@@ -60,6 +60,20 @@
       "@serlo-org/editor-plugin-sc-mc-exercise-renderer": [
         "plugins/sc-mc-exercise-renderer/src"
       ],
+      "@serlo-org/editor-plugin-solution": ["plugins/solution/src"],
+      "@serlo-org/editor-plugin-solution-renderer": [
+        "plugins/solution-renderer/src"
+      ],
+      "@serlo-org/editor-plugin-spoiler": ["plugins/spoiler/src"],
+      "@serlo-org/editor-plugin-spoiler-renderer": [
+        "plugins/spoiler-renderer/src"
+      ],
+      "@serlo-org/editor-plugin-step-by-step": ["plugins/step-by-step/src"],
+      "@serlo-org/editor-plugin-step-by-step-renderer": [
+        "plugins/step-by-step-renderer/src"
+      ],
+      "@serlo-org/editor-plugin-table": ["plugins/table/src"],
+      "@serlo-org/editor-plugin-table-renderer": ["plugins/table-renderer/src"],
       "@serlo-org/editor-plugin-text": ["plugins/text/src"],
       "@serlo-org/editor-plugin-text-renderer": ["plugins/text-renderer/src"],
       "@serlo-org/editor-ui": ["packages/editor-ui/src"],

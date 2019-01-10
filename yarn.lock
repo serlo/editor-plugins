@@ -112,7 +112,7 @@
     "@babel/traverse" "^7.1.0"
     "@babel/types" "^7.0.0"
 
-"@babel/helper-create-class-features-plugin@^7.2.1", "@babel/helper-create-class-features-plugin@^7.2.3":
+"@babel/helper-create-class-features-plugin@^7.2.3":
   version "7.2.3"
   resolved "https://registry.yarnpkg.com/@babel/helper-create-class-features-plugin/-/helper-create-class-features-plugin-7.2.3.tgz#f6e719abb90cb7f4a69591e35fd5eb89047c4a7c"
   integrity sha512-xO/3Gn+2C7/eOUeb0VRnSP1+yvWHNxlpAot1eMhtoKDCN7POsyQP5excuT5UsV5daHxMWBeIIOeI5cmB8vMRgQ==
@@ -297,14 +297,6 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/helper-replace-supers" "^7.1.0"
     "@babel/plugin-syntax-class-properties" "^7.0.0"
-
-"@babel/plugin-proposal-class-properties@7.2.1":
-  version "7.2.1"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-class-properties/-/plugin-proposal-class-properties-7.2.1.tgz#c734a53e0a1ec40fe5c22ee5069d26da3b187d05"
-  integrity sha512-/4FKFChkQ2Jgb8lBDsvFX496YTi7UWTetVgS8oJUpX1e/DlaoeEK57At27ug8Hu2zI2g8bzkJ+8k9qrHZRPGPA==
-  dependencies:
-    "@babel/helper-create-class-features-plugin" "^7.2.1"
-    "@babel/helper-plugin-utils" "^7.0.0"
 
 "@babel/plugin-proposal-class-properties@^7.0.0", "@babel/plugin-proposal-class-properties@^7.2.0":
   version "7.2.3"
@@ -1314,12 +1306,12 @@
     humps "^2.0.1"
     prop-types "^15.5.10"
 
-"@lerna/add@3.10.1":
-  version "3.10.1"
-  resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.10.1.tgz#9668a696cafe1056d27f8fe4a51c6dc89cbad5ae"
-  integrity sha512-H6rPK13BWC6Hf108C/zoXsg+nf1/osp3PWP1k9DsulLr1OWMrpFqFNa2StQHqbbPL2K0FDFeoswcOL6AxpZRrg==
+"@lerna/add@3.10.2":
+  version "3.10.2"
+  resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.10.2.tgz#586a2db4f3e53c47390c9cd3c59a1925f75760f1"
+  integrity sha512-mEgF6lzIIvH8XisznANmRIpFDIUA9FiEDkR7N86tWuKJoqv/6Q72MaUT+QlV5G9tkgKgsVZ5T/Jaxudr6ZlTzA==
   dependencies:
-    "@lerna/bootstrap" "3.10.1"
+    "@lerna/bootstrap" "3.10.2"
     "@lerna/command" "3.10.0"
     "@lerna/filter-options" "3.10.1"
     "@lerna/npm-conf" "3.7.0"
@@ -1338,10 +1330,10 @@
     "@lerna/validation-error" "3.6.0"
     libnpm "^2.0.1"
 
-"@lerna/bootstrap@3.10.1":
-  version "3.10.1"
-  resolved "https://registry.yarnpkg.com/@lerna/bootstrap/-/bootstrap-3.10.1.tgz#53d349ae9971505ddd3e637359a64eebb8a18a2a"
-  integrity sha512-tI6Vt3ewW1Z9Yfv3pFQG0gmbuI8cjo578Ohg5KJQSrMRF+Bm4uuSxJiJ+aqz0xz2OnRT48YYO3GOIJTlhi5wXA==
+"@lerna/bootstrap@3.10.2":
+  version "3.10.2"
+  resolved "https://registry.yarnpkg.com/@lerna/bootstrap/-/bootstrap-3.10.2.tgz#a45efd4d74ef4a3b1ae1b95023a8b187f49f2c88"
+  integrity sha512-6ux3eApTvRaok0DbAtVgv2WECYDAqqz+2zUiamR7stYHai78kO/95+WJxjHWytch5tZOb2sFIjNu6vvg7AjYEw==
   dependencies:
     "@lerna/batch-packages" "3.10.0"
     "@lerna/command" "3.10.0"
@@ -1946,220 +1938,221 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@serlo-org/editor-plugin-geogebra@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@serlo-org/editor-plugin-geogebra/-/editor-plugin-geogebra-0.0.5.tgz#90d10d97e0385763e70b804e8955daf52729a897"
-  integrity sha512-VYguS3hu5ECw8a3L1Ug7z+fKnEjQFaIvPePygXMIdevJfEewFvYKvEbvskePNe7JEB3vAXi5LW6Lf+ZVw6NBjQ==
+"@splish-me/editor-core-contexts@0.4.0-alpha.0":
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-core-contexts/-/editor-core-contexts-0.4.0-alpha.0.tgz#2490dbe70d9544fde06bb4d394f4a9cff8cd436a"
+  integrity sha512-cqoNer+GVH6Ew2t0dOb2sgms9ye+g/SDUJ22xmZ7cwe3rI47A36KZFg7FXbbnq+IcC2uBw5pN1ZnVmZd33V96Q==
   dependencies:
-    lodash.debounce "^4.0.8"
-    superagent "^3.8.2"
+    "@splish-me/editor-core-types" "0.4.0-alpha.0"
 
-"@serlo-org/editor-plugin-hint@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@serlo-org/editor-plugin-hint/-/editor-plugin-hint-0.0.3.tgz#680b52c9e32d548dbf652341bc7b447214a129b6"
-  integrity sha512-9WmExEOiyehqLJOss3Yy00A36b+9JRGiRonLUUzorcNlAjHQVcDvkndv+HRu5B1KvXoHVkLC0pxViSUITTCS0w==
-
-"@splish-me/editor-core-contexts@0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-core-contexts/-/editor-core-contexts-0.3.0.tgz#be4aab76e63d5bfbaef0b339e68a03c89bd0121d"
-  integrity sha512-S/StxYhKJr+Il/iPOfdiXN+0Mn9BiE+vRMNoQSmFMdqJ5B05G8H01mqW8vfpEnggLo50A76pV2e1XRLDiSZGEQ==
+"@splish-me/editor-core-document@0.4.0-alpha.0", "@splish-me/editor-core-document@^0.4.0-alpha":
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-core-document/-/editor-core-document-0.4.0-alpha.0.tgz#0d8bfa6a78552c85305b26ba7b1aab808e2451ef"
+  integrity sha512-KytsY2o0mJwUpRns+P4cOnYPvQCPGnigwILK0YxBf8M0CsW56QXKLFO6HIuLPq2hEAJ/4BCGipfCcf7nzrQZvQ==
   dependencies:
-    "@splish-me/editor-core-types" "0.3.0"
-
-"@splish-me/editor-core-document@0.3.0", "@splish-me/editor-core-document@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-core-document/-/editor-core-document-0.3.0.tgz#233d35305ab3fa49ef6a6bf5abeca8a5583aabfe"
-  integrity sha512-OSlpW1OvXt7Hc/EG2oltFcEcApeoLFSYuEqWGbIPwtXZ+uzK53cCGUDXTPI3pQFpydQ6bLhPcHPhccUbOmFlvw==
-  dependencies:
-    "@splish-me/editor-core-contexts" "0.3.0"
-    "@splish-me/editor-core-types" "0.3.0"
+    "@splish-me/editor-core-contexts" "0.4.0-alpha.0"
+    "@splish-me/editor-core-types" "0.4.0-alpha.0"
     uuid "^3.0.0"
 
-"@splish-me/editor-core-html-renderer@0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-core-html-renderer/-/editor-core-html-renderer-0.3.0.tgz#d7366ff50478a60d11afbe4031c89531f2e97be9"
-  integrity sha512-zAW1yq7F/41eWCn2F6w0vo7SMfNSVuwZsXrzCK58hCrK90Fc8aMGdR8Fz4qXjMBdIOw/QVpccit/HV8rsCMbsw==
+"@splish-me/editor-core-html-renderer@0.4.0-alpha.0":
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-core-html-renderer/-/editor-core-html-renderer-0.4.0-alpha.0.tgz#0aa704a44bb7fd19ddb89b4e972f4d2b284b4970"
+  integrity sha512-5SR1pJ+iKE7I0L3gdHQd73WiWqVBUjNFrUJHnHM9kQek6hQD4GsmsilaO34Fmd/X08r8/BYGD6aImUiCObx5wA==
   dependencies:
-    "@splish-me/editor-core-renderer" "0.3.0"
+    "@splish-me/editor-core-renderer" "0.4.0-alpha.0"
     classnames "^2.0.0"
 
-"@splish-me/editor-core-renderer@0.3.0", "@splish-me/editor-core-renderer@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-core-renderer/-/editor-core-renderer-0.3.0.tgz#12d50cbdb66319199f00f707033ee755d131e303"
-  integrity sha512-2nCncRBR2sP9CUeYZHUX6DchV1ubKDYwsoYTa8eSFAAea5Vi4gEsoyEeaFyvEeq3DkHSLz6SMHrDAKOy9DFwFw==
+"@splish-me/editor-core-renderer@0.4.0-alpha.0", "@splish-me/editor-core-renderer@^0.4.0-alpha":
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-core-renderer/-/editor-core-renderer-0.4.0-alpha.0.tgz#9733ce4871abd04be122c33e1d52e4d1a3ad6a22"
+  integrity sha512-38+HqXAAF7GFRddXxrHZBL1CGof6zmhWE3lT2avmcClLgl68w84dVPNIxqIi3ZEmsu7GXlUfy1H9fZxxCbuCvg==
   dependencies:
-    "@splish-me/editor-core-contexts" "0.3.0"
-    "@splish-me/editor-core-types" "0.3.0"
-    "@splish-me/ory-editor-core" "0.3.0"
+    "@splish-me/editor-core-contexts" "0.4.0-alpha.0"
+    "@splish-me/editor-core-types" "0.4.0-alpha.0"
+    "@splish-me/ory-editor-core" "0.3.1-alpha.1"
+    ory-editor-core "^0.6.0"
 
-"@splish-me/editor-core-types@0.3.0", "@splish-me/editor-core-types@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-core-types/-/editor-core-types-0.3.0.tgz#50b44efc4a654ab0141e184783170f732729b5d9"
-  integrity sha512-chfm01t5GnKfQ2MCm31RLpzAhtf0oSJOhJjoANoX+5YdQUZsktx33sWZ0euK+s0P9tZm5YtOR4Ocqt8WCl4IrA==
+"@splish-me/editor-core-types@0.4.0-alpha.0", "@splish-me/editor-core-types@^0.4.0-alpha":
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-core-types/-/editor-core-types-0.4.0-alpha.0.tgz#0ac93b5cdf65b5040d42625b3ee391c55767ec58"
+  integrity sha512-gFRfF/pnoEdz5OEwHJkHMAx8bRDv2IsxczG31aKRyFr5fQuxwyCZcHvKYM9OhhDU4n3W7/GrPPoDNnUyFJ3l4Q==
 
-"@splish-me/editor-core@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-core/-/editor-core-0.3.0.tgz#4738505e057d500dc651b57fe6554ee20e6be4b9"
-  integrity sha512-jqKSMmfPUvTJ1FO+QzKuvFMroDM4+cSDM03mGBvTbRe1N8vcq2clN5T/ZdNhA5ul+5ggVZqa6/y4MtuCFocaHw==
+"@splish-me/editor-core@^0.4.0-alpha":
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-core/-/editor-core-0.4.0-alpha.0.tgz#f80dd7bea89d5eef41a5e218a697e0697e41a299"
+  integrity sha512-ALwKS7MVYs69foBmDiBAh5opLnkdjNxeeyRoLSiEE6Q6VwtZCSRRpjKSQaYdfLZYWE+hKvZ6+FxTFKaD0PpO/Q==
   dependencies:
-    "@splish-me/editor-core-contexts" "0.3.0"
-    "@splish-me/editor-core-document" "0.3.0"
-    "@splish-me/editor-core-html-renderer" "0.3.0"
-    "@splish-me/editor-core-renderer" "0.3.0"
-    "@splish-me/editor-core-types" "0.3.0"
-    "@splish-me/ory-editor-core" "0.3.0"
+    "@splish-me/editor-core-contexts" "0.4.0-alpha.0"
+    "@splish-me/editor-core-document" "0.4.0-alpha.0"
+    "@splish-me/editor-core-html-renderer" "0.4.0-alpha.0"
+    "@splish-me/editor-core-renderer" "0.4.0-alpha.0"
+    "@splish-me/editor-core-types" "0.4.0-alpha.0"
+    "@splish-me/ory-editor-core" "0.3.1-alpha.1"
     lodash "^4.0.0"
+    ory-editor-core "^0.6.0"
     ramda "^0.26.0"
-    react-redux "^6.0.0"
 
-"@splish-me/editor-plugin-text-plugin-code@0.3.0", "@splish-me/editor-plugin-text-plugin-code@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-code/-/editor-plugin-text-plugin-code-0.3.0.tgz#0e620d8232ddf0efe318dbab25d2b9164744d799"
-  integrity sha512-LNSaJt0tARPZLLdTRAk0oTvMMLS6LYmtXwnmq04WLzWbGuQ9ZnboooLinc1y1Za4hTOAX6unuEGgqsXbb4hbfQ==
+"@splish-me/editor-plugin-text-plugin-code@0.4.0-alpha.0", "@splish-me/editor-plugin-text-plugin-code@^0.4.0-alpha":
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-code/-/editor-plugin-text-plugin-code-0.4.0-alpha.0.tgz#fd0da844fb28ff7876724235356d0ba87e535db8"
+  integrity sha512-XD29Df1E74nMlqJSGM46m/LYmxgE7H9vzjXBJE1ESGttP3iUk3O1w3EUvFn1Mg5kW5d2I47GJNWXbBGDgQH7YA==
   dependencies:
-    "@splish-me/editor-plugin-text-plugin" "0.3.0"
+    "@splish-me/editor-plugin-text-plugin" "0.4.0-alpha.0"
 
-"@splish-me/editor-plugin-text-plugin-headings@0.3.0", "@splish-me/editor-plugin-text-plugin-headings@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-headings/-/editor-plugin-text-plugin-headings-0.3.0.tgz#36cc34f55fbdf0a2223e982643e1e32f1b91ec76"
-  integrity sha512-W1Bu/60G1MKnMMGuUtS81IkQZypvOSWhKcCuIIY9Pv1xfIyscCGF1NiBVOQIz5EuxS1V0Sl4dBmJpwQpFRCUMg==
+"@splish-me/editor-plugin-text-plugin-headings@0.4.0-alpha.0", "@splish-me/editor-plugin-text-plugin-headings@^0.4.0-alpha":
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-headings/-/editor-plugin-text-plugin-headings-0.4.0-alpha.0.tgz#84a7bd73a7bd596296dc82f57b955472582c95b1"
+  integrity sha512-xil02DZQXGcBEQkPnG5XqtFo5O3Zq22U3tadvSdZv65+PdjtloaGfc+j5h8lqiuS9bfcj6V31C0mqNC6NSIVzg==
   dependencies:
-    "@splish-me/editor-plugin-text-plugin" "0.3.0"
+    "@splish-me/editor-plugin-text-plugin" "0.4.0-alpha.0"
 
-"@splish-me/editor-plugin-text-plugin-link@0.3.0", "@splish-me/editor-plugin-text-plugin-link@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-link/-/editor-plugin-text-plugin-link-0.3.0.tgz#247ac9c0876ffa282b90adb023935cda06789065"
-  integrity sha512-f9CebKVuGMEwCyUM+/HN0sua2ick0brHheX0kIZcbCYc5HgvKza0uFwgImHiCWHbQgtE1rqSSN7/spZPfFJA1w==
+"@splish-me/editor-plugin-text-plugin-link@0.4.0-alpha.0", "@splish-me/editor-plugin-text-plugin-link@^0.4.0-alpha":
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-link/-/editor-plugin-text-plugin-link-0.4.0-alpha.0.tgz#efd6d9219c618b7193ecfcaf74479a81e6ab8e12"
+  integrity sha512-amXb006h8wEq1AM95MqhyWeZfove9f2q/Mw21kaRIYJSCd13nXVdLrX1KRKX5UZOwvUyVReG7EEHDag/jRspEg==
   dependencies:
-    "@splish-me/editor-plugin-text-plugin" "0.3.0"
-    "@splish-me/editor-ui-plugin-sidebar" "0.3.0"
+    "@splish-me/editor-plugin-text-plugin" "0.4.0-alpha.0"
+    "@splish-me/editor-ui-plugin-sidebar" "0.4.0-alpha.0"
     lodash "^4.0.0"
     slate "^0.41.0"
 
-"@splish-me/editor-plugin-text-plugin-lists@0.3.0", "@splish-me/editor-plugin-text-plugin-lists@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-lists/-/editor-plugin-text-plugin-lists-0.3.0.tgz#2d5351645e19bd8ed43a24dfbb4f2edd59aacb14"
-  integrity sha512-yQZKctPZZnyicZzx/54m1kXkhbrApWT9nhl+D8g3jdW5XYjx52TnTuJhqt/3qHa9b4BlSbcxnq9QsmoHy8E+gg==
+"@splish-me/editor-plugin-text-plugin-lists@0.4.0-alpha.0", "@splish-me/editor-plugin-text-plugin-lists@^0.4.0-alpha":
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-lists/-/editor-plugin-text-plugin-lists-0.4.0-alpha.0.tgz#be1c9e510b84e55685ed127e5516950a5750206c"
+  integrity sha512-a3oo9oEuRxt4SDVpOOw7SXwrrvaxLuHA4CyLTl+++n7ylyhAqMUMqEuN5iy0/wM1WJvTqHteTr2CA7fZDq705w==
   dependencies:
-    "@splish-me/editor-plugin-text-plugin" "0.3.0"
+    "@splish-me/editor-plugin-text-plugin" "0.4.0-alpha.0"
     front-slate-edit-list "0.12.2-1"
     slate "^0.41.0"
 
-"@splish-me/editor-plugin-text-plugin-paragraph@0.3.0", "@splish-me/editor-plugin-text-plugin-paragraph@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-paragraph/-/editor-plugin-text-plugin-paragraph-0.3.0.tgz#b6b1a167d18952c917042eaacd4f17d7a87679d4"
-  integrity sha512-a0K6Sqpe54XozQIcc97d4gCNhRsSPXML9o4zmoncQ0ePXwRyDni2tgoGmF9BtFWav38BLGyCgsB4NgC17T0KSA==
+"@splish-me/editor-plugin-text-plugin-paragraph@0.4.0-alpha.0", "@splish-me/editor-plugin-text-plugin-paragraph@^0.4.0-alpha":
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-paragraph/-/editor-plugin-text-plugin-paragraph-0.4.0-alpha.0.tgz#de9ee037e092d95353855f6dfeade9359bf5d76f"
+  integrity sha512-EqS2rOLgOEMVTGxpJ5EQ82mrm86sxYZaI1RgKPdOIBbR9rBfEinyj7vpwcQrvZHKqvbXP6/ujiWWRmHznG829A==
   dependencies:
-    "@splish-me/editor-plugin-text-plugin" "0.3.0"
+    "@splish-me/editor-plugin-text-plugin" "0.4.0-alpha.0"
 
-"@splish-me/editor-plugin-text-plugin-rich-text@0.3.0", "@splish-me/editor-plugin-text-plugin-rich-text@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-rich-text/-/editor-plugin-text-plugin-rich-text-0.3.0.tgz#3535c2607613a84416b8dedf067349f448584d30"
-  integrity sha512-+bmNjw9qNuq0wKx8WIbpxXWOv3r2wYlISnBMgC0lGYZ/nb5HDL43rKVwvbUy3I34ziWqt6BGXGD3yX0dRAczrg==
+"@splish-me/editor-plugin-text-plugin-rich-text@0.4.0-alpha.0", "@splish-me/editor-plugin-text-plugin-rich-text@^0.4.0-alpha":
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-rich-text/-/editor-plugin-text-plugin-rich-text-0.4.0-alpha.0.tgz#cedd3d1960d96a3e68d502f67aed11229d054783"
+  integrity sha512-iKX9DOwX80WID2mGIcaX2R8Xm13wmDrXZjixtwFLJgIIG0uEv+GOBrWbP92nI5tc1mF1aiDCjetmmZc5BIH3yg==
   dependencies:
-    "@splish-me/editor-plugin-text-plugin" "0.3.0"
+    "@splish-me/editor-plugin-text-plugin" "0.4.0-alpha.0"
     slate "^0.41.0"
 
-"@splish-me/editor-plugin-text-plugin-ui@0.3.0", "@splish-me/editor-plugin-text-plugin-ui@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-ui/-/editor-plugin-text-plugin-ui-0.3.0.tgz#2fb5ce96ec42635228c884f5dc343df069f93124"
-  integrity sha512-N3og39jvyalnmwvfEGQkmThEE/kpCewsGjR4R0Ors5HMUtvyJrfI2xk1uyZIMUceY6ASDB2zAqHkQt/xAgQ5Dg==
+"@splish-me/editor-plugin-text-plugin-ui@0.4.0-alpha.0", "@splish-me/editor-plugin-text-plugin-ui@^0.4.0-alpha":
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-ui/-/editor-plugin-text-plugin-ui-0.4.0-alpha.0.tgz#0af98d3d2e8a059db911454e9f218173618575e2"
+  integrity sha512-ef7O+yGrEXFACQ886TNpEboNXAv+mUCOSSUTrJ5WD+pqkxyy11CgTiZeMU7SOSNZEjdkiJjb4qKlC8rOa7UwTQ==
   dependencies:
-    "@splish-me/editor-plugin-text-plugin" "0.3.0"
-    "@splish-me/editor-ui-plugin-sidebar" "0.3.0"
+    "@splish-me/editor-plugin-text-plugin" "0.4.0-alpha.0"
+    "@splish-me/editor-ui-plugin-sidebar" "0.4.0-alpha.0"
 
-"@splish-me/editor-plugin-text-plugin@0.3.0", "@splish-me/editor-plugin-text-plugin@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin/-/editor-plugin-text-plugin-0.3.0.tgz#843913d06f810285eccec838dfffbf6e763a709b"
-  integrity sha512-coJWfDICGJB38t8oeEaGl7Tdpiwy4labP19LtBm7aDxTemKaWuZLKggfJF7u8dBaFhgDLz/+uYcnSNJ71X1N0w==
+"@splish-me/editor-plugin-text-plugin@0.4.0-alpha.0", "@splish-me/editor-plugin-text-plugin@^0.4.0-alpha":
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin/-/editor-plugin-text-plugin-0.4.0-alpha.0.tgz#04c0abed4aab21d67b866f0f55a9fc676dc27871"
+  integrity sha512-ZNuRxcR1TNI58LEnX9eb5VR2xGcWOZAcSxdHvQ763FHXaDHuL9w985MUV5YSYtlUbIz60ESs2ae4qGx+tpQC1Q==
 
-"@splish-me/editor-plugin-text-renderer@0.3.0", "@splish-me/editor-plugin-text-renderer@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-renderer/-/editor-plugin-text-renderer-0.3.0.tgz#c016960674575cc8da48fc448decb0f0ad2f4650"
-  integrity sha512-nTlDjPQtcoRYb+8lXMkvTVx73QUazEtgjktSauwu4pjqZaNhfM8hP4jHNZ2ZLJNxZwf1po1X5d0kpRV/c0Ewow==
+"@splish-me/editor-plugin-text-renderer@0.4.0-alpha.0", "@splish-me/editor-plugin-text-renderer@^0.4.0-alpha":
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-renderer/-/editor-plugin-text-renderer-0.4.0-alpha.0.tgz#23d1e018b11bf3ce50407ddec66b383da53be1e5"
+  integrity sha512-+A8kiq5jo98GTZVF33rq3wPoQKc1IpD3dsAmYw4mJvIF3cR7jrY07fU/4p6JSKEJJ849eDwIaD4d3Yqfz6HQ2A==
   dependencies:
-    "@splish-me/editor-plugin-text-plugin" "0.3.0"
+    "@splish-me/editor-plugin-text-plugin" "0.4.0-alpha.0"
 
-"@splish-me/editor-plugin-text@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text/-/editor-plugin-text-0.3.0.tgz#44fcb2df0f84b1f53ba4ebbc6bcf3a07794933b7"
-  integrity sha512-vDbMLuhTcmLi6RPACgOQ5XtWGJXrI8y0DYXVK8AbwmGUAUtQa7vOhL1f7C6XPHaepjGhsqyOZaE5hX/Id8bGqA==
+"@splish-me/editor-plugin-text@^0.4.0-alpha":
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text/-/editor-plugin-text-0.4.0-alpha.0.tgz#b3f96c6f486eadabd57478ede7bf728e2107c49d"
+  integrity sha512-891FdXyNDj+1sHgWLRTj8cJlkotuQvEWsgBXtUV/abL+JDritOl0tRQhuisX/pJeUaBmsoghrktUGaXKWeLHtA==
   dependencies:
-    "@splish-me/editor-plugin-text-plugin" "0.3.0"
-    "@splish-me/editor-plugin-text-plugin-code" "0.3.0"
-    "@splish-me/editor-plugin-text-plugin-headings" "0.3.0"
-    "@splish-me/editor-plugin-text-plugin-link" "0.3.0"
-    "@splish-me/editor-plugin-text-plugin-lists" "0.3.0"
-    "@splish-me/editor-plugin-text-plugin-paragraph" "0.3.0"
-    "@splish-me/editor-plugin-text-plugin-rich-text" "0.3.0"
-    "@splish-me/editor-plugin-text-plugin-ui" "0.3.0"
-    "@splish-me/editor-plugin-text-renderer" "0.3.0"
+    "@splish-me/editor-plugin-text-plugin" "0.4.0-alpha.0"
+    "@splish-me/editor-plugin-text-plugin-code" "0.4.0-alpha.0"
+    "@splish-me/editor-plugin-text-plugin-headings" "0.4.0-alpha.0"
+    "@splish-me/editor-plugin-text-plugin-link" "0.4.0-alpha.0"
+    "@splish-me/editor-plugin-text-plugin-lists" "0.4.0-alpha.0"
+    "@splish-me/editor-plugin-text-plugin-paragraph" "0.4.0-alpha.0"
+    "@splish-me/editor-plugin-text-plugin-rich-text" "0.4.0-alpha.0"
+    "@splish-me/editor-plugin-text-plugin-ui" "0.4.0-alpha.0"
+    "@splish-me/editor-plugin-text-renderer" "0.4.0-alpha.0"
     parse5 "^5.0.0"
     slate "^0.41.0"
     slate-html-serializer "^0.7.0"
     slate-react "^0.18.0"
 
-"@splish-me/editor-ui-add-sidebar@0.3.0", "@splish-me/editor-ui-add-sidebar@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-ui-add-sidebar/-/editor-ui-add-sidebar-0.3.0.tgz#5eab33d4fe168474542e898d21bd93ef056888aa"
-  integrity sha512-8s9jl/JHc+a1AvWqYQTmeKo+dqES8Xjg0UuLk/NaHu5lBowjMFnjyaYxWZ4kCaDUrRYqX2Y3nvhGG0IHFpBRxw==
+"@splish-me/editor-ui-add-sidebar@0.4.0-alpha.0", "@splish-me/editor-ui-add-sidebar@^0.4.0-alpha":
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-ui-add-sidebar/-/editor-ui-add-sidebar-0.4.0-alpha.0.tgz#b5cbb62a41ab01649f64551d492f902fed008706"
+  integrity sha512-w2ido/0meyawvezySqI7yNQXUok18tCOHBcDdLv9/YbxZyx4p/dLZnFvZogtcqBlZU4AwBpfb2g1Q3pziYsA9Q==
   dependencies:
-    "@splish-me/editor-core-contexts" "0.3.0"
+    "@splish-me/editor-core-contexts" "0.4.0-alpha.0"
     classnames "^2.0.0"
     styled-components "^4.0.0"
 
-"@splish-me/editor-ui-mode-toolbar@0.3.0", "@splish-me/editor-ui-mode-toolbar@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-ui-mode-toolbar/-/editor-ui-mode-toolbar-0.3.0.tgz#b98184337f194abfa527a05088dbc7157203f77d"
-  integrity sha512-Pd0KskjBpqIwzD9bema3oxt6csEWbFcG1Ge8q/FZ7Zh61O8soqit8GD7rVjiguzBchfI8d+gQi3z3og+vm5Zug==
+"@splish-me/editor-ui-mode-toolbar@0.4.0-alpha.0", "@splish-me/editor-ui-mode-toolbar@^0.4.0-alpha":
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-ui-mode-toolbar/-/editor-ui-mode-toolbar-0.4.0-alpha.0.tgz#4d99c29269a9316680e812fef5ad48c84d4cde60"
+  integrity sha512-On/IotNJFESwDken3PgspSObY7qMncjefkONvOgUQei82dfT3F0ZG47gD7BFj3/1xx/Ljk4Go3fTDnlAeRqFqw==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.0.0"
     "@fortawesome/free-solid-svg-icons" "^5.0.0"
     "@fortawesome/react-fontawesome" "^0.1.0"
-    "@splish-me/editor-core-contexts" "0.3.0"
-    "@splish-me/ory-editor-core" "0.3.0"
+    "@splish-me/editor-core-contexts" "0.4.0-alpha.0"
+    "@splish-me/ory-editor-core" "0.3.1-alpha.1"
+    ory-editor-core "^0.6.0"
     styled-components "^4.0.0"
 
-"@splish-me/editor-ui-plugin-sidebar@0.3.0", "@splish-me/editor-ui-plugin-sidebar@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-ui-plugin-sidebar/-/editor-ui-plugin-sidebar-0.3.0.tgz#2f2960ac01007f0a3c51ed9e0682f87bd7471e1f"
-  integrity sha512-EhKOT8nZdunczTzaoyBdI+w23IRbXEv7rC7a4wK+CdojZ53M+4+QhUFJrXu0t0aeurz4cw4MmD09dUT16SAclg==
+"@splish-me/editor-ui-plugin-sidebar@0.4.0-alpha.0", "@splish-me/editor-ui-plugin-sidebar@^0.4.0-alpha":
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-ui-plugin-sidebar/-/editor-ui-plugin-sidebar-0.4.0-alpha.0.tgz#d6ee3900ca720422fc84b0557b64109181dd42a1"
+  integrity sha512-O68Tj24SaDmJZj0kXcAeDrYmtcnPnaAn8gv4weDfDvn+3eJxaX3TMSm7a5pkrOhu+1eChj0YKxhrhEgyZ1zDBA==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.0.0"
     "@fortawesome/free-solid-svg-icons" "^5.0.0"
     "@fortawesome/react-fontawesome" "^0.1.0"
-    "@splish-me/ory-editor-core" "0.3.0"
+    "@splish-me/ory-editor-core" "0.3.1-alpha.1"
+    ory-editor-core "^0.6.0"
     styled-components "^4.0.0"
 
-"@splish-me/editor-ui-sidebar@0.3.0", "@splish-me/editor-ui-sidebar@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-ui-sidebar/-/editor-ui-sidebar-0.3.0.tgz#145cea034a3da7c62ca6e32eea0b0792fe434147"
-  integrity sha512-M+y/IGG4l4qxpBiIrQLm18ntfg6smv24We8I78eWF3TuVfWR85pjtGTPDil0Yt2WVgXdVLrRhkp0/rvUqVQatA==
+"@splish-me/editor-ui-sidebar@0.4.0-alpha.0", "@splish-me/editor-ui-sidebar@^0.4.0-alpha":
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-ui-sidebar/-/editor-ui-sidebar-0.4.0-alpha.0.tgz#613ed1954becd987750dc83f0dbc5f65d4f34d2d"
+  integrity sha512-8x8Eol0rVbQbYDwCwJLze3uJZ+bc0YFGBn4jCm/E89fh029N/Q+WU+ke68jwsFRkK5qQKl1XWHFJMA/4FZexgA==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.0.0"
     "@fortawesome/free-solid-svg-icons" "^5.0.0"
     "@fortawesome/react-fontawesome" "^0.1.0"
     styled-components "^4.0.0"
 
-"@splish-me/editor-ui@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-ui/-/editor-ui-0.3.0.tgz#ccdb314b08c82ae886924541cb4d69b2179aac20"
-  integrity sha512-iLOfC3NhF3zjInzMxGowUZkTBf140g8ve4Pb3kZuG106bs3kM3g9CV/mKmJi+VkBzXQgTJEg48J0HzpSJl6y1A==
+"@splish-me/editor-ui@^0.4.0-alpha":
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-ui/-/editor-ui-0.4.0-alpha.0.tgz#a1c5feeeb64dc88f7436fe15e9d88e0c1e39d4fe"
+  integrity sha512-OOd3P9odTelJR19/7EzOg3fXtoDHHPIJGLps7UXh6SkdGaTfQVMJe8B4hAj/RBsD4ZxjU0lrFBP7kUUvqoIIIQ==
   dependencies:
-    "@splish-me/editor-ui-add-sidebar" "0.3.0"
-    "@splish-me/editor-ui-mode-toolbar" "0.3.0"
-    "@splish-me/editor-ui-plugin-sidebar" "0.3.0"
-    "@splish-me/editor-ui-sidebar" "0.3.0"
+    "@splish-me/editor-ui-add-sidebar" "0.4.0-alpha.0"
+    "@splish-me/editor-ui-mode-toolbar" "0.4.0-alpha.0"
+    "@splish-me/editor-ui-plugin-sidebar" "0.4.0-alpha.0"
+    "@splish-me/editor-ui-sidebar" "0.4.0-alpha.0"
 
-"@splish-me/microbundle@^0.9.0":
-  version "0.9.4"
-  resolved "https://registry.yarnpkg.com/@splish-me/microbundle/-/microbundle-0.9.4.tgz#d973857d4a8bf1b7ff8dc5dd51f5d3188119994b"
-  integrity sha512-GMAxxRSHvcEI3eU++tHfJ+Fy9sSAxwCa+z3pHFEpoMFWxFnUuJKKiAlcGGqOpJM7vCjnV1v2t5qQbtS//yBHzQ==
+"@splish-me/microbundle@^0.9.5":
+  version "0.9.5"
+  resolved "https://registry.yarnpkg.com/@splish-me/microbundle/-/microbundle-0.9.5.tgz#4cd51fb97d232507d21103d000b0f896e70214a2"
+  integrity sha512-rzGdLOUwwAehiIEqGxqb0bIGu3ZQ4mCqUNYNPYhKwvtgUXPgLUVwyNXhhunUgIxlfThVDeH1IVBwhs3r0ZVEuQ==
   dependencies:
     "@babel/core" "^7.2.2"
-    "@babel/plugin-proposal-class-properties" "7.2.1"
+    "@babel/plugin-proposal-class-properties" "^7.0.0"
+    "@babel/plugin-proposal-export-namespace-from" "^7.0.0"
+    "@babel/plugin-proposal-function-sent" "^7.0.0"
+    "@babel/plugin-proposal-json-strings" "^7.0.0"
+    "@babel/plugin-proposal-numeric-separator" "^7.0.0"
+    "@babel/plugin-proposal-throw-expressions" "^7.0.0"
+    "@babel/plugin-syntax-dynamic-import" "^7.0.0"
+    "@babel/plugin-syntax-import-meta" "^7.0.0"
     "@babel/plugin-syntax-jsx" "^7.2.0"
+    "@babel/plugin-transform-runtime" "^7.0.0"
     "@babel/polyfill" "^7.0.0"
+    "@babel/preset-env" "^7.0.0"
+    "@babel/preset-react" "^7.0.0"
+    "@babel/preset-typescript" "^7.0.0"
     asyncro "^3.0.0"
     autoprefixer "^9.0.0"
     babel-plugin-transform-async-to-promises "^0.8.3"
@@ -2190,10 +2183,10 @@
     tslib "^1.9.0"
     typescript ">=2.8.3"
 
-"@splish-me/ory-editor-core@0.3.0", "@splish-me/ory-editor-core@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/ory-editor-core/-/ory-editor-core-0.3.0.tgz#4228e166dd835bbd05f9c5e2a4d5aab53f6d03bc"
-  integrity sha512-Sfy1Rw9JcO/Zb0iqXPWGKAhfYLM9gN/dnM4gvHQcO1ciN911vz3HU5rthU1Cpnpz2iulk7HV3F3hQgmdR+7zaw==
+"@splish-me/ory-editor-core@0.3.1-alpha.1":
+  version "0.3.1-alpha.1"
+  resolved "https://registry.yarnpkg.com/@splish-me/ory-editor-core/-/ory-editor-core-0.3.1-alpha.1.tgz#702d6fbe76205eca77c538057014d36848765fa3"
+  integrity sha512-p4cukyHMJK9x/wO52I/OZRpBOKp1Ivst5+HkQyQGIq+qlqaojJt8wlEhzyCHwGpgB2Gir8KvMnsg3sKt9ugwHg==
   dependencies:
     classnames "^2.0.0"
     deep-equal "^1.0.0"
@@ -2248,12 +2241,21 @@
   dependencies:
     babel-runtime "^6.26.0"
 
+"@storybook/addon-options@^4.0.0":
+  version "4.1.6"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-options/-/addon-options-4.1.6.tgz#350031a10a264cb16b6a661724faa30469794023"
+  integrity sha512-ajPAwlVfdZ2CvlB3tlU8QrTX/2PDArdjX9Jfg7X/nFzOWMEV5nmOBj3btF4g+WpC7agToT3lN2AL3yy+zY6uEg==
+  dependencies:
+    "@storybook/addons" "4.1.6"
+    core-js "^2.5.7"
+    util-deprecate "^1.0.2"
+
 "@storybook/addons@3.4.11", "@storybook/addons@^3.0.0":
   version "3.4.11"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-3.4.11.tgz#f3e27c46d80ad1f171888c4aad0a19a8a032d072"
   integrity sha512-Uf01aZ1arcpG1prrrCrBCUYW63lDaoG+r/i3TNo1iG9ZaNc+2UHWeuiEedLfHg0fi/q7UnqMNWDiyO3AkEwwrA==
 
-"@storybook/addons@4.1.6":
+"@storybook/addons@4.1.6", "@storybook/addons@^4.0.0":
   version "4.1.6"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-4.1.6.tgz#458c4c6baf8b2acaffb9ced705a8db224bd874b6"
   integrity sha512-5dG0adChzNRbRLS/YD/5mEoWLTk3uaJpzbRSJVKe6HQKBPDXmuEMYYPiHI83o15YBJjGHx68+PkHBI08oRsuhQ==
@@ -5430,10 +5432,15 @@ caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
   resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000927.tgz#9906eecf59ae7ee5d1bb2c16cf06fc31b642bfda"
   integrity sha512-CX/QvLA8oh7kQ9cHCCzFm0UZW4KwSyQSRJ5A1XtH42HaMJQ0yh+9fEVWagMqv9I1vSCtaqA5Mb8k0uKfv7jhDw==
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000792, caniuse-lite@^1.0.30000805, caniuse-lite@^1.0.30000844, caniuse-lite@^1.0.30000884, caniuse-lite@^1.0.30000925, caniuse-lite@^1.0.30000926:
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000792, caniuse-lite@^1.0.30000805, caniuse-lite@^1.0.30000844, caniuse-lite@^1.0.30000925, caniuse-lite@^1.0.30000926:
   version "1.0.30000927"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000927.tgz#114a9de4ff1e01f5790fe578ecd93421c7524665"
   integrity sha512-ogq4NbUWf1uG/j66k0AmiO3GjqJAlQyF8n4w8a954cbCyFKmYGvRtgz6qkq2fWuduTXHibX7GyYL5Pg58Aks2g==
+
+caniuse-lite@^1.0.30000884:
+  version "1.0.30000928"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000928.tgz#805e828dc72b06498e3683a32e61c7507fd67b88"
+  integrity sha512-aSpMWRXL6ZXNnzm8hgE4QDLibG5pVJ2Ujzsuj3icazlIkxXkPXtL+BWnMx6FBkWmkZgBHGUxPZQvrbRw2ZTxhg==
 
 capture-exit@^1.2.0:
   version "1.2.0"
@@ -5877,7 +5884,7 @@ compare-func@^1.3.1:
     array-ify "^1.0.0"
     dot-prop "^3.0.0"
 
-component-emitter@^1.2.0, component-emitter@^1.2.1:
+component-emitter@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/component-emitter/-/component-emitter-1.2.1.tgz#137918d6d78283f7df7a6b7c5a63e140e69425e6"
   integrity sha1-E3kY1teCg/ffemt8WmPhQOaUJeY=
@@ -6050,11 +6057,6 @@ cookie@0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.3.1.tgz#e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb"
   integrity sha1-5+Ch+e9DtMi6klxcWpboBtFoc7s=
-
-cookiejar@^2.1.0:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/cookiejar/-/cookiejar-2.1.2.tgz#dd8a235530752f988f9a0844f3fc589e3111125c"
-  integrity sha512-Mw+adcfzPxcPeI+0WlvRrr/3lGVO0bD75SxX6811cxSh1Wbxx7xZBGK1eVtDf6si8rg2lhnUjsVLMFMfbRIuwA==
 
 copy-concurrently@^1.0.0:
   version "1.0.5"
@@ -6856,9 +6858,9 @@ dir-glob@2.0.0:
     path-type "^3.0.0"
 
 dir-glob@^2.0.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/dir-glob/-/dir-glob-2.2.0.tgz#7c2986acade3beda2a037dcd9d20af7256cff6c5"
-  integrity sha512-YqrO+bduKFqPgspvpjDAaKk0qhmvY+SY7NjIRljCDAy6CX7Ft65irIduHbrYXhy+BxJnYKjWuREw6X42w9/+DQ==
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/dir-glob/-/dir-glob-2.2.1.tgz#ce8413234ffe8452b76b7741c32f116cf2a7b1a7"
+  integrity sha512-UN6X6XwRjllabfRhBdkVSo63uurJ8nSvMGrwl94EYVz6g+exhTV+yVSYk5VC/xl3MBFBTtC0J20uFKce4Brrng==
   dependencies:
     path-type "^3.0.0"
 
@@ -6872,7 +6874,7 @@ disposables@^1.0.1:
   resolved "https://registry.yarnpkg.com/disposables/-/disposables-1.0.2.tgz#36c6a674475f55a2d6913567a601444e487b4b6e"
   integrity sha1-NsamdEdfVaLWkTVnpgFETkh7S24=
 
-dnd-core@^2.0.0, dnd-core@^2.6.0:
+dnd-core@^2.0.0, dnd-core@^2.3.0, dnd-core@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/dnd-core/-/dnd-core-2.6.0.tgz#12bad66d58742c6e5f7cf2943fb6859440f809c4"
   integrity sha1-ErrWbVh0LG5ffPKUP7aFlED4CcQ=
@@ -7067,7 +7069,7 @@ element-resize-detector@^1.1.9:
   dependencies:
     batch-processor "1.0.0"
 
-element-resize-event@^2.0.0, element-resize-event@^2.0.4:
+element-resize-event@^2.0.0, element-resize-event@^2.0.4, element-resize-event@^2.0.9:
   version "2.0.9"
   resolved "https://registry.yarnpkg.com/element-resize-event/-/element-resize-event-2.0.9.tgz#2f5e1581a296eb5275210c141bc56342e218f876"
   integrity sha1-L14VgaKW61J1IQwUG8VjQuIY+HY=
@@ -7943,7 +7945,7 @@ forever-agent@~0.6.1:
   resolved "https://registry.yarnpkg.com/forever-agent/-/forever-agent-0.6.1.tgz#fbc71f0c41adeb37f96c577ad1ed42d8fdacca91"
   integrity sha1-+8cfDEGt6zf5bFd60e1C2P2sypE=
 
-form-data@^2.3.1, form-data@~2.3.2:
+form-data@~2.3.2:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/form-data/-/form-data-2.3.3.tgz#dcce52c05f644f298c6a7ab936bd724ceffbf3a6"
   integrity sha512-1lLKB2Mu3aGP1Q/2eCOx0fNbRMe7XdwktwOruhfqqd0rIJWwN4Dh+E3hrPSlDCXnSR7UtZ1N38rVXm+6+MEhJQ==
@@ -7956,11 +7958,6 @@ format@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/format/-/format-0.2.2.tgz#d6170107e9efdc4ed30c9dc39016df942b5cb58b"
   integrity sha1-1hcBB+nv3E7TDJ3DkBbflCtctYs=
-
-formidable@^1.2.0:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/formidable/-/formidable-1.2.1.tgz#70fb7ca0290ee6ff961090415f4b3df3d2082659"
-  integrity sha512-Fs9VRguL0gqGHkXS5GQiMCr1VhZBxz0JnJs4JmMp/2jL18Fmbzvv7vOFRU+U8TBkHEE/CX1qDXzJplVULgsLeg==
 
 forwarded@~0.1.2:
   version "0.1.2"
@@ -10282,12 +10279,12 @@ left-pad@^1.3.0:
   integrity sha512-XI5MPzVNApjAyhQzphX8BkmKsKUxD4LdyK24iZeQGinBN9yTQT3bFlCBy/aVx2HrNcqQGsdot8ghrjyrvMCoEA==
 
 lerna@^3.0.0:
-  version "3.10.1"
-  resolved "https://registry.yarnpkg.com/lerna/-/lerna-3.10.1.tgz#9a76f1264796a3115ccbc5177f2330fb50c59184"
-  integrity sha512-zZ1pVy+aQTmPA4ezaIRALCMAc06TjawcB7PfpSHrlhWxQwv30rq7Fd26+cED5FTbDxmJYyD7a2vdaRlNKZW6bw==
+  version "3.10.2"
+  resolved "https://registry.yarnpkg.com/lerna/-/lerna-3.10.2.tgz#2c0568b8dc58286d984a5704bc449df3428851a0"
+  integrity sha512-6g2OzlrwWaZQQduL9xywJPEGJxbmC8jWD9QKZ8itkk7YIWEesbliD7buewnTxuIlsINSDrzYk7f/JDwq9EHIhg==
   dependencies:
-    "@lerna/add" "3.10.1"
-    "@lerna/bootstrap" "3.10.1"
+    "@lerna/add" "3.10.2"
+    "@lerna/bootstrap" "3.10.2"
     "@lerna/changed" "3.10.1"
     "@lerna/clean" "3.10.1"
     "@lerna/cli" "3.10.0"
@@ -11042,7 +11039,7 @@ merge@^1.2.0:
   resolved "https://registry.yarnpkg.com/merge/-/merge-1.2.1.tgz#38bebf80c3220a8a487b6fcfb3941bb11720c145"
   integrity sha512-VjFo4P5Whtj4vsLzsYBu5ayHhoHJ0UqNm7ibvShmbmoz7tGi0vXaoJbGdB+GmDMLUdg8DpQXEIeVDAe8MaABvQ==
 
-methods@^1.1.1, methods@~1.1.2:
+methods@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/methods/-/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
   integrity sha1-VSmk1nZUE07cxSZmVoNbD4Ua/O4=
@@ -11273,7 +11270,7 @@ module-details-from-path@^1.0.3:
   resolved "https://registry.yarnpkg.com/module-details-from-path/-/module-details-from-path-1.0.3.tgz#114c949673e2a8a35e9d35788527aa37b679da2b"
   integrity sha1-EUyUlnPiqKNenTV4hSeqN7Z52is=
 
-mousetrap@^1.0.0, mousetrap@^1.5.2:
+mousetrap@^1.0.0, mousetrap@^1.5.2, mousetrap@^1.6.1:
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/mousetrap/-/mousetrap-1.6.2.tgz#caadd9cf886db0986fb2fee59a82f6bd37527587"
   integrity sha512-jDjhi7wlHwdO6q6DS7YRmSHcuI+RVxadBkLt3KHrhd3C2b+w5pKefg3oj5beTcHZyVFA9Aksf+yEE1y5jxUjVA==
@@ -11885,6 +11882,31 @@ original@>=0.0.5:
   integrity sha512-hyBVl6iqqUOJ8FqRe+l/gS8H+kKYjrEndd5Pm1MfBtsEKA038HkkdbAl/72EAXGyonD/PFsvmVG+EvcIpliMBg==
   dependencies:
     url-parse "^1.4.3"
+
+ory-editor-core@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/ory-editor-core/-/ory-editor-core-0.6.0.tgz#e9ce7d879f3e81175c315794d1aa2fba9fa80b78"
+  integrity sha512-1ZHZxKMemFQWHdaPUxY1t1V+fFg3AouPc2MtK0R09ptrFYAM+ORvEhENhOYTJpwmzMrTRwy6dq8owQETAeXN2Q==
+  dependencies:
+    classnames "^2.2.5"
+    deep-equal "^1.0.1"
+    dnd-core "^2.3.0"
+    element-resize-event "^2.0.9"
+    lodash.throttle "^4.1.1"
+    mousetrap "^1.6.1"
+    ramda "^0.24.1"
+    react-dimensions "^1.3.0"
+    react-dnd "^2.4.0"
+    react-dnd-html5-backend "^2.4.0"
+    react-draggable "^3.0.3"
+    react-hotkeys "^0.10.0"
+    react-redux "^5.0.4"
+    react-resizable "^1.7.3"
+    redux "^3.6.0"
+    redux-undo "1.0.0-beta9-7"
+    reselect "^3.0.0"
+    semver "^5.3.0"
+    uuid "^3.0.1"
 
 os-browserify@^0.3.0:
   version "0.3.0"
@@ -13349,7 +13371,7 @@ ramda@^0.21.0:
   resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.21.0.tgz#a001abedb3ff61077d4ff1d577d44de77e8d0a35"
   integrity sha1-oAGr7bP/YQd9T/HVd9RN536NCjU=
 
-ramda@^0.24.0:
+ramda@^0.24.0, ramda@^0.24.1:
   version "0.24.1"
   resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.24.1.tgz#c3b7755197f35b8dc3502228262c4c91ddb6b857"
   integrity sha1-w7d1UZfzW43DUCIoJixMkd22uFc=
@@ -13481,21 +13503,21 @@ react-dev-utils@^6.1.0:
     strip-ansi "4.0.0"
     text-table "0.2.0"
 
-react-dimensions@^1.0.0:
+react-dimensions@^1.0.0, react-dimensions@^1.3.0:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/react-dimensions/-/react-dimensions-1.3.1.tgz#89c29bcd48828a74faeb07da1e461e1a354ccc48"
   integrity sha512-go5vMuGUxaB5PiTSIk+ZfAxLbHwcIgIfLhkBZ2SIMQjaCgnpttxa30z5ijEzfDjeOCTGRpxvkzcmE4Vt4Ppvyw==
   dependencies:
     element-resize-event "^2.0.4"
 
-react-dnd-html5-backend@^2.0.0:
+react-dnd-html5-backend@^2.0.0, react-dnd-html5-backend@^2.4.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/react-dnd-html5-backend/-/react-dnd-html5-backend-2.6.0.tgz#590cd1cca78441bb274edd571fef4c0b16ddcf8e"
   integrity sha1-WQzRzKeEQbsnTt1XH+9MCxbdz44=
   dependencies:
     lodash "^4.2.0"
 
-react-dnd@^2.0.0:
+react-dnd@^2.0.0, react-dnd@^2.4.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/react-dnd/-/react-dnd-2.6.0.tgz#7fa25676cf827d58a891293e3c1ab59da002545a"
   integrity sha1-f6JWds+CfViokSk+PBq1naACVFo=
@@ -13530,7 +13552,7 @@ react-dom@^16.0.0, react-dom@^16.6.3, react-dom@^16.7.0:
     prop-types "^15.6.2"
     scheduler "^0.12.0"
 
-"react-draggable@^2.2.6 || ^3.0.3", react-draggable@^3.0.0:
+"react-draggable@^2.2.6 || ^3.0.3", react-draggable@^3.0.0, react-draggable@^3.0.3:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/react-draggable/-/react-draggable-3.1.1.tgz#ed1db43e09b146805f6d158296e58eae4f768d36"
   integrity sha512-tqIgDUm4XPSFbxelYpcsnayPU79P26ChnszDl5/RDFKfMuHnRxypS+OFfEyAEO1CtqaB3lrecQ2dyNIE2G0TlQ==
@@ -13671,7 +13693,7 @@ react-pose@^4.0.0:
     popmotion-pose "^3.4.0"
     tslib "^1.9.1"
 
-react-redux@^5.0.7:
+react-redux@^5.0.4, react-redux@^5.0.7:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.1.1.tgz#88e368682c7fa80e34e055cd7ac56f5936b0f52f"
   integrity sha512-LE7Ned+cv5qe7tMV5BPYkGQ5Lpg8gzgItK07c67yHvJ8t0iaD9kPFPAli/mYkiyJYrs2pJgExR2ZgsGqlrOApg==
@@ -13696,7 +13718,7 @@ react-redux@^6.0.0:
     prop-types "^15.6.2"
     react-is "^16.6.3"
 
-react-resizable@^1.0.0:
+react-resizable@^1.0.0, react-resizable@^1.7.3:
   version "1.7.5"
   resolved "https://registry.yarnpkg.com/react-resizable/-/react-resizable-1.7.5.tgz#83eb75bb3684da6989bbbf4f826e1470f0af902e"
   integrity sha512-lauPcBsLqmxMHXHpTeOBpYenGalbSikYr8hK+lwtNYMQX1pGd2iYE+pDvZEV97nCnzuCtWM9htp7OpsBIY2Sjw==
@@ -14025,7 +14047,7 @@ redux-undo@1.0.0-beta9-7:
   dependencies:
     redux "^3.5.2"
 
-redux@^3.5.2, redux@^3.7.1, redux@^3.7.2:
+redux@^3.5.2, redux@^3.6.0, redux@^3.7.1, redux@^3.7.2:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/redux/-/redux-3.7.2.tgz#06b73123215901d25d065be342eb026bc1c8537b"
   integrity sha512-pNqnf9q1hI5HHZRBkj3bAngGZW/JMCmexDlOxw4XagXY2o1327nHH54LoTjiPJ0gizoqPDRqWyX/00g0hD6w+A==
@@ -15565,22 +15587,6 @@ stylis@^3.5.0:
   version "3.5.4"
   resolved "https://registry.yarnpkg.com/stylis/-/stylis-3.5.4.tgz#f665f25f5e299cf3d64654ab949a57c768b73fbe"
   integrity sha512-8/3pSmthWM7lsPBKv7NXkzn2Uc9W7NotcwGNpJaa3k7WMM1XDCA4MgT5k/8BIexd5ydZdboXtU90XH9Ec4Bv/Q==
-
-superagent@^3.8.2:
-  version "3.8.3"
-  resolved "https://registry.yarnpkg.com/superagent/-/superagent-3.8.3.tgz#460ea0dbdb7d5b11bc4f78deba565f86a178e128"
-  integrity sha512-GLQtLMCoEIK4eDv6OGtkOoSMt3D+oq0y3dsxMuYuDvaNUvuT8eFBuLmfR0iYYzHC1e8hpzC6ZsxbuP6DIalMFA==
-  dependencies:
-    component-emitter "^1.2.0"
-    cookiejar "^2.1.0"
-    debug "^3.1.0"
-    extend "^3.0.0"
-    form-data "^2.3.1"
-    formidable "^1.2.0"
-    methods "^1.1.1"
-    mime "^1.4.1"
-    qs "^6.5.1"
-    readable-stream "^2.3.5"
 
 supports-color@^2.0.0:
   version "2.0.0"

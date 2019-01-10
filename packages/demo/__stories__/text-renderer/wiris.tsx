@@ -1,15 +1,14 @@
+import { Wiris } from '@serlo-org/editor-plugin-text-renderer'
+import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
-
-import { Wiris } from '../src/slate-plugin-katex/wiris.component.tsx'
 
 storiesOf('Wiris', module).add('Wiris', () => {
   return (
     <Wiris
       initialSrc="\sqrt{5}"
-      onSave={newSrc => {
-        console.log(newSrc)
-      }}
+      onSave={action('save')}
+      onCancel={action('cancel')}
     />
   )
 })

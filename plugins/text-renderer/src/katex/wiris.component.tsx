@@ -1,5 +1,5 @@
+import { styled } from '@serlo-org/editor-ui'
 import axios from 'axios'
-import { css } from 'emotion'
 import * as React from 'react'
 
 type MathML = string
@@ -36,43 +36,19 @@ export class Wiris extends React.Component<WirisProps> {
 
   public render() {
     return (
-      <div
-        className={css({
-          width: '100%',
-          height: '100%',
-          backgroundColor: 'rgb(0,0,0,0.3)',
-          left: 0,
-          top: 0,
-          position: 'fixed',
-          zIndex: 9000
-        })}
-      >
-        <div
-          className={css({
-            position: 'absolute',
-            backgroundColor: 'white',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%,-50%)'
-          })}
-        >
-          <div
-            ref={this.container}
-            className={css({
-              height: '400px',
-              margin: '10px'
-            })}
-          />
-          <div className={css({ background: '#ffffff', margin: '10px' })}>
+      <this.Overlay>
+        <this.Modal>
+          <this.Container ref={this.container} />
+          <this.ButtonContainer>
             <button className="btn btn-cancel" onClick={this.props.onCancel}>
               Cancel
             </button>
             <button className="btn btn-success pull-right" onClick={this.save}>
               Save
             </button>
-          </div>
-        </div>
-      </div>
+          </this.ButtonContainer>
+        </this.Modal>
+      </this.Overlay>
     )
   }
 
@@ -112,4 +88,32 @@ export class Wiris extends React.Component<WirisProps> {
 
     return data
   }
+
+  private Overlay = styled.div({
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgb(0,0,0,0.3)',
+    left: 0,
+    top: 0,
+    position: 'fixed',
+    zIndex: 9000
+  })
+
+  private Modal = styled.div({
+    position: 'absolute',
+    backgroundColor: 'white',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%,-50%)'
+  })
+
+  private Container = styled.div({
+    height: '400px',
+    margin: '10px'
+  })
+
+  private ButtonContainer = styled.div({
+    background: '#ffffff',
+    margin: '10px'
+  })
 }
