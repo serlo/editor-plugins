@@ -29,6 +29,8 @@ To create a new plugin `bar`, you have to do the following steps:
 - `yarn` (so that the two new packages get symlinked
 - Add stories for your plugins in `demo/__stories__/bar.tsx`
 
+## FAQ
+
 ### What does Lerna do?
 
 Lerna is a tool to manage multiple packages in one repository. (In our case the multiple packages are yarn workspaces defined in the `package.json`). We want to be able to import every plugin on its own, so we need a tool which links the different packages together.
