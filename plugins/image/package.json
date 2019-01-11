@@ -20,9 +20,6 @@
     "format": "prettier --write \"{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.0.0",
-    "@fortawesome/free-solid-svg-icons": "^5.0.0",
-    "@fortawesome/react-fontawesome": "^0.1.0",
     "@navjobs/upload": "^3.0.0",
     "@serlo/editor-plugin-image-renderer": "0.4.0-alpha.0",
     "@serlo/editor-ui": "0.4.0-alpha.0",

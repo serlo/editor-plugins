@@ -6,7 +6,7 @@ import { highlightRendererPlugin } from '@serlo/editor-plugin-highlight-renderer
 import { hintRendererPlugin } from '@serlo/editor-plugin-hint-renderer'
 import { createImageRendererPlugin } from '@serlo/editor-plugin-image-renderer'
 import { injectionRendererPlugin } from '@serlo/editor-plugin-injection-renderer'
-import { inputExercisePlugin } from '@serlo/editor-plugin-input-exercise'
+import { inputExerciseRendererPlugin } from '@serlo/editor-plugin-input-exercise-renderer'
 import { licenseRendererPlugin } from '@serlo/editor-plugin-license-renderer'
 import { matchingExerciseRendererPlugin } from '@serlo/editor-plugin-matching-exercise-renderer'
 import { scMcExerciseRendererPlugin } from '@serlo/editor-plugin-sc-mc-exercise-renderer'
@@ -28,7 +28,7 @@ export const createRendererPlugins = createPluginFactory({
   [Plugin.Hint]: hintRendererPlugin,
   [Plugin.Image]: imageRendererPlugin,
   [Plugin.Injection]: injectionRendererPlugin,
-  [Plugin.InputExercise]: inputExercisePlugin,
+  [Plugin.InputExercise]: inputExerciseRendererPlugin,
   [Plugin.License]: licenseRendererPlugin,
   [Plugin.MatchingExercise]: matchingExerciseRendererPlugin,
   [Plugin.ScMcExercise]: scMcExerciseRendererPlugin,
