@@ -35,7 +35,16 @@ storiesOf('Hint', module)
         title: 'Foobar',
         content: {
           type: '@splish-me/editor-core/editable',
-          state: createEmptyState()
+          state: createStateForContentPlugin({
+            plugin: hintRendererPlugin,
+            initialState: {
+              title: 'Inner',
+              content: {
+                type: '@splish-me/editor-core/editable',
+                state: createEmptyState()
+              }
+            }
+          })
         }
       }
     })

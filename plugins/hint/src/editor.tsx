@@ -11,7 +11,7 @@ export class HintEditor extends React.Component<HintEditorProps> {
     const { onChange, state, readOnly } = this.props
 
     if (readOnly) {
-      return <HintRenderer {...this.props} />
+      return <HintRenderer state={state} />
     }
 
     return (

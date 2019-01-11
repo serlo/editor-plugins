@@ -3,25 +3,25 @@ import * as React from 'react'
 import { styled } from './styled'
 
 export class Hint extends React.Component<HintProps, HintState> {
-  public state: HintState = { hidden: true }
+  public state: HintState = { hideContent: true }
 
   public render() {
     const { children, kind, shown } = this.props
-    const hidden = !shown && this.state.hidden
+    const hideContent = !shown && this.state.hideContent
 
     return (
-      <this.Wrapper hidden={hidden}>
+      <this.Wrapper hideContent={hideContent}>
         <this.Toggle onClick={this.onToggle}>
           <a>
             {kind} {this.showTitle()}
-            {hidden ? (
+            {hideContent ? (
               <span className="fa fa-caret-down" />
             ) : (
               <span className="fa fa-caret-up" />
             )}
           </a>
         </this.Toggle>
-        <this.Content>{children}</this.Content>
+        <this.Content hideContent={hideContent}>{children}</this.Content>
       </this.Wrapper>
     )
   }
@@ -37,31 +37,33 @@ export class Hint extends React.Component<HintProps, HintState> {
   }
 
   private onToggle = () => {
-    this.setState({ hidden: !this.state.hidden })
+    this.setState({ hideContent: !this.state.hideContent })
   }
 
-  private Wrapper = styled.div<{ hidden?: boolean }>(({ hidden }) => {
+  private Wrapper = styled.div<{ hideContent?: boolean }>(({ hideContent }) => {
     return {
       marginTop: '12px',
       marginBottom: '20px',
-      border: hidden ? 'none' : '1px solid #d9edf7',
+      border: hideContent ? '1px solid transparent' : '1px solid #d9edf7',
       borderRadius: '2px',
-      boxShadow: hidden ? 'none' : '0 1px 1px rgba(0, 0, 0, 0.05)'
+      boxShadow: hideContent
+        ? '0 1px 1px rgba(0, 0, 0, 0)'
+        : '0 1px 1px rgba(0, 0, 0, 0.05)'
     }
   })
 
-  private Toggle = styled.div<{ hidden?: boolean }>(({ hidden }) => {
+  private Toggle = styled.div<{ hideContent?: boolean }>(({ hideContent }) => {
     return {
-      backgroundColor: hidden ? 'transparent' : '#d9edf7',
+      backgroundColor: hideContent ? 'transparent' : '#d9edf7',
       padding: '10px 15px 10px 10px',
-      borderColor: hidden ? 'transparent' : '#d9edf7',
+      borderColor: hideContent ? 'transparent' : '#d9edf7',
       textAlign: 'left',
       cursor: 'pointer'
     }
   })
 
-  private Content = styled.div<{ hidden?: boolean }>(({ hidden }) => {
-    return { display: hidden ? 'none' : 'block' }
+  private Content = styled.div<{ hideContent?: boolean }>(({ hideContent }) => {
+    return { display: hideContent ? 'none' : 'block' }
   })
 }
 
@@ -72,5 +74,5 @@ export interface HintProps {
 }
 
 interface HintState {
-  hidden: boolean
+  hideContent: boolean
 }
