@@ -9,61 +9,25 @@ This is a monorepo for all plugins for the [Splish Editor](https://github.com/sp
 To run the storybook, run the following commands:
 
 ```
-yarn install
+yarn
 yarn start
 ```
 
 After that open [http://localhost:9009](http://localhost:9009) in your browser.
 
-## Adding new plugins
+## Adding a new plugin
 
-### File structure
+To create a new plugin `bar`, you have to do the following steps:
 
-To add a new plugin you create a folder in `plugins/layout` for LayoutPlugins or `plugins/content` for ContentPlugins
-(details for these types are documented by ORY in the [User Guide on gitbook](https://ory.gitbooks.io/editor/content/#how-it-works).)
-
-In the folder you need a few things (they can be copied as templates from the folder `plugins/template`:
-
-- `package.json`: with `name` as used for import, `"version": "0.0.0"` (so it is resolved correctly by `lerna`), scripts as in the other plugins and `peerDependencies` to `react` and `react-dom`
-- `README.md`: with the package name for later npm export
-- `src` folder with the source files for the plugin.
-
-### Test new plugins in the example
-
-Firstly, import your plugin in `.storybook/helpers/Renderer.js` and add it to `const plugins`. You can then use the plugin in any of the existing stories and add additional stories in your `src/index.stories.js` file.
-
-## FAQ
-
-### Where can I learn more about creating Ory plugins?
-
-There is a great tutorial provided in the [User guide on gitbook](https://ory.gitbooks.io/editor/content/tutorials.html#reactjs-example).
-
-### How should I persist changes?
-
-All plugins receive `this.props.state` and `this.props.onChange(...)`. You should get all values using the `state` supplied via `props` and persist all attributes needed using the mentioned `onChange(...)`.
-
-#### Example
-
-```
-handleValueChange(event) {
-    const target = event.target
-    //in case the event is fired by a checkbox we need to deal with it differently
-    const value = target.type === 'checkbox' ? target.checked : target.value
-    const name = target.name
-
-    this.props.onChange({
-        [name]: value
-    })
-}
-```
-
-Notice the ES6 shorthand here.
-You can then use the saved values like this:
-
-```
-const { state } = this.props
-const foo = state.foo || 'default value'
-```
+- Copy [`template/foobar`](template/foobar) to `plugins/bar`
+- Copy [`template/foobar-renderer`](template/foobar-renderer) to `plugins/bar-renderer`
+- Replace `foobar` with `bar` in `plugins/bar/package.json` and `plugins/bar-renderer/package.json`
+- Add an entry in `paths` in [`tsconfig.json`](tsconfig.json) for `@serlo/editor-plugin-bar`
+- Add an entry in `paths` in [`tsconfig.json`](tsconfig.json) for `@serlo/editor-plugin-bar-renderer`
+- Add an entry in `alias` in [`demo/.storybook/webpack.config.js`](demo/.storybook/webpack.config.js) for `@serlo/editor-plugin-bar`
+- Add an entry in `alias` in [`demo/.storybook/webpack.config.js`](demo/.storybook/webpack.config.js) for `@serlo/editor-plugin-bar-renderer`
+- `yarn` (so that the two new packages get symlinked
+- Add stories for your plugins in `demo/__stories__/bar.tsx`
 
 ### What does Lerna do?
 
