@@ -22,13 +22,10 @@
   "dependencies": {
     "@serlo/editor-plugin-matching-exercise-renderer": "0.4.0-alpha.0",
     "@serlo/editor-ui": "0.4.0-alpha.0",
-    "@splish-me/editor-core-document": "^0.4.0-alpha",
-    "react-beautiful-dnd": "^10.0.0",
-    "react-select": "^2.0.0"
+    "@splish-me/editor-core-document": "^0.4.0-alpha"
   },
   "devDependencies": {
-    "@types/react": "^16.0.0",
-    "@types/react-select": "^2.0.0"
+    "@types/react": "^16.0.0"
   },
   "peerDependencies": {
     "react": "^16.0.0"

@@ -7,18 +7,27 @@ import { Block } from './block'
 import { Block as B } from '.'
 
 export class Column extends React.Component<ColumnProps> {
-  static defaultProps: Pick<ColumnProps, 'renderBlock'> = {
+  static defaultProps: Pick<ColumnProps, 'renderBlock' | 'Container'> = {
     renderBlock: block => {
       return block
-    }
+    },
+    Container: Masonry
   }
   public render() {
-    const { blocks, title, renderBlock, check, width, move } = this.props
+    const {
+      blocks,
+      title,
+      renderBlock,
+      check,
+      width,
+      move,
+      Container
+    } = this.props
 
     return (
       <this.Container width={width}>
         <strong>{title}</strong>
-        <Masonry>
+        <Container>
           {blocks.map((block, index) => {
             let feedback
 
@@ -36,7 +45,7 @@ export class Column extends React.Component<ColumnProps> {
               </this.AnimatedColumn>
             )
           })}
-        </Masonry>
+        </Container>
       </this.Container>
     )
   }
@@ -61,6 +70,7 @@ export interface ColumnProps {
   title?: string
   check?: boolean[]
   width?: string
+  Container?: React.ComponentType
   move?: (index: number) => (block: B) => void
   renderBlock: (block: React.ReactNode, index: number) => React.ReactNode
 }
