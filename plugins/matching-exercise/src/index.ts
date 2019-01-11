@@ -10,7 +10,7 @@ export const matchingExercisePlugin = {
 
   text: 'Matching Exercise',
   createInitialState: (): MatchingExercisePluginState => ({
-    solution: [[0, 0]],
+    solution: [],
     blockContent: [createDocumentIdentifier()]
   })
 }

@@ -21,3 +21,5 @@ export interface Block {
 }
 
 export * from './renderer'
+export * from './column'
+export * from './row'

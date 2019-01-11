@@ -7,14 +7,25 @@ import { Block } from './block'
 import { isCorrectPerRow } from './helpers'
 import { Block as B, MatchingExercisePluginState } from '.'
 
-export class Row extends React.Component<ColumnProps> {
-  static defaultProps: Pick<ColumnProps, 'renderBlock'> = {
+export class Row extends React.Component<RowProps> {
+  static defaultProps: Pick<RowProps, 'renderBlock' | 'renderRow'> = {
     renderBlock: block => {
       return block
+    },
+    renderRow: row => {
+      return row
     }
   }
   public render() {
-    const { blocks, title, renderBlock, state, undo } = this.props
+    const {
+      blocks,
+      title,
+      renderBlock,
+      state,
+      undo,
+      preview,
+      renderRow
+    } = this.props
 
     const rows = [...blocks]
     const last = R.last(blocks)
@@ -38,37 +49,42 @@ export class Row extends React.Component<ColumnProps> {
             }
             return (
               <this.AnimatedRow key={index}>
-                <this.Column>
-                  {leftBlock ? (
-                    renderBlock(
-                      <Block
-                        block={leftBlock}
-                        active
-                        correct={correct}
-                        wrong={wrong}
-                        move={rightBlock ? undefined : undo}
-                      />,
-                      index
-                    )
-                  ) : (
-                    <this.BlockPlaceholder />
-                  )}
-                </this.Column>
-                <this.Column>
-                  {rightBlock ? (
-                    renderBlock(
-                      <Block
-                        block={rightBlock}
-                        active
-                        correct={correct}
-                        wrong={wrong}
-                      />,
-                      index
-                    )
-                  ) : leftBlock ? (
-                    <this.BlockPlaceholder />
-                  ) : null}
-                </this.Column>
+                {renderRow(
+                  <React.Fragment>
+                    <this.Column>
+                      {leftBlock ? (
+                        renderBlock(
+                          <Block
+                            block={leftBlock}
+                            active
+                            correct={preview ? false : correct}
+                            wrong={preview ? false : wrong}
+                            move={rightBlock ? undefined : undo}
+                          />,
+                          index
+                        )
+                      ) : (
+                        <this.BlockPlaceholder />
+                      )}
+                    </this.Column>
+                    <this.Column>
+                      {rightBlock ? (
+                        renderBlock(
+                          <Block
+                            block={rightBlock}
+                            active
+                            correct={preview ? false : correct}
+                            wrong={preview ? false : wrong}
+                          />,
+                          index
+                        )
+                      ) : leftBlock ? (
+                        <this.BlockPlaceholder />
+                      ) : null}
+                    </this.Column>
+                  </React.Fragment>,
+                  index
+                )}
               </this.AnimatedRow>
             )
           })}
@@ -103,10 +119,12 @@ export class Row extends React.Component<ColumnProps> {
   })
 }
 
-export interface ColumnProps {
+export interface RowProps {
   state: MatchingExercisePluginState
   blocks: [B | undefined, B | undefined][]
   title?: string
+  preview?: boolean
   undo?: (block: B) => void
+  renderRow: (row: React.ReactNode, index: number) => React.ReactNode
   renderBlock: (block: React.ReactNode, index: number) => React.ReactNode
 }
