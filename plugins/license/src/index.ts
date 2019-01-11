@@ -3,7 +3,7 @@ import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 
 import { LicenseEditor } from './editor'
 
-export default {
+export const licensePlugin = {
   name: '@serlo-org/license',
   version: '0.0.0',
   text: 'Lizenzangabe',

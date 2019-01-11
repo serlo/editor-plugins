@@ -70,9 +70,7 @@ export class ScMcExerciseEditor extends React.Component<
             })}
 
             <this.AddButtonContainer>
-              <this.AddButton>
-                onClick={this.addButton}
-                >
+              <this.AddButton onClick={this.addButton}>
                 <Icon icon={faPlus} />
               </this.AddButton>
             </this.AddButtonContainer>

@@ -1,6 +1,6 @@
 {
   "name": "@serlo/editor-plugins-renderer",
-  "version": "0.0.0",
+  "version": "0.4.0-alpha.0",
   "bugs": {
     "url": "https://github.com/serlo/editor-plugins/issues"
   },
@@ -20,14 +20,14 @@
     "format": "prettier --write \"{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@serlo/editor-plugin-anchor-renderer": "^0.0.0",
-    "@serlo/editor-plugin-blockquote-renderer": "^0.0.0",
-    "@serlo/editor-plugin-equations-renderer": "^0.0.0",
-    "@serlo/editor-plugin-geogebra-renderer": "^0.0.0",
-    "@serlo/editor-plugin-highlight-renderer": "^0.0.0",
-    "@serlo/editor-plugin-hint-renderer": "^0.0.0",
-    "@serlo/editor-plugin-text-renderer": "^0.0.0",
-    "@serlo/editor-plugins-registry": "^0.0.0"
+    "@serlo/editor-plugin-anchor-renderer": "0.4.0-alpha.0",
+    "@serlo/editor-plugin-blockquote-renderer": "0.4.0-alpha.0",
+    "@serlo/editor-plugin-equations-renderer": "0.4.0-alpha.0",
+    "@serlo/editor-plugin-geogebra-renderer": "0.4.0-alpha.0",
+    "@serlo/editor-plugin-highlight-renderer": "0.4.0-alpha.0",
+    "@serlo/editor-plugin-hint-renderer": "0.4.0-alpha.0",
+    "@serlo/editor-plugin-text-renderer": "0.4.0-alpha.0",
+    "@serlo/editor-plugins-registry": "0.4.0-alpha.0"
   },
   "publishConfig": {
     "access": "public"

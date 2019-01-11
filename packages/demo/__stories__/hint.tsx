@@ -7,6 +7,7 @@ import {
 } from '@serlo/storybook-helpers'
 import { createDocumentIdentifier } from '@splish-me/editor-core-document'
 import { storiesOf } from '@storybook/react'
+import { createEmptyState } from 'ory-editor-core'
 import * as React from 'react'
 
 storiesOf('Hint', module)
@@ -26,12 +27,16 @@ storiesOf('Hint', module)
 
     return renderEditor(content)
   })
+
   .add('Renderer', () => {
     const content = createStateForContentPlugin({
       plugin: hintRendererPlugin,
       initialState: {
         title: 'Foobar',
-        content: createDocumentIdentifier()
+        content: {
+          type: '@splish-me/editor-core/editable',
+          state: createEmptyState()
+        }
       }
     })
 

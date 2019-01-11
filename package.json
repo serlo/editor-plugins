@@ -6,13 +6,12 @@
   "repository": "serlo/editor-plugins",
   "scripts": {
     "precommit": "lint-staged",
-    "build": "lerna run --stream build",
-    "ci": "lerna run --parallel ci",
+    "build": "lerna run --ignore @serlo/editor-demo --stream build",
+    "ci": "lerna run ci",
     "format": "prettier --write \"*.{js,jsx,ts,tsx,css,scss,json,md,markdown}\"",
     "postformat": "lerna run --parallel format",
     "start": "lerna run --parallel start",
-    "prebuild-storybook": "yarn build",
-    "build-storybook": "build-storybook -c .storybook -s ./.storybook/public -o dist",
+    "build-storybook": "lerna run --scope @serlo/editor-demo --stream build",
     "test": "lerna run --parallel test"
   },
   "dependencies": {

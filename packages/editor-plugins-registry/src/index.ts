@@ -7,43 +7,40 @@ export enum Plugin {
   Geogebra = 'geogebra',
   Highlight = 'highlight',
   Hint = 'hint',
+  Image = 'image',
+  Injection = 'injection',
+  InputExercise = 'input-exercise',
+  License = 'license',
+  MatchingExercise = 'matching-exercise',
+  ScMcExercise = 'sc-mc-exercise',
+  Solution = 'solution',
+  Spoiler = 'spoiler',
+  StepByStep = 'step-by-step',
+  Table = 'table',
   Text = 'text'
 }
-// Image = 'image',
-// Spoiler = 'spoiler',
-// License = 'license',
-// Injection = 'injection',
-// MatchingExercise = 'matching-exercise',
-// StepByStep = 'step-by-step',
-// ScMcExercise = 'sc-mc-exercise',
-// InputExercise = 'input-exercise',
-// Solution = 'solution',
-// Table = 'table',
 
-// const defaultPlugins = [
-//   Plugin.Image,
-//   Plugin.Spoiler,
-//   Plugin.GeoGebra,
-//   Plugin.License,
-//   Plugin.Injection,
-//   Plugin.Table,
-// ]
 const defaultPlugins = [
   Plugin.Text,
+  Plugin.Image,
+  Plugin.Spoiler,
+  Plugin.Injection,
   Plugin.Anchor,
   Plugin.Blockquote,
-  Plugin.Geogebra
+  Plugin.Geogebra,
+  Plugin.Table
 ]
 
-// const newPlugins = [
-//   Plugin.MatchingExercise,
-//   Plugin.StepByStep,
-//   Plugin.InputExercise
-// ]
-const newPlugins = [Plugin.Highlight, Plugin.Equations]
+const newPlugins = [
+  Plugin.Highlight,
+  Plugin.Equations,
+  Plugin.License,
+  Plugin.MatchingExercise,
+  Plugin.StepByStep,
+  Plugin.InputExercise
+]
 
-// const exercisePlugins = [Plugin.Solution, Plugin.ScMcExercise]
-const exercisePlugins = [Plugin.Hint]
+const exercisePlugins = [Plugin.Solution, Plugin.Hint, Plugin.ScMcExercise]
 
 export const createPluginFactory = (
   pluginRegistry: PluginRegistry

@@ -7,6 +7,7 @@ import {
   renderRenderer
 } from '@serlo/storybook-helpers'
 import { storiesOf } from '@storybook/react'
+import { createEmptyState } from 'ory-editor-core'
 import * as React from 'react'
 
 storiesOf('Solution', module)
@@ -31,7 +32,10 @@ storiesOf('Solution', module)
       plugin: solutionRendererPlugin,
       initialState: {
         title: 'Foobar',
-        content: createDocumentIdentifier()
+        content: {
+          type: '@splish-me/editor-core/editable',
+          state: createEmptyState()
+        }
       }
     })
 

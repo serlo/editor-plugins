@@ -1,6 +1,6 @@
 {
   "name": "@serlo/editor-plugin-highlight-renderer",
-  "version": "0.0.0",
+  "version": "0.4.0-alpha.0",
   "bugs": {
     "url": "https://github.com/serlo/editor-plugins/issues"
   },
@@ -23,8 +23,8 @@
     "react-syntax-highlighter": "^10.0.0"
   },
   "devDependencies": {
-    "@types/react-syntax-highlighter": "^10.0.0",
-    "@types/react": "^16.0.0"
+    "@types/react": "^16.0.0",
+    "@types/react-syntax-highlighter": "^10.0.0"
   },
   "peerDependencies": {
     "react": "^16.0.0"

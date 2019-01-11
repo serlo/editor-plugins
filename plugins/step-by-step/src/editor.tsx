@@ -37,7 +37,7 @@ export class StepByStepEditor extends React.Component<StepByStepEditorProps> {
 
   public render() {
     const { readOnly, state } = this.props
-    console.log(state)
+
     if (!readOnly) {
       return (
         <React.Fragment>
