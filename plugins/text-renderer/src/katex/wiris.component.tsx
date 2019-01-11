@@ -1,6 +1,7 @@
 import { styled } from '@serlo/editor-ui'
 import axios from 'axios'
 import * as React from 'react'
+import { createPortal } from 'react-dom'
 
 type MathML = string
 type LaTeX = string
@@ -29,14 +30,15 @@ export class Wiris extends React.Component<WirisProps> {
         wiris = com.wiris.jsEditor.JsEditor.newInstance({
           language: 'en' // FIXME:
         })
+
         this.initWiris()
       })
     }
   }
 
   public render() {
-    return (
-      <this.Overlay>
+    return createPortal(
+      <this.Overlay className="ory-prevent-blur">
         <this.Modal>
           <this.Container ref={this.container} />
           <this.ButtonContainer>
@@ -48,7 +50,8 @@ export class Wiris extends React.Component<WirisProps> {
             </button>
           </this.ButtonContainer>
         </this.Modal>
-      </this.Overlay>
+      </this.Overlay>,
+      document.body
     )
   }
 
