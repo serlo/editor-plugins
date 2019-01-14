@@ -1,6 +1,6 @@
 {
   "name": "@serlo/storybook-helpers",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "bugs": {
     "url": "https://github.com/serlo/editor-plugins/issues"
   },
@@ -20,9 +20,9 @@
     "format": "prettier --write \"{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@serlo/editor-plugins": "^0.4.2",
-    "@serlo/editor-plugins-renderer": "0.4.1",
-    "@serlo/html-renderer": "0.4.1",
+    "@serlo/editor-plugins": "^0.4.3",
+    "@serlo/editor-plugins-renderer": "^0.4.3",
+    "@serlo/html-renderer": "^0.4.3",
     "uuid": "^3.0.0"
   },
   "devDependencies": {

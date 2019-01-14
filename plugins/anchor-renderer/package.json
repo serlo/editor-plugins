@@ -1,6 +1,6 @@
 {
   "name": "@serlo/editor-plugin-anchor-renderer",
-  "version": "0.4.1",
+  "version": "0.4.3",
   "bugs": {
     "url": "https://github.com/serlo/editor-plugins/issues"
   },
@@ -19,7 +19,6 @@
     "ci": "tsc --noEmit",
     "format": "prettier --write \"{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
-  "dependencies": {},
   "devDependencies": {
     "@types/react": "^16.0.0"
   },
