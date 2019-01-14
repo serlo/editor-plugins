@@ -20,7 +20,6 @@
     "format": "prettier --write \"{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@serlo/editor-ui": "0.4.1",
     "axios": "^0.18.0",
     "lodash": "^4.0.0"
   },
@@ -29,6 +28,7 @@
     "@types/react": "^16.0.0"
   },
   "peerDependencies": {
+    "@serlo/editor-ui": "^0.4.0",
     "react": "^16.0.0"
   },
   "publishConfig": {

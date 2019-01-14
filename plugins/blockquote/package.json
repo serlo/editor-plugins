@@ -19,14 +19,13 @@
     "ci": "tsc --noEmit",
     "format": "prettier --write \"{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
-  "dependencies": {
-    "@serlo/editor-plugin-blockquote-renderer": "0.4.1",
-    "@splish-me/editor-core-document": "^0.4.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/react": "^16.0.0"
   },
   "peerDependencies": {
+    "@serlo/editor-plugin-blockquote-renderer": "^0.4.0",
+    "@splish-me/editor-core-document": "^0.4.0",
     "react": "^16.0.0"
   },
   "publishConfig": {

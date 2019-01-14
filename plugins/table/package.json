@@ -21,13 +21,13 @@
   },
   "dependencies": {
     "@serlo/editor-plugin-table-renderer": "0.4.1",
-    "@serlo/editor-ui": "0.4.1",
     "react-textarea-autosize": "^7.0.0"
   },
   "devDependencies": {
     "@types/react": "^16.0.0"
   },
   "peerDependencies": {
+    "@serlo/editor-ui": "^0.4.0",
     "react": "^16.0.0"
   },
   "publishConfig": {

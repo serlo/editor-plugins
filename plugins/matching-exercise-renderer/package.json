@@ -21,8 +21,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "@serlo/editor-ui": "0.4.1",
-    "@splish-me/editor-core-types": "^0.4.0",
     "ramda": "^0.26.0",
     "react-masonry-component": "^6.0.0",
     "react-pose": "^4.0.0"
@@ -32,6 +30,8 @@
     "@types/react": "^16.0.0"
   },
   "peerDependencies": {
+    "@serlo/editor-ui": "^0.4.0",
+    "@splish-me/editor-core-types": "^0.4.0",
     "react": "^16.0.0"
   },
   "publishConfig": {

@@ -22,7 +22,6 @@
   "dependencies": {
     "axios": "^0.18.0",
     "lodash": "^4.0.0",
-    "ory-editor-core": "^0.6.0",
     "uuid": "^3.0.0"
   },
   "devDependencies": {
@@ -31,6 +30,7 @@
     "@types/uuid": "^3.0.0"
   },
   "peerDependencies": {
+    "ory-editor-core": "^0.6.0",
     "react": "^16.0.0"
   },
   "publishConfig": {

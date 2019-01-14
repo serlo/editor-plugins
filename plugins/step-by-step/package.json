@@ -21,8 +21,6 @@
   },
   "dependencies": {
     "@serlo/editor-plugin-step-by-step-renderer": "0.4.1",
-    "@serlo/editor-ui": "0.4.1",
-    "@splish-me/editor-core-document": "^0.4.0",
     "ramda": "^0.26.0",
     "react-beautiful-dnd": "^10.0.0"
   },
@@ -31,6 +29,8 @@
     "@types/react": "^16.0.0"
   },
   "peerDependencies": {
+    "@serlo/editor-ui": "^0.4.0",
+    "@splish-me/editor-core-document": "^0.4.0",
     "react": "^16.0.0"
   },
   "publishConfig": {

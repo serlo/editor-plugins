@@ -20,7 +20,6 @@
     "format": "prettier --write \"{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@serlo/editor-ui": "0.4.1",
     "@splish-me/editor-plugin-text-plugin": "^0.4.0",
     "@splish-me/editor-plugin-text-plugin-code": "^0.4.0",
     "@splish-me/editor-plugin-text-plugin-headings": "^0.4.0",
@@ -29,7 +28,6 @@
     "@splish-me/editor-plugin-text-plugin-paragraph": "^0.4.0",
     "@splish-me/editor-plugin-text-plugin-rich-text": "^0.4.0",
     "@splish-me/editor-plugin-text-renderer": "^0.4.0",
-    "@splish-me/editor-ui-plugin-sidebar": "^0.4.0",
     "katex": "^0.10.0",
     "lodash": "^4.0.0",
     "react": "^16.0.0",
@@ -42,6 +40,8 @@
     "@types/slate": "^0.40.0"
   },
   "peerDependencies": {
+    "@serlo/editor-ui": "^0.4.0",
+    "@splish-me/editor-ui-plugin-sidebar": "^0.4.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
