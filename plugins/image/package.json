@@ -24,6 +24,7 @@
     "@serlo/editor-plugin-image-renderer": "^0.4.3"
   },
   "devDependencies": {
+    "@serlo/editor-ui": "^0.4.0",
     "@types/react": "^16.0.0"
   },
   "peerDependencies": {
