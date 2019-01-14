@@ -20,8 +20,10 @@
     "format": "prettier --write \"{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
+    "ory-editor-core": "^0.6.0",
     "@serlo/editor-plugins": "^0.4.3",
     "@serlo/editor-plugins-renderer": "^0.4.3",
+    "@serlo/editor-ui": "^0.4.3",
     "@serlo/html-renderer": "^0.4.3",
     "@splish-me/editor-core": "^0.4.0",
     "@splish-me/editor-core-contexts": "^0.4.0",
