@@ -10,6 +10,9 @@
     "ci": "lerna run ci",
     "format": "prettier --write \"*.{js,jsx,ts,tsx,css,scss,json,md,markdown}\"",
     "postformat": "lerna run --parallel format",
+    "predeploy": "yarn build",
+    "deploy": "lerna publish --message \"chore: release %v\" --exact",
+    "deploy:prerelease": "yarn deploy --dist-tag next",
     "start": "lerna run --parallel start",
     "build-storybook": "lerna run --scope @serlo/editor-demo --stream build",
     "test": "lerna run --parallel test"
