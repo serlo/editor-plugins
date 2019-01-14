@@ -30,6 +30,7 @@
     "@splish-me/editor-plugin-text-plugin-rich-text": "^0.4.0",
     "@splish-me/editor-plugin-text-plugin-ui": "^0.4.0",
     "@splish-me/editor-ui-plugin-sidebar": "^0.4.0",
+    "immutable": "^3.0.0",
     "ramda": "^0.26.0",
     "slate": "^0.41.0"
   },
