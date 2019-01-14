@@ -1,6 +1,6 @@
 {
   "name": "@serlo/editor",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "bugs": {
     "url": "https://github.com/serlo/editor-plugins/issues"
   },
@@ -20,7 +20,6 @@
     "format": "prettier --write \"{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "ory-editor-core": "^0.6.0",
     "@serlo/editor-plugins": "^0.4.3",
     "@serlo/editor-plugins-renderer": "^0.4.3",
     "@serlo/editor-ui": "^0.4.3",
@@ -32,7 +31,8 @@
     "@splish-me/editor-ui-add-sidebar": "^0.4.0",
     "@splish-me/editor-ui-mode-toolbar": "^0.4.0",
     "@splish-me/editor-ui-plugin-sidebar": "^0.4.0",
-    "@splish-me/editor-ui-sidebar": "^0.4.0"
+    "@splish-me/editor-ui-sidebar": "^0.4.0",
+    "ory-editor-core": "^0.6.0"
   },
   "publishConfig": {
     "access": "public"
