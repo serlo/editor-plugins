@@ -1,6 +1,6 @@
 {
   "name": "@serlo/editor-plugins-renderer",
-  "version": "0.4.3",
+  "version": "0.4.5",
   "bugs": {
     "url": "https://github.com/serlo/editor-plugins/issues"
   },
@@ -20,23 +20,23 @@
     "format": "prettier --write \"{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@serlo/editor-plugin-anchor-renderer": "^0.4.3",
+    "@serlo/editor-plugin-anchor-renderer": "^0.4.5",
     "@serlo/editor-plugin-blockquote-renderer": "^0.4.3",
     "@serlo/editor-plugin-equations-renderer": "^0.4.3",
     "@serlo/editor-plugin-geogebra-renderer": "^0.4.3",
     "@serlo/editor-plugin-highlight-renderer": "0.4.1",
-    "@serlo/editor-plugin-hint-renderer": "^0.4.3",
-    "@serlo/editor-plugin-image-renderer": "^0.4.3",
-    "@serlo/editor-plugin-injection-renderer": "^0.4.3",
-    "@serlo/editor-plugin-input-exercise-renderer": "^0.4.3",
+    "@serlo/editor-plugin-hint-renderer": "^0.4.5",
+    "@serlo/editor-plugin-image-renderer": "^0.4.5",
+    "@serlo/editor-plugin-injection-renderer": "^0.4.5",
+    "@serlo/editor-plugin-input-exercise-renderer": "^0.4.5",
     "@serlo/editor-plugin-license-renderer": "^0.4.3",
-    "@serlo/editor-plugin-matching-exercise-renderer": "^0.4.3",
-    "@serlo/editor-plugin-sc-mc-exercise-renderer": "^0.4.3",
-    "@serlo/editor-plugin-solution-renderer": "^0.4.3",
-    "@serlo/editor-plugin-spoiler-renderer": "^0.4.3",
-    "@serlo/editor-plugin-step-by-step-renderer": "^0.4.3",
-    "@serlo/editor-plugin-table-renderer": "^0.4.3",
-    "@serlo/editor-plugin-text-renderer": "^0.4.3",
+    "@serlo/editor-plugin-matching-exercise-renderer": "^0.4.5",
+    "@serlo/editor-plugin-sc-mc-exercise-renderer": "^0.4.5",
+    "@serlo/editor-plugin-solution-renderer": "^0.4.5",
+    "@serlo/editor-plugin-spoiler-renderer": "^0.4.5",
+    "@serlo/editor-plugin-step-by-step-renderer": "^0.4.5",
+    "@serlo/editor-plugin-table-renderer": "^0.4.5",
+    "@serlo/editor-plugin-text-renderer": "^0.4.5",
     "@serlo/editor-plugins-registry": "0.4.1"
   },
   "publishConfig": {
