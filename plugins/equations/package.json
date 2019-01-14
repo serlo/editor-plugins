@@ -1,6 +1,6 @@
 {
   "name": "@serlo/editor-plugin-equations",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "bugs": {
     "url": "https://github.com/serlo/editor-plugins/issues"
   },
@@ -20,8 +20,8 @@
     "format": "prettier --write \"{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@serlo/editor-plugin-equations-renderer": "0.4.0",
-    "@serlo/editor-ui": "0.4.0",
+    "@serlo/editor-plugin-equations-renderer": "0.4.1",
+    "@serlo/editor-ui": "0.4.1",
     "@splish-me/editor-core-document": "^0.4.0",
     "ramda": "^0.26.0",
     "react-beautiful-dnd": "^10.0.0"
