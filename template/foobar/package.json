@@ -22,7 +22,7 @@
   "dependencies": {
     "@serlo/editor-plugin-foobar-renderer": "^0.0.0",
     "@serlo/editor-ui": "^0.0.0",
-    "@splish-me/editor-ui-plugin-sidebar": "^0.4.0-alpha"
+    "@splish-me/editor-ui-plugin-sidebar": "^0.4.0"
   },
   "devDependencies": {
     "@types/react": "^16.0.0"

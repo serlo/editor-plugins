@@ -1,6 +1,6 @@
 {
   "name": "@serlo/editor-plugin-spoiler-renderer",
-  "version": "0.4.0-alpha.0",
+  "version": "0.4.0",
   "bugs": {
     "url": "https://github.com/serlo/editor-plugins/issues"
   },
@@ -20,9 +20,9 @@
     "format": "prettier --write \"{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@serlo/editor-ui": "0.4.0-alpha.0",
-    "@splish-me/editor-core-document": "^0.4.0-alpha",
-    "@splish-me/editor-core-types": "^0.4.0-alpha"
+    "@serlo/editor-ui": "0.4.0",
+    "@splish-me/editor-core-document": "^0.4.0",
+    "@splish-me/editor-core-types": "^0.4.0"
   },
   "devDependencies": {
     "@types/react": "^16.0.0"
