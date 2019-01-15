@@ -162,5 +162,5 @@ export const textPlugin = {
     plugins
   }),
   name: '@splish-me/slate',
-  version: '0.0.11'
+  version: '0.2.5'
 }

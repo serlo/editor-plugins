@@ -23,5 +23,5 @@ export const plugins = [
 export const textRendererPlugin = {
   ...createTextRendererPlugin({ plugins }),
   name: '@splish-me/slate',
-  version: '0.0.11'
+  version: '0.2.5'
 }
