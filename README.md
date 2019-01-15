@@ -17,17 +17,25 @@ After that open [http://localhost:9009](http://localhost:9009) in your browser.
 
 ## Adding a new plugin
 
-To create a new plugin `bar`, you have to do the following steps:
+To create a new plugin `bar`, you can run the plop generator:
 
-- Copy [`template/foobar`](template/foobar) to `plugins/bar`
-- Copy [`template/foobar-renderer`](template/foobar-renderer) to `plugins/bar-renderer`
-- Replace `foobar` with `bar` in `plugins/bar/package.json` and `plugins/bar-renderer/package.json`
+```sh
+yarn
+yarn plop bar
+```
+
+After the generator is done add stories for your plugins in `demo/__stories__/bar.tsx`
+
+### What does the plop generator do?
+
+- Create `plugins/bar-renderer` (the plugin renderer)
+- Create `plugins/bar` with dependency on the renderer (the plugin editing)
 - Add an entry in `paths` in [`tsconfig.json`](tsconfig.json) for `@serlo/editor-plugin-bar`
 - Add an entry in `paths` in [`tsconfig.json`](tsconfig.json) for `@serlo/editor-plugin-bar-renderer`
 - Add an entry in `alias` in [`demo/.storybook/webpack.config.js`](demo/.storybook/webpack.config.js) for `@serlo/editor-plugin-bar`
 - Add an entry in `alias` in [`demo/.storybook/webpack.config.js`](demo/.storybook/webpack.config.js) for `@serlo/editor-plugin-bar-renderer`
-- `yarn` (so that the two new packages get symlinked
-- Add stories for your plugins in `demo/__stories__/bar.tsx`
+- Run `yarn` (so that the two new packages get symlinked)
+- Run `yarn format`
 
 ## FAQ
 
