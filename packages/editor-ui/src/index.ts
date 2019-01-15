@@ -1,4 +1,5 @@
 export * from './feedback'
+export * from './fetch-dimensions'
 export * from './hint'
 export * from './icon'
 export * from './styled'

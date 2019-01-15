@@ -1880,6 +1880,16 @@
   dependencies:
     any-observable "^0.3.0"
 
+"@serlo/editor-ui@0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@serlo/editor-ui/-/editor-ui-0.4.0.tgz#4714ba3fdb863d02b2ae78ba5083ec912b73dab3"
+  integrity sha512-8FdX4qmyIZj70UD9B3J9qdwKq3Dgw3851Dpac8oy0Am/3oGwBOcrWPjt6N+80m0nkXq5IcoBpu2nimSMl8h/ag==
+  dependencies:
+    "@fortawesome/fontawesome-svg-core" "^1.0.0"
+    "@fortawesome/free-solid-svg-icons" "^5.0.0"
+    "@fortawesome/react-fontawesome" "^0.1.0"
+    styled-components "^4.0.0"
+
 "@splish-me/editor-core-contexts@^0.4.0":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@splish-me/editor-core-contexts/-/editor-core-contexts-0.4.3.tgz#a28f249963db18c9d2e94b02de039a080d70b77a"
@@ -1978,9 +1988,9 @@
     "@splish-me/editor-plugin-text-plugin" "0.4.1"
 
 "@splish-me/editor-plugin-text@^0.4.0":
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text/-/editor-plugin-text-0.4.3.tgz#8e748b20082d38063a0bd1c134f930a64e9cfd2d"
-  integrity sha512-6tsF85Q5WCQePAn4XOrNUZCqy2s4PMKhVkSRQszOAWQquW0wO3XJirdgZZZ4PUMxoJW+39Pt/mTOYeslquWAXg==
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text/-/editor-plugin-text-0.4.5.tgz#d40e823cb1cdfad74950f2985f9df8508c469ade"
+  integrity sha512-1KeNrx2UsZqSk6sAZniF3X035s3ACGeAFx3SuUZnkmtzz3JnoqeImigNbOemxa3v7kuurySMv1ghUFOI/Ysasw==
   dependencies:
     "@splish-me/editor-plugin-text-plugin" "0.4.1"
     "@splish-me/editor-plugin-text-plugin-code" "0.4.1"
@@ -1991,7 +2001,7 @@
     "@splish-me/editor-plugin-text-plugin-rich-text" "0.4.1"
     "@splish-me/editor-plugin-text-plugin-ui" "^0.4.3"
     "@splish-me/editor-plugin-text-renderer" "0.4.1"
-    parse5 "^5.0.0"
+    parse5 "^4.0.0"
     slate "^0.41.0"
     slate-html-serializer "^0.7.0"
     slate-react "^0.18.0"
@@ -5719,9 +5729,9 @@ ejs@^2.6.1:
   integrity sha512-0xy4A/twfrRCnkhfk8ErDi5DqdAsAqeGxht4xkCUrsvhhbQNs7E+4jV0CN7+NKIY0aHE72+XvqtBIXzD31ZbXQ==
 
 electron-to-chromium@^1.2.7, electron-to-chromium@^1.3.100, electron-to-chromium@^1.3.62:
-  version "1.3.102"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.102.tgz#3ac43a037c8a63bca3dfa189eb3d90f097196787"
-  integrity sha512-2nzZuXw/KBPnI3QX3UOCSRvJiVy7o9+VHRDQ3D/EHCvVc89X6aj/GlNmEgiR2GBIhmSWXIi4W1M5okA5ScSlNg==
+  version "1.3.103"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.103.tgz#a695777efdbc419cad6cbb0e58458251302cd52f"
+  integrity sha512-tObPqGmY9X8MUM8i3MEimYmbnLLf05/QV5gPlkR8MQ3Uj8G8B2govE1U4cQcBYtv3ymck9Y8cIOu4waoiykMZQ==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -9217,9 +9227,9 @@ math-expression-evaluator@^1.2.14:
   integrity sha1-3oGf282E3M2PrlnGrreWFbnSZqw=
 
 math-random@^1.0.1:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/math-random/-/math-random-1.0.2.tgz#8ab7f026363816c1e00b774d87dee67f61e37ad6"
-  integrity sha512-Bp2Bx2wFaUymE7pWi0bbldiheIXMvyzC3hRkT5YAv2qiqqJO5VB8KafgYgZmGCxkTmloLuAx3Jv2OmJ66990mg==
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/math-random/-/math-random-1.0.3.tgz#5843d8307f8d2fd83de240701eeb2dc7bc77a104"
+  integrity sha512-hULdrPg17lCyaJOrDwS4RSGQcc/MFyv1aujidohCsBq2zotkhIns8mMDQ7B8VnKG23xcpa+haU5MLDNyNzCesQ==
 
 maxmin@^2.1.0:
   version "2.1.0"
@@ -10463,7 +10473,7 @@ parse-passwd@^1.0.0:
   resolved "https://registry.yarnpkg.com/parse-passwd/-/parse-passwd-1.0.0.tgz#6d5b934a456993b23d37f40a382d6f1666a8e5c6"
   integrity sha1-bVuTSkVpk7I9N/QKOC1vFmao5cY=
 
-parse5@4.0.0:
+parse5@4.0.0, parse5@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-4.0.0.tgz#6d78656e3da8d78b4ec0b906f7c08ef1dfe3f608"
   integrity sha512-VrZ7eOd3T1Fk4XWNXMgiGBK/z0MG48BWG2uQNU4I72fkQuKUTZpl+u9k+CxEG0twMVzSmXEEz12z5Fnw1jIQFA==

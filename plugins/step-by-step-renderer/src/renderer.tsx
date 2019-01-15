@@ -1,5 +1,6 @@
 import { Document } from '@splish-me/editor-core-document'
 import { DocumentIdentifier } from '@splish-me/editor-core-types'
+import { FetchDimensions } from '@serlo/editor-ui'
 import * as R from 'ramda'
 import * as React from 'react'
 
@@ -59,21 +60,11 @@ export class StepByStepRenderer extends React.Component<
   StepByStepState
 > {
   private calculateLayout() {
-    const rows = makeRows(this.props.state.steps)
-
     this.setState({
       phase: Phase.hiddenRender,
-      width: rows.map(() => {
-        return undefined
-      }),
-      contentHeight: rows.map(() => {
-        return undefined
-      }),
-      explanationHeight: R.init(
-        rows.map(() => {
-          return undefined
-        })
-      )
+      width: [],
+      contentHeight: [],
+      explanationHeight: []
     })
   }
   state: StepByStepState = {
@@ -95,214 +86,98 @@ export class StepByStepRenderer extends React.Component<
     if (this.state.phase < Phase.hiddenRender) {
       return null
     }
+
+    const rowsWith2Cols = rows.filter(row => row.type === '2-cols')
+    const n = rowsWith2Cols.length
     return (
       <div>
-        {rows.map((row, index) => {
-          if (row.type === '1-col') {
-            return (
-              <div
-                key={index}
-                // className="row"
-                style={{
-                  visibility:
-                    this.state.phase < Phase.height ? 'hidden' : undefined
-                }}
-              >
-                <div>
-                  <Document state={row.content} />
-                </div>
-              </div>
-            )
-          }
+        <FetchDimensions
+          key={this.state.phase}
+          length={2 * n}
+          onDone={({ heights, widths }) => {
+            console.log(this.state.phase)
+            if (this.state.phase < Phase.maxWidth) {
+              this.setState({
+                phase: Phase.maxWidth,
+                width: R.take(rows.length, widths)
+              })
+            } else if (this.state.phase === Phase.maxWidth) {
+              this.setState({
+                phase: Phase.height,
+                contentHeight: R.take(rows.length, heights),
+                explanationHeight: R.drop(rows.length, heights)
+              })
+            }
+          }}
+          render={createRef => {
+            return rows.map((row, index) => {
+              if (row.type === '1-col') {
+                return (
+                  <div
+                    key={index}
+                    // className="row"
+                    style={{
+                      visibility:
+                        this.state.phase < Phase.height ? 'hidden' : undefined
+                    }}
+                  >
+                    <div>
+                      <Document state={row.content} />
+                    </div>
+                  </div>
+                )
+              }
 
-          let column = false
-          if (this.state.phase === Phase.height) {
-            const diff =
-              (this.state.explanationHeight[index] || 0) -
-              (this.state.contentHeight[index] || 0)
-            if (diff > 30) column = true
-          }
+              const rowsWith2ColIndex = rowsWith2Cols.indexOf(row)
 
-          console.log(this.state.width)
-          return (
-            <div
-              key={index}
-              // className="row"
-              style={{
-                display: 'flex',
-                alignItems: 'flex-start',
-                flexDirection: column ? 'column' : undefined,
-                visibility:
-                  this.state.phase < Phase.height ? 'hidden' : undefined
-              }}
-            >
-              <div
-                style={{
-                  flexShrink: this.state.phase < Phase.height ? 0 : undefined,
-                  paddingRight: '10px',
-                  width:
-                    this.state.phase < Phase.maxWidth
-                      ? 'auto'
-                      : R.reduce<number, number>(
-                          R.max,
-                          0,
-                          this.state.width.filter(Boolean)
-                        ) + 10
-                }}
-                ref={ref => {
-                  if (index === 0) {
-                    console.log(
-                      index,
-                      this.state.phase,
-                      ref && JSON.stringify(ref.offsetWidth)
-                    )
-                  }
-                  if (!ref) {
-                    return
-                  }
+              let column = false
+              if (this.state.phase === Phase.height) {
+                const diff =
+                  (this.state.explanationHeight[index] || 0) -
+                  (this.state.contentHeight[index] || 0)
+                if (diff > 30) column = true
+              }
 
-                  /* if (ref.style.width !== 'auto') {
-                      console.log(ref.style.width)
-                      return
-                    } */
-
-                  if (
-                    this.state.phase < Phase.maxWidth &&
-                    this.state.width[index] === undefined
-                  ) {
-                    this.setState(
-                      state => {
-                        return {
-                          width: R.update(index, ref.offsetWidth, state.width)
-                        }
-                      },
-                      () => {
-                        const all = this.state.width.every((width, index) => {
-                          return (
-                            width !== undefined || rows[index].type === '1-col'
-                          )
-                        })
-
-                        if (all) {
-                          this.setState(state => {
-                            if (state.phase < Phase.maxWidth) {
-                              return { phase: Phase.maxWidth }
-                            }
-
-                            return null
-                          })
-                        }
-                      }
-                    )
-                  } else if (
-                    this.state.phase === Phase.maxWidth &&
-                    this.state.contentHeight[index] === undefined
-                  ) {
-                    this.setState(
-                      state => {
-                        return {
-                          contentHeight: R.update(
-                            index,
-                            ref.offsetHeight,
-                            state.contentHeight
-                          )
-                        }
-                      },
-                      () => {
-                        const allContent = this.state.contentHeight.every(
-                          (contentHeight, index) => {
-                            return (
-                              contentHeight !== undefined ||
-                              rows[index].type === '1-col'
-                            )
-                          }
-                        )
-
-                        const allExplanations = this.state.explanationHeight.every(
-                          (explanationHeight, index) => {
-                            return (
-                              explanationHeight !== undefined ||
-                              rows[index].type === '1-col'
-                            )
-                          }
-                        )
-
-                        if (allContent && allExplanations) {
-                          this.setState(state => {
-                            if (state.phase < Phase.height) {
-                              return { phase: Phase.height }
-                            }
-
-                            return null
-                          })
-                        }
-                      }
-                    )
-                  }
-                }}
-              >
-                <Document state={row.content[0]} />
-              </div>
-              {row.content[1] === undefined ? null : (
+              return (
                 <div
-                  ref={ref => {
-                    if (!ref) {
-                      return
-                    }
-
-                    if (
-                      this.state.phase === Phase.maxWidth &&
-                      this.state.explanationHeight[index] === undefined
-                    ) {
-                      this.setState(
-                        state => {
-                          return {
-                            explanationHeight: R.update(
-                              index,
-                              ref.offsetHeight,
-                              state.explanationHeight
-                            )
-                          }
-                        },
-                        () => {
-                          const allContent = this.state.contentHeight.every(
-                            (contentHeight, index) => {
-                              return (
-                                contentHeight !== undefined ||
-                                rows[index].type === '1-col'
-                              )
-                            }
-                          )
-
-                          const allExplanations = this.state.explanationHeight.every(
-                            (explanationHeight, index) => {
-                              return (
-                                explanationHeight !== undefined ||
-                                rows[index].type === '1-col'
-                              )
-                            }
-                          )
-
-                          if (allContent && allExplanations) {
-                            this.setState(state => {
-                              if (state.phase < Phase.height) {
-                                return { phase: Phase.height }
-                              }
-
-                              return null
-                            })
-                          }
-                        }
-                      )
-                    }
+                  key={index}
+                  // className="row"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    flexDirection: column ? 'column' : undefined,
+                    visibility:
+                      this.state.phase < Phase.height ? 'hidden' : undefined
                   }}
                 >
-                  <Document state={row.content[1]} />
+                  <div
+                    style={{
+                      flexShrink:
+                        this.state.phase < Phase.height ? 0 : undefined,
+                      paddingRight: '10px',
+                      width:
+                        this.state.phase < Phase.maxWidth
+                          ? 'auto'
+                          : R.reduce<number, number>(
+                              R.max,
+                              0,
+                              this.state.width.filter(Boolean)
+                            ) + 10
+                    }}
+                    ref={createRef(rowsWith2ColIndex)}
+                  >
+                    <Document state={row.content[0]} />
+                  </div>
+                  <div ref={createRef(rowsWith2ColIndex + n)}>
+                    {row.content[1] === undefined ? null : (
+                      <Document state={row.content[1]} />
+                    )}
+                  </div>
                 </div>
-              )}
-            </div>
-          )
-        })}
+              )
+            })
+          }}
+        />
       </div>
     )
   }
@@ -351,9 +226,9 @@ export interface StepByStepRendererProps {
 
 export interface StepByStepState {
   phase: Phase
-  width: Array<number | undefined>
-  contentHeight: Array<number | undefined>
-  explanationHeight: Array<number | undefined>
+  width: number[]
+  contentHeight: number[]
+  explanationHeight: number[]
 }
 
 interface OneCol {
