@@ -1,6 +1,6 @@
 {
   "name": "@serlo/editor-plugin-injection-renderer",
-  "version": "0.4.5",
+  "version": "0.4.7",
   "bugs": {
     "url": "https://github.com/serlo/editor-plugins/issues"
   },
@@ -24,7 +24,7 @@
     "lodash": "^4.0.0"
   },
   "devDependencies": {
-    "@serlo/editor-ui": "^0.4.0",
+    "@serlo/editor-ui": "^0.4.7",
     "@types/lodash": "^4.0.0",
     "@types/react": "^16.0.0"
   },

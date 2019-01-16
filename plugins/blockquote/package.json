@@ -1,6 +1,6 @@
 {
   "name": "@serlo/editor-plugin-blockquote",
-  "version": "0.4.5",
+  "version": "0.4.7",
   "bugs": {
     "url": "https://github.com/serlo/editor-plugins/issues"
   },
@@ -20,7 +20,7 @@
     "format": "prettier --write \"{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@serlo/editor-plugin-blockquote-renderer": "^0.4.3"
+    "@serlo/editor-plugin-blockquote-renderer": "^0.4.7"
   },
   "devDependencies": {
     "@types/react": "^16.0.0"
