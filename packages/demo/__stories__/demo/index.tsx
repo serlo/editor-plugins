@@ -1,8 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 
-import 'katex/dist/katex.css'
-
 import { renderEditor, renderRenderer } from '@serlo/storybook-helpers'
 import { content } from './content'
 

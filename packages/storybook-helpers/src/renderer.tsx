@@ -16,6 +16,9 @@ import { PluginSidebar } from '@splish-me/editor-ui-plugin-sidebar'
 import { Sidebar } from '@splish-me/editor-ui-sidebar'
 import * as React from 'react'
 
+import 'katex/dist/katex.css'
+import 'ory-editor-core/lib/index.css'
+
 const editorPlugins = createEditorPlugins('all')
 const renderPlugins = createRendererPlugins('all')
 
