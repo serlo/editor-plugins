@@ -1,6 +1,6 @@
 {
   "name": "@serlo/editor-plugins",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "bugs": {
     "url": "https://github.com/serlo/editor-plugins/issues"
   },
@@ -24,7 +24,7 @@
     "@serlo/editor-plugin-blockquote": "^0.4.7",
     "@serlo/editor-plugin-equations": "^0.4.7",
     "@serlo/editor-plugin-geogebra": "^0.4.7",
-    "@serlo/editor-plugin-h5p": "^0.4.7",
+    "@serlo/editor-plugin-h5p": "^0.4.8",
     "@serlo/editor-plugin-highlight": "^0.4.7",
     "@serlo/editor-plugin-hint": "^0.4.7",
     "@serlo/editor-plugin-image": "^0.4.7",
@@ -38,7 +38,7 @@
     "@serlo/editor-plugin-step-by-step": "^0.4.7",
     "@serlo/editor-plugin-table": "^0.4.7",
     "@serlo/editor-plugin-text": "^0.4.7",
-    "@serlo/editor-plugins-registry": "^0.4.7"
+    "@serlo/editor-plugins-registry": "^0.4.8"
   },
   "publishConfig": {
     "access": "public"
