@@ -16,12 +16,10 @@ module.exports = function(plop) {
     ],
     actions: function(data) {
       const createPattern = (entry, negativeLookahead, terminatingString) => {
-        const regex = new RegExp(
+        return new RegExp(
           `(${entry}([\\s\\S](?!(${negativeLookahead})|${terminatingString}))*)`,
           'mi'
         )
-        console.log(regex)
-        return regex
       }
 
       const alphabeticExclusionPattern = rawName => {
