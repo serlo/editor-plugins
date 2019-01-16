@@ -17,11 +17,11 @@ After that open [http://localhost:9009](http://localhost:9009) in your browser.
 
 ## Adding a new plugin
 
-To create a new plugin `bar`, you can run the plop generator:
+To create a new plugin `bar`, you can run the [plop](https://github.com/amwmedia/plop) generator:
 
 ```sh
 yarn
-yarn plop bar
+yarn generate bar
 ```
 
 After the generator is done add stories for your plugins in `demo/__stories__/bar.tsx`
@@ -34,7 +34,10 @@ After the generator is done add stories for your plugins in `demo/__stories__/ba
 - Add an entry in `paths` in [`tsconfig.json`](tsconfig.json) for `@serlo/editor-plugin-bar-renderer`
 - Add an entry in `alias` in [`demo/.storybook/webpack.config.js`](demo/.storybook/webpack.config.js) for `@serlo/editor-plugin-bar`
 - Add an entry in `alias` in [`demo/.storybook/webpack.config.js`](demo/.storybook/webpack.config.js) for `@serlo/editor-plugin-bar-renderer`
-- Run `yarn` (so that the two new packages get symlinked)
+- Add plugin name to [`editor-plugins-registry/src/index.ts`](editor-plugins-registry/src/index.ts)
+- Add plugin to [`editor-plugins/src/index.ts`](editor-plugins/src/index.ts)
+- Add plugin to [`editor-plugins-renderer/src/index.ts`](editor-plugins-renderer/src/index.ts)
+- Run `yarn` (so that the two packages get symlinked)
 - Run `yarn format`
 
 ## FAQ

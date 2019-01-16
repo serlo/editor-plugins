@@ -34,10 +34,10 @@ const defaultPlugins = [
 const newPlugins = [
   Plugin.Highlight,
   Plugin.Equations,
+  Plugin.InputExercise,
   Plugin.License,
   Plugin.MatchingExercise,
-  Plugin.StepByStep,
-  Plugin.InputExercise
+  Plugin.StepByStep
 ]
 
 const exercisePlugins = [Plugin.Solution, Plugin.Hint, Plugin.ScMcExercise]

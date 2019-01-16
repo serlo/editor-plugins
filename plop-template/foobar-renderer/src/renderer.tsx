@@ -5,7 +5,7 @@ import { {{properCase name}}PluginState } from '.'
 export class {{properCase name}}Renderer extends React.Component<{{properCase name}}RendererProps> {
   public render() {
     const { state } = this.props
-    return <div>{state}</div>
+    return <div>{state.foo}</div>
   }
 }
 

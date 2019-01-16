@@ -16,8 +16,8 @@
     "start": "lerna run --parallel start",
     "build-storybook": "lerna run --scope @serlo/editor-demo --stream build",
     "test": "lerna run --parallel test",
-    "plop": "plop plugin",
-    "postplop": "yarn install && yarn format"
+    "generate": "plop plugin",
+    "postgenerate": "yarn && yarn format"
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0",
