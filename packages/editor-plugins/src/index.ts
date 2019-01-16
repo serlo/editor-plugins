@@ -19,7 +19,7 @@ import { createPluginFactory, Plugin } from '@serlo/editor-plugins-registry'
 
 const imagePlugin = createImagePlugin({
   upload: {
-    url: 'https://serlo-upload.free.beeceptor.com',
+    url: 'https://de.serlo.org/attachment/upload',
     paramName: 'attachment[file]',
     maxFileSize: 2 * 1024 * 1024,
     allowedExtensions: ['gif', 'jpg', 'jpeg', 'png', 'svg'],
