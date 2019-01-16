@@ -15,7 +15,9 @@
     "deploy:prerelease": "yarn deploy --dist-tag next",
     "start": "lerna run --parallel start",
     "build-storybook": "lerna run --scope @serlo/editor-demo --stream build",
-    "test": "lerna run --parallel test"
+    "test": "lerna run --parallel test",
+    "generate": "plop plugin",
+    "postgenerate": "yarn && yarn format"
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0",
@@ -33,6 +35,7 @@
     "lerna": "^3.0.0",
     "lint-staged": "^7.0.0",
     "npm-run-all": "^4.0.0",
+    "plop": "^2.2.0",
     "prettier": "^1.0.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",

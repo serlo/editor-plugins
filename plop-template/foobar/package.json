@@ -1,5 +1,5 @@
 {
-  "name": "@serlo/editor-plugin-foobar-renderer",
+  "name": "@serlo/editor-plugin-{{dashCase name}}",
   "version": "0.0.0",
   "bugs": {
     "url": "https://github.com/serlo/editor-plugins/issues"
@@ -17,15 +17,18 @@
     "build": "splish-microbundle",
     "build:watch": "splish-microbundle watch",
     "ci": "tsc --noEmit",
-    "format": "prettier --write \"{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
+    "format": "{{ prettierCommand }}"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@serlo/editor-plugin-{{dashCase name}}-renderer": "^0.0.0"
+  },
   "devDependencies": {
     "@serlo/editor-ui": "^0.4.0",
     "@types/react": "^16.0.0"
   },
   "peerDependencies": {
     "@serlo/editor-ui": "^0.4.0",
+    "@splish-me/editor-ui-plugin-sidebar": "^0.4.0",
     "react": "^16.0.0"
   },
   "publishConfig": {
