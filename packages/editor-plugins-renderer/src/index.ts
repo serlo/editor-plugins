@@ -2,6 +2,7 @@ import { anchorRendererPlugin } from '@serlo/editor-plugin-anchor-renderer'
 import { blockquoteRendererPlugin } from '@serlo/editor-plugin-blockquote-renderer'
 import { equationsRendererPlugin } from '@serlo/editor-plugin-equations-renderer'
 import { geogebraRendererPlugin } from '@serlo/editor-plugin-geogebra-renderer'
+import { h5pRendererPlugin } from '@serlo/editor-plugin-h5p-renderer'
 import { highlightRendererPlugin } from '@serlo/editor-plugin-highlight-renderer'
 import { hintRendererPlugin } from '@serlo/editor-plugin-hint-renderer'
 import { createImageRendererPlugin } from '@serlo/editor-plugin-image-renderer'
@@ -24,6 +25,7 @@ export const createRendererPlugins = createPluginFactory({
   [Plugin.Blockquote]: blockquoteRendererPlugin,
   [Plugin.Equations]: equationsRendererPlugin,
   [Plugin.Geogebra]: geogebraRendererPlugin,
+  [Plugin.H5p]: h5pRendererPlugin,
   [Plugin.Highlight]: highlightRendererPlugin,
   [Plugin.Hint]: hintRendererPlugin,
   [Plugin.Image]: imageRendererPlugin,

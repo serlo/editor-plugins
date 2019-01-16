@@ -24,6 +24,7 @@
     "@serlo/editor-plugin-blockquote": "^0.4.5",
     "@serlo/editor-plugin-equations": "^0.4.5",
     "@serlo/editor-plugin-geogebra": "^0.4.3",
+    "@serlo/editor-plugin-h5p": "^0.0.0",
     "@serlo/editor-plugin-highlight": "^0.4.5",
     "@serlo/editor-plugin-hint": "^0.4.5",
     "@serlo/editor-plugin-image": "^0.4.5",

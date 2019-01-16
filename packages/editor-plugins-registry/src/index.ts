@@ -5,6 +5,7 @@ export enum Plugin {
   Blockquote = 'blockquote',
   Equations = 'equations',
   Geogebra = 'geogebra',
+  H5p = 'h5p',
   Highlight = 'highlight',
   Hint = 'hint',
   Image = 'image',
@@ -28,7 +29,8 @@ const defaultPlugins = [
   Plugin.Anchor,
   Plugin.Blockquote,
   Plugin.Geogebra,
-  Plugin.Table
+  Plugin.Table,
+  Plugin.H5p
 ]
 
 const newPlugins = [
