@@ -34,6 +34,9 @@ module.exports = (_baseConfig, _env, defaultConfig) => {
                 '@serlo/editor-plugin-geogebra/src',
               '@serlo/editor-plugin-geogebra-renderer':
                 '@serlo/editor-plugin-geogebra-renderer/src',
+              '@serlo/editor-plugin-h5p': '@serlo/editor-plugin-h5p/src',
+              '@serlo/editor-plugin-h5p-renderer':
+                '@serlo/editor-plugin-h5p-renderer/src',
               '@serlo/editor-plugin-highlight':
                 '@serlo/editor-plugin-highlight/src',
               '@serlo/editor-plugin-highlight-renderer':

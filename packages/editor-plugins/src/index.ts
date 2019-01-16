@@ -2,6 +2,7 @@ import { anchorPlugin } from '@serlo/editor-plugin-anchor'
 import { blockquotePlugin } from '@serlo/editor-plugin-blockquote'
 import { equationsPlugin } from '@serlo/editor-plugin-equations'
 import { geogebraPlugin } from '@serlo/editor-plugin-geogebra'
+import { h5pPlugin } from '@serlo/editor-plugin-h5p'
 import { highlightPlugin } from '@serlo/editor-plugin-highlight'
 import { hintPlugin } from '@serlo/editor-plugin-hint'
 import { injectionPlugin } from '@serlo/editor-plugin-injection'
@@ -19,7 +20,7 @@ import { createPluginFactory, Plugin } from '@serlo/editor-plugins-registry'
 
 const imagePlugin = createImagePlugin({
   upload: {
-    url: 'https://serlo-upload.free.beeceptor.com',
+    url: 'https://de.serlo.org/attachment/upload',
     paramName: 'attachment[file]',
     maxFileSize: 2 * 1024 * 1024,
     allowedExtensions: ['gif', 'jpg', 'jpeg', 'png', 'svg'],
@@ -37,6 +38,7 @@ export const createEditorPlugins = createPluginFactory({
   [Plugin.Blockquote]: blockquotePlugin,
   [Plugin.Equations]: equationsPlugin,
   [Plugin.Geogebra]: geogebraPlugin,
+  [Plugin.H5p]: h5pPlugin,
   [Plugin.Highlight]: highlightPlugin,
   [Plugin.Hint]: hintPlugin,
   [Plugin.Image]: imagePlugin,
