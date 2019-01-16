@@ -32,6 +32,8 @@
       "@serlo/editor-plugin-highlight-renderer": [
         "plugins/highlight-renderer/src"
       ],
+      "@serlo/editor-plugin-h5p": ["plugins/h5p/src"],
+      "@serlo/editor-plugin-h5p-renderer": ["plugins/h5p-renderer/src"],
       "@serlo/editor-plugin-hint": ["plugins/hint/src"],
       "@serlo/editor-plugin-hint-renderer": ["plugins/hint-renderer/src"],
       "@serlo/editor-plugin-image": ["plugins/image/src"],

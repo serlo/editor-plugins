@@ -1,5 +1,5 @@
 {
-  "name": "@serlo/editor-plugin-spoiler",
+  "name": "@serlo/editor-plugin-h5p",
   "version": "0.4.7",
   "bugs": {
     "url": "https://github.com/serlo/editor-plugins/issues"
@@ -20,7 +20,7 @@
     "format": "prettier --write \"{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@serlo/editor-plugin-spoiler-renderer": "^0.4.7"
+    "@serlo/editor-plugin-h5p-renderer": "^0.4.7"
   },
   "devDependencies": {
     "@serlo/editor-ui": "^0.4.7",
@@ -28,7 +28,7 @@
   },
   "peerDependencies": {
     "@serlo/editor-ui": "^0.4.0",
-    "@splish-me/editor-core-document": "^0.4.0",
+    "@splish-me/editor-ui-plugin-sidebar": "^0.4.0",
     "react": "^16.0.0"
   },
   "publishConfig": {

@@ -1,6 +1,6 @@
 {
   "name": "@serlo/editor-plugins",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "bugs": {
     "url": "https://github.com/serlo/editor-plugins/issues"
   },
@@ -20,24 +20,25 @@
     "format": "prettier --write \"{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@serlo/editor-plugin-anchor": "^0.4.5",
-    "@serlo/editor-plugin-blockquote": "^0.4.5",
-    "@serlo/editor-plugin-equations": "^0.4.5",
-    "@serlo/editor-plugin-geogebra": "^0.4.3",
-    "@serlo/editor-plugin-highlight": "^0.4.5",
-    "@serlo/editor-plugin-hint": "^0.4.5",
-    "@serlo/editor-plugin-image": "^0.4.5",
-    "@serlo/editor-plugin-injection": "^0.4.5",
-    "@serlo/editor-plugin-input-exercise": "^0.4.5",
-    "@serlo/editor-plugin-license": "^0.4.3",
-    "@serlo/editor-plugin-matching-exercise": "^0.4.5",
-    "@serlo/editor-plugin-sc-mc-exercise": "^0.4.5",
-    "@serlo/editor-plugin-solution": "^0.4.5",
-    "@serlo/editor-plugin-spoiler": "^0.4.5",
-    "@serlo/editor-plugin-step-by-step": "^0.4.5",
-    "@serlo/editor-plugin-table": "^0.4.5",
-    "@serlo/editor-plugin-text": "^0.4.6",
-    "@serlo/editor-plugins-registry": "0.4.1"
+    "@serlo/editor-plugin-anchor": "^0.4.7",
+    "@serlo/editor-plugin-blockquote": "^0.4.7",
+    "@serlo/editor-plugin-equations": "^0.4.7",
+    "@serlo/editor-plugin-geogebra": "^0.4.7",
+    "@serlo/editor-plugin-h5p": "^0.4.7",
+    "@serlo/editor-plugin-highlight": "^0.4.7",
+    "@serlo/editor-plugin-hint": "^0.4.7",
+    "@serlo/editor-plugin-image": "^0.4.7",
+    "@serlo/editor-plugin-injection": "^0.4.7",
+    "@serlo/editor-plugin-input-exercise": "^0.4.7",
+    "@serlo/editor-plugin-license": "^0.4.7",
+    "@serlo/editor-plugin-matching-exercise": "^0.4.7",
+    "@serlo/editor-plugin-sc-mc-exercise": "^0.4.7",
+    "@serlo/editor-plugin-solution": "^0.4.7",
+    "@serlo/editor-plugin-spoiler": "^0.4.7",
+    "@serlo/editor-plugin-step-by-step": "^0.4.7",
+    "@serlo/editor-plugin-table": "^0.4.7",
+    "@serlo/editor-plugin-text": "^0.4.7",
+    "@serlo/editor-plugins-registry": "^0.4.7"
   },
   "publishConfig": {
     "access": "public"

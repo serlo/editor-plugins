@@ -2,6 +2,7 @@ import { anchorPlugin } from '@serlo/editor-plugin-anchor'
 import { blockquotePlugin } from '@serlo/editor-plugin-blockquote'
 import { equationsPlugin } from '@serlo/editor-plugin-equations'
 import { geogebraPlugin } from '@serlo/editor-plugin-geogebra'
+import { h5pPlugin } from '@serlo/editor-plugin-h5p'
 import { highlightPlugin } from '@serlo/editor-plugin-highlight'
 import { hintPlugin } from '@serlo/editor-plugin-hint'
 import { injectionPlugin } from '@serlo/editor-plugin-injection'
@@ -37,6 +38,7 @@ export const createEditorPlugins = createPluginFactory({
   [Plugin.Blockquote]: blockquotePlugin,
   [Plugin.Equations]: equationsPlugin,
   [Plugin.Geogebra]: geogebraPlugin,
+  [Plugin.H5p]: h5pPlugin,
   [Plugin.Highlight]: highlightPlugin,
   [Plugin.Hint]: hintPlugin,
   [Plugin.Image]: imagePlugin,
