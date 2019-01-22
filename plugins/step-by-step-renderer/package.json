@@ -1,6 +1,6 @@
 {
   "name": "@serlo/editor-plugin-step-by-step-renderer",
-  "version": "0.5.0-0",
+  "version": "0.5.0",
   "bugs": {
     "url": "https://github.com/serlo/editor-plugins/issues"
   },
@@ -22,13 +22,13 @@
     "ramda": "^0.26.0"
   },
   "devDependencies": {
-    "@serlo/editor-ui": "^0.5.0-0",
+    "@serlo/editor-ui": "^0.5.0",
     "@splish-me/editor": "^0.5.0",
     "@types/ramda": "^0.26.0",
     "@types/react": "^16.0.0"
   },
   "peerDependencies": {
-    "@serlo/editor-ui": "^0.4.0",
+    "@serlo/editor-ui": "^0.5.0",
     "@splish-me/editor": "^0.5.0",
     "react": "^16.0.0"
   },
