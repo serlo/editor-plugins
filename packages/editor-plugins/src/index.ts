@@ -1,3 +1,4 @@
+import { alphabetSortPlugin } from '@serlo/editor-plugin-alphabet-sort'
 import { anchorPlugin } from '@serlo/editor-plugin-anchor'
 import { blockquotePlugin } from '@serlo/editor-plugin-blockquote'
 import { equationsPlugin } from '@serlo/editor-plugin-equations'
@@ -38,6 +39,7 @@ const imagePlugin = createImagePlugin({
 })
 
 const registry: EditorPluginRegistry = {
+  [Plugin.AlphabetSort]: alphabetSortPlugin,
   [Plugin.Anchor]: anchorPlugin,
   [Plugin.Blockquote]: blockquotePlugin,
   [Plugin.Equations]: equationsPlugin,

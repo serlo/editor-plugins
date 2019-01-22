@@ -68,6 +68,10 @@
       "@serlo/editor-plugin-step-by-step-renderer": [
         "plugins/step-by-step-renderer/src"
       ],
+      "@serlo/editor-plugin-alphabet-sort": ["plugins/alphabet-sort/src"],
+      "@serlo/editor-plugin-alphabet-sort-renderer": [
+        "plugins/alphabet-sort-renderer/src"
+      ],
       "@serlo/editor-plugin-table": ["plugins/table/src"],
       "@serlo/editor-plugin-table-renderer": ["plugins/table-renderer/src"],
       "@serlo/editor-plugin-text": ["plugins/text/src"],

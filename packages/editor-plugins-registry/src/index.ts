@@ -2,6 +2,7 @@ import { Plugin as P, RendererPlugin } from '@splish-me/editor'
 import * as R from 'ramda'
 
 export enum Plugin {
+  AlphabetSort = '@serlo-org/alphabet-sort',
   Anchor = '@serlo-org/anchor',
   Blockquote = '@serlo-org/blockquote',
   Equations = '@serlo-org/equations',
@@ -35,6 +36,7 @@ const defaultPlugins = [
 ]
 
 const newPlugins = [
+  Plugin.AlphabetSort,
   Plugin.Highlight,
   Plugin.Equations,
   Plugin.InputExercise,
