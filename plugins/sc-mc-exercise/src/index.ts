@@ -1,11 +1,9 @@
 import { ScMcExercisePluginState } from '@serlo/editor-plugin-sc-mc-exercise-renderer'
-import { createDocumentIdentifier } from '@splish-me/editor-core-document'
+import { createDocumentIdentifier, Plugin } from '@splish-me/editor'
 
 import { ScMcExerciseEditor } from './editor'
 
-export const scMcExercisePlugin = {
-  name: '@serlo-org/sc-mc-exercise',
-  version: '0.0.4',
+export const scMcExercisePlugin: Plugin<ScMcExercisePluginState> = {
   Component: ScMcExerciseEditor,
   text: 'Single Choice Aufgabe',
   createInitialState: (): ScMcExercisePluginState => {

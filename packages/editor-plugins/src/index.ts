@@ -16,7 +16,11 @@ import { stepByStepPlugin } from '@serlo/editor-plugin-step-by-step'
 import { tablePlugin } from '@serlo/editor-plugin-table'
 import { createImagePlugin } from '@serlo/editor-plugin-image'
 import { textPlugin } from '@serlo/editor-plugin-text'
-import { createPluginFactory, Plugin } from '@serlo/editor-plugins-registry'
+import {
+  createPluginFactory,
+  EditorPluginRegistry,
+  Plugin
+} from '@serlo/editor-plugins-registry'
 
 const imagePlugin = createImagePlugin({
   upload: {
@@ -33,7 +37,7 @@ const imagePlugin = createImagePlugin({
   }
 })
 
-export const createEditorPlugins = createPluginFactory({
+const registry: EditorPluginRegistry = {
   [Plugin.Anchor]: anchorPlugin,
   [Plugin.Blockquote]: blockquotePlugin,
   [Plugin.Equations]: equationsPlugin,
@@ -52,6 +56,8 @@ export const createEditorPlugins = createPluginFactory({
   [Plugin.StepByStep]: stepByStepPlugin,
   [Plugin.Table]: tablePlugin,
   [Plugin.Text]: textPlugin
-})
+}
 
-export const defaultPlugin = textPlugin
+export const createEditorPlugins = createPluginFactory(registry)
+
+export const defaultPlugin = Plugin.Text

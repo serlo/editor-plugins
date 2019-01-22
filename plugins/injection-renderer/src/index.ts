@@ -1,8 +1,8 @@
+import { RendererPlugin } from '@splish-me/editor'
+
 import { InjectionRenderer } from './renderer'
 
-export const injectionRendererPlugin = {
-  name: '@serlo-org/injection',
-  version: '0.0.2',
+export const injectionRendererPlugin: RendererPlugin<InjectionPluginState> = {
   Component: InjectionRenderer
 }
 

@@ -1,8 +1,8 @@
+import { RendererPlugin } from '@splish-me/editor'
+
 import { TableRenderer } from './renderer'
 
-export const tableRendererPlugin = {
-  name: '@serlo-org/table',
-  version: '0.0.2',
+export const tableRendererPlugin: RendererPlugin<TablePluginState> = {
   Component: TableRenderer
 }
 

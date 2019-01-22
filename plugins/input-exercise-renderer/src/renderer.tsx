@@ -1,4 +1,4 @@
-import { Document } from '@splish-me/editor-core-document'
+import { Document } from '@splish-me/editor'
 import { Feedback } from '@serlo/editor-ui'
 import A from 'algebra.js'
 import * as React from 'react'

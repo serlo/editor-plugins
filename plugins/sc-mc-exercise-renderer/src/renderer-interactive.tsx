@@ -1,4 +1,4 @@
-import { Document } from '@splish-me/editor-core-document'
+import { Document } from '@splish-me/editor'
 import { Feedback, styled } from '@serlo/editor-ui'
 import * as React from 'react'
 import * as R from 'ramda'
@@ -181,20 +181,16 @@ export class ScMcRendererInteractive extends React.Component<
 
 export interface ScMcRendererInteractiveProps {
   state: ScMcExercisePluginState
-  getFeedback?: (
-    params: {
-      mistakes: number
-      missingSolutions: number
-    }
-  ) => string | undefined
-  nextButtonStateAfterSubmit: (
-    params: {
-      button: Button
-      answer: Answer
-      mistakes: number
-      missingSolutions: number
-    }
-  ) => Button
+  getFeedback?: (params: {
+    mistakes: number
+    missingSolutions: number
+  }) => string | undefined
+  nextButtonStateAfterSubmit: (params: {
+    button: Button
+    answer: Answer
+    mistakes: number
+    missingSolutions: number
+  }) => Button
   showFeedback?: boolean
 }
 

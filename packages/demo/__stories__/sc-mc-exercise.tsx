@@ -1,15 +1,16 @@
-import { storiesOf } from '@storybook/react'
-import { scMcExercisePlugin } from '@serlo/editor-plugin-sc-mc-exercise'
-
+import { Plugin } from '@serlo/editor-plugins-registry'
 import {
   createStateForContentPlugin,
   renderEditor,
   renderRenderer
 } from '@serlo/storybook-helpers'
+import { storiesOf } from '@storybook/react'
+
+const plugin = Plugin.ScMcExercise
 
 storiesOf('ScMc', module)
   .add('Editable (initial state)', () => {
-    const content = createStateForContentPlugin({ plugin: scMcExercisePlugin })
+    const content = createStateForContentPlugin({ plugin })
 
     return renderEditor(content)
   })

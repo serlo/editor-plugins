@@ -20,8 +20,4 @@ export const plugins = [
   createKatexPlugin()
 ]
 
-export const textRendererPlugin = {
-  ...createTextRendererPlugin({ plugins }),
-  name: '@splish-me/slate',
-  version: '0.2.5'
-}
+export const textRendererPlugin = createTextRendererPlugin({ plugins })

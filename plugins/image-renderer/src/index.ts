@@ -1,9 +1,11 @@
+import { RendererPlugin } from '@splish-me/editor'
+
 import { ImageRenderer } from './renderer'
 
-export const createImageRendererPlugin = () => {
+export const createImageRendererPlugin = (): RendererPlugin<
+  ImagePluginState
+> => {
   return {
-    name: '@splish-me/image',
-    version: '0.0.5',
     Component: ImageRenderer
   }
 }

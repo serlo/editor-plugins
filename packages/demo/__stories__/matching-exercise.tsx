@@ -1,12 +1,14 @@
-import { matchingExercisePlugin as plugin } from '@serlo/editor-plugin-matching-exercise'
+import { Plugin } from '@serlo/editor-plugins-registry'
 import { MatchingExerciseRenderer } from '@serlo/editor-plugin-matching-exercise-renderer'
-import { createDocumentIdentifier } from '@splish-me/editor-core-document'
+import { createDocumentIdentifier } from '@splish-me/editor'
 import {
   createStateForContentPlugin,
   renderEditor
 } from '@serlo/storybook-helpers'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
+
+const plugin = Plugin.MatchingExercise
 
 storiesOf('Matching Exercise/Renderer', module)
   .add('Funktion/Ableitung', () => {

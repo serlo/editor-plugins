@@ -4,7 +4,7 @@ import {
   {{properCase name}}Renderer,
   {{properCase name}}RendererProps
 } from '@serlo/editor-plugin-{{dashCase name}}-renderer'
-import { renderIntoSidebar, Text } from '@splish-me/editor-ui-plugin-sidebar'
+import { renderIntoSidebar, Text } from '@splish-me/editor-ui'
 
 export class {{properCase name}}Editor extends React.Component<{{properCase name}}EditorProps> {
   public render() {

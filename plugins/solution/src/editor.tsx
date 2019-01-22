@@ -3,7 +3,7 @@ import {
   SolutionRenderer
 } from '@serlo/editor-plugin-solution-renderer'
 import { Hint } from '@serlo/editor-ui'
-import { Document } from '@splish-me/editor-core-document'
+import { Document } from '@splish-me/editor'
 import * as React from 'react'
 
 export class SolutionEditor extends React.Component<SolutionEditorProps> {

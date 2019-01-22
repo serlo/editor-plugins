@@ -6,15 +6,8 @@ import {
 	CorrectAnswer
 } from '@serlo/editor-plugin-input-exercise-renderer'
 import { Feedback, styled } from '@serlo/editor-ui'
-import {
-  Document,
-  createDocumentIdentifier
-} from '@splish-me/editor-core-document'
-import {
-  Dropdown,
-  Input,
-  renderIntoSidebar
-} from '@splish-me/editor-ui-plugin-sidebar'
+import { Document, createDocumentIdentifier } from '@splish-me/editor'
+import { Dropdown, Input, renderIntoSidebar } from '@splish-me/editor-ui'
 import * as R from 'ramda'
 import * as React from 'react'
 

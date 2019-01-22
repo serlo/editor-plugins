@@ -1,11 +1,9 @@
 import { MatchingExercisePluginState } from '@serlo/editor-plugin-matching-exercise-renderer'
-import { createDocumentIdentifier } from '@splish-me/editor-core-document'
+import { createDocumentIdentifier, Plugin } from '@splish-me/editor'
 
 import { MatchingExerciseEditor } from './editor'
 
-export const matchingExercisePlugin = {
-  name: '@serlo-org/matching-exercise',
-  version: '0.0.0',
+export const matchingExercisePlugin: Plugin<MatchingExercisePluginState> = {
   Component: MatchingExerciseEditor,
 
   text: 'Matching Exercise',

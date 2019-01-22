@@ -1,11 +1,9 @@
 import { SpoilerPluginState } from '@serlo/editor-plugin-spoiler-renderer'
-import { createDocumentIdentifier } from '@splish-me/editor-core-document'
+import { createDocumentIdentifier, Plugin } from '@splish-me/editor'
 
 import { SpoilerEditor } from './editor'
 
-export const spoilerPlugin = {
-  name: '@serlo-org/spoiler',
-  version: '0.0.4',
+export const spoilerPlugin: Plugin<SpoilerPluginState> = {
   Component: SpoilerEditor,
   text: 'Lösung',
   createInitialState: (): SpoilerPluginState => ({

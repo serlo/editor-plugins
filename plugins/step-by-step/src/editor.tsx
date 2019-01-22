@@ -4,10 +4,7 @@ import {
   StepByStepRendererProps
 } from '@serlo/editor-plugin-step-by-step-renderer'
 import { Icon, faPlus, faTimes, styled } from '@serlo/editor-ui'
-import {
-  createDocumentIdentifier,
-  Document
-} from '@splish-me/editor-core-document'
+import { createDocumentIdentifier, Document } from '@splish-me/editor'
 import * as R from 'ramda'
 import * as React from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'

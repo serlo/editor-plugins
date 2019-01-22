@@ -16,11 +16,15 @@ import { spoilerRendererPlugin } from '@serlo/editor-plugin-spoiler-renderer'
 import { stepByStepRendererPlugin } from '@serlo/editor-plugin-step-by-step-renderer'
 import { tableRendererPlugin } from '@serlo/editor-plugin-table-renderer'
 import { textRendererPlugin } from '@serlo/editor-plugin-text-renderer'
-import { createPluginFactory, Plugin } from '@serlo/editor-plugins-registry'
+import {
+  createPluginFactory,
+  Plugin,
+  RendererPluginRegistry
+} from '@serlo/editor-plugins-registry'
 
 const imageRendererPlugin = createImageRendererPlugin()
 
-export const createRendererPlugins = createPluginFactory({
+const registry: RendererPluginRegistry = {
   [Plugin.Anchor]: anchorRendererPlugin,
   [Plugin.Blockquote]: blockquoteRendererPlugin,
   [Plugin.Equations]: equationsRendererPlugin,
@@ -39,4 +43,6 @@ export const createRendererPlugins = createPluginFactory({
   [Plugin.StepByStep]: stepByStepRendererPlugin,
   [Plugin.Table]: tableRendererPlugin,
   [Plugin.Text]: textRendererPlugin
-})
+}
+
+export const createRendererPlugins = createPluginFactory(registry)

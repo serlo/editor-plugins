@@ -4,10 +4,7 @@ import {
   EquationsRenderer,
   EquationsRendererProps
 } from '@serlo/editor-plugin-equations-renderer'
-import {
-  Document,
-  createDocumentIdentifier
-} from '@splish-me/editor-core-document'
+import { Document, createDocumentIdentifier } from '@splish-me/editor'
 import * as R from 'ramda'
 import * as React from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'

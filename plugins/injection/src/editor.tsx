@@ -2,7 +2,7 @@ import {
   InjectionPluginState,
   InjectionRenderer
 } from '@serlo/editor-plugin-injection-renderer'
-import { Input, renderIntoSidebar } from '@splish-me/editor-ui-plugin-sidebar'
+import { Input, renderIntoSidebar } from '@splish-me/editor-ui'
 import * as React from 'react'
 
 export class InjectionEditor extends React.Component<InjectionEditorProps> {

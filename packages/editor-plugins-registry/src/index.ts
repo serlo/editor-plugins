@@ -1,24 +1,25 @@
-import * as React from 'react'
+import { Plugin as P, RendererPlugin } from '@splish-me/editor'
+import * as R from 'ramda'
 
 export enum Plugin {
-  Anchor = 'anchor',
-  Blockquote = 'blockquote',
-  Equations = 'equations',
-  Geogebra = 'geogebra',
-  H5p = 'h5p',
-  Highlight = 'highlight',
-  Hint = 'hint',
-  Image = 'image',
-  Injection = 'injection',
-  InputExercise = 'input-exercise',
-  License = 'license',
-  MatchingExercise = 'matching-exercise',
-  ScMcExercise = 'sc-mc-exercise',
-  Solution = 'solution',
-  Spoiler = 'spoiler',
-  StepByStep = 'step-by-step',
-  Table = 'table',
-  Text = 'text'
+  Anchor = '@serlo-org/anchor',
+  Blockquote = '@serlo-org/blockquote',
+  Equations = '@serlo-org/equations',
+  Geogebra = '@serlo-org/geogebra',
+  H5p = '@serlo-org/h5p',
+  Highlight = '@serlo-org/highlight',
+  Hint = '@serlo-org/hint',
+  Image = '@splish-me/image',
+  Injection = '@serlo-org/injection',
+  InputExercise = '@serlo-org/input-exercise',
+  License = '@serlo-org/license',
+  MatchingExercise = '@serlo-org/matching-exercise',
+  ScMcExercise = '@serlo-org/sc-mc-exercise',
+  Solution = '@serlo-org/solution',
+  Spoiler = '@serlo-org/spoiler',
+  StepByStep = '@serlo-org/step-by-step',
+  Table = '@serlo-org/table',
+  Text = '@splish-me/slate'
 }
 
 const defaultPlugins = [
@@ -48,7 +49,7 @@ export const createPluginFactory = (
   pluginRegistry: PluginRegistry
 ) => editableType => {
   const plugins = choosePlugins(editableType)
-  return plugins.map(plugin => pluginRegistry[plugin])
+  return R.pick(plugins, pluginRegistry)
 }
 
 function choosePlugins(type: string) {
@@ -63,11 +64,7 @@ function choosePlugins(type: string) {
   return defaultPlugins
 }
 
-export type PluginRegistry = Record<
-  Plugin,
-  {
-    name: string
-    version: string
-    Component: React.ComponentType<any>
-  }
->
+export type PluginRegistry = EditorPluginRegistry | RendererPluginRegistry
+
+export type EditorPluginRegistry = Record<Plugin, P<any>>
+export type RendererPluginRegistry = Record<Plugin, RendererPlugin<any>>
