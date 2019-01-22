@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { HeHeadingPluginState } from '.'
-import { 
+import {
     Document,
     createDocumentIdentifier
-} from '@splish-me/editor-core-document'
+} from '@splish-me/editor'
 
 const renderChildren = (plugin) => {
   let eid = createDocumentIdentifier((plugin as any).id);

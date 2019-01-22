@@ -7,8 +7,6 @@ import {
 import { HeTitleEditor } from './editor'
 
 export const heTitlePlugin = {
-  name: '@serlo/editor-plugin-he-title',
-  version: '0.1.0',
   Component: HeTitleEditor,
   text: 'Title',
 

@@ -5,7 +5,7 @@
       "id": "0d8e55f5-1f9f-4764-a253-288dd0c6fac7",
       "content": {
         "plugin": {
-          "name": "@serlo/editor-plugin-he-heading",
+          "name": "he-heading",
           "version": "0.1.0"
         },
         "state": {
@@ -17,7 +17,7 @@
                   "id": "a9f5063e-4f7e-4c03-a707-d0a05945cafe",
                   "content": {
                     "plugin": {
-                      "name": "@serlo/editor-plugin-he-title",
+                      "name": "he-title",
                       "version": "0.1.0"
                     },
                     "state": {
@@ -36,7 +36,7 @@
                   "id": "d3b5b9e7-0e55-4c81-92d7-d64247f84806",
                   "content": {
                     "plugin": {
-                      "name": "@serlo/editor-plugin-he-heading",
+                      "name": "he-heading",
                       "version": "0.1.0"
                     },
                     "state": {
@@ -48,7 +48,7 @@
                               "id": "780b474c-af49-4f77-bc8b-35001187dd72",
                               "content": {
                                 "plugin": {
-                                  "name": "@serlo/editor-plugin-he-title",
+                                  "name": "he-title",
                                   "version": "0.1.0"
                                 },
                                 "state": {
@@ -67,7 +67,7 @@
                               "id": "86f5865a-0c81-4fa7-9d48-f0e7ff6266be",
                               "content": {
                                 "plugin": {
-                                  "name": "@serlo/editor-plugin-he-markdown",
+                                  "name": "he-markdown",
                                   "version": "0.1.0"
                                 },
                                 "state": {

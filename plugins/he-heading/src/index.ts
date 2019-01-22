@@ -7,8 +7,6 @@ import {
 import { HeHeadingEditor } from './editor'
 
 export const heHeadingPlugin = {
-  name: '@serlo/editor-plugin-he-heading',
-  version: '0.1.0',
   Component: HeHeadingEditor,
   text: 'Heading',
 
