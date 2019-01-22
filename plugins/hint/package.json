@@ -1,6 +1,6 @@
 {
   "name": "@serlo/editor-plugin-hint",
-  "version": "0.4.7",
+  "version": "0.5.0-0",
   "bugs": {
     "url": "https://github.com/serlo/editor-plugins/issues"
   },
@@ -19,10 +19,10 @@
     "format": "prettier --write \"{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@serlo/editor-plugin-hint-renderer": "^0.4.7"
+    "@serlo/editor-plugin-hint-renderer": "^0.5.0-0"
   },
   "devDependencies": {
-    "@serlo/editor-ui": "^0.4.7",
+    "@serlo/editor-ui": "^0.5.0-0",
     "@splish-me/editor": "^0.5.0",
     "@types/react": "^16.0.0"
   },
