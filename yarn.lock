@@ -1899,106 +1899,106 @@
     "@fortawesome/react-fontawesome" "^0.1.0"
     styled-components "^4.0.0"
 
-"@splish-me/editor-plugin-text-plugin-code@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-code/-/editor-plugin-text-plugin-code-0.5.0.tgz#d90cd97c80de5c5178cdc615b8da31ed797e9d90"
-  integrity sha512-pr3UlLMOcSvCQeY6PBjJzUIcx53EYLT5L6W3mJuaAQS9rC4XyxJqpINptl0qLCZflWmi75/k2gFpYry8H1jOSg==
+"@splish-me/editor-plugin-text-plugin-code@^0.5.0", "@splish-me/editor-plugin-text-plugin-code@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-code/-/editor-plugin-text-plugin-code-0.5.1.tgz#cacb2d541a07532ee44b94f8bcfe67bf4fec920e"
+  integrity sha512-UJoLkWdPOpm7gvsDtuS63fQ1KY3jHkvaNxYJRunDE/Ii9n9P9r5/X5F8ER3zunoNGnQ/fzMqpPlHxvb1Zmi5wA==
   dependencies:
-    "@splish-me/editor-plugin-text-plugin" "^0.5.0"
+    "@splish-me/editor-plugin-text-plugin" "^0.5.1"
 
-"@splish-me/editor-plugin-text-plugin-headings@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-headings/-/editor-plugin-text-plugin-headings-0.5.0.tgz#98664359dfecef4a8f9f11b1b4fe3317fe1d9a3a"
-  integrity sha512-lKKmHWrVhhKFf3kGmPLrwa1EeuPByj8IXCZCUNBzv8+X6Mu9FNhtD+8ly2KZzOTRH+lV5xLCDraVPRBG/aGHoA==
+"@splish-me/editor-plugin-text-plugin-headings@^0.5.0", "@splish-me/editor-plugin-text-plugin-headings@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-headings/-/editor-plugin-text-plugin-headings-0.5.1.tgz#46ae125d22fba6b782f6f8e79a4789be9df4eea2"
+  integrity sha512-7sLo5FWpL0h1JY/JlqNL55YqkyrTvTN6elrE/vbvBnPjGZLtmJUWAmtD2x35h7BUNoAEJQ6WXr7xz3g59XlLPg==
   dependencies:
-    "@splish-me/editor-plugin-text-plugin" "^0.5.0"
+    "@splish-me/editor-plugin-text-plugin" "^0.5.1"
 
-"@splish-me/editor-plugin-text-plugin-link@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-link/-/editor-plugin-text-plugin-link-0.5.0.tgz#ca16c074e1303adde61fec54de91060a11ff6446"
-  integrity sha512-2UGZ7mvYyGfU7QHjLQ2DZAtSbNq/19QGeWbFC3mggm0sOQlsAIpyVuk4Rxxn9GVKtfzUJ9aKJ6oahIBV59O5mA==
+"@splish-me/editor-plugin-text-plugin-link@^0.5.0", "@splish-me/editor-plugin-text-plugin-link@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-link/-/editor-plugin-text-plugin-link-0.5.1.tgz#f6699679dd8bf30e8e21316481f48103cb7c8955"
+  integrity sha512-y8S7xUcYeqyQTNJ9ku2vZeI1XNOFXkPbx/r203caohWFGNd41umk1LrZFr3Osgz1to6kZmORdad9ukgOgzqjHQ==
   dependencies:
-    "@splish-me/editor-plugin-text-plugin" "^0.5.0"
+    "@splish-me/editor-plugin-text-plugin" "^0.5.1"
     lodash "^4.0.0"
     slate "^0.41.0"
 
-"@splish-me/editor-plugin-text-plugin-lists@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-lists/-/editor-plugin-text-plugin-lists-0.5.0.tgz#d15658e9e07344e1621381ffa95c8307f949df58"
-  integrity sha512-hJcZUzsljW/VBJjhoT2rl80AO08H4wIuDE0oVdx6DTMM8PxFHAJ/JXi0JEEJuot4Yl9e6Sfg8nsbnxbBPTfW7g==
+"@splish-me/editor-plugin-text-plugin-lists@^0.5.0", "@splish-me/editor-plugin-text-plugin-lists@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-lists/-/editor-plugin-text-plugin-lists-0.5.1.tgz#76a0b7350ca77ef7c7a889730fb495f71b82db9f"
+  integrity sha512-1ylGRFMI+f8m3yHOu0WUGLXpMGeFIbfqgsenpCUmSt0dDG3mPZPui4Hax7PqYtj6mlNQrypQyS68E1mnQHABOQ==
   dependencies:
-    "@splish-me/editor-plugin-text-plugin" "^0.5.0"
+    "@splish-me/editor-plugin-text-plugin" "^0.5.1"
     front-slate-edit-list "0.12.2-1"
     slate "^0.41.0"
 
-"@splish-me/editor-plugin-text-plugin-paragraph@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-paragraph/-/editor-plugin-text-plugin-paragraph-0.5.0.tgz#01d0e29f7994a1e15391c217fcdc18cecc95f193"
-  integrity sha512-hSgt/oyUD0q70vSIVr7+u5uwEa8wRX0RcthAyRN9x8dU7rstCFCmxP/LZD9pIkyozz1lduilEB/ERGoFghiDOA==
+"@splish-me/editor-plugin-text-plugin-paragraph@^0.5.0", "@splish-me/editor-plugin-text-plugin-paragraph@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-paragraph/-/editor-plugin-text-plugin-paragraph-0.5.1.tgz#5cff10dc6ddec891e1651d8fbfa9d0ab0fc82920"
+  integrity sha512-mRn48MASEuxQNphGZlxbizTo2fqAFvejoX50aYcnLZQPjldxn3IbY7H25NWh1s8lzohFcBjWf6nWkVgNFzN9kA==
   dependencies:
-    "@splish-me/editor-plugin-text-plugin" "^0.5.0"
+    "@splish-me/editor-plugin-text-plugin" "^0.5.1"
 
-"@splish-me/editor-plugin-text-plugin-rich-text@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-rich-text/-/editor-plugin-text-plugin-rich-text-0.5.0.tgz#360d8a4f50b15a6e693c96336c860fa886c16d90"
-  integrity sha512-aQoRhAvg/QVEM+8op/ho8Yu2LL2egEDZIOMIzTQjBWmlL/RL/d4S1jMrnth7uAEWTuScsZxnw6M5n3ud1lZk6A==
+"@splish-me/editor-plugin-text-plugin-rich-text@^0.5.0", "@splish-me/editor-plugin-text-plugin-rich-text@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-rich-text/-/editor-plugin-text-plugin-rich-text-0.5.1.tgz#754c2e39e26dbf8d64c94ad205dfae30100c37e4"
+  integrity sha512-Ov5AFwiQD617ujTTFkjXMwO8vceegMmd3MP2VBeQPHH2uBNOMiCxqxOWEsnm0V4PcojWrDa5glDi1q8KiPuaHQ==
   dependencies:
-    "@splish-me/editor-plugin-text-plugin" "^0.5.0"
+    "@splish-me/editor-plugin-text-plugin" "^0.5.1"
 
-"@splish-me/editor-plugin-text-plugin-ui@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-ui/-/editor-plugin-text-plugin-ui-0.5.0.tgz#d0442986c6d0f9a50be8d9eb2ab30dd99cece87b"
-  integrity sha512-WI/+Rgl7fP7h89oLfBICHO5o89ewMMsT73bjbkRE7H2WHrsd2ZeYJ7XrRijyGzDbauyKxlRoxe2apv/5qfJ1ew==
+"@splish-me/editor-plugin-text-plugin-ui@^0.5.0", "@splish-me/editor-plugin-text-plugin-ui@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin-ui/-/editor-plugin-text-plugin-ui-0.5.1.tgz#9738ebe28149704f80bf05d07a1d41b77d6415f9"
+  integrity sha512-Hco/LBhk9KpPQ2pH49WvP97WrHA6t9dfjOKCeUyFqq5qQfGUkB78rFwJgqOisbUik0qscfH8gFIu+fWXekIu+w==
   dependencies:
-    "@splish-me/editor-plugin-text-plugin" "^0.5.0"
+    "@splish-me/editor-plugin-text-plugin" "^0.5.1"
 
-"@splish-me/editor-plugin-text-plugin@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin/-/editor-plugin-text-plugin-0.5.0.tgz#8f794b547fe9aa700b405784e247d45f6f775b35"
-  integrity sha512-vrgf23X4hlJ7ohetz6dQExQSefGfV+fs+/VtExvvcd4HG0dFumZ6WNoWe/LWw/MJJs7RFU6PNvDuv+xn85QU8g==
+"@splish-me/editor-plugin-text-plugin@^0.5.0", "@splish-me/editor-plugin-text-plugin@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-plugin/-/editor-plugin-text-plugin-0.5.1.tgz#aff9742bb0802e01000875eda39d11db82178cc4"
+  integrity sha512-+12K/03d3P0td0XYXl5TZ3yL1hiw0Z8rL7vS5Wc1xFrlDUM3b/F+ON0nOqC8Mc0klHCzw+dmYe99KiIZm0/M3Q==
 
-"@splish-me/editor-plugin-text-renderer@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-renderer/-/editor-plugin-text-renderer-0.5.0.tgz#b797938013d7f3b10682967c294fe011553fd46e"
-  integrity sha512-0WtuLFmIJlaiDGqTW0X9CCb20rVQvJy7KXVgi7IbhY9EZhS2Y/y58ywntRF9vZLPsYC+kepWsZ+9fpp9CgRNJQ==
+"@splish-me/editor-plugin-text-renderer@^0.5.0", "@splish-me/editor-plugin-text-renderer@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text-renderer/-/editor-plugin-text-renderer-0.5.1.tgz#6905da5b4c92c7ec54d39746b84a153b5dc20c2b"
+  integrity sha512-4297wtDuKxasV5FakluKo6KqSOYli6L0nv3aP1JUe3cwicV0gZ1ezrFPIUAogngClcoNY/hgprtIFpyC/OBd/w==
   dependencies:
-    "@splish-me/editor-plugin-text-plugin" "^0.5.0"
+    "@splish-me/editor-plugin-text-plugin" "^0.5.1"
 
 "@splish-me/editor-plugin-text@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text/-/editor-plugin-text-0.5.0.tgz#e58aadd89b187c8e314a4933d747fb854d2a44ce"
-  integrity sha512-uw6S3ONbAT00lURdIHQniHNrIQ/p8pS0M45t7weQhJJ0NWS3Jw2AgM/Xe5ymSY7LG3t66/qLCl/rr+S8Ak4jAg==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-plugin-text/-/editor-plugin-text-0.5.1.tgz#8c22b7e7e392b1fbb0540e345c7077862e2a5da9"
+  integrity sha512-ZcglxBFXxA+6wnwGt0bk8IvwSCh4Qn8PMWlTg9z9B63hYi1PmFA4XxAEI0GzKyK0XiqE4JYDaSSWxTMEPcc6ww==
   dependencies:
-    "@splish-me/editor-plugin-text-plugin" "^0.5.0"
-    "@splish-me/editor-plugin-text-plugin-code" "^0.5.0"
-    "@splish-me/editor-plugin-text-plugin-headings" "^0.5.0"
-    "@splish-me/editor-plugin-text-plugin-link" "^0.5.0"
-    "@splish-me/editor-plugin-text-plugin-lists" "^0.5.0"
-    "@splish-me/editor-plugin-text-plugin-paragraph" "^0.5.0"
-    "@splish-me/editor-plugin-text-plugin-rich-text" "^0.5.0"
-    "@splish-me/editor-plugin-text-plugin-ui" "^0.5.0"
-    "@splish-me/editor-plugin-text-renderer" "^0.5.0"
+    "@splish-me/editor-plugin-text-plugin" "^0.5.1"
+    "@splish-me/editor-plugin-text-plugin-code" "^0.5.1"
+    "@splish-me/editor-plugin-text-plugin-headings" "^0.5.1"
+    "@splish-me/editor-plugin-text-plugin-link" "^0.5.1"
+    "@splish-me/editor-plugin-text-plugin-lists" "^0.5.1"
+    "@splish-me/editor-plugin-text-plugin-paragraph" "^0.5.1"
+    "@splish-me/editor-plugin-text-plugin-rich-text" "^0.5.1"
+    "@splish-me/editor-plugin-text-plugin-ui" "^0.5.1"
+    "@splish-me/editor-plugin-text-renderer" "^0.5.1"
     parse5 "^4.0.0"
     slate "^0.41.0"
     slate-html-serializer "^0.7.0"
     slate-react "^0.18.0"
 
 "@splish-me/editor-renderer@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-renderer/-/editor-renderer-0.5.0.tgz#dc6ec294f52d9919c942cc30b94a877540a0389a"
-  integrity sha512-f/Tsi3pn28sS/xymPvWbTNcuATDB8lPdvK7bxD7XnwGLZStooYQOyCuQxjz21GAzmNbY9/CbrW6erZm1ezpqIQ==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-renderer/-/editor-renderer-0.5.1.tgz#336e21f266485d05a5255c3be432708db8312cf9"
+  integrity sha512-AFoL/wUyVFF5l72ihbmDuDaH0grXzlPPr1nfxehFehJ/vLvIju6EuGhXD0b8jNGXLWneaZOqAQc7574jpclQ+A==
   dependencies:
-    "@splish-me/editor-shared" "^0.5.0"
+    "@splish-me/editor-shared" "^0.5.1"
 
-"@splish-me/editor-shared@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-shared/-/editor-shared-0.5.0.tgz#560b61d257f868579ac415e3ad2dafa5252e4747"
-  integrity sha512-KhmCZcwfFYc5KQSivraXBiYjZGbT+e2dtbT2/RCDI1BX0Cxrf+M5ZqdrEQ3mPiIUbFW2gTMeOFLHllkuClL3XA==
+"@splish-me/editor-shared@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-shared/-/editor-shared-0.5.1.tgz#0d312fffd8f274843d74dbd3bd9f047ec6582856"
+  integrity sha512-qO7w4bkz8ACXrmqfSfF6jdIoWEIu+hlpGVNBB8ydcvGTK1R5fFpmpVbesODRILCX21W9wPLAx+KRoJU7zKVGQw==
 
 "@splish-me/editor-ui@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor-ui/-/editor-ui-0.5.0.tgz#8a2d701de55ecb08e45f3a2cb1b374b6e242e579"
-  integrity sha512-1Seg1HzSYP6DDj97UM2Ey5G0NIp9mhua8VNOQiZjMWVZpFDpuXH8voGt5xd+pw2Z76eozKfX/UabVLVzZ3FnSQ==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor-ui/-/editor-ui-0.5.1.tgz#42c169cd42fca8e28595b14a59fc0d549886f48c"
+  integrity sha512-drnTp/UxHdbKVKW308iaz6MYJSnPSxHBz/VshwtTLUizJ7VTdNG7Lgi7WwDJ/0rgnKZE2eEAvV3jNL/45iEIdA==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.0.0"
     "@fortawesome/free-solid-svg-icons" "^5.0.0"
@@ -2006,11 +2006,11 @@
     classnames "^2.0.0"
 
 "@splish-me/editor@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@splish-me/editor/-/editor-0.5.0.tgz#5a312821a6be3afdc66d36ab15935d2f2695098f"
-  integrity sha512-MAbLaMTInkkY9ivxcCthNn5SpVAGW8Ktlh3TCcMG/0IGBp2ROqYMFJcsJhX1h7xAFt0P63SBG78CFVd0QfnzUA==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@splish-me/editor/-/editor-0.5.1.tgz#ebd0cb7826bb7b4b09b4c206c805b902fb401b8b"
+  integrity sha512-/Q6VKaSLiBMSOX07MdnaeM9/WgDjD7TZyytZ/+ee8LSExLZAkggG40i1xMRNGyaZKM3hFNhpn5urlO8DSFqNbw==
   dependencies:
-    "@splish-me/editor-shared" "^0.5.0"
+    "@splish-me/editor-shared" "^0.5.1"
     classnames "^2.0.0"
     lodash "^4.0.0"
     ramda "^0.26.0"
@@ -5776,9 +5776,9 @@ ejs@^2.6.1:
   integrity sha512-0xy4A/twfrRCnkhfk8ErDi5DqdAsAqeGxht4xkCUrsvhhbQNs7E+4jV0CN7+NKIY0aHE72+XvqtBIXzD31ZbXQ==
 
 electron-to-chromium@^1.2.7, electron-to-chromium@^1.3.103, electron-to-chromium@^1.3.62:
-  version "1.3.103"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.103.tgz#a695777efdbc419cad6cbb0e58458251302cd52f"
-  integrity sha512-tObPqGmY9X8MUM8i3MEimYmbnLLf05/QV5gPlkR8MQ3Uj8G8B2govE1U4cQcBYtv3ymck9Y8cIOu4waoiykMZQ==
+  version "1.3.104"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.104.tgz#d8444ed1ca1c5159c6537d58bf2d054e32fee70d"
+  integrity sha512-ReDDCq4UFLVroskdyt4JEwKq+3SatPeUjFlhakdkUoaQMRXOh+XIS4aolnb4D31P9Po9C3CXyZk3fAnNT5XK3Q==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -11609,9 +11609,9 @@ postcss@^6.0.1, postcss@^6.0.21, postcss@^6.0.23:
     supports-color "^5.4.0"
 
 postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.13, postcss@^7.0.5:
-  version "7.0.13"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.13.tgz#42bf716413e8f1c786ab71dc6e722b3671b16708"
-  integrity sha512-h8SY6kQTd1wISHWjz+E6cswdhMuyBZRb16pSTv3W4zYZ3/YbyWeJdNUeOXB5IdZqE1U76OUEjjjqsC3z2f3hVg==
+  version "7.0.14"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.14.tgz#4527ed6b1ca0d82c53ce5ec1a2041c2346bbd6e5"
+  integrity sha512-NsbD6XUUMZvBxtQAJuWDJeeC4QFsmWsfozWxCJPWf3M55K9iu2iMDaKqyoOdTJ1R4usBXuxlVFAIo8rZPQD4Bg==
   dependencies:
     chalk "^2.4.2"
     source-map "^0.6.1"
@@ -13709,9 +13709,9 @@ stealthy-require@^1.1.0:
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
 
 stream-browserify@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/stream-browserify/-/stream-browserify-2.0.1.tgz#66266ee5f9bdb9940a4e4514cafb43bb71e5c9db"
-  integrity sha1-ZiZu5fm9uZQKTkUUyvtDu3Hlyds=
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/stream-browserify/-/stream-browserify-2.0.2.tgz#87521d38a44aa7ee91ce1cd2a47df0cb49dd660b"
+  integrity sha512-nX6hmklHs/gr2FuxYDltq8fJA1GDlxKQCz8O/IM4atRqBH8OORmBNgfvW5gG10GT/qQ9u0CzIvr2X5Pkt6ntqg==
   dependencies:
     inherits "~2.0.1"
     readable-stream "^2.0.2"
