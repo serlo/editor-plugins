@@ -2,10 +2,7 @@ import {
   LicensePluginState,
   LicenseRenderer
 } from '@serlo/editor-plugin-license-renderer'
-import {
-  Dropdown,
-  renderIntoSidebar
-} from '@splish-me/editor-ui-plugin-sidebar'
+import { Dropdown, renderIntoSidebar } from '@splish-me/editor-ui'
 import * as R from 'ramda'
 import * as React from 'react'
 

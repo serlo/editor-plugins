@@ -3,14 +3,8 @@ import {
   ScMcExerciseRenderer
 } from '@serlo/editor-plugin-sc-mc-exercise-renderer'
 import { Feedback, Icon, faPlus, styled } from '@serlo/editor-ui'
-import {
-  createDocumentIdentifier,
-  Document
-} from '@splish-me/editor-core-document'
-import {
-  Dropdown,
-  renderIntoSidebar
-} from '@splish-me/editor-ui-plugin-sidebar'
+import { createDocumentIdentifier, Document } from '@splish-me/editor'
+import { Dropdown, renderIntoSidebar } from '@splish-me/editor-ui'
 import * as R from 'ramda'
 import * as React from 'react'
 

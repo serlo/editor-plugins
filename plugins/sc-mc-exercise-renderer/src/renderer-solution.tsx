@@ -1,4 +1,4 @@
-import { Document } from '@splish-me/editor-core-document'
+import { Document } from '@splish-me/editor'
 import * as React from 'react'
 
 import { ScMcExerciseChoiceRenderer } from './choice-renderer'

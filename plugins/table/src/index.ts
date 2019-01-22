@@ -1,8 +1,14 @@
+import { TablePluginState } from '@serlo/editor-plugin-table-renderer'
+import { Plugin } from '@splish-me/editor'
+
 import { TableEditor } from './editor'
 
-export const tablePlugin = {
-  name: '@serlo-org/table',
-  version: '0.0.2',
+export const tablePlugin: Plugin<TablePluginState> = {
   Component: TableEditor,
-  text: 'Table'
+  text: 'Table',
+  createInitialState: () => {
+    return {
+      src: ''
+    }
+  }
 }

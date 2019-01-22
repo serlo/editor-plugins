@@ -15,14 +15,8 @@
     "start": "start-storybook -p 9009 -c .storybook"
   },
   "dependencies": {
-    "@splish-me/editor-core": "^0.4.0",
-    "@splish-me/editor-core-contexts": "^0.4.0",
-    "@splish-me/editor-core-document": "^0.4.0",
-    "@splish-me/editor-core-types": "^0.4.0",
-    "@splish-me/editor-ui-add-sidebar": "^0.4.0",
-    "@splish-me/editor-ui-mode-toolbar": "^0.4.0",
-    "@splish-me/editor-ui-plugin-sidebar": "^0.4.0",
-    "@splish-me/editor-ui-sidebar": "^0.4.0",
+    "@splish-me/editor": "^0.5.0",
+    "@splish-me/editor-ui": "^0.5.0",
     "katex": "^0.10.0",
     "ramda": "^0.26.0",
     "react": "^16.0.0",

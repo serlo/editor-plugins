@@ -1,10 +1,8 @@
-import { DocumentIdentifier } from '@splish-me/editor-core-types'
+import { DocumentIdentifier, RendererPlugin } from '@splish-me/editor'
 
 import { EquationsRenderer } from './renderer'
 
-export const equationsRendererPlugin = {
-  name: '@serlo-org/equations',
-  version: '0.0.0',
+export const equationsRendererPlugin: RendererPlugin<EquationsPluginState> = {
   Component: EquationsRenderer
 }
 

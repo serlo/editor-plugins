@@ -1,21 +1,22 @@
+import { Plugin } from '@serlo/editor-plugins-registry'
 import {
   createStateForContentPlugin,
   renderEditor,
   renderRenderer
 } from '@serlo/storybook-helpers'
-import { tablePlugin } from '@serlo/editor-plugin-table'
-import { tableRendererPlugin } from '@serlo/editor-plugin-table-renderer'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 
+const plugin = Plugin.Table
+
 storiesOf('Markdown Table', module)
   .add('Editable (initial state)', () => {
-    const content = createStateForContentPlugin({ plugin: tablePlugin })
+    const content = createStateForContentPlugin({ plugin })
     return renderEditor(content)
   })
   .add('Editable (w/ state)', () => {
     const content = createStateForContentPlugin({
-      plugin: tablePlugin,
+      plugin,
       initialState: {
         src: `| col1 | col2 |
 | ------ | ----------- |
@@ -28,7 +29,7 @@ storiesOf('Markdown Table', module)
   })
   .add('Renderer', () => {
     const content = createStateForContentPlugin({
-      plugin: tableRendererPlugin,
+      plugin,
       initialState: {
         src: `| col1 | col2 |
 | ------ | ----------- |

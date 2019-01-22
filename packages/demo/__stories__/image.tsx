@@ -1,5 +1,4 @@
-import { createImagePlugin } from '@serlo/editor-plugin-image'
-import { createImageRendererPlugin } from '@serlo/editor-plugin-image-renderer'
+import { Plugin } from '@serlo/editor-plugins-registry'
 import {
   createStateForContentPlugin,
   renderEditor,
@@ -7,14 +6,7 @@ import {
 } from '@serlo/storybook-helpers'
 import { storiesOf } from '@storybook/react'
 
-const plugin = createImagePlugin({
-  upload: {
-    url: 'https://de.serlo.org/attachment/upload',
-    maxFileSize: 2 * 1024 * 1024,
-    allowedExtensions: ['gif', 'jpg', 'jpeg', 'png', 'svg']
-  }
-})
-const rendererPlugin = createImageRendererPlugin()
+const plugin = Plugin.Image
 
 storiesOf('Image', module)
   .add('Editable (initial state)', () => {
@@ -49,7 +41,7 @@ storiesOf('Image', module)
   })
   .add('Renderer (image w/o href)', () => {
     const content = createStateForContentPlugin({
-      plugin: rendererPlugin,
+      plugin,
       initialState: {
         src:
           'https://assets.serlo.org/legacy/58ec830878aec_a214fb916461e1a899c68bf3f8194c54fd85ca9e/dreiecke.png',
@@ -60,7 +52,7 @@ storiesOf('Image', module)
   })
   .add('Renderer (image w/ href and target)', () => {
     const content = createStateForContentPlugin({
-      plugin: rendererPlugin,
+      plugin,
       initialState: {
         src:
           'https://assets.serlo.org/legacy/58ec830878aec_a214fb916461e1a899c68bf3f8194c54fd85ca9e/dreiecke.png',
@@ -74,7 +66,7 @@ storiesOf('Image', module)
   })
   .add('Renderer (image w/ href w/o target)', () => {
     const content = createStateForContentPlugin({
-      plugin: rendererPlugin,
+      plugin,
       initialState: {
         src:
           'https://assets.serlo.org/legacy/58ec830878aec_a214fb916461e1a899c68bf3f8194c54fd85ca9e/dreiecke.png',

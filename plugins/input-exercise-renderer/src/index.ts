@@ -1,10 +1,10 @@
-import { DocumentIdentifier } from '@splish-me/editor-core-types'
+import { DocumentIdentifier, RendererPlugin } from '@splish-me/editor'
 
 import { InputExerciseRenderer } from './renderer'
 
-export const inputExerciseRendererPlugin = {
-  name: '@serlo-org/input-exercise',
-  version: '0.0.3',
+export const inputExerciseRendererPlugin: RendererPlugin<
+  InputExercisePluginState
+> = {
   Component: InputExerciseRenderer
 }
 

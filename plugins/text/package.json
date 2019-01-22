@@ -21,25 +21,28 @@
   },
   "dependencies": {
     "@serlo/editor-plugin-text-renderer": "^0.4.7",
-    "@splish-me/editor-plugin-text": "^0.4.0",
-    "@splish-me/editor-plugin-text-plugin-code": "^0.4.0",
-    "@splish-me/editor-plugin-text-plugin-headings": "^0.4.0",
-    "@splish-me/editor-plugin-text-plugin-link": "^0.4.0",
-    "@splish-me/editor-plugin-text-plugin-lists": "^0.4.0",
-    "@splish-me/editor-plugin-text-plugin-paragraph": "^0.4.0",
-    "@splish-me/editor-plugin-text-plugin-rich-text": "^0.4.0",
-    "@splish-me/editor-plugin-text-plugin-ui": "^0.4.0",
+    "@splish-me/editor-plugin-text": "^0.5.0",
+    "@splish-me/editor-plugin-text-plugin-code": "^0.5.0",
+    "@splish-me/editor-plugin-text-plugin-headings": "^0.5.0",
+    "@splish-me/editor-plugin-text-plugin-link": "^0.5.0",
+    "@splish-me/editor-plugin-text-plugin-lists": "^0.5.0",
+    "@splish-me/editor-plugin-text-plugin-paragraph": "^0.5.0",
+    "@splish-me/editor-plugin-text-plugin-rich-text": "^0.5.0",
+    "@splish-me/editor-plugin-text-plugin-ui": "^0.5.0",
     "immutable": "^3.0.0",
     "ramda": "^0.26.0",
     "slate": "^0.41.0"
   },
   "devDependencies": {
+    "@splish-me/editor": "^0.5.0",
+    "@splish-me/editor-ui": "^0.5.0",
     "@types/ramda": "^0.26.0",
     "@types/react": "^16.0.0",
     "@types/slate": "^0.40.0"
   },
   "peerDependencies": {
-    "@splish-me/editor-ui-plugin-sidebar": "^0.4.0",
+    "@splish-me/editor": "^0.5.0",
+    "@splish-me/editor-ui": "^0.5.0",
     "react": "^16.0.0"
   },
   "publishConfig": {

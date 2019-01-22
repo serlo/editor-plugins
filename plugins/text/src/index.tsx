@@ -26,7 +26,7 @@ import {
 } from '@splish-me/editor-plugin-text-plugin-rich-text'
 import { createUiPlugin } from '@splish-me/editor-plugin-text-plugin-ui'
 import { createTextPlugin } from '@splish-me/editor-plugin-text'
-import { ButtonGroup, Button } from '@splish-me/editor-ui-plugin-sidebar'
+import { ButtonGroup, Button } from '@splish-me/editor-ui'
 import {
   plugins as rendererPlugins,
   isKatex,
@@ -157,10 +157,6 @@ const plugins = [
   })
 ]
 
-export const textPlugin = {
-  ...createTextPlugin({
-    plugins
-  }),
-  name: '@splish-me/slate',
-  version: '0.2.5'
-}
+export const textPlugin = createTextPlugin({
+  plugins
+})

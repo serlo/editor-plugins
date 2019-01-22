@@ -1,8 +1,8 @@
+import { RendererPlugin } from '@splish-me/editor'
+
 import { AnchorRenderer } from './renderer'
 
-export const anchorRendererPlugin = {
-  name: '@serlo-org/anchor',
-  version: '0.0.0',
+export const anchorRendererPlugin: RendererPlugin<AnchorPluginState> = {
   Component: AnchorRenderer
 }
 

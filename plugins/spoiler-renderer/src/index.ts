@@ -1,10 +1,8 @@
-import { DocumentIdentifier } from '@splish-me/editor-core-types'
+import { DocumentIdentifier, RendererPlugin } from '@splish-me/editor'
 
 import { SpoilerRenderer } from './renderer'
 
-export const spoilerRendererPlugin = {
-  name: '@serlo-org/spoiler',
-  version: '0.0.4',
+export const spoilerRendererPlugin: RendererPlugin<SpoilerPluginState> = {
   Component: SpoilerRenderer
 }
 

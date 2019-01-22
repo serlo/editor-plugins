@@ -1,10 +1,8 @@
-import { DocumentIdentifier } from '@splish-me/editor-core-types'
+import { DocumentIdentifier, RendererPlugin } from '@splish-me/editor'
 
 import { SolutionRenderer } from './renderer'
 
-export const solutionRendererPlugin = {
-  name: '@serlo-org/solution',
-  version: '0.0.2',
+export const solutionRendererPlugin: RendererPlugin<SolutionPluginState> = {
   Component: SolutionRenderer
 }
 

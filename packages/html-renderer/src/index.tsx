@@ -1,4 +1,4 @@
-import { createRenderer } from '@splish-me/editor-core-renderer'
+import { createRenderer } from '@splish-me/editor-renderer'
 import * as React from 'react'
 
 const gridClass = (size = 12) => `col-sm-${size} col-xs-12`

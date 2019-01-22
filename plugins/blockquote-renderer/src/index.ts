@@ -1,9 +1,8 @@
-import { DocumentIdentifier } from '@splish-me/editor-core-types'
+import { DocumentIdentifier, RendererPlugin } from '@splish-me/editor'
+
 import { BlockquoteRenderer } from './renderer'
 
-export const blockquoteRendererPlugin = {
-  name: '@serlo-org/blockquote',
-  version: '0.0.0',
+export const blockquoteRendererPlugin: RendererPlugin<BlockquotePluginState> = {
   Component: BlockquoteRenderer
 }
 

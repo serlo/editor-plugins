@@ -1,4 +1,4 @@
-import { createDocumentIdentifier } from '@splish-me/editor-core-document'
+import { createDocumentIdentifier } from '@splish-me/editor'
 
 import { createBlocks, combineBlocks, isCorrect } from '../src/helpers'
 import {

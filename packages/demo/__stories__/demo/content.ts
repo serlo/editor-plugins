@@ -1,4 +1,5 @@
 import { textPlugin } from '@serlo/editor-plugin-text'
+import { Plugin } from '@serlo/editor-plugins-registry'
 import * as R from 'ramda'
 
 const preContent = {
@@ -281,7 +282,7 @@ const f = obj => {
   if (obj.content) {
     const { content } = obj
 
-    if (content.plugin.name === textPlugin.name) {
+    if (content.plugin.name === Plugin.Text) {
       return {
         ...obj,
         content: {

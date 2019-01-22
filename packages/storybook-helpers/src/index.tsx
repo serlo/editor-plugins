@@ -1,3 +1,6 @@
+import { createEditorPlugins } from '@serlo/editor-plugins'
+import { Plugin } from '@serlo/editor-plugins-registry'
+import { Plugin as P, StatefulPlugin } from '@splish-me/editor'
 import * as React from 'react'
 import * as uuid from 'uuid'
 
@@ -6,30 +9,36 @@ import { SerloContainer } from './serlo-container'
 
 export { Renderer, SerloContainer }
 
+const plugins = createEditorPlugins('all')
+
 export const createStateForPlugin = ({
-  children,
   plugin,
   initialState,
   kind
+}: {
+  plugin: Plugin
+  kind: 'content'
+  initialState: any
 }) => {
+  const p = plugins[plugin] as P<any>
+
   return {
     id: uuid.v4(),
     cells: [
       {
         id: uuid.v4(),
         [kind]: {
-          plugin,
+          plugin: {
+            ...p,
+            name: plugin,
+            version: '999.0.0'
+          },
           state:
             initialState ||
-            (plugin.createInitialState
-              ? plugin.createInitialState()
+            ((p as StatefulPlugin<any>).createInitialState
+              ? (p as StatefulPlugin<any>).createInitialState()
               : undefined)
-        },
-        rows:
-          children ||
-          (plugin.createInitialChildren
-            ? plugin.createInitialChildren().rows
-            : undefined)
+        }
       }
     ]
   }
@@ -37,8 +46,6 @@ export const createStateForPlugin = ({
 
 export const createStateForContentPlugin = props =>
   createStateForPlugin({ ...props, kind: 'content' })
-export const createStateForLayoutPlugin = props =>
-  createStateForPlugin({ ...props, kind: 'layout' })
 
 export const renderEditor = state => {
   const r = new Renderer(state)

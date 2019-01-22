@@ -1,10 +1,12 @@
-import { equationsPlugin as plugin } from '@serlo/editor-plugin-equations'
+import { Plugin } from '@serlo/editor-plugins-registry'
 import {
   createStateForContentPlugin,
   renderEditor
 } from '@serlo/storybook-helpers'
-import { createDocumentIdentifier } from '@splish-me/editor-core-document'
+import { createDocumentIdentifier } from '@splish-me/editor'
 import { storiesOf } from '@storybook/react'
+
+const plugin = Plugin.Equations
 
 storiesOf('Equations', module)
   .add('Editable (initial state)', () => {

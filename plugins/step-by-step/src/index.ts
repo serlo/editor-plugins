@@ -1,11 +1,9 @@
 import { StepByStepPluginState } from '@serlo/editor-plugin-step-by-step-renderer'
-import { createDocumentIdentifier } from '@splish-me/editor-core-document'
+import { createDocumentIdentifier, Plugin } from '@splish-me/editor'
 
 import { StepByStepEditor } from './editor'
 
-export const stepByStepPlugin = {
-  name: '@serlo-org/step-by-step',
-  version: '0.0.0',
+export const stepByStepPlugin: Plugin<StepByStepPluginState> = {
   Component: StepByStepEditor,
   text: 'Step by Step',
 

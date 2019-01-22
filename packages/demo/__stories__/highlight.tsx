@@ -1,5 +1,4 @@
-import { highlightPlugin } from '@serlo/editor-plugin-highlight'
-import { highlightRendererPlugin } from '@serlo/editor-plugin-highlight-renderer'
+import { Plugin } from '@serlo/editor-plugins-registry'
 import {
   createStateForContentPlugin,
   renderEditor,
@@ -8,15 +7,17 @@ import {
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 
+const plugin = Plugin.Highlight
+
 storiesOf('Code Highlight', module)
   .add('Editable (initial state)', () => {
-    const content = createStateForContentPlugin({ plugin: highlightPlugin })
+    const content = createStateForContentPlugin({ plugin })
 
     return renderEditor(content)
   })
   .add('Editable (w/ state)', () => {
     const content = createStateForContentPlugin({
-      plugin: highlightPlugin,
+      plugin,
       initialState: {
         language: 'javascript',
         text: `console.log('hello world')`
@@ -27,7 +28,7 @@ storiesOf('Code Highlight', module)
   })
   .add('Renderer (w/o line numbers)', () => {
     const content = createStateForContentPlugin({
-      plugin: highlightRendererPlugin,
+      plugin,
       initialState: {
         language: 'javascript',
         text: `console.log('hello world')`
@@ -38,7 +39,7 @@ storiesOf('Code Highlight', module)
   })
   .add('Renderer (w/ line numbers)', () => {
     const content = createStateForContentPlugin({
-      plugin: highlightRendererPlugin,
+      plugin,
       initialState: {
         language: 'javascript',
         text: `console.log('hello world')`,

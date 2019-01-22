@@ -1,10 +1,12 @@
-import { geogebraPlugin as plugin } from '@serlo/editor-plugin-geogebra'
+import { Plugin } from '@serlo/editor-plugins-registry'
 import {
   createStateForContentPlugin,
   renderEditor,
   renderRenderer
 } from '@serlo/storybook-helpers'
 import { storiesOf } from '@storybook/react'
+
+const plugin = Plugin.Geogebra
 
 storiesOf('GeoGebra', module)
   .add('Editable (initial state)', () => {

@@ -4,7 +4,7 @@ import {
   H5pRenderer,
   H5pRendererProps
 } from '@serlo/editor-plugin-h5p-renderer'
-import { Input, renderIntoSidebar } from '@splish-me/editor-ui-plugin-sidebar'
+import { Input, renderIntoSidebar } from '@splish-me/editor-ui'
 
 export class H5pEditor extends React.Component<H5pEditorProps> {
   public render() {
