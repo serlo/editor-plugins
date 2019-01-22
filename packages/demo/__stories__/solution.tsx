@@ -13,7 +13,7 @@ const plugin = Plugin.Solution
 
 storiesOf('Solution', module)
   .add('Editable (initial state)', () => {
-    const content = createStateForContentPlugin({ plugin})
+    const content = createStateForContentPlugin({ plugin })
 
     return renderEditor(content)
   })
