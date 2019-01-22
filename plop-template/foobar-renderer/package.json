@@ -17,7 +17,7 @@
     "build": "splish-microbundle",
     "build:watch": "splish-microbundle watch",
     "ci": "tsc --noEmit",
-    "format": "{{ prettierCommand }}"
+    "format": "{{{ prettierCommand }}}"
   },
   "dependencies": {},
   "devDependencies": {

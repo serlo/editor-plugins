@@ -17,7 +17,7 @@
     "build": "splish-microbundle",
     "build:watch": "splish-microbundle watch",
     "ci": "tsc --noEmit",
-    "format": "{{ prettierCommand }}"
+    "format": "{{{ prettierCommand }}}"
   },
   "dependencies": {
     "@serlo/editor-plugin-{{dashCase name}}-renderer": "^0.0.0"
