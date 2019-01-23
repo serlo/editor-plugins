@@ -3,7 +3,7 @@ import {
   InputExerciseRenderer,
   InputExerciseRendererProps,
   WrongAnswer,
-	CorrectAnswer
+  CorrectAnswer
 } from '@serlo/editor-plugin-input-exercise-renderer'
 import { Feedback, styled } from '@serlo/editor-ui'
 import {
@@ -57,40 +57,40 @@ export class InputExerciseEditor extends React.Component<
     })
   }
 
-	addCorrectAnswer = () => {
-		const { onChange, state } = this.props
-		const { correctAnswers } = state
-		console.log(correctAnswers)
-		onChange({
-			correctAnswers: [
-				...correctAnswers,
-				{
-					value: '',
-				}
-			]
-		})
-	}
-	removeCorrectAnswer = (index: number) => () => {
-		const { state, onChange } = this.props
-		onChange({
-			correctAnswers: R.remove(index, 1, state.correctAnswers)
-		})
-	}
-	correctAnswerChange = (index: number) => (
-		event: React.ChangeEvent<HTMLInputElement>
-	) => {
-		const target = event.target
-		const value = target.value
+  addCorrectAnswer = () => {
+    const { onChange, state } = this.props
+    const { correctAnswers } = state
+    console.log(correctAnswers)
+    onChange({
+      correctAnswers: [
+        ...correctAnswers,
+        {
+          value: ''
+        }
+      ]
+    })
+  }
+  removeCorrectAnswer = (index: number) => () => {
+    const { state, onChange } = this.props
+    onChange({
+      correctAnswers: R.remove(index, 1, state.correctAnswers)
+    })
+  }
+  correctAnswerChange = (index: number) => (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const target = event.target
+    const value = target.value
 
-		const { state, onChange } = this.props
-		const newAnswer = {
-			...state.correctAnswers[index],
-			value: value
-		}
-		onChange({
-			correctAnswers: R.update(index, newAnswer, state.correctAnswers)
-		})
-	}
+    const { state, onChange } = this.props
+    const newAnswer = {
+      ...state.correctAnswers[index],
+      value: value
+    }
+    onChange({
+      correctAnswers: R.update(index, newAnswer, state.correctAnswers)
+    })
+  }
   addWrongAnswer = () => {
     const { onChange, state } = this.props
     const { wrongAnswers } = state
@@ -135,47 +135,48 @@ export class InputExerciseEditor extends React.Component<
     return (
       <React.Fragment>
         {focused
-				? renderIntoSidebar(
-				<React.Fragment>
-					<Dropdown
-						label="Wähle den Antworttyp:"
-						options={R.map(dataType => dataType.name, types)}
-						onChange={this.handleTypeChange}
-						value={this.translateDataType(type)}
-					/>
-				</React.Fragment>
-				) : null }
-				{readOnly ? (
-					<InputExerciseRenderer {...this.props} />
-				) : (
-					<React.Fragment>
-						<InputExerciseRenderer {...this.props} />
-						{correctAnswers.map((correctAnswer: CorrectAnswer, index: number) => {
-							return (
-								<div key ={index}>
-									<label>
-                 		richtige Antwort:
-										<input
-											type="text"
-                			value={correctAnswer.value}
-											placeholder="richtige Antwort eingeben"
-											onChange={this.correctAnswerChange(index)}
-										/>
-									</label>
-									<button onClick={this.removeCorrectAnswer(index)}>
-										Löschen {/* <FontAwesomeIcon icon={faTrashAlt} /> */}
-									</button>
-								</div>
-							)
-						})}
-           	<button onClick={this.addCorrectAnswer}>
-           		Richtige Antwort hinzufügen
-           	</button>
-          </React.Fragment>
-				)}
+          ? renderIntoSidebar(
+              <React.Fragment>
+                <Dropdown
+                  label="Wähle den Antworttyp:"
+                  options={R.map(dataType => dataType.name, types)}
+                  onChange={this.handleTypeChange}
+                  value={this.translateDataType(type)}
+                />
+              </React.Fragment>
+            )
+          : null}
         {readOnly ? (
-				null
+          <InputExerciseRenderer {...this.props} />
         ) : (
+          <React.Fragment>
+            <InputExerciseRenderer {...this.props} />
+            {correctAnswers.map(
+              (correctAnswer: CorrectAnswer, index: number) => {
+                return (
+                  <div key={index}>
+                    <label>
+                      richtige Antwort:
+                      <input
+                        type="text"
+                        value={correctAnswer.value}
+                        placeholder="richtige Antwort eingeben"
+                        onChange={this.correctAnswerChange(index)}
+                      />
+                    </label>
+                    <button onClick={this.removeCorrectAnswer(index)}>
+                      Löschen {/* <FontAwesomeIcon icon={faTrashAlt} /> */}
+                    </button>
+                  </div>
+                )
+              }
+            )}
+            <button onClick={this.addCorrectAnswer}>
+              Richtige Antwort hinzufügen
+            </button>
+          </React.Fragment>
+        )}
+        {readOnly ? null : (
           <React.Fragment>
             {wrongAnswers.map((wrongAnswer: WrongAnswer, index: number) => {
               return (

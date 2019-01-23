@@ -26,14 +26,19 @@ export class InputExerciseRenderer extends React.Component<
     const { state } = this.props
     const { correctAnswers, wrongAnswers, type } = state
 
-		var correct = false
-		correctAnswers.forEach(correctAnswer => {
-			if (this.matchesInput({ type: type, value: correctAnswer.value }, input.value)) {
-				this.setState({ positiveFeedback: true, showFeedback: true })
-				correct = true;
-			}
-		})
-		if (!(correct)){
+    var correct = false
+    correctAnswers.forEach(correctAnswer => {
+      if (
+        this.matchesInput(
+          { type: type, value: correctAnswer.value },
+          input.value
+        )
+      ) {
+        this.setState({ positiveFeedback: true, showFeedback: true })
+        correct = true
+      }
+    })
+    if (!correct) {
       const index = wrongAnswers.findIndex((wrongAnswer: WrongAnswer) => {
         return this.matchesInput(
           { type: type, value: wrongAnswer.value },

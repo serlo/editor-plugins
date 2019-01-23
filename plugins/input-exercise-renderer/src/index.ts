@@ -21,7 +21,7 @@ export interface WrongAnswer {
 }
 
 export interface CorrectAnswer {
-	value: string
+  value: string
 }
 
 export * from './renderer'
