@@ -1,6 +1,6 @@
 {
   "name": "@serlo/editor-plugin-geogebra-renderer",
-  "version": "0.4.7",
+  "version": "0.5.0",
   "bugs": {
     "url": "https://github.com/serlo/editor-plugins/issues"
   },
@@ -8,7 +8,6 @@
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "umd:main": "dist/index.umd.js",
-  "module": "dist/index.mjs",
   "source": "src/index.ts",
   "types": "dist/index.d.ts",
   "repository": "serlo/editor-plugins",
@@ -25,11 +24,13 @@
     "uuid": "^3.0.0"
   },
   "devDependencies": {
+    "@splish-me/editor": "^0.5.0",
     "@types/lodash": "^4.0.0",
     "@types/react": "^16.0.0",
     "@types/uuid": "^3.0.0"
   },
   "peerDependencies": {
+    "@splish-me/editor": "^0.5.0",
     "ory-editor-core": "^0.6.0",
     "react": "^16.0.0"
   },

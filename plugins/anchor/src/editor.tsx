@@ -4,7 +4,7 @@ import {
   AnchorRenderer,
   AnchorRendererProps
 } from '@serlo/editor-plugin-anchor-renderer'
-import { Input, renderIntoSidebar } from '@splish-me/editor-ui-plugin-sidebar'
+import { Input, renderIntoSidebar } from '@splish-me/editor-ui'
 import * as React from 'react'
 
 export class AnchorEditor extends React.Component<AnchorEditorProps> {
@@ -17,11 +17,7 @@ export class AnchorEditor extends React.Component<AnchorEditorProps> {
         <AnchorRenderer state={state} />
         {focused
           ? renderIntoSidebar(
-              <Input
-                label="Identifier"
-                value={id || ''}
-                onChange={this.setValue}
-              />
+              <Input label="Identifier" value={id} onChange={this.setValue} />
             )
           : null}
       </React.Fragment>

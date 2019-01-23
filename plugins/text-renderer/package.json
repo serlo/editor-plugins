@@ -1,6 +1,6 @@
 {
   "name": "@serlo/editor-plugin-text-renderer",
-  "version": "0.4.7",
+  "version": "0.5.0",
   "bugs": {
     "url": "https://github.com/serlo/editor-plugins/issues"
   },
@@ -8,7 +8,6 @@
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "umd:main": "dist/index.umd.js",
-  "module": "dist/index.mjs",
   "source": "src/index.ts",
   "types": "dist/index.d.ts",
   "repository": "serlo/editor-plugins",
@@ -20,29 +19,32 @@
     "format": "prettier --write \"{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@splish-me/editor-plugin-text-plugin": "^0.4.0",
-    "@splish-me/editor-plugin-text-plugin-code": "^0.4.0",
-    "@splish-me/editor-plugin-text-plugin-headings": "^0.4.0",
-    "@splish-me/editor-plugin-text-plugin-link": "^0.4.0",
-    "@splish-me/editor-plugin-text-plugin-lists": "^0.4.0",
-    "@splish-me/editor-plugin-text-plugin-paragraph": "^0.4.0",
-    "@splish-me/editor-plugin-text-plugin-rich-text": "^0.4.0",
-    "@splish-me/editor-plugin-text-renderer": "^0.4.0",
+    "@splish-me/editor-plugin-text-plugin": "^0.5.0",
+    "@splish-me/editor-plugin-text-plugin-code": "^0.5.0",
+    "@splish-me/editor-plugin-text-plugin-headings": "^0.5.0",
+    "@splish-me/editor-plugin-text-plugin-link": "^0.5.0",
+    "@splish-me/editor-plugin-text-plugin-lists": "^0.5.0",
+    "@splish-me/editor-plugin-text-plugin-paragraph": "^0.5.0",
+    "@splish-me/editor-plugin-text-plugin-rich-text": "^0.5.0",
+    "@splish-me/editor-plugin-text-renderer": "^0.5.0",
     "katex": "^0.10.0",
     "lodash": "^4.0.0",
     "react": "^16.0.0",
     "slate": "^0.41.0"
   },
   "devDependencies": {
-    "@serlo/editor-ui": "^0.4.7",
+    "@serlo/editor-ui": "^0.5.0",
+    "@splish-me/editor": "^0.5.0",
+    "@splish-me/editor-ui": "^0.5.0",
     "@types/lodash": "^4.0.0",
     "@types/react": "^16.0.0",
     "@types/react-dom": "^16.0.0",
     "@types/slate": "^0.40.0"
   },
   "peerDependencies": {
-    "@serlo/editor-ui": "^0.4.0",
-    "@splish-me/editor-ui-plugin-sidebar": "^0.4.0",
+    "@serlo/editor-ui": "^0.5.0",
+    "@splish-me/editor": "^0.5.0",
+    "@splish-me/editor-ui": "^0.5.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },

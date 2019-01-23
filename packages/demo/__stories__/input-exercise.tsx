@@ -1,23 +1,23 @@
+import { Plugin } from '@serlo/editor-plugins-registry'
 import {
   createStateForContentPlugin,
   renderEditor,
   renderRenderer
 } from '@serlo/storybook-helpers'
-import { createDocumentIdentifier } from '@splish-me/editor-core-document'
+import { createDocumentIdentifier } from '@splish-me/editor'
 import { storiesOf } from '@storybook/react'
 
-import { inputExercisePlugin } from '@serlo/editor-plugin-input-exercise'
-import { inputExerciseRendererPlugin } from '@serlo/editor-plugin-input-exercise-renderer'
+const plugin = Plugin.InputExercise
 
 storiesOf('InputTextExercise', module)
   .add('Editable (initial state)', () => {
-    const content = createStateForContentPlugin({ plugin: inputExercisePlugin })
+    const content = createStateForContentPlugin({ plugin })
 
     return renderEditor(content)
   })
   .add('Editable (w/ state)', () => {
     const content = createStateForContentPlugin({
-      plugin: inputExercisePlugin,
+      plugin,
       initialState: {
         type: 'Text',
         correctAnswers: [{ value: '1' }],
@@ -35,7 +35,7 @@ storiesOf('InputTextExercise', module)
   })
   .add('Renderer', () => {
     const content = createStateForContentPlugin({
-      plugin: inputExerciseRendererPlugin,
+      plugin,
       initialState: { alt: 'Dreiecke konstruieren', src: '1571395' }
     })
 

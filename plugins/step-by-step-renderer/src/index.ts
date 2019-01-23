@@ -1,10 +1,8 @@
-import { DocumentIdentifier } from '@splish-me/editor-core-types'
+import { DocumentIdentifier, RendererPlugin } from '@splish-me/editor'
 
 import { StepByStepRenderer } from './renderer'
 
-export const stepByStepRendererPlugin = {
-  name: '@serlo-org/step-by-step',
-  version: '0.0.0',
+export const stepByStepRendererPlugin: RendererPlugin<StepByStepPluginState> = {
   Component: StepByStepRenderer
 }
 

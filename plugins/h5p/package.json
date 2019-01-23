@@ -1,6 +1,6 @@
 {
   "name": "@serlo/editor-plugin-h5p",
-  "version": "0.4.8",
+  "version": "0.5.0",
   "bugs": {
     "url": "https://github.com/serlo/editor-plugins/issues"
   },
@@ -8,7 +8,6 @@
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "umd:main": "dist/index.umd.js",
-  "module": "dist/index.mjs",
   "source": "src/index.ts",
   "types": "dist/index.d.ts",
   "repository": "serlo/editor-plugins",
@@ -20,15 +19,18 @@
     "format": "prettier --write \"{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
   },
   "dependencies": {
-    "@serlo/editor-plugin-h5p-renderer": "^0.4.7"
+    "@serlo/editor-plugin-h5p-renderer": "^0.5.0"
   },
   "devDependencies": {
-    "@serlo/editor-ui": "^0.4.7",
+    "@serlo/editor-ui": "^0.5.0",
+    "@splish-me/editor": "^0.5.0",
+    "@splish-me/editor-ui": "^0.5.0",
     "@types/react": "^16.0.0"
   },
   "peerDependencies": {
-    "@serlo/editor-ui": "^0.4.0",
-    "@splish-me/editor-ui-plugin-sidebar": "^0.4.0",
+    "@serlo/editor-ui": "^0.5.0",
+    "@splish-me/editor": "^0.5.0",
+    "@splish-me/editor-ui": "^0.5.0",
     "react": "^16.0.0"
   },
   "publishConfig": {

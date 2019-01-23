@@ -2,18 +2,18 @@ import { createEditorPlugins, defaultPlugin } from '@serlo/editor-plugins'
 import { createRendererPlugins } from '@serlo/editor-plugins-renderer'
 import { HtmlRenderer } from '@serlo/html-renderer'
 import {
+  createDocumentIdentifier,
+  Document,
+  Editor,
   EditorContext,
   EditorUtilsContext
-} from '@splish-me/editor-core-contexts'
+} from '@splish-me/editor'
 import {
-  Document,
-  createDocumentIdentifier
-} from '@splish-me/editor-core-document'
-import { Editor } from '@splish-me/editor-core'
-import { ModeToolbar } from '@splish-me/editor-ui-mode-toolbar'
-import { AddSidebar } from '@splish-me/editor-ui-add-sidebar'
-import { PluginSidebar } from '@splish-me/editor-ui-plugin-sidebar'
-import { Sidebar } from '@splish-me/editor-ui-sidebar'
+  AddSidebar,
+  ModeToolbar,
+  PluginSidebar,
+  Sidebar
+} from '@splish-me/editor-ui'
 import * as React from 'react'
 
 import 'katex/dist/katex.css'

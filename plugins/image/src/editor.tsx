@@ -8,7 +8,7 @@ import {
   Input,
   Textarea,
   renderIntoSidebar
-} from '@splish-me/editor-ui-plugin-sidebar'
+} from '@splish-me/editor-ui'
 import * as React from 'react'
 
 import { Upload } from './upload'
@@ -152,7 +152,7 @@ export const createImageEditor = (
 
 export interface ImageEditorProps {
   state: ImagePluginState
-  readOnly: boolean
-  focused: boolean
-  onChange: Function
+  readOnly?: boolean
+  focused?: boolean
+  onChange: (state: Partial<ImagePluginState>) => void
 }

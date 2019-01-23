@@ -2,7 +2,7 @@ module.exports = function(plop) {
   plop.addHelper(
     'prettierCommand',
     () =>
-      'prettier --write "{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}"'
+      'prettier --write \\"{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\\"'
   )
 
   plop.setGenerator('plugin', {

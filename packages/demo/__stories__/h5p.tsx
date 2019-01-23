@@ -1,8 +1,5 @@
-import { h5pPlugin } from '@serlo/editor-plugin-h5p'
-import {
-  H5pPluginState,
-  h5pRendererPlugin
-} from '@serlo/editor-plugin-h5p-renderer'
+import { Plugin } from '@serlo/editor-plugins-registry'
+import { H5pPluginState } from '@serlo/editor-plugin-h5p-renderer'
 import {
   createStateForContentPlugin,
   renderEditor,
@@ -10,15 +7,16 @@ import {
 } from '@serlo/storybook-helpers'
 import { storiesOf } from '@storybook/react'
 
+const plugin = Plugin.H5p
 storiesOf('H5P', module)
   .add('Editable (initial state)', () => {
-    const content = createStateForContentPlugin({ plugin: h5pPlugin })
+    const content = createStateForContentPlugin({ plugin })
 
     return renderEditor(content)
   })
   .add('Editable (w/ state)', () => {
     const content = createStateForContentPlugin({
-      plugin: h5pPlugin,
+      plugin,
       initialState: { src: '1290590769476175777' } as H5pPluginState
     })
 
@@ -26,7 +24,7 @@ storiesOf('H5P', module)
   })
   .add('Renderer', () => {
     const content = createStateForContentPlugin({
-      plugin: h5pRendererPlugin,
+      plugin,
       initialState: { src: '1290590769476175777' } as H5pPluginState
     })
 

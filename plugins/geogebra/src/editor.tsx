@@ -2,7 +2,7 @@ import {
   GeogebraPluginState,
   GeogebraRenderer
 } from '@serlo/editor-plugin-geogebra-renderer'
-import { renderIntoSidebar, Input } from '@splish-me/editor-ui-plugin-sidebar'
+import { renderIntoSidebar, Input } from '@splish-me/editor-ui'
 import * as React from 'react'
 
 export class GeogebraEditor extends React.Component<GeogebraEditorProps> {

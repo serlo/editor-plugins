@@ -1,10 +1,8 @@
-import { DocumentIdentifier } from '@splish-me/editor-core-types'
+import { DocumentIdentifier, RendererPlugin } from '@splish-me/editor'
 
 import { HintRenderer } from './renderer'
 
-export const hintRendererPlugin = {
-  name: '@serlo-org/hint',
-  version: '0.0.3',
+export const hintRendererPlugin: RendererPlugin<HintPluginState> = {
   Component: HintRenderer
 }
 

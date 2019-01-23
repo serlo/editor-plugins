@@ -1,4 +1,4 @@
-import { Document } from '@splish-me/editor-core-document'
+import { Document } from '@splish-me/editor'
 import { styled } from '@serlo/editor-ui'
 import * as React from 'react'
 

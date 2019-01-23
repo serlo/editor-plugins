@@ -1,8 +1,8 @@
+import { RendererPlugin } from '@splish-me/editor'
+
 import { HighlightRenderer } from './renderer'
 
-export const highlightRendererPlugin = {
-  name: '@serlo-org/highlight',
-  version: '0.0.0',
+export const highlightRendererPlugin: RendererPlugin<HighlightPluginState> = {
   Component: HighlightRenderer
 }
 

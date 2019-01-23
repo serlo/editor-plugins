@@ -1,10 +1,10 @@
-import { DocumentIdentifier } from '@splish-me/editor-core-types'
+import { DocumentIdentifier, RendererPlugin } from '@splish-me/editor'
 
 import { ScMcExerciseRenderer } from './renderer'
 
-export const scMcExerciseRendererPlugin = {
-  name: '@serlo-org/sc-mc-exercise',
-  version: '0.0.4',
+export const scMcExerciseRendererPlugin: RendererPlugin<
+  ScMcExercisePluginState
+> = {
   Component: ScMcExerciseRenderer
 }
 

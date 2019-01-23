@@ -9,7 +9,7 @@ import {
   Checkbox,
   Textarea,
   renderIntoSidebar
-} from '@splish-me/editor-ui-plugin-sidebar'
+} from '@splish-me/editor-ui'
 import { debounce } from 'lodash'
 import * as React from 'react'
 import { Block, Change, Inline, Schema, BlockJSON, InlineJSON } from 'slate'

@@ -1,13 +1,13 @@
+import { RendererPlugin } from '@splish-me/editor'
+
 import { H5pRenderer } from './renderer'
 
-export const h5pRendererPlugin = {
-  name: '@serlo-org/h5p',
-  version: '0.0.0',
+export const h5pRendererPlugin: RendererPlugin<H5pPluginState> = {
   Component: H5pRenderer
 }
 
 export interface H5pPluginState {
-  src?: string
+  src: string
 }
 
 export * from './renderer'

@@ -6,10 +6,7 @@ import {
   MatchingExerciseRenderer
 } from '@serlo/editor-plugin-matching-exercise-renderer'
 import { Icon, faPlus, faMinus, styled, faCheck } from '@serlo/editor-ui'
-import {
-  createDocumentIdentifier,
-  Document
-} from '@splish-me/editor-core-document'
+import { createDocumentIdentifier, Document } from '@splish-me/editor'
 import * as R from 'ramda'
 import * as React from 'react'
 

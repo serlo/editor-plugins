@@ -1,8 +1,14 @@
+import { AnchorPluginState } from '@serlo/editor-plugin-anchor-renderer'
+import { Plugin } from '@splish-me/editor'
+
 import { AnchorEditor } from './editor'
 
-export const anchorPlugin = {
-  name: '@serlo-org/anchor',
-  version: '0.0.0',
+export const anchorPlugin: Plugin<AnchorPluginState> = {
   Component: AnchorEditor,
-  text: 'Anchor'
+  text: 'Anchor',
+  createInitialState: () => {
+    return {
+      id: ''
+    }
+  }
 }

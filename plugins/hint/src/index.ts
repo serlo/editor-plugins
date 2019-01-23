@@ -1,11 +1,9 @@
 import { HintPluginState } from '@serlo/editor-plugin-hint-renderer'
-import { createDocumentIdentifier } from '@splish-me/editor-core-document'
+import { createDocumentIdentifier, Plugin } from '@splish-me/editor'
 
 import { HintEditor } from './editor'
 
-export const hintPlugin = {
-  name: '@serlo-org/hint',
-  version: '0.0.3',
+export const hintPlugin: Plugin<HintPluginState> = {
   Component: HintEditor,
   text: 'Tipp',
   createInitialState: (): HintPluginState => ({

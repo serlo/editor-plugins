@@ -1,14 +1,12 @@
-import { createDocumentIdentifier } from '@splish-me/editor-core-document'
+import { createDocumentIdentifier, Plugin } from '@splish-me/editor'
 
 import {
   BlockquotePluginState,
   BlockquoteRenderer
 } from '@serlo/editor-plugin-blockquote-renderer'
 
-export const blockquotePlugin = {
-  name: '@serlo-org/blockquote',
-  version: '0.0.0',
-  Component: BlockquoteRenderer,
+export const blockquotePlugin: Plugin<BlockquotePluginState> = {
+  Component: BlockquoteRenderer as Plugin<BlockquotePluginState>['Component'],
   text: 'Blockquote',
 
   createInitialState: (): BlockquotePluginState => ({

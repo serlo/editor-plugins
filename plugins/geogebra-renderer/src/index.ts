@@ -1,13 +1,13 @@
+import { RendererPlugin } from '@splish-me/editor'
+
 import { GeogebraRenderer } from './renderer'
 
-export const geogebraRendererPlugin = {
-  name: '@serlo-org/geogebra',
-  version: '0.0.5',
+export const geogebraRendererPlugin: RendererPlugin<GeogebraPluginState> = {
   Component: GeogebraRenderer
 }
 
 export interface GeogebraPluginState {
-  src?: string
+  src: string
 }
 
 export * from './renderer'

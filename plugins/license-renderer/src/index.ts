@@ -1,10 +1,8 @@
-import { DocumentIdentifier } from '@splish-me/editor-core-types'
+import { DocumentIdentifier, RendererPlugin } from '@splish-me/editor'
 
 import { LicenseRenderer } from './renderer'
 
-export const licenseRendererPlugin = {
-  name: '@serlo-org/license',
-  version: '0.0.0',
+export const licenseRendererPlugin: RendererPlugin<LicensePluginState> = {
   Component: LicenseRenderer
 }
 

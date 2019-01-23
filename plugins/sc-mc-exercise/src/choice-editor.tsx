@@ -1,5 +1,5 @@
 import { Icon, faPlus, faTrashAlt, styled } from '@serlo/editor-ui'
-import { createDocumentIdentifier } from '@splish-me/editor-core-document'
+import { createDocumentIdentifier } from '@splish-me/editor'
 import * as R from 'ramda'
 import * as React from 'react'
 

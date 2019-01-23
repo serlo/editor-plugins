@@ -3,7 +3,7 @@ import {
   HintRenderer
 } from '@serlo/editor-plugin-hint-renderer'
 import { Hint } from '@serlo/editor-ui'
-import { Document } from '@splish-me/editor-core-document'
+import { Document } from '@splish-me/editor'
 import * as React from 'react'
 
 export class HintEditor extends React.Component<HintEditorProps> {

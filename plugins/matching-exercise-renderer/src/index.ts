@@ -1,11 +1,11 @@
-import { DocumentIdentifier } from '@splish-me/editor-core-types'
+import { DocumentIdentifier, RendererPlugin } from '@splish-me/editor'
 import * as React from 'react'
 
 import { MatchingExerciseRenderer } from './renderer'
 
-export const matchingExerciseRendererPlugin = {
-  name: '@serlo-org/matching-exercise',
-  version: '0.0.0',
+export const matchingExerciseRendererPlugin: RendererPlugin<
+  MatchingExercisePluginState
+> = {
   Component: MatchingExerciseRenderer
 }
 

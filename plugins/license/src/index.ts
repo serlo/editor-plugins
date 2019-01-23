@@ -1,11 +1,9 @@
 import { LicensePluginState } from '@serlo/editor-plugin-license-renderer'
-import { createDocumentIdentifier } from '@splish-me/editor-core-document'
+import { createDocumentIdentifier, Plugin } from '@splish-me/editor'
 
 import { LicenseEditor } from './editor'
 
-export const licensePlugin = {
-  name: '@serlo-org/license',
-  version: '0.0.0',
+export const licensePlugin: Plugin<LicensePluginState> = {
   text: 'Lizenzangabe',
   Component: LicenseEditor,
   createInitialState: (): LicensePluginState => ({

@@ -3,11 +3,7 @@ import {
   HighlightRenderer
 } from '@serlo/editor-plugin-highlight-renderer'
 import { styled } from '@serlo/editor-ui'
-import {
-  Checkbox,
-  Input,
-  renderIntoSidebar
-} from '@splish-me/editor-ui-plugin-sidebar'
+import { Checkbox, Input, renderIntoSidebar } from '@splish-me/editor-ui'
 import * as React from 'react'
 
 export class HighlightEditor extends React.Component<HighlightEditorProps> {

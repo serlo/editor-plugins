@@ -1,5 +1,4 @@
-import { Document } from '@splish-me/editor-core-document'
-import { DocumentIdentifier } from '@splish-me/editor-core-types'
+import { Document, DocumentIdentifier } from '@splish-me/editor'
 import { FetchDimensions } from '@serlo/editor-ui'
 import * as R from 'ramda'
 import * as React from 'react'
