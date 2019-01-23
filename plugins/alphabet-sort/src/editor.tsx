@@ -1,9 +1,18 @@
 import * as React from 'react'
-import { ContactCard } from './contact-card-editor.component'
+import { ContactCard } from './contact-card.component'
 import { styled } from '@serlo/editor-ui'
 import * as R from 'ramda'
+import {
+  renderIntoSidebar,
+  Input,
+  Textarea,
+  Dropdown,
+  Button
+} from '@splish-me/editor-ui-plugin-sidebar'
+import { Upload } from '@serlo/editor-plugin-image'
 
 const AddButtonContainer = styled.div({
+  width: '200px ',
   textAlign: 'center'
 })
 const AddButton = styled.button({
@@ -14,38 +23,145 @@ const AddButton = styled.button({
   border: 'none',
   margin: 'auto'
 })
-
+const SortContainer = styled.div({
+  display: 'flex',
+  flexWrap: 'wrap',
+  width: '100%'
+})
+const uploadConfig = {
+  url: 'https://serlo-upload.free.beeceptor.com',
+  paramName: 'attachment[file]',
+  maxFileSize: 2 * 1024 * 1024,
+  allowedExtensions: ['gif', 'jpg', 'jpeg', 'png', 'svg'],
+  getAdditionalFields: () => {
+    return {
+      type: 'file',
+      csrf: ((window as unknown) as { csrf: string }).csrf
+    }
+  }
+}
 export class AlphabetSort extends React.Component<
   AlphabetSortProps,
-  {
-    editModes: boolean[]
-  }
+  { editIndex: number; imagePreview: ImageLoaded }
 > {
   public constructor(props: AlphabetSortProps) {
     super(props)
-    const editModes = R.map(contact => false, props.state.contacts)
     this.state = {
-      editModes
+      editIndex: null,
+      imagePreview: undefined
     }
   }
 
   render() {
-    const { state, readOnly } = this.props
+    const { state } = this.props
     const { contacts } = state
     return (
-      <React.Fragment>
+      <SortContainer>
         {contacts
           ? contacts.map((contact, index) => {
               return (
-                <ContactCard
-                  contact={contact}
-                  changeMode={this.changeMode(index)}
-                  onChange={this.handleSave(index)}
-                  removeContact={this.removeContact(index)}
-                  sort={this.sort}
-                  readOnly={this.props.readOnly}
-                  editmode={this.state.editModes[index]}
-                />
+                <React.Fragment>
+                  <ContactCard
+                    contact={contact}
+                    changeEditIndex={this.changeEditIndex(index)}
+                  />
+                  {index === this.state.editIndex
+                    ? renderIntoSidebar(
+                        <React.Fragment>
+                          <Button onClick={this.removeContact(index)}>
+                            Kontakt löschen
+                          </Button>
+                          <Input
+                            label="Bilddatei"
+                            type="text"
+                            placeholder="http://example.com/image.png"
+                            value={contacts[index].src}
+                            onChange={event => {
+                              this.handleSave(index)({
+                                src: event.target.value
+                              })
+                            }}
+                          />
+                          <Upload
+                            config={uploadConfig}
+                            onImageUploaded={this.handleImageUploaded(index)}
+                          />
+                          <Input
+                            type="text"
+                            label="Vorname:"
+                            value={contacts[index].firstName}
+                            onChange={event => {
+                              this.handleSave(index)({
+                                firstName: event.target.value
+                              })
+                            }}
+                          />
+                          <Input
+                            label="Nachname:"
+                            type="text"
+                            value={contacts[index].lastName}
+                            onChange={event => {
+                              this.handleSave(index)({
+                                lastName: event.target.value
+                              })
+                            }}
+                          />
+                          <Textarea
+                            label="Arbeitsbereiche:"
+                            value={contacts[index].workingArea}
+                            onChange={event => {
+                              this.handleSave(index)({
+                                workingArea: event.target.value
+                              })
+                            }}
+                          />
+
+                          <Dropdown
+                            label=" Art der Kontaktinformation:"
+                            value={contacts[index].typeOfContact}
+                            onChange={event => {
+                              this.handleSave(index)({
+                                typeOfContact: event.target.value
+                              })
+                            }}
+                            options={[
+                              'Serlo Profil',
+                              'Keine',
+                              'LinkedIn',
+                              'Github',
+                              'Sonstige'
+                            ]}
+                          />
+
+                          {contacts[index].typeOfContact === 'Sonstige' ? (
+                            <Input
+                              label="Kontaktart:"
+                              type="text"
+                              value={contacts[index].altTypeOfContact}
+                              onChange={event => {
+                                this.handleSave(index)({
+                                  altTypeOfContact: event.target.value
+                                })
+                              }}
+                            />
+                          ) : null}
+                          {contacts[index].typeOfContact === 'Keine' ? null : (
+                            <Input
+                              label="Link:"
+                              type="text"
+                              value={contacts[index].contactInfo}
+                              onChange={event => {
+                                event.preventDefault()
+                                this.handleSave(index)({
+                                  contactInfo: event.target.value
+                                })
+                              }}
+                            />
+                          )}
+                        </React.Fragment>
+                      )
+                    : null}
+                </React.Fragment>
               )
             })
           : null}
@@ -54,37 +170,46 @@ export class AlphabetSort extends React.Component<
             +
           </AddButton>
         </AddButtonContainer>
-      </React.Fragment>
+      </SortContainer>
     )
   }
 
-  private handleSave = (index: number) => (changes: ContactProps) => {
+  private handleSave = (index: number) => (
+    partialChanges: Partial<ContactProps>
+  ) => {
     const { onChange, state } = this.props
-    this.changeMode(index)(false)
-    const updatedContacts = R.update(index, changes, state.contacts)
+    const newContact = { ...state.contacts[index], partialChanges }
+    // this.changeMode(index)(false)
+    const updatedContacts = R.update(index, newContact, state.contacts)
     onChange({
       contacts: this.sortByFirstName(updatedContacts)
     })
   }
-
-  private changeMode = (index: number) => (newEditMode: boolean) => {
-    const newEditModes = R.update(index, newEditMode, this.state.editModes)
-    this.setState({
-      editModes: newEditModes
-    })
+  private handleImageUploaded = (index: number) => ({ url }: ImageUploaded) => {
+    this.setState({ imagePreview: undefined })
+    this.handleSave(index)({ src: url })
   }
+  private changeEditIndex = (index: number) => () => {
+    this.setState({ editIndex: index })
+  }
+  // private changeMode = (index: number) => (newEditMode: boolean) => {
+  //   const newEditModes = R.update(index, newEditMode, this.state.editModes)
+  //   this.setState({
+  //     editModes: newEditModes
+  //   })
+  // }
 
   private addContact = () => {
     const { onChange, state } = this.props
     const { contacts } = state
-    this.setState({ editModes: [...this.state.editModes, true] })
+    this.setState({ editIndex: contacts.length })
     onChange({
       contacts: [...contacts, emptyContact]
     })
   }
   private removeContact = (index: number) => () => {
     const { state, onChange } = this.props
-    this.setState({ editModes: R.remove(index, 1, this.state.editModes) })
+    this.setState({ editIndex: null })
     onChange({ contacts: R.remove(index, 1, state.contacts) })
   }
 
@@ -126,4 +251,12 @@ export const emptyContact = {
   contactInfo: '',
   altTypeOfContact: '',
   src: ''
+}
+
+export interface ImageUploaded {
+  url: string
+}
+interface ImageLoaded {
+  file: File
+  dataUrl: string
 }
