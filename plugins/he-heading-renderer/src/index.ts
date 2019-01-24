@@ -1,5 +1,4 @@
-
-import { Document } from '@splish-me/editor'
+import { DocumentIdentifier } from '@splish-me/editor'
 import { HeHeadingRenderer } from './renderer'
 import { RendererPlugin } from '@splish-me/editor'
 
@@ -8,8 +7,8 @@ export const heHeadingRendererPlugin: RendererPlugin<HeHeadingPluginState> = {
 }
 
 export interface HeHeadingPluginState {
-  caption: Document,
-  content: Array<Document>,
+  caption: DocumentIdentifier
+  content: Array<DocumentIdentifier>
 }
 
 export * from './renderer'
