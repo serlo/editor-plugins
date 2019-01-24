@@ -8,7 +8,7 @@ export const inputExercisePlugin: Plugin<InputExercisePluginState> = {
   Component: InputExerciseEditor,
   createInitialState: (): InputExercisePluginState => ({
     type: 'Text',
-    correctValue: '',
+    correctAnswers: [],
     wrongAnswers: []
   })
 }

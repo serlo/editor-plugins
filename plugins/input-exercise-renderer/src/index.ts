@@ -9,7 +9,7 @@ export const inputExerciseRendererPlugin: RendererPlugin<
 }
 
 export interface InputExercisePluginState {
-  correctValue: string
+  correctAnswers: CorrectAnswer[]
   wrongAnswers: WrongAnswer[]
   type: string
 }
@@ -18,6 +18,10 @@ export interface WrongAnswer {
   id: DocumentIdentifier
   value: string
   feedback: DocumentIdentifier
+}
+
+export interface CorrectAnswer {
+  value: string
 }
 
 export * from './renderer'

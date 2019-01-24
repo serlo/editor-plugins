@@ -20,7 +20,7 @@ storiesOf('InputTextExercise', module)
       plugin,
       initialState: {
         type: 'Text',
-        correctValue: '1',
+        correctAnswers: [{ value: '1' }],
         wrongAnswers: [
           {
             id: 1,

@@ -4,7 +4,7 @@ import A from 'algebra.js'
 import * as React from 'react'
 import S from 'string'
 
-import { InputExercisePluginState, WrongAnswer } from '.'
+import { InputExercisePluginState, WrongAnswer, CorrectAnswer } from '.'
 
 export class InputExerciseRenderer extends React.Component<
   InputExerciseRendererProps
@@ -22,13 +22,23 @@ export class InputExerciseRenderer extends React.Component<
     if (!input) {
       return
     }
-
     event.preventDefault()
     const { state } = this.props
-    const { correctValue, wrongAnswers, type } = state
-    if (this.matchesInput({ type: type, value: correctValue }, input.value)) {
-      this.setState({ positiveFeedback: true, showFeedback: true })
-    } else {
+    const { correctAnswers, wrongAnswers, type } = state
+
+    var correct = false
+    correctAnswers.forEach(correctAnswer => {
+      if (
+        this.matchesInput(
+          { type: type, value: correctAnswer.value },
+          input.value
+        )
+      ) {
+        this.setState({ positiveFeedback: true, showFeedback: true })
+        correct = true
+      }
+    })
+    if (!correct) {
       const index = wrongAnswers.findIndex((wrongAnswer: WrongAnswer) => {
         return this.matchesInput(
           { type: type, value: wrongAnswer.value },
