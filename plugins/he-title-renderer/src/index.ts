@@ -1,7 +1,8 @@
 
 import { HeTitleRenderer } from './renderer'
+import { RendererPlugin } from '@splish-me/editor'
 
-export const heTitleRendererPlugin = {
+export const heTitleRendererPlugin: RendererPlugin<HeTitlePluginState> = {
   Component: HeTitleRenderer
 }
 

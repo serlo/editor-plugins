@@ -1,7 +1,8 @@
 
 import { HeMarkdownRenderer } from './renderer'
+import { RendererPlugin } from '@splish-me/editor'
 
-export const heMarkdownRendererPlugin = {
+export const heMarkdownRendererPlugin: RendererPlugin<HeMarkdownPluginState> = {
   Component: HeMarkdownRenderer
 }
 

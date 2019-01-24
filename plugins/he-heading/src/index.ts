@@ -5,8 +5,9 @@ import {
 } from '@serlo/editor-plugin-he-heading-renderer'
 
 import { HeHeadingEditor } from './editor'
+import { Plugin } from '@splish-me/editor'
 
-export const heHeadingPlugin = {
+export const heHeadingPlugin: Plugin<HeHeadingPluginState> = {
   Component: HeHeadingEditor,
   text: 'Heading',
 

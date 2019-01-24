@@ -5,8 +5,9 @@ import {
 } from '@serlo/editor-plugin-he-title-renderer'
 
 import { HeTitleEditor } from './editor'
+import { Plugin } from '@splish-me/editor'
 
-export const heTitlePlugin = {
+export const heTitlePlugin: Plugin<HeTitlePluginState> = {
   Component: HeTitleEditor,
   text: 'Title',
 

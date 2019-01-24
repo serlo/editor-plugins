@@ -1,9 +1,10 @@
 
 import { HeTitlePluginState } from '@serlo/editor-plugin-he-title-renderer'
-import { Document } from '@splish-me/editor'
+import { Document } from '@splish-me/editor-core-document'
 import { HeHeadingRenderer } from './renderer'
+import { RendererPlugin } from '@splish-me/editor'
 
-export const heHeadingRendererPlugin = {
+export const heHeadingRendererPlugin: RendererPlugin<HeHeadingPluginState> = {
   Component: HeHeadingRenderer
 }
 
