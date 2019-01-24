@@ -1,6 +1,5 @@
 
-import { HeTitlePluginState } from '@serlo/editor-plugin-he-title-renderer'
-import { Document } from '@splish-me/editor-core-document'
+import { Document } from '@splish-me/editor'
 import { HeHeadingRenderer } from './renderer'
 import { RendererPlugin } from '@splish-me/editor'
 
@@ -9,7 +8,7 @@ export const heHeadingRendererPlugin: RendererPlugin<HeHeadingPluginState> = {
 }
 
 export interface HeHeadingPluginState {
-  caption: HeTitlePluginState,
+  caption: Document,
   content: Array<Document>,
 }
 

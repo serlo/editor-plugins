@@ -13,6 +13,10 @@ const titlePlugin = Plugin.HeTitle
 
 storiesOf('Heading', module)
   .add('Editable (initial state)', () => {
+    const content = createStateForContentPlugin({ plugin: headingPlugin })
+    return renderEditor(content)
+  })
+  .add('Editable (w / state)', () => {
     const content = createStateForContentPlugin({
       plugin: headingPlugin,
       initialState: { 
@@ -25,6 +29,9 @@ storiesOf('Heading', module)
     })
     return renderEditor(content)
   })
-  .add('Editable (w/ state)', () => {
+  .add('Editable (example)', () => {
     return renderEditor(example1)
+  })
+  .add('Renderer (example)', () => {
+    return renderRenderer(example1)
   })

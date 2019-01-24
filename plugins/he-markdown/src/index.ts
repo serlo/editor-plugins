@@ -11,9 +11,7 @@ export const heMarkdownPlugin: Plugin<HeMarkdownPluginState> = {
   Component: HeMarkdownEditor,
   text: 'Formatted Text',
 
-  /*
   createInitialState: (): HeMarkdownPluginState => {
-    return {"content":""}
+    return {"content":"use *formatted* text here!"}
   }
-  */
 }

@@ -11,9 +11,7 @@ export const heTitlePlugin: Plugin<HeTitlePluginState> = {
   Component: HeTitleEditor,
   text: 'Title',
 
-  /*
   createInitialState: (): HeTitlePluginState => {
-    return {"content":""}
+    return {"content":"use plain title text here!"}
   }
-  */
 }

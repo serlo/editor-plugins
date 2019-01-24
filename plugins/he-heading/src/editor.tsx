@@ -11,7 +11,7 @@ export interface HeHeadingEditorProps extends HeHeadingRendererProps {
   onChange: (state: Partial<HeHeadingPluginState>) => void
 }
 
-export class HeHeadingEditor extends React.Component<HeHeadingRendererProps> {
+export class HeHeadingEditor extends React.Component<HeHeadingEditorProps> {
   render() {
     return (
       <React.Fragment>
