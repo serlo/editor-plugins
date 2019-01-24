@@ -53,7 +53,6 @@ export class InputExerciseEditor extends React.Component<
   addCorrectAnswer = () => {
     const { onChange, state } = this.props
     const { correctAnswers } = state
-    console.log(correctAnswers)
     onChange({
       correctAnswers: [
         ...correctAnswers,
@@ -167,10 +166,6 @@ export class InputExerciseEditor extends React.Component<
             <button onClick={this.addCorrectAnswer}>
               Richtige Antwort hinzufügen
             </button>
-          </React.Fragment>
-        )}
-        {readOnly ? null : (
-          <React.Fragment>
             {wrongAnswers.map((wrongAnswer: WrongAnswer, index: number) => {
               return (
                 <div key={index}>
