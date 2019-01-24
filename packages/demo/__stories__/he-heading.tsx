@@ -6,16 +6,18 @@ import {
   renderRenderer
 } from '@serlo/storybook-helpers'
 
-import { heHeadingPlugin } from '@serlo/editor-plugin-he-heading'
-import { heTitlePlugin } from '@serlo/editor-plugin-he-title'
+import { Plugin } from '@serlo/editor-plugins-registry'
+
+const headingPlugin = Plugin.HeHeading
+const titlePlugin = Plugin.HeTitle
 
 storiesOf('Heading', module)
-  .add('Editable (initial state)', () => { 
+  .add('Editable (initial state)', () => {
     const content = createStateForContentPlugin({
-      plugin: heHeadingPlugin,
+      plugin: headingPlugin,
       initialState: { 
         caption: createStateForContentPlugin({
-          plugin: heTitlePlugin,
+          plugin: titlePlugin,
           initialState: { content: "Static Hello!" } 
         }), 
         content: [] 
