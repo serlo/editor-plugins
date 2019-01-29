@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { 
-    HeTitlePluginState,
-    HeTitleRenderer,
-    HeTitleRendererProps
+import {
+  HeTitlePluginState,
+  HeTitleRenderer,
+  HeTitleRendererProps
 } from '@serlo/editor-plugin-he-title-renderer'
 
 export interface HeTitleEditorProps extends HeTitleRendererProps {

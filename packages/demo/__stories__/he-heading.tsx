@@ -19,12 +19,12 @@ storiesOf('Heading', module)
   .add('Editable (w / state)', () => {
     const content = createStateForContentPlugin({
       plugin: headingPlugin,
-      initialState: { 
+      initialState: {
         caption: createStateForContentPlugin({
           plugin: titlePlugin,
-          initialState: { content: "Static Hello!" } 
-        }), 
-        content: [] 
+          initialState: { content: 'Static Hello!' }
+        }),
+        content: []
       }
     })
     return renderEditor(content)

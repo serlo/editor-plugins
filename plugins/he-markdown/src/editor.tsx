@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { 
-    HeMarkdownPluginState,
-    HeMarkdownRenderer,
-    HeMarkdownRendererProps
+import {
+  HeMarkdownPluginState,
+  HeMarkdownRenderer,
+  HeMarkdownRendererProps
 } from '@serlo/editor-plugin-he-markdown-renderer'
 
 export interface HeMarkdownEditorProps extends HeMarkdownRendererProps {

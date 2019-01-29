@@ -15,9 +15,9 @@ storiesOf('HE Markdown', module)
     return renderEditor(content)
   })
   .add('Editable (w/ state)', () => {
-    const content = createStateForContentPlugin({ 
+    const content = createStateForContentPlugin({
       plugin,
-      initialState: { 
+      initialState: {
         content: 'Markdown Hello!'
       }
     })

@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { 
-    HeHeadingPluginState,
-    HeHeadingRenderer,
-    HeHeadingRendererProps
+import {
+  HeHeadingPluginState,
+  HeHeadingRenderer,
+  HeHeadingRendererProps
 } from '@serlo/editor-plugin-he-heading-renderer'
 
 export interface HeHeadingEditorProps extends HeHeadingRendererProps {

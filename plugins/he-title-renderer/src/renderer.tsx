@@ -8,5 +8,5 @@ export class HeTitleRenderer extends React.Component<HeTitleRendererProps> {
 }
 
 export interface HeTitleRendererProps {
-    state: HeTitlePluginState
+  state: HeTitlePluginState
 }

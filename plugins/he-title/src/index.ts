@@ -1,4 +1,3 @@
-
 import {
   HeTitlePluginState,
   HeTitleRenderer

@@ -1,4 +1,3 @@
-
 import {
   HeMarkdownPluginState,
   HeMarkdownRenderer
