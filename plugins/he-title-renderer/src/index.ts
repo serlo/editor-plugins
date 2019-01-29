@@ -7,7 +7,7 @@ export const heTitleRendererPlugin: RendererPlugin<HeTitlePluginState> = {
 }
 
 export interface HeTitlePluginState {
-  content: string,
+  content: string
 }
 
 export * from './renderer'

@@ -7,7 +7,7 @@ export const heMarkdownRendererPlugin: RendererPlugin<HeMarkdownPluginState> = {
 }
 
 export interface HeMarkdownPluginState {
-  content: string,
+  content: string
 }
 
 export * from './renderer'
