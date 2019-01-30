@@ -3,16 +3,16 @@ import { styled } from '@serlo/editor-ui'
 import { ContactProps } from './editor'
 
 const Card = styled.div({
-  margin: '20px',
-  padding: '0 15px',
-  width: '150px',
+  padding: '0 15px 10px',
+  width: '180px',
   minHeight: '200px',
+  fontSize: '14px'
   // border: '1px solid #000',
-  textAlign: 'center'
 })
 
 const Profilepicture = styled.img({
-  width: '100%'
+  width: '100%',
+  paddingBottom: '10px'
 })
 export class ContactCard extends React.Component<ContactCardProps> {
   render() {
@@ -26,14 +26,12 @@ export class ContactCard extends React.Component<ContactCardProps> {
                 ? 'https://placekitten.com/220/220'
                 : contact.src
             }
-            alt={contact.firstName}
+            alt={contact.name}
           />
         </div>
         <div>
           <strong>
-            {contact.firstName === ''
-              ? 'Bitte zum Editieren anklicken!'
-              : contact.firstName + ' ' + contact.lastName}
+            {contact.name === '' ? 'Bitte links editieren' : contact.name}
           </strong>
         </div>
         <div>{contact.workingArea}</div>

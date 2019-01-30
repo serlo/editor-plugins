@@ -7,26 +7,23 @@ import {
   Input,
   Textarea,
   Dropdown,
-  Button
+  Button,
+  ButtonGroup
 } from '@splish-me/editor-ui-plugin-sidebar'
 import { Upload } from '@serlo/editor-plugin-image'
 
-const AddButtonContainer = styled.div({
-  width: '200px ',
-  textAlign: 'center'
-})
 const AddButton = styled.button({
-  borderRadius: '50%',
   outline: 'none',
-  width: '35px',
-  height: '35px',
+  width: '100%',
   border: 'none',
-  margin: 'auto'
+  marginBottom: '10px',
+  backgroundColor: '#95bc1a'
 })
 const SortContainer = styled.div({
   display: 'flex',
   flexWrap: 'wrap',
-  width: '100%'
+  width: '100%',
+  alignSelf: 'center'
 })
 const uploadConfig = {
   url: 'https://serlo-upload.free.beeceptor.com',
@@ -53,124 +50,121 @@ export class AlphabetSort extends React.Component<
   }
 
   render() {
-    const { state } = this.props
+    const { state, readOnly } = this.props
     const { contacts } = state
     return (
-      <SortContainer>
-        {contacts
-          ? contacts.map((contact, index) => {
-              return (
-                <React.Fragment>
-                  <ContactCard
-                    contact={contact}
-                    changeEditIndex={this.changeEditIndex(index)}
-                  />
-                  {index === this.state.editIndex
-                    ? renderIntoSidebar(
-                        <React.Fragment>
-                          <Button onClick={this.removeContact(index)}>
-                            Kontakt löschen
-                          </Button>
-                          <Input
-                            label="Bilddatei"
-                            type="text"
-                            placeholder="http://example.com/image.png"
-                            value={contacts[index].src}
-                            onChange={event => {
-                              this.handleSave(index)({
-                                src: event.target.value
-                              })
-                            }}
-                          />
-                          <Upload
-                            config={uploadConfig}
-                            onImageUploaded={this.handleImageUploaded(index)}
-                          />
-                          <Input
-                            type="text"
-                            label="Vorname:"
-                            value={contacts[index].firstName}
-                            onChange={event => {
-                              this.handleSave(index)({
-                                firstName: event.target.value
-                              })
-                            }}
-                          />
-                          <Input
-                            label="Nachname:"
-                            type="text"
-                            value={contacts[index].lastName}
-                            onChange={event => {
-                              this.handleSave(index)({
-                                lastName: event.target.value
-                              })
-                            }}
-                          />
-                          <Textarea
-                            label="Arbeitsbereiche:"
-                            value={contacts[index].workingArea}
-                            onChange={event => {
-                              this.handleSave(index)({
-                                workingArea: event.target.value
-                              })
-                            }}
-                          />
-
-                          <Dropdown
-                            label=" Art der Kontaktinformation:"
-                            value={contacts[index].typeOfContact}
-                            onChange={event => {
-                              this.handleSave(index)({
-                                typeOfContact: event.target.value
-                              })
-                            }}
-                            options={[
-                              'Serlo Profil',
-                              'Keine',
-                              'LinkedIn',
-                              'Github',
-                              'Sonstige'
-                            ]}
-                          />
-
-                          {contacts[index].typeOfContact === 'Sonstige' ? (
+      <div>
+        <SortContainer>
+          {contacts
+            ? contacts.map((contact, index) => {
+                return (
+                  <React.Fragment>
+                    <ContactCard
+                      contact={contact}
+                      changeEditIndex={this.changeEditIndex(index)}
+                    />
+                    {index === this.state.editIndex
+                      ? renderIntoSidebar(
+                          <React.Fragment>
                             <Input
-                              label="Kontaktart:"
+                              label="Bilddatei"
                               type="text"
-                              value={contacts[index].altTypeOfContact}
+                              placeholder="http://example.com/image.png"
+                              value={contacts[index].src}
                               onChange={event => {
                                 this.handleSave(index)({
-                                  altTypeOfContact: event.target.value
+                                  src: event.target.value
                                 })
                               }}
                             />
-                          ) : null}
-                          {contacts[index].typeOfContact === 'Keine' ? null : (
+                            <Upload
+                              config={uploadConfig}
+                              onImageUploaded={this.handleImageUploaded(index)}
+                            />
                             <Input
-                              label="Link:"
                               type="text"
-                              value={contacts[index].contactInfo}
+                              label="Name:"
+                              value={contacts[index].name}
                               onChange={event => {
-                                event.preventDefault()
                                 this.handleSave(index)({
-                                  contactInfo: event.target.value
+                                  name: event.target.value
+                                })
+                              }}
+                              onBlur={_event => this.sort()}
+                            />
+
+                            <Textarea
+                              label="Arbeitsbereiche:"
+                              value={contacts[index].workingArea}
+                              onChange={event => {
+                                this.handleSave(index)({
+                                  workingArea: event.target.value
                                 })
                               }}
                             />
-                          )}
-                        </React.Fragment>
-                      )
-                    : null}
-                </React.Fragment>
-              )
-            })
-          : null}
-        <AddButtonContainer>
+
+                            <Dropdown
+                              label=" Art der Kontaktinformation:"
+                              value={contacts[index].typeOfContact}
+                              onChange={event => {
+                                this.handleSave(index)({
+                                  typeOfContact: event.target.value
+                                })
+                              }}
+                              options={[
+                                'Serlo Profil',
+                                'Keine',
+                                'LinkedIn',
+                                'Github',
+                                'Sonstige'
+                              ]}
+                            />
+
+                            {contacts[index].typeOfContact === 'Sonstige' ? (
+                              <Input
+                                label="Kontaktart:"
+                                type="text"
+                                value={contacts[index].altTypeOfContact}
+                                onChange={event => {
+                                  this.handleSave(index)({
+                                    altTypeOfContact: event.target.value
+                                  })
+                                }}
+                              />
+                            ) : null}
+                            {contacts[index].typeOfContact ===
+                            'Keine' ? null : (
+                              <Input
+                                label="Link:"
+                                type="text"
+                                value={contacts[index].contactInfo}
+                                onChange={event => {
+                                  event.preventDefault()
+                                  this.handleSave(index)({
+                                    contactInfo: event.target.value
+                                  })
+                                }}
+                              />
+                            )}
+                            <ButtonGroup>
+                              <Button onClick={this.removeContact(index)}>
+                                Kontakt löschen
+                              </Button>
+                            </ButtonGroup>
+                          </React.Fragment>
+                        )
+                      : null}
+                  </React.Fragment>
+                )
+              })
+            : null}
+        </SortContainer>
+        {readOnly ? null : (
           <AddButton title="Add Teammember" onClick={this.addContact}>
             +
           </AddButton>
-        </AddButtonContainer>
-      </SortContainer>
+        )}
+      </div>
     )
   }
 
@@ -178,11 +172,10 @@ export class AlphabetSort extends React.Component<
     partialChanges: Partial<ContactProps>
   ) => {
     const { onChange, state } = this.props
-    const newContact = { ...state.contacts[index], partialChanges }
-    // this.changeMode(index)(false)
+    const newContact = { ...state.contacts[index], ...partialChanges }
     const updatedContacts = R.update(index, newContact, state.contacts)
     onChange({
-      contacts: this.sortByFirstName(updatedContacts)
+      contacts: updatedContacts
     })
   }
   private handleImageUploaded = (index: number) => ({ url }: ImageUploaded) => {
@@ -214,18 +207,28 @@ export class AlphabetSort extends React.Component<
   }
 
   private sort = () => {
+    console.log('sorting')
     const { onChange, state } = this.props
     const { contacts } = state
     onChange({
       contacts: this.sortByFirstName(contacts)
     })
   }
-  private sortByFirstName = R.sortBy(
-    R.compose(
-      R.toLower,
-      R.prop('firstName')
+  private sortByFirstName = (contacts: ContactProps[]) => {
+    const selected = contacts[this.state.editIndex]
+    const sorted = R.sortBy(
+      R.compose(
+        R.toLower,
+        R.prop('name')
+      ),
+      contacts
     )
-  )
+    this.setState({
+      editIndex: R.findIndex(R.equals(selected), sorted)
+    })
+
+    return sorted
+  }
 }
 
 export interface AlphabetSortProps {
@@ -234,8 +237,7 @@ export interface AlphabetSortProps {
   onChange: Function
 }
 export interface ContactProps {
-  firstName?: string
-  lastName?: string
+  name?: string
   workingArea?: string
   typeOfContact?: string
   contactInfo?: string
@@ -244,8 +246,7 @@ export interface ContactProps {
 }
 
 export const emptyContact = {
-  firstName: '',
-  lastName: '',
+  name: '',
   workingArea: '',
   typeOfContact: '',
   contactInfo: '',

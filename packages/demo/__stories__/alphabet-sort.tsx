@@ -17,8 +17,7 @@ storiesOf('Alphabet Sort', module)
       initialState: {
         contacts: [
           {
-            firstName: 'Gang',
-            lastName: 'Kitty',
+            name: 'Gang Kitty',
             workingArea:
               'being purring adorable. So adorable, that the text will need another line to be shown.',
             typeOfContact: 'Sonstige',
@@ -27,8 +26,7 @@ storiesOf('Alphabet Sort', module)
             src: 'https://placekitten.com/150/150'
           },
           {
-            firstName: 'Baby',
-            lastName: 'Cat',
+            name: 'Baby Cat',
             workingArea: 'being purring awesome',
             typeOfContact: 'Serlo Profil',
             contactInfo: 'https://placekitten.com/g/150/150',
@@ -36,8 +34,7 @@ storiesOf('Alphabet Sort', module)
             src: 'https://placekitten.com/g/150/150'
           },
           {
-            firstName: 'Luring',
-            lastName: 'Kitty',
+            name: 'Luring Kitty',
             workingArea: 'good at hiding',
             typeOfContact: 'LinkedIn',
             contactInfo: 'https://placekitten.com/g/160/160',
@@ -45,8 +42,7 @@ storiesOf('Alphabet Sort', module)
             src: 'https://placekitten.com/g/160/160'
           },
           {
-            firstName: 'Window',
-            lastName: 'Kitty',
+            name: 'Window Kitty',
             workingArea: 'professional windowscratcher',
             typeOfContact: 'Github',
             contactInfo: 'https://placekitten.com/160/160',
