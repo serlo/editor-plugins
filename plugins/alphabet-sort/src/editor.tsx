@@ -9,8 +9,13 @@ import {
   Dropdown,
   Button,
   ButtonGroup
-} from '@splish-me/editor-ui-plugin-sidebar'
+} from '@splish-me/editor-ui'
 import { Upload } from '@serlo/editor-plugin-image'
+import { PluginEditorProps } from '@splish-me/editor'
+import {
+  AlphabetSortProps,
+  ContactProps
+} from '@serlo/editor-plugin-alphabet-sort-renderer'
 
 const AddButton = styled.button({
   outline: 'none',
@@ -38,10 +43,10 @@ const uploadConfig = {
   }
 }
 export class AlphabetSort extends React.Component<
-  AlphabetSortProps,
+  PluginEditorProps<AlphabetSortProps>,
   { editIndex: number; imagePreview: ImageLoaded }
 > {
-  public constructor(props: AlphabetSortProps) {
+  public constructor(props) {
     super(props)
     this.state = {
       editIndex: null,
@@ -50,7 +55,8 @@ export class AlphabetSort extends React.Component<
   }
 
   render() {
-    const { state, readOnly } = this.props
+    const { state, preview } = this.props
+    const readOnly = preview
     const { contacts } = state
     return (
       <div>
@@ -63,7 +69,7 @@ export class AlphabetSort extends React.Component<
                       contact={contact}
                       changeEditIndex={this.changeEditIndex(index)}
                     />
-                    {index === this.state.editIndex
+                    {index === this.state.editIndex && !readOnly
                       ? renderIntoSidebar(
                           <React.Fragment>
                             <Input
@@ -185,13 +191,6 @@ export class AlphabetSort extends React.Component<
   private changeEditIndex = (index: number) => () => {
     this.setState({ editIndex: index })
   }
-  // private changeMode = (index: number) => (newEditMode: boolean) => {
-  //   const newEditModes = R.update(index, newEditMode, this.state.editModes)
-  //   this.setState({
-  //     editModes: newEditModes
-  //   })
-  // }
-
   private addContact = () => {
     const { onChange, state } = this.props
     const { contacts } = state
@@ -229,20 +228,6 @@ export class AlphabetSort extends React.Component<
 
     return sorted
   }
-}
-
-export interface AlphabetSortProps {
-  state: { contacts?: ContactProps[] }
-  readOnly: boolean
-  onChange: Function
-}
-export interface ContactProps {
-  name?: string
-  workingArea?: string
-  typeOfContact?: string
-  contactInfo?: string
-  altTypeOfContact?: string
-  src?: string
 }
 
 export const emptyContact = {

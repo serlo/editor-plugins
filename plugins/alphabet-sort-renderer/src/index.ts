@@ -1,13 +1,11 @@
 import { AlphabetSortRenderer } from './renderer'
-
+export {
+  ContactCardRenderer,
+  ContactCardRendererProps
+} from './contact-card.renderer'
+export { AlphabetSortProps, ContactProps } from './renderer'
 export const alphabetSortRendererPlugin = {
-  name: '@serlo-org/foobar',
-  version: '0.0.0',
   Component: AlphabetSortRenderer
-}
-
-export interface FoobarPluginState {
-  foo: string
 }
 
 export * from './renderer'
