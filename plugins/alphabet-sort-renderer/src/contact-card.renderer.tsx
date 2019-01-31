@@ -2,7 +2,7 @@ import * as React from 'react'
 import { styled } from '@serlo/editor-ui'
 import { ContactProps } from './renderer'
 const Card = styled.div({
-  padding: '0 15px 10px',
+  padding: '0 15px 20px',
   width: '180px',
   minHeight: '200px',
   fontSize: '14px'

@@ -1,10 +1,11 @@
-import { alphabetSortPlugin as plugin } from '@serlo/editor-plugin-alphabet-sort'
+import { Plugin } from '@serlo/editor-plugins-registry'
 import {
   createStateForContentPlugin,
   renderEditor
 } from '@serlo/storybook-helpers'
 import { storiesOf } from '@storybook/react'
 
+const plugin = Plugin.AlphabetSort
 storiesOf('Alphabet Sort', module)
   .add('Editable (initial state)', () => {
     const content = createStateForContentPlugin({

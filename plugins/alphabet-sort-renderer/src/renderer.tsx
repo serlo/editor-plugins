@@ -1,12 +1,15 @@
 import * as React from 'react'
 import { ContactCardRenderer } from './contact-card.renderer'
+import { PluginRendererProps } from '@splish-me/editor'
 
-export class AlphabetSortRenderer extends React.Component<AlphabetSortProps> {
+export class AlphabetSortRenderer extends React.Component<
+  PluginRendererProps<AlphabetSortProps>
+> {
   public render() {
     return (
       <React.Fragment>
-        {this.props.contacts
-          ? this.props.contacts.map((contact, index) => {
+        {this.props.state.contacts
+          ? this.props.state.contacts.map((contact, index) => {
               return (
                 <React.Fragment>
                   <ContactCardRenderer contact={contact} />
