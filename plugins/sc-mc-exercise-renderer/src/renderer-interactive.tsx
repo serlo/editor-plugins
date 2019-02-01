@@ -5,6 +5,7 @@ import * as R from 'ramda'
 
 import { ScMcExerciseChoiceRenderer } from './choice-renderer'
 import { Answer, ScMcExercisePluginState } from '.'
+import { ScMcAnswersRenderer } from './answers-renderer'
 
 export class ScMcRendererInteractive extends React.Component<
   ScMcRendererInteractiveProps,
@@ -32,13 +33,20 @@ export class ScMcRendererInteractive extends React.Component<
   public render() {
     return (
       <React.Fragment>
-        <div>{this.props.state.answers.map(this.showAnswer)}</div>
+        <ScMcAnswersRenderer
+          state={this.props.state}
+          showAnswer={this.showAnswer}
+        />
         {this.showGlobalFeedback()}
         {this.showSubmitButton()}
       </React.Fragment>
     )
   }
-  private showAnswer = (answer: Answer, index: number): React.ReactNode => {
+  private showAnswer = (
+    answer: Answer,
+    index: number,
+    centered: boolean
+  ): React.ReactNode => {
     const button = this.state.buttons[index]
     return (
       <React.Fragment key={index}>
@@ -47,6 +55,7 @@ export class ScMcRendererInteractive extends React.Component<
           onClick={this.selectButton(index)}
           {...this.props} // showFeedback: true
           {...button} // showFeedback: false
+          centered={centered}
         >
           <Document state={answer.id} />
         </ScMcExerciseChoiceRenderer>

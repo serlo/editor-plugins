@@ -7,7 +7,11 @@ export class FetchDimensions extends React.Component<
 > {
   public state = {
     heights: R.times(() => null, this.props.length),
-    widths: R.times(() => null, this.props.length)
+    widths: R.times(() => null, this.props.length),
+    scrollHeights: R.times(() => null, this.props.length),
+    scrollWidths: R.times(() => null, this.props.length),
+    clientHeights: R.times(() => null, this.props.length),
+    clientWidths: R.times(() => null, this.props.length)
   }
 
   public componentDidUpdate(
@@ -25,7 +29,6 @@ export class FetchDimensions extends React.Component<
 
   public render() {
     const createRef = (index: number) => (instance: HTMLElement) => {
-      console.log(index, this.props.length)
       if (!instance) {
         return null
       }
@@ -37,7 +40,27 @@ export class FetchDimensions extends React.Component<
 
         return {
           heights: R.update(index, instance.offsetHeight, state.heights),
-          widths: R.update(index, instance.offsetWidth, state.widths)
+          widths: R.update(index, instance.offsetWidth, state.widths),
+          scrollHeights: R.update(
+            index,
+            instance.scrollHeight,
+            state.scrollHeights
+          ),
+          scrollWidths: R.update(
+            index,
+            instance.scrollWidth,
+            state.scrollWidths
+          ),
+          clientHeights: R.update(
+            index,
+            instance.clientHeight,
+            state.clientHeights
+          ),
+          clientWidths: R.update(
+            index,
+            instance.clientWidth,
+            state.clientWidths
+          )
         }
       })
     }
@@ -53,11 +76,22 @@ export interface FetchDimensionsProps {
   render: (
     createRef: (index: number) => (instance: HTMLElement | null) => void
   ) => React.ReactNode
-  onDone: (dimensions: { heights: number[]; widths: number[] }) => void
+  onDone: (dimensions: {
+    heights: number[]
+    widths: number[]
+    scrollHeights: number[]
+    scrollWidths: number[]
+    clientHeights: number[]
+    clientWidths: number[]
+  }) => void
 }
 
 interface FetchDimensionsState {
   // FIXME: TS converts this to number[] somehow
   heights: (number | null)[]
   widths: (number | null)[]
+  scrollHeights: (number | null)[]
+  scrollWidths: (number | null)[]
+  clientHeights: (number | null)[]
+  clientWidths: (number | null)[]
 }
