@@ -142,14 +142,20 @@ export class ScMcRendererInteractive extends React.Component<
         })
       })
     } else {
-      this.setState({
-        buttons: R.adjust(
-          button => R.assoc('selected', !button.selected, button),
-          selectedIndex,
-          buttons
-        ),
-        globalFeedback: ''
-      })
+      this.setState(
+        {
+          buttons: R.adjust(
+            //@ts-ignore TODO:
+            selectedIndex,
+            button => R.assoc('selected', !button.selected, button),
+            buttons
+          ),
+          globalFeedback: ''
+        },
+        () => {
+          console.log(this.state.buttons)
+        }
+      )
     }
   }
   private getGlobalFeedback({
