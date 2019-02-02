@@ -144,8 +144,9 @@ export class ScMcRendererInteractive extends React.Component<
     } else {
       this.setState({
         buttons: R.adjust(
-          button => R.assoc('selected', !button.selected, button),
+          // @ts-ignore FIXME: bug in @types/ramda
           selectedIndex,
+          button => R.assoc('selected', !button.selected, button),
           buttons
         ),
         globalFeedback: ''
