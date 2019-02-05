@@ -21,19 +21,24 @@ export class ScMcAnswersRenderer extends React.Component<
   },
   ScMcAnswersRendererState
 > {
-  state = { phase: Phase.noJS, remainingOptions: [] }
+  state = {
+    phase: Phase.noJS,
+    remainingOptions: [],
+    lastOption: [this.props.state.answers.length, 1] as [number, number]
+  }
   public render() {
     const options = calculateLayoutOptions(this.props.state.answers.length)
-
-    if (this.state.phase === Phase.noJS) {
-      return this.renderOption([this.props.state.answers.length, 1])
-    }
     const currentOption = this.state.remainingOptions[0]
-
-    if (this.state.phase === Phase.finished) {
-      return this.renderOption(currentOption)
-    }
-    return this.tryOption(currentOption)
+    return (
+      <React.Fragment>
+        {this.state.phase < Phase.finished
+          ? this.renderOption(this.state.lastOption)
+          : this.renderOption(currentOption)}
+        {this.state.phase === Phase.optionTesting
+          ? this.tryOption(currentOption)
+          : null}
+      </React.Fragment>
+    )
   }
   private tryOption(option: [number, number]) {
     return (
@@ -41,7 +46,6 @@ export class ScMcAnswersRenderer extends React.Component<
         key={option.toString()}
         length={this.props.state.answers.length + 1}
         onDone={({ widths, scrollWidths, heights }) => {
-          console.log(widths, scrollWidths)
           const adequateRatio = heights.every((height, index) => {
             return 1.5 * height <= widths[index]
           })
@@ -54,7 +58,7 @@ export class ScMcAnswersRenderer extends React.Component<
             equalWidths &&
             adequateRatio
           ) {
-            this.setState({ phase: Phase.finished })
+            this.setState({ phase: Phase.finished, lastOption: option })
           } else {
             this.setState(state => {
               const newOptions = state.remainingOptions.slice(1)
@@ -71,7 +75,9 @@ export class ScMcAnswersRenderer extends React.Component<
         }}
         render={createRef => {
           return (
-            <div ref={createRef(0)}>{this.renderOption(option, createRef)}</div>
+            <div style={{ visibility: 'hidden' }} ref={createRef(0)}>
+              {this.renderOption(option, createRef)}
+            </div>
           )
         }}
       />
@@ -111,11 +117,15 @@ export class ScMcAnswersRenderer extends React.Component<
       remainingOptions: calculateLayoutOptions(this.props.state.answers.length)
     })
   }
+  private onResize = () => {
+    this.calculateLayout()
+  }
   public componentDidMount() {
     this.calculateLayout()
-    window.addEventListener('resize', () => {
-      this.calculateLayout()
-    })
+    window.addEventListener('resize', this.onResize)
+  }
+  public componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize)
   }
   private Row = styled.div({ display: 'flex' })
   // TODO: internal renderer sets margin to 15px -> see Row Class
@@ -130,4 +140,5 @@ export class ScMcAnswersRenderer extends React.Component<
 interface ScMcAnswersRendererState {
   phase: Phase
   remainingOptions: Array<[number, number]>
+  lastOption: [number, number]
 }
