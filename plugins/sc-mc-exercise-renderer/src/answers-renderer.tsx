@@ -39,9 +39,21 @@ export class ScMcAnswersRenderer extends React.Component<
     return (
       <FetchDimensions
         key={option.toString()}
-        length={1}
-        onDone={({ widths, scrollWidths }) => {
-          if (widths[0] + 1 >= scrollWidths[0]) {
+        length={this.props.state.answers.length + 1}
+        onDone={({ widths, scrollWidths, heights }) => {
+          console.log(widths, scrollWidths)
+          const adequateRatio = heights.every((height, index) => {
+            return 1.5 * height <= widths[index]
+          })
+          const [containerWidth, ...boxWidths] = widths
+          const equalWidths = boxWidths.every(width => {
+            return width === boxWidths[0]
+          })
+          if (
+            containerWidth + 1 >= scrollWidths[0] &&
+            equalWidths &&
+            adequateRatio
+          ) {
             this.setState({ phase: Phase.finished })
           } else {
             this.setState(state => {
@@ -58,19 +70,28 @@ export class ScMcAnswersRenderer extends React.Component<
           }
         }}
         render={createRef => {
-          return <div ref={createRef(0)}>{this.renderOption(option)}</div>
+          return (
+            <div ref={createRef(0)}>{this.renderOption(option, createRef)}</div>
+          )
         }}
       />
     )
   }
-  private renderOption([_, columns]: [number, number]) {
+  private renderOption(
+    [_, columns]: [number, number],
+    createRef: (index: number) => (instance: HTMLElement | null) => void = () =>
+      null
+  ) {
     const rows = R.splitEvery(columns, this.props.state.answers)
     return rows.map((answers, rowIndex) => {
       return (
         <this.Row key={rowIndex}>
           {answers.map((answer, columnIndex) => {
             return (
-              <this.Column key={columnIndex}>
+              <this.Column
+                key={columnIndex}
+                ref={createRef(rowIndex * answers.length + columnIndex + 1)}
+              >
                 {this.props.showAnswer(
                   answer,
                   rowIndex * answers.length + columnIndex,
