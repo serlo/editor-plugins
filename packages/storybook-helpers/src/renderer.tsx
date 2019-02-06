@@ -18,11 +18,9 @@ import * as React from 'react'
 
 import 'katex/dist/katex.css'
 import 'ory-editor-core/lib/index.css'
-import { render } from 'react-dom'
 
 const editorPlugins = createEditorPlugins('all')
 const renderPlugins = createRendererPlugins('all')
-console.log(editorPlugins, renderPlugins)
 
 export class Renderer {
   constructor(private content: unknown) {}
