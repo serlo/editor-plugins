@@ -1,12 +1,14 @@
-import { AlphabetSort } from './editor'
+import { createAlphabetSortEditor } from './editor'
+import { ImagePluginConfig } from '@serlo/editor-plugin-image'
 
-export const alphabetSortPlugin = {
-  Component: AlphabetSort,
-  text: 'Alphabet Sort',
-
-  createInitialState: () => {
-    return {
-      contacts: []
+export const createAlphabetSortPlugin = (config: ImagePluginConfig) => {
+  return {
+    Component: createAlphabetSortEditor(config),
+    text: 'Alphabet Sort',
+    createInitialState: () => {
+      return {
+        contacts: []
+      }
     }
   }
 }
