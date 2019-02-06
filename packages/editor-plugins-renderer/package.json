@@ -18,6 +18,7 @@
     "ci": "tsc --noEmit"
   },
   "dependencies": {
+    "@serlo/editor-plugin-alphabet-sort-renderer": "^0.0.0",
     "@serlo/editor-plugin-anchor-renderer": "^0.5.0",
     "@serlo/editor-plugin-blockquote-renderer": "^0.5.0",
     "@serlo/editor-plugin-equations-renderer": "^0.5.0",

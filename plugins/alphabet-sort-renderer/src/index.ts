@@ -1,7 +1,9 @@
 import { AlphabetSortRenderer } from './renderer'
 
-export const alphabetSortRendererPlugin = {
-  Component: AlphabetSortRenderer
+export const createAlphabetSortRendererPlugin = () => {
+  return {
+    Component: AlphabetSortRenderer
+  }
 }
 
 export * from './renderer'

@@ -36,11 +36,10 @@ const uploadConfig = {
   }
 }
 
+const alphabetSortPlugin = createAlphabetSortPlugin({ upload: uploadConfig })
 const imagePlugin = createImagePlugin({
   upload: uploadConfig
 })
-
-const alphabetSortPlugin = createAlphabetSortPlugin({ upload: uploadConfig })
 
 const registry: EditorPluginRegistry = {
   [Plugin.AlphabetSort]: alphabetSortPlugin,
