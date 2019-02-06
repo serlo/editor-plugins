@@ -15,8 +15,7 @@
     "prebuild": "rimraf dist",
     "build": "splish-microbundle",
     "build:watch": "splish-microbundle watch",
-    "ci": "tsc --noEmit",
-    "format": "{{{ prettierCommand }}}"
+    "ci": "tsc --noEmit"
   },
   "dependencies": {
     "@serlo/editor-plugin-{{dashCase name}}-renderer": "^0.0.0"

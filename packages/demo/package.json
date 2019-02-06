@@ -11,7 +11,6 @@
     "prebuild": "rimraf dist",
     "build": "build-storybook -c .storybook -o dist",
     "ci": "tsc --noEmit",
-    "format": "prettier --write \"{{.storybook,__stories__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\"",
     "start": "start-storybook -p 9009 -c .storybook"
   },
   "dependencies": {

@@ -27,6 +27,18 @@ jobs:
           <<: *yarn_save_cache
       - run:
           command: yarn build
+  lint:
+    <<: *js
+    steps:
+      - checkout
+      - restore_cache:
+          <<: *yarn_restore_cache
+      - run:
+          <<: *yarn_install
+      - save_cache:
+          <<: *yarn_save_cache
+      - run:
+          command: yarn lint
   test:
     <<: *js
     steps:
@@ -45,4 +57,5 @@ workflows:
   workflow:
     jobs:
       - build
+      - lint
       - test

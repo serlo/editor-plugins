@@ -1,6 +1,6 @@
 {
-  "name": "@serlo/editor-plugin-input-exercise",
-  "version": "0.5.0",
+  "name": "@serlo/editor-plugin-alphabet-sort-renderer",
+  "version": "0.0.0",
   "bugs": {
     "url": "https://github.com/serlo/editor-plugins/issues"
   },
@@ -8,6 +8,7 @@
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "umd:main": "dist/index.umd.js",
+  "module": "dist/index.mjs",
   "source": "src/index.ts",
   "types": "dist/index.d.ts",
   "repository": "serlo/editor-plugins",
@@ -17,21 +18,13 @@
     "build:watch": "splish-microbundle watch",
     "ci": "tsc --noEmit"
   },
-  "dependencies": {
-    "@serlo/editor-plugin-input-exercise-renderer": "^0.5.0",
-    "ramda": "^0.26.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@serlo/editor-ui": "^0.5.0",
-    "@splish-me/editor": "^0.5.0",
-    "@splish-me/editor-ui": "^0.5.0",
-    "@types/ramda": "^0.26.0",
     "@types/react": "^16.0.0"
   },
   "peerDependencies": {
     "@serlo/editor-ui": "^0.5.0",
-    "@splish-me/editor": "^0.5.0",
-    "@splish-me/editor-ui": "^0.5.0",
     "react": "^16.0.0"
   },
   "publishConfig": {

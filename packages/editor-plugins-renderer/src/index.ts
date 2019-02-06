@@ -1,3 +1,4 @@
+import { createAlphabetSortRendererPlugin } from '@serlo/editor-plugin-alphabet-sort-renderer'
 import { anchorRendererPlugin } from '@serlo/editor-plugin-anchor-renderer'
 import { blockquoteRendererPlugin } from '@serlo/editor-plugin-blockquote-renderer'
 import { equationsRendererPlugin } from '@serlo/editor-plugin-equations-renderer'
@@ -22,9 +23,11 @@ import {
   RendererPluginRegistry
 } from '@serlo/editor-plugins-registry'
 
+const alphabetSortRendererPlugin = createAlphabetSortRendererPlugin()
 const imageRendererPlugin = createImageRendererPlugin()
 
 const registry: RendererPluginRegistry = {
+  [Plugin.AlphabetSort]: alphabetSortRendererPlugin,
   [Plugin.Anchor]: anchorRendererPlugin,
   [Plugin.Blockquote]: blockquoteRendererPlugin,
   [Plugin.Equations]: equationsRendererPlugin,
