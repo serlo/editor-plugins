@@ -1,7 +1,8 @@
-import { createAlphabetSortEditor } from './editor'
-import { ImagePluginConfig } from '@serlo/editor-plugin-image'
+import { UploadConfig } from '@serlo/editor-plugin-image'
 
-export const createAlphabetSortPlugin = (config: ImagePluginConfig) => {
+import { createAlphabetSortEditor } from './editor'
+
+export const createAlphabetSortPlugin = (config: AlphabetSortPluginConfig) => {
   return {
     Component: createAlphabetSortEditor(config),
     text: 'Alphabet Sort',
@@ -11,4 +12,8 @@ export const createAlphabetSortPlugin = (config: ImagePluginConfig) => {
       }
     }
   }
+}
+
+export interface AlphabetSortPluginConfig {
+  upload: UploadConfig
 }

@@ -4,7 +4,7 @@ import { Plugin } from '@splish-me/editor'
 import { createImageEditor } from './editor'
 import { UploadConfig } from './upload'
 
-export { Upload } from './upload'
+export { Upload, UploadConfig } from './upload'
 
 export const createImagePlugin = (
   config: ImagePluginConfig

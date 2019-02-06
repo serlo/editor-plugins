@@ -1,22 +1,24 @@
-import * as React from 'react'
-import { styled } from '@serlo/editor-ui'
-import * as R from 'ramda'
-import {
-  renderIntoSidebar,
-  Input,
-  Textarea,
-  Dropdown,
-  Button,
-  ButtonGroup
-} from '@splish-me/editor-ui'
-import { Upload, ImagePluginConfig } from '@serlo/editor-plugin-image'
-import { PluginEditorProps } from '@splish-me/editor'
 import {
   AlphabetSortProps,
+  ContactCardRenderer,
   ContactProps,
-  SortContainer,
-  ContactCardRenderer
+  SortContainer
 } from '@serlo/editor-plugin-alphabet-sort-renderer'
+import { Upload } from '@serlo/editor-plugin-image'
+import { styled } from '@serlo/editor-ui'
+import { PluginEditorProps } from '@splish-me/editor'
+import {
+  Button,
+  ButtonGroup,
+  Dropdown,
+  Input,
+  renderIntoSidebar,
+  Textarea
+} from '@splish-me/editor-ui'
+import * as R from 'ramda'
+import * as React from 'react'
+
+import { AlphabetSortPluginConfig } from '.'
 
 const AddButton = styled.button({
   outline: 'none',
@@ -25,21 +27,17 @@ const AddButton = styled.button({
   marginBottom: '10px',
   backgroundColor: '#95bc1a'
 })
-//TODO: find the reason for the error :)
-export const createAlphabetSortEditor = (config: ImagePluginConfig) => {
-  return class AlphabetSort extends React.Component<
-    PluginEditorProps<AlphabetSortProps>,
-    { editIndex?: number; imagePreview?: ImageLoaded }
-  > {
-    public constructor(props) {
-      super(props)
-      this.state = {
-        editIndex: undefined,
-        imagePreview: undefined
-      }
-    }
 
-    render() {
+export const createAlphabetSortEditor = (
+  config: AlphabetSortPluginConfig
+): React.ComponentType<AlphabetSortEditorProps> => {
+  return class AlphabetSortEditor extends React.Component<
+    AlphabetSortEditorProps,
+    AlphabetSortEditorState
+  > {
+    public state: AlphabetSortEditorState = {}
+
+    public render() {
       const { state, preview } = this.props
       const readOnly = preview
       const { contacts } = state
@@ -202,7 +200,17 @@ export const createAlphabetSortEditor = (config: ImagePluginConfig) => {
       const { contacts } = state
       this.setState({ editIndex: contacts.length })
       onChange({
-        contacts: [...contacts, emptyContact]
+        contacts: [
+          ...contacts,
+          {
+            name: '',
+            workingArea: '',
+            typeOfContact: '',
+            contactInfo: '',
+            altTypeOfContact: '',
+            src: ''
+          }
+        ]
       })
     }
     private removeContact = (index: number) => () => {
@@ -235,21 +243,20 @@ export const createAlphabetSortEditor = (config: ImagePluginConfig) => {
       return sorted
     }
   }
+
+  interface AlphabetSortEditorState {
+    editIndex?: number
+    imagePreview?: ImageLoaded
+  }
+
+  interface ImageUploaded {
+    url: string
+  }
+
+  interface ImageLoaded {
+    file: File
+    dataUrl: string
+  }
 }
 
-const emptyContact = {
-  name: '',
-  workingArea: '',
-  typeOfContact: '',
-  contactInfo: '',
-  altTypeOfContact: '',
-  src: ''
-}
-
-export interface ImageUploaded {
-  url: string
-}
-interface ImageLoaded {
-  file: File
-  dataUrl: string
-}
+export type AlphabetSortEditorProps = PluginEditorProps<AlphabetSortProps>
