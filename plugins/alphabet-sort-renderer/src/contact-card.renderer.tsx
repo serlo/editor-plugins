@@ -6,7 +6,6 @@ const Card = styled.div({
   width: '180px',
   minHeight: '200px',
   fontSize: '14px'
-  // border: '1px solid #000',
 })
 
 const Profilepicture = styled.img({
@@ -22,19 +21,11 @@ export class ContactCardRenderer extends React.Component<
       <Card onClick={onClick}>
         <div>
           <Profilepicture
-            src={
-              contact.src === ''
-                ? 'https://placekitten.com/220/220'
-                : contact.src
-            }
+            src={this.props.renderProfileImage()}
             alt={contact.name}
           />
         </div>
-        <div>
-          <strong>
-            {contact.name === '' ? 'Bitte links editieren' : contact.name}
-          </strong>
-        </div>
+        <div>{this.props.renderName()}</div>
         <div>{contact.workingArea}</div>
         <div>
           <a href={contact.contactInfo}>
@@ -48,7 +39,11 @@ export class ContactCardRenderer extends React.Component<
   }
 }
 
-export interface ContactCardRendererProps {
+export interface ContactCardProps {
   contact: ContactProps
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+}
+export interface ContactCardRendererProps extends ContactCardProps {
+  renderName: () => React.ReactNode
+  renderProfileImage: () => string
 }

@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { ContactCard } from './contact-card.component'
 import { styled } from '@serlo/editor-ui'
 import * as R from 'ramda'
 import {
@@ -14,7 +13,9 @@ import { Upload } from '@serlo/editor-plugin-image'
 import { PluginEditorProps } from '@splish-me/editor'
 import {
   AlphabetSortProps,
-  ContactProps
+  ContactProps,
+  SortContainer,
+  ContactCardRenderer
 } from '@serlo/editor-plugin-alphabet-sort-renderer'
 
 const AddButton = styled.button({
@@ -23,12 +24,6 @@ const AddButton = styled.button({
   border: 'none',
   marginBottom: '10px',
   backgroundColor: '#95bc1a'
-})
-const SortContainer = styled.div({
-  display: 'flex',
-  flexWrap: 'wrap',
-  width: '100%',
-  alignSelf: 'center'
 })
 const uploadConfig = {
   url: 'https://serlo-upload.free.beeceptor.com',
@@ -44,12 +39,12 @@ const uploadConfig = {
 }
 export class AlphabetSort extends React.Component<
   PluginEditorProps<AlphabetSortProps>,
-  { editIndex: number; imagePreview: ImageLoaded }
+  { editIndex?: number; imagePreview?: ImageLoaded }
 > {
   public constructor(props) {
     super(props)
     this.state = {
-      editIndex: null,
+      editIndex: undefined,
       imagePreview: undefined
     }
   }
@@ -65,9 +60,12 @@ export class AlphabetSort extends React.Component<
             ? contacts.map((contact, index) => {
                 return (
                   <React.Fragment>
-                    <ContactCard
+                    <ContactCardRenderer
+                      key={index}
+                      onClick={this.changeEditIndex(index)}
                       contact={contact}
-                      changeEditIndex={this.changeEditIndex(index)}
+                      renderName={this.renderName(index)}
+                      renderProfileImage={this.renderProfileImage(index)}
                     />
                     {index === this.state.editIndex && !readOnly
                       ? renderIntoSidebar(
@@ -188,8 +186,24 @@ export class AlphabetSort extends React.Component<
     this.setState({ imagePreview: undefined })
     this.handleSave(index)({ src: url })
   }
-  private changeEditIndex = (index: number) => () => {
+  private changeEditIndex = (index: number) => (e: React.MouseEvent) => {
+    e.preventDefault()
     this.setState({ editIndex: index })
+  }
+  private renderName = (index: number) => () => {
+    const { state } = this.props
+    const name = state.contacts[index].name
+    return name === '' ? (
+      <strong> Click to edit </strong>
+    ) : (
+      <strong>{name}</strong>
+    )
+  }
+
+  private renderProfileImage = (index: number) => () => {
+    const { state } = this.props
+    const src = state.contacts[index].src
+    return src === '' ? 'https://placekitten.com/220/220' : src
   }
   private addContact = () => {
     const { onChange, state } = this.props
@@ -230,7 +244,7 @@ export class AlphabetSort extends React.Component<
   }
 }
 
-export const emptyContact = {
+const emptyContact = {
   name: '',
   workingArea: '',
   typeOfContact: '',
