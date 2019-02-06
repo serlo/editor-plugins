@@ -1,6 +1,8 @@
 <img src="https://assets.serlo.org/meta/logo.png" alt="Serlo logo" title="Serlo" align="right" height="60" />
 
-# Editor Plugins [![Build status](https://img.shields.io/travis/com/serlo/editor-plugins.svg)](https://travis-ci.com/serlo/editor-plugins)
+# Editor Plugins
+
+[![Build status](https://img.shields.io/circleci/project/github/serlo/editor-plugins.svg)](https://circleci.com/gh/serlo/editor-plugins)
 
 This is a monorepo for all plugins for the [Splish Editor](https://github.com/splish/editor) created for the E-Learning Website [www.serlo.org](https://de.serlo.org).
 
