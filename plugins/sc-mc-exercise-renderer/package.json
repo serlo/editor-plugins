@@ -15,7 +15,8 @@
     "prebuild": "rimraf dist",
     "build": "splish-microbundle",
     "build:watch": "splish-microbundle watch",
-    "ci": "tsc --noEmit"
+    "ci": "tsc --noEmit",
+    "test": "jest"
   },
   "devDependencies": {
     "@serlo/editor-ui": "^0.5.0",

@@ -7,16 +7,23 @@ export class ScMcExerciseChoiceRenderer extends React.Component<
   ScMcExerciseChoiceRendererProps
 > {
   render() {
-    const { state, children, index, onClick, showFeedback } = this.props
+    const {
+      state,
+      children,
+      index,
+      onClick,
+      showFeedback,
+      centered
+    } = this.props
     const { isCorrect } = state.answers[index]
-
+    const Container = centered ? this.Block : React.Fragment
     return (
       <this.ChoiceButton
         isCorrect={isCorrect}
         showFeedback={showFeedback}
         onClick={isCorrect && showFeedback ? undefined : onClick}
       >
-        {children}
+        <Container>{children}</Container>
       </this.ChoiceButton>
     )
   }
@@ -59,6 +66,12 @@ export class ScMcExerciseChoiceRenderer extends React.Component<
           : undefined
     }
   })
+
+  private Block = styled.div({
+    alignItems: 'center',
+    justifyContent: 'center',
+    display: 'flex'
+  })
 }
 
 export interface ScMcExerciseChoiceRendererProps {
@@ -67,4 +80,5 @@ export interface ScMcExerciseChoiceRendererProps {
   onClick?: (event: any) => void
   showFeedback?: boolean
   selected?: boolean
+  centered?: boolean
 }
