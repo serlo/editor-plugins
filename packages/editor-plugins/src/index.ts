@@ -1,3 +1,4 @@
+import { createAlphabetSortPlugin } from '@serlo/editor-plugin-alphabet-sort'
 import { anchorPlugin } from '@serlo/editor-plugin-anchor'
 import { blockquotePlugin } from '@serlo/editor-plugin-blockquote'
 import { equationsPlugin } from '@serlo/editor-plugin-equations'
@@ -22,22 +23,26 @@ import {
   Plugin
 } from '@serlo/editor-plugins-registry'
 
-const imagePlugin = createImagePlugin({
-  upload: {
-    url: 'https://de.serlo.org/attachment/upload',
-    paramName: 'attachment[file]',
-    maxFileSize: 2 * 1024 * 1024,
-    allowedExtensions: ['gif', 'jpg', 'jpeg', 'png', 'svg'],
-    getAdditionalFields: () => {
-      return {
-        type: 'file',
-        csrf: ((window as unknown) as { csrf: string }).csrf
-      }
+const uploadConfig = {
+  url: 'https://serlo-upload.free.beeceptor.com',
+  paramName: 'attachment[file]',
+  maxFileSize: 2 * 1024 * 1024,
+  allowedExtensions: ['gif', 'jpg', 'jpeg', 'png', 'svg'],
+  getAdditionalFields: () => {
+    return {
+      type: 'file',
+      csrf: ((window as unknown) as { csrf: string }).csrf
     }
   }
+}
+
+const alphabetSortPlugin = createAlphabetSortPlugin({ upload: uploadConfig })
+const imagePlugin = createImagePlugin({
+  upload: uploadConfig
 })
 
 const registry: EditorPluginRegistry = {
+  [Plugin.AlphabetSort]: alphabetSortPlugin,
   [Plugin.Anchor]: anchorPlugin,
   [Plugin.Blockquote]: blockquotePlugin,
   [Plugin.Equations]: equationsPlugin,

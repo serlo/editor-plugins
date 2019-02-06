@@ -16,8 +16,7 @@
     "prebuild": "rimraf dist",
     "build": "splish-microbundle",
     "build:watch": "splish-microbundle watch",
-    "ci": "tsc --noEmit",
-    "format": "{{{ prettierCommand }}}"
+    "ci": "tsc --noEmit"
   },
   "dependencies": {},
   "devDependencies": {

@@ -8,8 +8,8 @@
     "precommit": "lint-staged",
     "build": "lerna run --ignore @serlo/editor-demo --stream build",
     "ci": "lerna run ci",
-    "format": "prettier --write \"*.{js,jsx,ts,tsx,css,scss,json,md,markdown}\"",
-    "postformat": "lerna run --parallel format",
+    "format": "yarn _prettier --write",
+    "lint": "yarn _prettier --check",
     "predeploy": "yarn build --since",
     "deploy": "lerna publish --message \"chore: release %v\"",
     "deploy:prerelease": "yarn deploy --dist-tag next",
@@ -17,7 +17,8 @@
     "build-storybook": "lerna run --scope @serlo/editor-demo --stream build",
     "test": "lerna run --parallel test",
     "generate": "plop plugin",
-    "postgenerate": "yarn && yarn format"
+    "postgenerate": "yarn && yarn format",
+    "_prettier": "prettier \"{,.circleci/*,{packages,plugins}/*/{{.storybook,__stories__,__tests__,src}/**/*,*},*}.{js,jsx,ts,tsx,json,md,yaml,yml}\""
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0",

@@ -15,10 +15,10 @@
     "prebuild": "rimraf dist",
     "build": "splish-microbundle",
     "build:watch": "splish-microbundle watch",
-    "ci": "tsc --noEmit",
-    "format": "prettier --write \"{{__tests__,src}/**/*,*}.{js,jsx,ts,tsx,css,scss,sass,less,json,md,markdown,yaml,yml}\""
+    "ci": "tsc --noEmit"
   },
   "dependencies": {
+    "@serlo/editor-plugin-alphabet-sort": "^0.0.0",
     "@serlo/editor-plugin-anchor": "^0.5.0",
     "@serlo/editor-plugin-blockquote": "^0.5.0",
     "@serlo/editor-plugin-equations": "^0.5.0",

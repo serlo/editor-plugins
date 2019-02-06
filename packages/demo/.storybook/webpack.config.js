@@ -85,6 +85,10 @@ module.exports = (_baseConfig, _env, defaultConfig) => {
               '@serlo/editor-plugin-text': '@serlo/editor-plugin-text/src',
               '@serlo/editor-plugin-text-renderer':
                 '@serlo/editor-plugin-text-renderer/src',
+              '@serlo/editor-plugin-alphabet-sort':
+                '@serlo/editor-plugin-alphabet-sort/src',
+              '@serlo/editor-plugin-alphabet-sort-renderer':
+                '@serlo/editor-plugin-alphabet-sort-renderer/src',
               '@serlo/editor-ui': '@serlo/editor-ui/src',
               '@serlo/html-renderer': '@serlo/html-renderer/src',
               '@serlo/storybook-helpers': '@serlo/storybook-helpers/src'
