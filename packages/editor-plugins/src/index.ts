@@ -24,7 +24,7 @@ import {
 } from '@serlo/editor-plugins-registry'
 
 const uploadConfig = {
-  url: 'https://serlo-upload.free.beeceptor.com',
+  url: 'https://de.serlo.org/attachment/upload',
   paramName: 'attachment[file]',
   maxFileSize: 2 * 1024 * 1024,
   allowedExtensions: ['gif', 'jpg', 'jpeg', 'png', 'svg'],
@@ -32,6 +32,11 @@ const uploadConfig = {
     return {
       type: 'file',
       csrf: ((window as unknown) as { csrf: string }).csrf
+    }
+  },
+  getStateFromResponse: (response) => {
+    return {
+      src: response.files[0].location
     }
   }
 }

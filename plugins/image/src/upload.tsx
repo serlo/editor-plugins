@@ -1,6 +1,7 @@
 import { Uploader, UploadField } from '@navjobs/upload'
 import { UploadProgress } from '@serlo/editor-ui'
 import * as React from 'react'
+import { ImagePluginState } from "@serlo/editor-plugin-image-renderer";
 
 export class Upload extends React.Component<UploadProps> {
   matchesAllowedExtensions(fileName: string) {
@@ -93,8 +94,8 @@ export class Upload extends React.Component<UploadProps> {
         }}
         onComplete={({ response }: any) => {
           if (this.props.onImageUploaded) {
-            const { url } = response
-            this.props.onImageUploaded({ url })
+            const uploadedState = config.getStateFromResponse(response)
+            this.props.onImageUploaded(uploadedState)
           }
         }}
         onError={() => {
@@ -162,6 +163,7 @@ export interface UploadConfig {
   allowedExtensions: string[]
   paramName?: string
   getAdditionalFields?: Function
+  getStateFromResponse: (response: any) => Partial<ImagePluginState>
 }
 
 type FileError = {
