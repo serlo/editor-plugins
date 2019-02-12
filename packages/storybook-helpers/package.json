@@ -1,6 +1,6 @@
 {
   "name": "@serlo/storybook-helpers",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "bugs": {
     "url": "https://github.com/serlo/editor-plugins/issues"
   },
@@ -18,9 +18,9 @@
     "ci": "tsc --noEmit"
   },
   "dependencies": {
-    "@serlo/editor-plugins": "^0.5.0",
-    "@serlo/editor-plugins-renderer": "^0.5.0",
-    "@serlo/html-renderer": "^0.5.0",
+    "@serlo/editor-plugins": "^0.5.1",
+    "@serlo/editor-plugins-renderer": "^0.5.1",
+    "@serlo/html-renderer": "^0.5.1",
     "uuid": "^3.0.0"
   },
   "devDependencies": {

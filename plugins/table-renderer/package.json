@@ -1,6 +1,6 @@
 {
   "name": "@serlo/editor-plugin-table-renderer",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "bugs": {
     "url": "https://github.com/serlo/editor-plugins/issues"
   },
@@ -21,7 +21,7 @@
     "react-markdown": "^4.0.0"
   },
   "devDependencies": {
-    "@serlo/editor-ui": "^0.5.0",
+    "@serlo/editor-ui": "^0.5.1",
     "@splish-me/editor": "^0.5.0",
     "@types/react": "^16.0.0"
   },
