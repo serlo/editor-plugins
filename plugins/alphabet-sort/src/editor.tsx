@@ -4,7 +4,7 @@ import {
   ContactProps,
   SortContainer
 } from '@serlo/editor-plugin-alphabet-sort-renderer'
-import { Upload } from '@serlo/editor-plugin-image'
+import { ImageLoaded, ImageUploaded, Upload } from '@serlo/editor-plugin-image'
 import { styled } from '@serlo/editor-ui'
 import { PluginEditorProps } from '@splish-me/editor'
 import {
@@ -171,10 +171,10 @@ export const createAlphabetSortEditor = (
       })
     }
     private handleImageUploaded = (index: number) => ({
-      url
+      src
     }: ImageUploaded) => {
       this.setState({ imagePreview: undefined })
-      this.handleSave(index)({ src: url })
+      this.handleSave(index)({ src: src })
     }
     private changeEditIndex = (index: number) => (e: React.MouseEvent) => {
       e.preventDefault()
@@ -247,15 +247,6 @@ export const createAlphabetSortEditor = (
   interface AlphabetSortEditorState {
     editIndex?: number
     imagePreview?: ImageLoaded
-  }
-
-  interface ImageUploaded {
-    url: string
-  }
-
-  interface ImageLoaded {
-    file: File
-    dataUrl: string
   }
 }
 

@@ -11,12 +11,7 @@
   "source": "src/index.ts",
   "types": "dist/index.d.ts",
   "repository": "serlo/editor-plugins",
-  "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "splish-microbundle",
-    "build:watch": "splish-microbundle watch",
-    "ci": "tsc --noEmit"
-  },
+  "scripts": {},
   "dependencies": {
     "@serlo/editor-plugins": "^0.5.0",
     "@serlo/editor-plugins-renderer": "^0.5.0",

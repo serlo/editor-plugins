@@ -131,7 +131,9 @@ export class Upload extends React.Component<UploadProps> {
                 } else {
                   const { onImageLoaded } = this.props
                   if (onImageLoaded) {
-                    this.readFile(files[0]).then(data => onImageLoaded(data))
+                    this.readFile(files[0]).then(data =>
+                      onImageLoaded(data as ImageLoaded)
+                    )
                   }
                   onFiles(files)
                 }
@@ -153,8 +155,8 @@ export class Upload extends React.Component<UploadProps> {
 export interface UploadProps {
   config: UploadConfig
   onError?: (errors: FileError[]) => void
-  onImageLoaded?: Function
-  onImageUploaded?: Function
+  onImageLoaded?: (image: ImageLoaded) => void
+  onImageUploaded?: (state: ImageUploaded) => void
 }
 
 export interface UploadConfig {
@@ -178,3 +180,10 @@ enum FileErrorCode {
   FILE_TOO_BIG,
   UPLOAD_FAILED
 }
+
+export interface ImageLoaded {
+  file: File
+  dataUrl: string
+}
+
+export type ImageUploaded = Partial<ImagePluginState>

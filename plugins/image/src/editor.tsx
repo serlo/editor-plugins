@@ -11,7 +11,7 @@ import {
 } from '@splish-me/editor-ui'
 import * as React from 'react'
 
-import { Upload } from './upload'
+import { ImageLoaded, ImageUploaded, Upload } from './upload'
 import { ImagePluginConfig } from '.'
 
 export const createImageEditor = (
@@ -124,7 +124,7 @@ export const createImageEditor = (
       this.setState({ imagePreview: image })
     }
 
-    private handleImageUploaded = (state: Partial<ImagePluginState>) => {
+    private handleImageUploaded = (state: ImageUploaded) => {
       this.setState({ imagePreview: undefined })
       this.props.onChange(state)
     }
@@ -135,19 +135,10 @@ export const createImageEditor = (
       textAlign: 'center'
     })
   }
+}
 
-  interface ImageEditorState {
-    imagePreview?: ImageLoaded
-  }
-
-  interface ImageLoaded {
-    file: File
-    dataUrl: string
-  }
-
-  interface ImageUploaded {
-    url: string
-  }
+export interface ImageEditorState {
+  imagePreview?: ImageLoaded
 }
 
 export interface ImageEditorProps {
