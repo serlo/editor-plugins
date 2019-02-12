@@ -5,7 +5,7 @@ import { SpoilerEditor } from './editor'
 
 export const spoilerPlugin: Plugin<SpoilerPluginState> = {
   Component: SpoilerEditor,
-  text: 'Lösung',
+  text: 'Spoiler',
   createInitialState: (): SpoilerPluginState => ({
     content: createDocumentIdentifier(),
     title: ''
