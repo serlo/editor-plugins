@@ -7,23 +7,26 @@ import * as React from 'react'
 
 export class SpoilerEditor extends React.Component<SpoilerEditorProps> {
   public render() {
-    const { state, readOnly, onChange } = this.props
+    const { state, readOnly, onChange, isPreviewMode } = this.props
 
-    return (
-      <SpoilerRenderer
-        state={state}
-        shown={readOnly}
-        title={
-          <this.Input
-            onChange={e => {
-              onChange({ title: e.target.value })
-            }}
-            value={state.title}
-            placeholder="Your Title Here"
-          />
-        }
-      />
-    )
+    const props = {
+      ...(isPreviewMode ? {} : { shown: readOnly }),
+      ...(readOnly
+        ? {}
+        : {
+            title: (
+              <this.Input
+                onChange={e => {
+                  onChange({ title: e.target.value })
+                }}
+                value={state.title}
+                placeholder="Your Title Here"
+              />
+            )
+          })
+    }
+
+    return <SpoilerRenderer state={state} {...props} />
   }
 
   private Input = styled.input({
@@ -37,4 +40,5 @@ export interface SpoilerEditorProps {
   onChange: (state: Partial<SpoilerPluginState>) => void
   state: SpoilerPluginState
   readOnly?: boolean
+  isPreviewMode?: boolean
 }
