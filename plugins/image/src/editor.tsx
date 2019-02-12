@@ -124,9 +124,9 @@ export const createImageEditor = (
       this.setState({ imagePreview: image })
     }
 
-    private handleImageUploaded = ({ url }: ImageUploaded) => {
+    private handleImageUploaded = (state: Partial<ImagePluginState>) => {
       this.setState({ imagePreview: undefined })
-      this.props.onChange({ src: url })
+      this.props.onChange(state)
     }
 
     private ImgPlaceholderWrapper = styled.div({
