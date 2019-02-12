@@ -15,7 +15,7 @@ import { solutionPlugin } from '@serlo/editor-plugin-solution'
 import { spoilerPlugin } from '@serlo/editor-plugin-spoiler'
 import { stepByStepPlugin } from '@serlo/editor-plugin-step-by-step'
 import { tablePlugin } from '@serlo/editor-plugin-table'
-import { createImagePlugin } from '@serlo/editor-plugin-image'
+import { createImagePlugin, UploadConfig } from '@serlo/editor-plugin-image'
 import { textPlugin } from '@serlo/editor-plugin-text'
 import {
   createPluginFactory,
@@ -23,7 +23,7 @@ import {
   Plugin
 } from '@serlo/editor-plugins-registry'
 
-const uploadConfig = {
+const uploadConfig: UploadConfig = {
   url: 'https://de.serlo.org/attachment/upload',
   paramName: 'attachment[file]',
   maxFileSize: 2 * 1024 * 1024,
@@ -34,7 +34,7 @@ const uploadConfig = {
       csrf: ((window as unknown) as { csrf: string }).csrf
     }
   },
-  getStateFromResponse: (response) => {
+  getStateFromResponse: (response: { files: Array<{ location: string }> }) => {
     return {
       src: response.files[0].location
     }
