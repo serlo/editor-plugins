@@ -18,7 +18,7 @@
     "test": "lerna run --parallel test",
     "generate": "plop plugin",
     "postgenerate": "yarn && yarn format",
-    "_prettier": "prettier \"{,.circleci/*,{packages,plugins}/*/{{.storybook,__stories__,__tests__,src}/**/*,*},*}.{js,jsx,ts,tsx,json,md,yaml,yml}\""
+    "_prettier": "prettier \"{.circleci/*,{packages,plugins}/*/{{.storybook,__stories__,__tests__,src}/**/*,*},*}.{js,jsx,ts,tsx,json,md,yaml,yml}\""
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0",
